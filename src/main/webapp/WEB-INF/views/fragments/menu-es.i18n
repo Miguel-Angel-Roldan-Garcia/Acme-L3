@@ -20,6 +20,11 @@ master.menu.sign-out = Salir
 master.menu.anonymous = Anónimo
 master.menu.anonymous.favourite-link = Enlace favorito
 
+# master.menu.student3 #######################################################
+
+master.menu.student3 = 17485466S : Roldán García Miguel Ángel
+master.menu.student3.favourite-link = Enlace favorito
+
 # master.menu.administrator ###################################################
 
 master.menu.administrator = Administrador
