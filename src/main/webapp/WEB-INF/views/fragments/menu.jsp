@@ -21,6 +21,9 @@
 		<acme:menu-option code="master.menu.student3">
 			<acme:menu-suboption code="master.menu.student3.favourite-link" action="https://ev.us.es/"/>
 		</acme:menu-option>
+		<acme:menu-option code="master.menu.student5">
+			<acme:menu-suboption code="master.menu.student5.favourite-link" action="https://www.youtube.com/watch?v=ia3Tc9FTgk0&ab_channel=SathButtons"/>
+		</acme:menu-option>
 	
 		<acme:menu-option code="master.menu.anonymous" access="isAnonymous()">
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link" action="http://www.example.com/"/>

@@ -25,6 +25,11 @@ master.menu.anonymous.favourite-link = Favourite link
 master.menu.student3 = 17485466S : Roldán García Miguel Ángel
 master.menu.student3.favourite-link = Favourite link
 
+# master.menu.student5 #######################################################
+
+master.menu.student3 = 21150103Q : Urquijo Martínez Álvaro
+master.menu.student3.favourite-link = Favourite link
+
 # master.menu.administrator ###################################################
 
 master.menu.administrator = Administrator
