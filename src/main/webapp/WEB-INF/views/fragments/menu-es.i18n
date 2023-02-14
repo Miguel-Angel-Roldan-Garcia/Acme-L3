@@ -19,17 +19,13 @@ master.menu.sign-out = Salir
 
 master.menu.anonymous = Anónimo
 master.menu.anonymous.favourite-link = Enlace favorito
+
 master.menu.anonymous.favourite-link-by-student-2 = 77868908Q: Dominguez Ruiz, Andres
+master.menu.anonymous.favourite-link-by-student-3 = 17485466S : Roldán García Miguel Ángel
 
-# master.menu.student3 #######################################################
+master.menu.anonymous.favourite-link-by-student-5 = 21150103Q : Urquijo Martínez Álvaro
 
-master.menu.student3 = 17485466S : Roldán García Miguel Ángel
-master.menu.student3.favourite-link = Enlace favorito
 
-# master.menu.student5 #######################################################
-
-master.menu.student3 = 21150103Q : Urquijo Martínez Álvaro
-master.menu.student3.favourite-link = Enlace favorito
 
 # master.menu.administrator ###################################################
 
