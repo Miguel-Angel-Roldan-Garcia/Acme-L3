@@ -25,6 +25,7 @@
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-by-student-1" action="https://www.amazon.es/"/>
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-by-student-2" action="https://www.youtube.com/"/>
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-by-student-3" action="https://ev.us.es/"/>
+			<acme:menu-suboption code="master.menu.anonymous.favourite-link-by-student-4" action="https://www.instagram.com"/>
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-by-student-5" action="https://www.moxfield.com/"/>
 		</acme:menu-option>
 
