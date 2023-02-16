@@ -11,7 +11,8 @@
 Year 2023
 
 23.1.0	Upgraded to work with the new version of the framework.
-23.1.1  Getting started on the project.
+23.1.1  Getting started on the project with Acme-One configuration.
+23.1.2  Configured as Acme-L3-D01 for the first delivery. 
 
 Year 2022
 

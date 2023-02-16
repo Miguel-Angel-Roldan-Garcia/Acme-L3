@@ -9,7 +9,7 @@
 # they accept any liabilities with respect to them.
 
 This is the first instatiation of the starter project Hello-World-23.1 and it will serve as 
-the project base for Acme-One-23.1 in Design and Testing. 
+the project base for Acme-L3 in Design and Testing, particularly for the first delivery: D01. 
 
 To get this project up and running, please follow the appropriate guideline, taking into 
 account that you must link the appropriate version of the Acme-Framework excluding the 

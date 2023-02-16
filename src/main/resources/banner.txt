@@ -1,10 +1,7 @@
-      .o.                                                    .oooooo.                         
-     .888.                                                  d8P'  `Y8b                        
-    .8"888.      .ooooo   ooo. .oo.  .oo.    .ooooo.       888      888 ooo. .oo.    .ooooo.  
-   .8' `888.    d88' `"Y8 `888P"Y88bP"Y88b  d88' `88b      888      888 `888P"Y88b  d88' `88b 
-  .88ooo8888.   888        888   888   888  888ooo888      888      888  888   888  888ooo888 
- .8'     `888.  888   .o8  888   888   888  888    .o      `88b    d88'  888   888  888    .o 
-o88o     o8888o `Y8bod8P' o888o o888o o888o `Y8bod8P'       `Y8bood8P'  o888o o888o `Y8bod8P' 
+   db     dP""b8 8b    d8 888888     88     88888     8888b.   dP"Yb    .d 
+  dPYb   dP   `" 88b  d88 88__       88       .dP      8I  Yb dP   Yb .d88 
+ dP__Yb  Yb      88YbdP88 88""       88  .o o `Yb      8I  dY Yb   dP   88 
+dP""""Yb  YboodP 88 YY 88 888888     88ood8 YbodP     8888Y"   YbodP    88
 
 Application:          ${acme.application.versioned-name}
 Application endpoint: http://localhost:${server.port}${server.servlet.contextPath}

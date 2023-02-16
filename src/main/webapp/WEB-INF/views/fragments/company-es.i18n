@@ -10,9 +10,8 @@
 
 master.company.title = La empresa
 master.company.text = \
-	Acme One, S.A. es una empresa ficticia cuyo proyecto ayuda \
-	a los estudiantes de DP2 a empezar a establecer un \
-	primer proyecto. 
+	Acme L3 es una compañia que ayuda a profesores y alumnos a ponerse en contacto. \
+	Es el proyecto de desarrollo de la asignatura Diseño y Pruebas 2
 master.company.name = Acme, Inc.
 master.company.address = 01 Acme Drive, Wondercity, Wonderland
 master.company.phone = +1 000 111 222
