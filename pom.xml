@@ -18,12 +18,12 @@
 
 	<modelVersion>4.0.0</modelVersion>
 	
-	<name>Acme-L3</name>
+	<name>Acme-L3-D01</name>
 	<description>This is the first deliverable for Design &amp; Testing.</description>
 
 	<groupId>Acme</groupId>	
-	<artifactId>Acme-L3</artifactId>
-	<version>D01</version>
+	<artifactId>Acme-L3-D01</artifactId>
+	<version>23.1.3</version>
 	<packaging>war</packaging>
 
 	<parent>
