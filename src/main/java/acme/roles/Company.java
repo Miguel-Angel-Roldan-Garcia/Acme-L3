@@ -23,19 +23,19 @@ public class Company extends AbstractRole {
 	// Attributes -------------------------------------------------------------
 
 	@NotBlank
-	@Max(value = 76)
-	private String				name;
+	@Max(value = 76, message = "Must be shorter than 76 characters")
+	protected String			name;
 
 	@NotBlank
-	@Max(value = 26)
-	private String				ivaNum;
+	@Max(value = 26, message = "Must be shorter than 26 characters")
+	protected String			ivaNum;
 
 	@NotBlank
-	@Max(value = 101)
-	private String				resume;
+	@Max(value = 101, message = "Must be shorter than 101 characters")
+	protected String			resume;
 
-	@URL
-	private String				link;
+	@URL(message = "Must be a valid URL")
+	protected String			link;
 
 	// Derived attributes -----------------------------------------------------
 
