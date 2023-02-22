@@ -23,15 +23,15 @@ public class Lecturer extends AbstractRole {
     // Attributes -------------------------------------------------------------
 
     @NotBlank
-    @Size(max = 76, message = "Must be shorter than 76 characters")
+    @Size(max = 75, message = "Must be shorter than 76 characters")
     protected String almaMater;
 
     @NotBlank
-    @Size(max = 101, message = "Must be shorter than 101 characters")
+    @Size(max = 100, message = "Must be shorter than 101 characters")
     protected String resume;
 
     @NotBlank
-    @Size(max = 76, message = "Must be shorter than 101 characters")
+    @Size(max = 100, message = "Must be shorter than 101 characters")
     protected String qualifications;
     @URL(message = "Must be a valid URL")
     protected String link;
