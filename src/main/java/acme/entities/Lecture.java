@@ -28,16 +28,16 @@ public class Lecture extends AbstractEntity {
     // Attributes -------------------------------------------------------------
 
     @NotBlank
-    @Size(max = 76, message = "Must be shorter than 76 characters")
+    @Size(max = 75, message = "Must be shorter than 76 characters")
     private String title;
 
     @NotBlank
-    @Size(max = 101, message = "Must be shorter than 101 characters")
+    @Size(max = 100, message = "Must be shorter than 101 characters")
     private String summary; // abstract can not be used
     @Min(1)
     private Integer estLearningTime;
     @NotBlank
-    @Size(max = 76, message = "Must be shorter than 101 characters")
+    @Size(max = 100, message = "Must be shorter than 101 characters")
     private String body;
 
     @NotNull
