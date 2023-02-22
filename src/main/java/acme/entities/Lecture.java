@@ -1,43 +1,49 @@
 
-package acme.roles;
+package acme.entities;
 
 import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.URL;
 
-import acme.framework.data.AbstractRole;
+import acme.datatypes.Nature;
+import acme.framework.data.AbstractEntity;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
+@Table(name = "lectures")
 @Getter
 @Setter
-public class Lecturer extends AbstractRole {
+public class Lecture extends AbstractEntity {
 
     // Serialisation identifier -----------------------------------------------
 
-    protected static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
     // Attributes -------------------------------------------------------------
 
     @NotBlank
     @Size(max = 76, message = "Must be shorter than 76 characters")
-    protected String almaMater;
+    private String title;
 
     @NotBlank
     @Size(max = 101, message = "Must be shorter than 101 characters")
-    protected String resume;
-
+    private String summary; // abstract can not be used
+    @Min(1)
+    private Integer estLearningTime;
     @NotBlank
     @Size(max = 76, message = "Must be shorter than 101 characters")
-    protected String qualifications;
-    @URL(message = "Must be a valid URL")
-    protected String link;
+    private String body;
 
-    // Derived attributes -----------------------------------------------------
+    @NotNull
+    private Nature nature;
 
-    // Relationships ----------------------------------------------------------
-    // TODO
+    @URL(message = "Must be a valid URL") //
+    private String link;
+
 }
