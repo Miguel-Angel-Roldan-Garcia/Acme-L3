@@ -2,6 +2,7 @@
 package acme.roles;
 
 import javax.persistence.Entity;
+import javax.persistence.Table;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.NotBlank;
 
@@ -14,20 +15,21 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
+@Table(name = "students")
 public class Student extends AbstractRole {
 
 	protected static final long	serialVersionUID	= 1L;
 
 	@NotBlank
-	@Max(75) // he puesto 75 porque Max salo aceptara los valores que son mayores o iguales
+	@Max(value = 75, message = "Must be shorter than 76 characters") // he puesto 75 porque Max salo aceptara los valores que son mayores o iguales
 	protected String			statement;
 
 	@NotBlank
-	@Max(100)
+	@Max(value = 100, message = "Must be shorter than 101 characters")
 	protected String			strongFeatures;
 
 	@NotBlank
-	@Max(100)
+	@Max(value = 100, message = "Must be shorter than 101 characters")
 	protected String			weakFeatures;
 
 	@URL
