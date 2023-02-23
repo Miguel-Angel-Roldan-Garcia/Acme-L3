@@ -2,7 +2,6 @@
 package acme.roles;
 
 import javax.persistence.Entity;
-import javax.validation.constraints.Max;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
@@ -36,7 +35,7 @@ public class Company extends AbstractRole {
 
 	@NotNull
 	@NotBlank
-	@Max(value = 101)
+	@Length(max = 101)
 	protected String summary;
 
 	@URL
