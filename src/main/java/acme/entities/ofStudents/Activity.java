@@ -20,20 +20,20 @@ public class Activity extends AbstractEntity {
 	@Length(max = 76)
 	protected String			title;
 
-	/*
-	 * @NotBlank
-	 * 
-	 * @Length(max=101)
-	 * protected String abstract;
-	 */ //posible incorrección, ya que abstract es una palabra clave de java
+	@NotBlank
+	@Length(max = 101)
+	protected String			summary;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	protected Date				initialDate;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	protected Date				finishDate;
+	//habría que poner una restricción custom sobre la fecha inicial y final
 
 	@URL
 	protected String			moreInfo;
+
+	protected ActivityType		type;
 
 }
