@@ -1,12 +1,9 @@
 
 package acme.entities.ofStudents;
 
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
@@ -41,8 +38,5 @@ public class Enrolment extends AbstractEntity {
 	@ManyToOne(optional = false)
 	@Valid
 	protected Student			student;
-
-	@OneToMany(mappedBy = "enrolment")
-	protected List<Activity>	activities;
 
 }
