@@ -2,9 +2,10 @@
 package acme.roles;
 
 import javax.persistence.Entity;
-import javax.validation.constraints.Max;
+import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
+import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
 import acme.framework.data.AbstractRole;
@@ -14,23 +15,24 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
+@Table(name = "students")
 public class Student extends AbstractRole {
 
 	protected static final long	serialVersionUID	= 1L;
 
 	@NotBlank
-	@Max(75) // he puesto 75 porque Max salo aceptara los valores que son mayores o iguales
+	@Length(max = 76)
 	protected String			statement;
 
 	@NotBlank
-	@Max(100)
+	@Length(max = 101)
 	protected String			strongFeatures;
 
 	@NotBlank
-	@Max(100)
+	@Length(max = 101)
 	protected String			weakFeatures;
 
 	@URL
-	protected String			moreInfo;
+	protected String			link;
 
 }
