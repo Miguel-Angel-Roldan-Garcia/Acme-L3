@@ -6,8 +6,8 @@ import javax.persistence.Table;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
 import acme.datatypes.Nature;
@@ -23,27 +23,30 @@ public class Lecture extends AbstractEntity {
 
     // Serialisation identifier -----------------------------------------------
 
-    private static final long serialVersionUID = 1L;
+    protected static final long serialVersionUID = 1L;
 
     // Attributes -------------------------------------------------------------
 
     @NotBlank
-    @Size(max = 75, message = "Must be shorter than 76 characters")
-    private String title;
+    @Length(max = 76)
+    protected String title;
 
     @NotBlank
-    @Size(max = 100, message = "Must be shorter than 101 characters")
-    private String summary; // abstract can not be used
+    @Length(max = 101)
+    protected String summary; // abstract can not be used
+
+    @NotNull
     @Min(1)
-    private Integer estLearningTime;
+    private Integer estimatedLearningTime;
+
     @NotBlank
-    @Size(max = 100, message = "Must be shorter than 101 characters")
+    @Length(max = 101)
     private String body;
 
     @NotNull
     private Nature nature;
 
-    @URL(message = "Must be a valid URL") //
+    @URL()
     private String link;
 
 }

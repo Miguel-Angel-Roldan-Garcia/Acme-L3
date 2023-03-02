@@ -3,8 +3,8 @@ package acme.roles;
 
 import javax.persistence.Entity;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
 import acme.framework.data.AbstractRole;
@@ -23,21 +23,22 @@ public class Lecturer extends AbstractRole {
     // Attributes -------------------------------------------------------------
 
     @NotBlank
-    @Size(max = 75, message = "Must be shorter than 76 characters")
+    @Length(max = 75)
     protected String almaMater;
 
     @NotBlank
-    @Size(max = 100, message = "Must be shorter than 101 characters")
+    @Length(max = 100)
     protected String resume;
 
     @NotBlank
-    @Size(max = 100, message = "Must be shorter than 101 characters")
+    @Length(max = 100)
     protected String qualifications;
-    @URL(message = "Must be a valid URL")
+
+    @URL()
     protected String link;
 
     // Derived attributes -----------------------------------------------------
 
     // Relationships ----------------------------------------------------------
-    // TODO
+
 }
