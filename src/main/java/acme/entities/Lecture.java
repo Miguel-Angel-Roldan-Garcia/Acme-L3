@@ -37,16 +37,15 @@ public class Lecture extends AbstractEntity {
 
     @NotNull
     @Min(1)
-    private Integer estimatedLearningTime;
+    protected Integer estimatedLearningTime;
 
     @NotBlank
     @Length(max = 101)
-    private String body;
+    protected String body;
 
     @NotNull
-    private Nature nature;
+    protected Nature nature;
 
     @URL()
-    private String link;
 
 }
