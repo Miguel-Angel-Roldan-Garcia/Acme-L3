@@ -32,7 +32,7 @@ public class Activity extends AbstractEntity {
 	//habría que poner una restricción custom sobre la fecha inicial y final
 
 	@URL
-	protected String			moreInfo;
+	protected String			link;
 
 	protected ActivityType		type;
 
