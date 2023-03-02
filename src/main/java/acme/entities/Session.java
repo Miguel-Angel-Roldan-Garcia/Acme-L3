@@ -1,7 +1,11 @@
 
-package acme.roles;
+package acme.entities;
+
+import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
@@ -15,7 +19,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Company extends AbstractRole {
+public class Session extends AbstractRole {
 
 	// Serialisation identifier -----------------------------------------------
 
@@ -26,17 +30,20 @@ public class Company extends AbstractRole {
 	@NotNull
 	@NotBlank
 	@Length(max = 76)
-	protected String name;
-
-	@NotNull
-	@NotBlank
-	@Length(max = 26)
-	protected String vatNumber;
+	protected String title;
 
 	@NotNull
 	@NotBlank
 	@Length(max = 101)
 	protected String summary;
+
+	@NotNull
+	@Temporal(TemporalType.DATE)
+	protected Date startDate;
+
+	@NotNull
+	@Temporal(TemporalType.DATE)
+	protected Date finishDate;
 
 	@URL
 	protected String link;
