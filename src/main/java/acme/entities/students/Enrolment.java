@@ -1,5 +1,5 @@
 
-package acme.entities.ofStudents;
+package acme.entities.students;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

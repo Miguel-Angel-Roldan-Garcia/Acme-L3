@@ -1,11 +1,12 @@
 
-package acme.entities.ofStudents;
+package acme.entities.students;
 
 import java.util.Date;
 
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
@@ -19,12 +20,12 @@ public class Activity extends AbstractEntity {
 	protected static final long	serialVersionUID	= 1L;
 
 	@NotBlank
-	@Length(max = 76)
+	@Length(max = 75)
 	protected String			title;
 
 	@NotBlank
-	@Length(max = 101)
-	protected String			summary;
+	@Length(max = 100)
+	protected String			_abstract;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	protected Date				initialDate;
@@ -36,10 +37,11 @@ public class Activity extends AbstractEntity {
 	@URL
 	protected String			link;
 
-	protected ActivityType		type;
-
-	@ManyToOne
 	@NotNull
+	protected ActivityType		_type;
+
+	@ManyToOne(optional = false)
+	@Valid
 	protected Enrolment			enrolment;
 
 }
