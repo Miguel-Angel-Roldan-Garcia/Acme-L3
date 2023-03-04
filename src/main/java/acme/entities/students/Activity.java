@@ -13,6 +13,7 @@ import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
+import acme.datatypes.Nature;
 import acme.framework.data.AbstractEntity;
 
 public class Activity extends AbstractEntity {
@@ -38,7 +39,7 @@ public class Activity extends AbstractEntity {
 	protected String			link;
 
 	@NotNull
-	protected ActivityType		_type;
+	protected Nature			_type;
 
 	@ManyToOne(optional = false)
 	@Valid
