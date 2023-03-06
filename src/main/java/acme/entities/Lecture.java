@@ -21,31 +21,32 @@ import lombok.Setter;
 @Setter
 public class Lecture extends AbstractEntity {
 
-    // Serialisation identifier -----------------------------------------------
+	// Serialisation identifier -----------------------------------------------
 
-    protected static final long serialVersionUID = 1L;
+	protected static final long	serialVersionUID	= 1L;
 
-    // Attributes -------------------------------------------------------------
+	// Attributes -------------------------------------------------------------
 
-    @NotBlank
-    @Length(max = 76)
-    protected String title;
+	@NotBlank
+	@Length(max = 76)
+	protected String			title;
 
-    @NotBlank
-    @Length(max = 101)
-    protected String summary; // abstract can not be used
+	@NotBlank
+	@Length(max = 101)
+	protected String			summary; // abstract can not be used
 
-    @NotNull
-    @Min(1)
-    protected Integer estimatedLearningTime;
+	@NotNull
+	@Min(1)
+	protected Integer			estimatedLearningTime;
 
-    @NotBlank
-    @Length(max = 101)
-    protected String body;
+	@NotBlank
+	@Length(max = 101)
+	protected String			body;
 
-    @NotNull
-    protected Nature nature;
+	@NotNull
+	protected Nature			nature;
 
-    @URL()
+	@URL()
+	protected String			link;
 
 }
