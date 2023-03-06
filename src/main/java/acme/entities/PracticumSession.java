@@ -4,8 +4,10 @@ package acme.entities;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
@@ -19,7 +21,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Session extends AbstractRole {
+public class PracticumSession extends AbstractRole {
 
 	// Serialisation identifier -----------------------------------------------
 
@@ -27,20 +29,20 @@ public class Session extends AbstractRole {
 
 	// Attributes -------------------------------------------------------------
 
-	@NotNull
 	@NotBlank
-	@Length(max = 76)
+	@Length(max = 75)
 	protected String title;
 
-	@NotNull
 	@NotBlank
-	@Length(max = 101)
-	protected String summary;
+	@Length(max = 100)
+	protected String _abstract;
 
+	/* TODO Custom restriction label D02-S4-6 */
 	@NotNull
 	@Temporal(TemporalType.DATE)
 	protected Date startDate;
 
+	/* TODO Custom restriction label D02-S4-6 */
 	@NotNull
 	@Temporal(TemporalType.DATE)
 	protected Date finishDate;
@@ -52,4 +54,7 @@ public class Session extends AbstractRole {
 
 	// Relationships ----------------------------------------------------------
 
+	@Valid
+	@ManyToOne(optional = false)
+	protected Practicum practicum;
 }

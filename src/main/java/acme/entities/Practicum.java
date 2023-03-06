@@ -1,13 +1,9 @@
 
 package acme.entities;
 
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
@@ -27,35 +23,27 @@ public class Practicum extends AbstractRole {
 
 	// Attributes -------------------------------------------------------------
 
-	@NotNull
 	@NotBlank
 	@Column(unique = true)
-	@Pattern(regexp = "[A-Z]{1,3}[0-9][0-9]{3}")
+	@Pattern(regexp = "[A-Z]{1,3}[0-9]{3}")
 	protected String code;
 
-	@NotNull
 	@NotBlank
-	@Length(max = 76)
+	@Length(max = 75)
 	protected String title;
 
-	@NotNull
 	@NotBlank
-	@Length(max = 101)
-	protected String summary;
+	@Length(max = 100)
+	protected String _abstract;
 
-	@NotNull
 	@NotBlank
-	@Length(max = 101)
+	@Length(max = 100)
 	protected String goals;
 
 	// Derived attributes -----------------------------------------------------
 
-	@NotNull
-	protected Double estimatedTotalTime;
+	/* TODO Derived attribute estimatedTotalTime D02-S4-5 */
 
 	// Relationships ----------------------------------------------------------
-
-	@ManyToOne
-	protected List<Session> sessions;
 
 }
