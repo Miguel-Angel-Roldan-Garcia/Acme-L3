@@ -34,7 +34,7 @@ public class Practicum extends AbstractRole {
 
 	@NotBlank
 	@Length(max = 100)
-	protected String summary;
+	protected String _abstract;
 
 	@NotBlank
 	@Length(max = 100)

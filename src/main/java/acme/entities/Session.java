@@ -35,7 +35,7 @@ public class Session extends AbstractRole {
 
 	@NotBlank
 	@Length(max = 100)
-	protected String summary;
+	protected String _abstract;
 
 	/* TODO Custom restriction label D02-S4-6 */
 	@NotNull
