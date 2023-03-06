@@ -22,10 +22,11 @@ import lombok.Setter;
 @Getter
 public class TutorialSession extends AbstractEntity {
 
-	/**
-	 * 
-	 */
+	// Serialisation identifier -----------------------------------------------
+
 	private static final long	serialVersionUID	= 1L;
+
+	// Attributes -------------------------------------------------------------
 
 	@NotBlank
 	@Length(max = 75)
@@ -35,7 +36,6 @@ public class TutorialSession extends AbstractEntity {
 	@Length(max = 100)
 	protected String			_abstract;
 
-	/* TODO Derived attribute from contained sessions */
 	@NotNull
 	protected Nature			sessionType;
 
@@ -51,5 +51,9 @@ public class TutorialSession extends AbstractEntity {
 
 	@URL
 	protected String			link;
+
+	// Derived attributes -----------------------------------------------------
+
+	// Relationships ----------------------------------------------------------
 
 }
