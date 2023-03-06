@@ -4,8 +4,10 @@ package acme.entities;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
@@ -39,12 +41,13 @@ public class TutorialSession extends AbstractEntity {
 	@NotNull
 	protected Nature			sessionType;
 
-	/* TODO Custom restriction time ahead */
+	/* TODO Custom restriction at least one day ahead */
 	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
 	protected Date				startDate;
 
-	/* TODO Custom restriction one up to five hour long */
+	/* TODO Custom restriction from one up to five hour long */
+	/* TODO Custom restriction endDate after startDate */
 	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
 	protected Date				endDate;
@@ -55,5 +58,10 @@ public class TutorialSession extends AbstractEntity {
 	// Derived attributes -----------------------------------------------------
 
 	// Relationships ----------------------------------------------------------
+
+	@NotNull
+	@Valid
+	@ManyToOne(optional = false)
+	protected Tutorial			tutorial;
 
 }
