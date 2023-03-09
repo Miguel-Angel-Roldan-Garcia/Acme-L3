@@ -34,6 +34,7 @@ public class Activity extends AbstractEntity {
 	@Temporal(TemporalType.TIMESTAMP)
 	protected Date				finishDate;
 	//habría que poner una restricción custom sobre la fecha inicial y final
+	//faltará la propiedad derivada que calcule el periodo
 
 	@URL
 	protected String			link;

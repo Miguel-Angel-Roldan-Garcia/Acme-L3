@@ -1,4 +1,4 @@
-package forms;
+package acme.forms;
 
 import java.util.Map;
 
