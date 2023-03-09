@@ -16,29 +16,29 @@ import lombok.Setter;
 @Setter
 public class Lecturer extends AbstractRole {
 
-    // Serialisation identifier -----------------------------------------------
+	// Serialisation identifier -----------------------------------------------
 
-    protected static final long serialVersionUID = 1L;
+	protected static final long	serialVersionUID	= 1L;
 
-    // Attributes -------------------------------------------------------------
+	// Attributes -------------------------------------------------------------
 
-    @NotBlank
-    @Length(max = 76)
-    protected String almaMater;
+	@NotBlank
+	@Length(max = 75)
+	protected String			almaMater;
 
-    @NotBlank
-    @Length(max = 101)
-    protected String resume;
+	@NotBlank
+	@Length(max = 100)
+	protected String			resume;
 
-    @NotBlank
-    @Length(max = 101)
-    protected String qualifications;
+	@NotBlank
+	@Length(max = 100)
+	protected String			qualifications;
 
-    @URL()
-    protected String link;
+	@URL
+	protected String			link;
 
-    // Derived attributes -----------------------------------------------------
+	// Derived attributes -----------------------------------------------------
 
-    // Relationships ----------------------------------------------------------
+	// Relationships ----------------------------------------------------------
 
 }
