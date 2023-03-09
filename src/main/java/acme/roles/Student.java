@@ -18,6 +18,8 @@ public class Student extends AbstractRole {
 
 	protected static final long	serialVersionUID	= 1L;
 
+	//OJO, tanto los espacios como las tabulaciones son ignoradas al poblar el db
+
 	@NotBlank
 	@Length(max = 75)
 	protected String			statement;
