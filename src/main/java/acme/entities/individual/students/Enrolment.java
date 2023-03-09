@@ -1,5 +1,5 @@
 
-package acme.entities.ofStudents;
+package acme.entities.individual.students;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -24,15 +24,15 @@ public class Enrolment extends AbstractEntity {
 
 	@Column(unique = true)
 	@NotBlank
-	@Pattern(regexp = "[A-Z]{1,3}[0-9][0-9]{3}")
+	@Pattern(regexp = "[A-Z]{1,3}[0-9]{3}")
 	protected String			code;
 
 	@NotBlank
-	@Length(max = 76)
+	@Length(max = 70)
 	protected String			motivation;
 
 	@NotBlank
-	@Length(max = 101)
+	@Length(max = 100)
 	protected String			goals;
 
 	@ManyToOne(optional = false)

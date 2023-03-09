@@ -28,11 +28,11 @@ public class Lecture extends AbstractEntity {
 	// Attributes -------------------------------------------------------------
 
 	@NotBlank
-	@Length(max = 76)
+	@Length(max = 75)
 	protected String			title;
 
 	@NotBlank
-	@Length(max = 101)
+	@Length(max = 100)
 	protected String			summary; // abstract can not be used
 
 	@NotNull
@@ -40,7 +40,7 @@ public class Lecture extends AbstractEntity {
 	protected Integer			estimatedLearningTime;
 
 	@NotBlank
-	@Length(max = 101)
+	@Length(max = 100)
 	protected String			body;
 
 	@NotNull
