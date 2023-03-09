@@ -1,25 +1,24 @@
 
-package acme.entities;
+package acme.entities.individual.lectures;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Table;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
-import acme.datatypes.Nature;
 import acme.framework.data.AbstractEntity;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "lectures")
 @Getter
 @Setter
-public class Lecture extends AbstractEntity {
+public class Course extends AbstractEntity {
 
     // Serialisation identifier -----------------------------------------------
 
@@ -28,24 +27,29 @@ public class Lecture extends AbstractEntity {
     // Attributes -------------------------------------------------------------
 
     @NotBlank
-    @Length(max = 76)
+    @Column(unique = true)
+    @Pattern(regexp = "[A-Z]{1,3}[0-9]{3}")
+    protected String code;
+
+    @NotBlank
+    @Length(max = 75)
     protected String title;
 
     @NotBlank
-    @Length(max = 101)
-    protected String summary; // abstract can not be used
+    @Length(max = 100)
+    protected String _abstract;
 
     @NotNull
-    @Min(1)
-    protected Integer estimatedLearningTime;
+    @Min(0)
+    protected Integer retailPrice;
 
-    @NotBlank
-    @Length(max = 101)
-    protected String body;
+    @URL
+    protected String link;
 
-    @NotNull
-    protected Nature nature;
+    // Derived attributes -----------------------------------------------------
 
-    @URL()
+    /* TODO Derived attribute courseNature */
+
+    // Relationships ----------------------------------------------------------
 
 }
