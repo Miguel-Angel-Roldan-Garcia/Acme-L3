@@ -1,17 +1,19 @@
 
-package acme.entities;
+package acme.entities.lectures;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
+import org.dom4j.tree.AbstractEntity;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
 import acme.datatypes.Nature;
-import acme.framework.data.AbstractEntity;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -19,34 +21,39 @@ import lombok.Setter;
 @Table(name = "lectures")
 @Getter
 @Setter
-public class Lecture extends AbstractEntity {
+public class Course extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------------------------
 
 	protected static final long	serialVersionUID	= 1L;
 
 	// Attributes -------------------------------------------------------------
+	@NotBlank
+	@Column(unique = true)
+	@Pattern(regexp = "[A-Z]{1,3}[0-9]{3}")
+	protected String code; 
 
 	@NotBlank
-	@Length(max = 76)
-	protected String			title;
-
+	@Length(max = 75)
+	protected String title;
+	
 	@NotBlank
-	@Length(max = 101)
-	protected String			summary; // abstract can not be used
+	@Length(max = 100)
+	protected String _abstract;
 
 	@NotNull
-	@Min(1)
-	protected Integer			estimatedLearningTime;
+	@Min(0)
+	protected Integer retailPrice;
 
-	@NotBlank
-	@Length(max = 101)
-	protected String			body;
+	@URL
+	protected String link;
 
-	@NotNull
-	protected Nature			nature;
+	// Derived attributes -----------------------------------------------------
 
-	@URL()
-	protected String			link;
+	/* TODO Derived attribute courseNature */
+
+	// Relationships ----------------------------------------------------------
+
+	
 
 }
