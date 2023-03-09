@@ -2,7 +2,6 @@
 package acme.entities.lectures;
 
 import javax.persistence.Entity;
-import javax.persistence.Table;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -16,37 +15,36 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "lectures")
 @Getter
 @Setter
 public class Lecture extends AbstractEntity {
 
-	// Serialisation identifier -----------------------------------------------
+    // Serialisation identifier -----------------------------------------------
 
-	protected static final long	serialVersionUID	= 1L;
+    protected static final long serialVersionUID = 1L;
 
-	// Attributes -------------------------------------------------------------
+    // Attributes -------------------------------------------------------------
 
-	@NotBlank
-	@Length(max = 75)
-	protected String title;
+    @NotBlank
+    @Length(max = 75)
+    protected String title;
 
-	@NotBlank
-	@Length(max = 100)
-	protected String _abstract; // abstract can not be used
+    @NotBlank
+    @Length(max = 100)
+    protected String abstract1; // abstract can not be used
 
-	@NotNull
-	@Min(1)
-	protected Integer estimatedLearningTime;
+    @NotNull
+    @Min(1)
+    protected Integer estimatedLearningTime;
 
-	@NotBlank
-	@Length(max = 100)
-	protected String body;
+    @NotBlank
+    @Length(max = 100)
+    protected String body;
 
-	@NotNull
-	protected Nature nature;
+    @NotNull
+    protected Nature nature;
 
-	@URL
-	protected String link;
+    @URL
+    protected String link;
 
 }
