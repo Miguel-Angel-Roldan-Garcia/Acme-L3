@@ -1,8 +1,8 @@
-package acme.forms;
+package acme.forms.individual.companies;
 
 import java.util.Map;
 
-import acme.entities.Practicum;
+import acme.entities.individual.companies.Practicum;
 import acme.framework.data.AbstractForm;
 
 public class CompanyDashboard extends AbstractForm {

@@ -1,9 +1,9 @@
 
-package forms;
+package acme.forms.individual.auditors;
 
 import java.util.Map;
 
-import acme.entities.AuditingRecord;
+import acme.entities.individual.auditors.AuditingRecord;
 import acme.framework.data.AbstractForm;
 
 public class AuditorDashboard extends AbstractForm {

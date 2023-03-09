@@ -1,5 +1,5 @@
 
-package forms;
+package acme.forms.individual.assistants;
 
 import acme.framework.data.AbstractForm;
 

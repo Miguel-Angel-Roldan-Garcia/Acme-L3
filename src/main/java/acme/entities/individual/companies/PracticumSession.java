@@ -1,5 +1,5 @@
 
-package acme.entities;
+package acme.entities.individual.companies;
 
 import java.util.Date;
 

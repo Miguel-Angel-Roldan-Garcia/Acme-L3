@@ -1,48 +1,42 @@
 
-package acme.entities;
+package acme.entities.individual.auditors;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
+import java.util.Date;
+
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.URL;
 
 import acme.framework.data.AbstractEntity;
-import lombok.Getter;
-import lombok.Setter;
 
-@Entity
-@Setter
-@Getter
-public class Tutorial extends AbstractEntity {
+public class AuditingRecord extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------------------------
-
 	private static final long	serialVersionUID	= 1L;
 
 	// Attributes -------------------------------------------------------------
 
 	@NotBlank
-	@Pattern(regexp = "[A-Z]{1,3}[0-9]{3}")
-	@Column(unique = true)
-	protected String			code;
-
-	@NotBlank
 	@Length(max = 75)
-	protected String			title;
+	protected String			subject;
 
 	@NotBlank
 	@Length(max = 100)
-	protected String			_abstract;
+	protected String			assessment;
 
-	@NotBlank
-	@Length(max = 100)
-	protected String			goals;
+	// TODO Custom restriction at least one hour long
+	@Temporal(TemporalType.TIMESTAMP)
+	protected Date				auditingDate;
+
+	@URL
+	protected String			link;
 
 	// Derived attributes -----------------------------------------------------
 
-	// TODO Implement complex derived attribute estimatedTotalTime
+	//TODO implement complex derived attribute mark
 
 	// Relationships ----------------------------------------------------------
 
