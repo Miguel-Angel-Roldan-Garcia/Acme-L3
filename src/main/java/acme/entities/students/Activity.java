@@ -33,8 +33,10 @@ public class Activity extends AbstractEntity {
 
 	@Temporal(TemporalType.TIMESTAMP)
 	protected Date				finishDate;
-	//habría que poner una restricción custom sobre la fecha inicial y final
-	//faltará la propiedad derivada que calcule el periodo
+	//TODO Custom restriction=> initialDate must be < finishDate 
+	//& finishDate must be > iniialDate
+
+	//TODO Derived attribute=> Double timePeriod= finishDate-initialDate
 
 	@URL
 	protected String			link;
@@ -44,6 +46,7 @@ public class Activity extends AbstractEntity {
 
 	@ManyToOne(optional = false)
 	@Valid
+	@NotNull
 	protected Enrolment			enrolment;
 
 }
