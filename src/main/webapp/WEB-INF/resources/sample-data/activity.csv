@@ -1,0 +1,19 @@
+key,key:enrolment,title,_abstract,initialDate,finishDate,link,_type
+activity-01,enrolment-01,75 caracteres tiene este largo y extenso texto para tener datos variablesss,"abstracto",2010/10/30 20:59,2000/01/01 10:30,http://ev.us,THEORETICAL
+activity-02,enrolment-01,.,"abstracto",2010/10/30 20:59,2000/01/01 00:00,http://ev.us,HANDS_ON
+activity-03,enrolment-01,esta es la mitad de caracteres limites,"abstracto",2021/11/30 23:58,2001/01/01 10:30,http://ev.us,HANDS_ON
+activity-04,enrolment-01,"/@$$=&%&4ª!2·)(","abstracto",2021/11/30 23:58,2021/12/31 00:00,http://ev.us,HANDS_ON
+activity-05,enrolment-01,""<script>alert("hi")</script>"","abstracto",2021/11/30 23:58,2021/12/31 00:00,http://ev.us,HANDS_ON
+activity-06,enrolment-02,"titulo","100 caracteres tiene este mensaje, y es porque el ejercicio es  largo y dificil de hacer de entender",2021/11/30 23:58,2021/12/31 10:30,http://ev.us,HANDS_ON
+activity-07,enrolment-02,"titulo",".",2021/11/30 23:58,2021/12/31 00:00,http://ev.us,HANDS_ON
+activity-08,enrolment-02,"titulo","$#==%&(/(&$·$%U&&(%",2021/11/30 23:58,2021/12/31 10:30,http://ev.us,HANDS_ON
+activity-09,enrolment-02,"titulo","<script>alert("hi")</script>",2021/11/30 23:58,2021/12/31 10:30,http://ev.us,HANDS_ON
+activity-10,enrolment-03,"titulo","abstracto",2021/12/31 23:59,2021/12/31 10:30,http://ev.us,HANDS_ON
+activity-11,enrolment-03,"titulo","abstracto",2022/01/01 00:00,2021/12/31 10:30,http://ev.us,HANDS_ON
+activity-12,enrolment-03,"titulo","abstracto",2021/11/30 23:58,2021/12/31 23:59,http://ev.us,THEORETICAL
+activity-13,enrolment-03,"titulo","abstracto",2021/11/30 23:58,2022/01/01 00:00,http://ev.us,HANDS_ON
+activity-14,enrolment-03,"titulo","abstracto",2021/11/30 23:58,2021/12/31 10:30,null,HANDS_ON
+activity-15,enrolment-03,"titulo","abstracto",2021/11/30 23:58,2021/12/31 10:30,https://www.youtube.com/watch?v=GhUwK4JicUM,THEORETICAL
+activity-16,enrolment-04,"titulo","abstracto",2021/11/30 23:58,2021/12/31 10:30,http://localhost:8080/,HANDS_ON
+activity-17,enrolment-04,"titulo","abstracto",2021/11/30 23:58,2021/12/31 10:30,ffp://user:pass@acme.org,HANDS_ON
+
