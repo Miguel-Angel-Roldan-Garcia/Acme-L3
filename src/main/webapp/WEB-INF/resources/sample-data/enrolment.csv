@@ -7,5 +7,5 @@ enrolment-05,student-01,C876,motivación es lo que tengo,100 caracteres tiene es
 enrolment-06,student-02,SSS324,.,cumplir mis sueños
 enrolment-07,student-02,DEE876,esta es la mitad de caracteres limites,cumplir mis sueños
 enrolment-08,student-01,DF333,ser dibujante,50 caracteres es la mitad de caracteres limitessss
-enrolment-09,student-01,DGT667,"<script>alert("hi")</script>",objetivo
+enrolment-09,student-01,DGT667,<script>alert("hi")</script>,objetivo
 enrolment-10,student-01,DDD667,motivacion,"<scrip>alert("hi")</script>"

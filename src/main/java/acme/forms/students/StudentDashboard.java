@@ -14,7 +14,7 @@ public class StudentDashboard extends AbstractForm {
 
 	protected static final long					serialVersionUID	= 1L;
 
-	protected Map<Enrolment, Integer>			totalNumberOfTheoricActivitiesPerEnrolment;
+	protected Map<Enrolment, Integer>			totalNumberOfTheoricalActivitiesPerEnrolment;
 
 	protected Map<Enrolment, Integer>			totalNumberOfHandsOnActivitiesPerEnrolment;
 
