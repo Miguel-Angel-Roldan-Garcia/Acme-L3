@@ -32,7 +32,7 @@ public class Activity extends AbstractEntity {
 
 	@NotBlank
 	@Length(max = 100)
-	protected String			_abstract;
+	protected String			textAbstract;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	protected Date				initialDate;
@@ -48,7 +48,7 @@ public class Activity extends AbstractEntity {
 	protected String			link;
 
 	@NotNull
-	protected Nature			_type;
+	protected Nature			typeOfActivity;
 
 	@ManyToOne(optional = false)
 	@Valid
