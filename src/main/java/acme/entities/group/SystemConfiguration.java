@@ -25,12 +25,4 @@ public class SystemConfiguration extends AbstractEntity {
 	@NotBlank
 	protected String			acceptedCurrencies;
 
-	// Constructors -----------------------------------------------------------
-
-
-	public SystemConfiguration() {
-		this.currency = "EUR";
-		this.acceptedCurrencies = "EUR,USD,GBP";
-	}
-
 }
