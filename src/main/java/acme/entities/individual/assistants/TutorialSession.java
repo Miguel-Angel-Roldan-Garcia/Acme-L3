@@ -14,6 +14,7 @@ import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
+import acme.datatypes.Nature;
 import acme.framework.data.AbstractEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -37,6 +38,9 @@ public class TutorialSession extends AbstractEntity {
 	@Length(max = 100)
 	protected String			_abstract;
 
+	@NotNull
+	protected Nature			nature;
+
 	/* TODO Custom restriction at least one day ahead */
 	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
@@ -52,8 +56,6 @@ public class TutorialSession extends AbstractEntity {
 	protected String			link;
 
 	// Derived attributes -----------------------------------------------------
-
-	/* TODO Transient attribute "sessionType" */
 
 	// Relationships ----------------------------------------------------------
 
