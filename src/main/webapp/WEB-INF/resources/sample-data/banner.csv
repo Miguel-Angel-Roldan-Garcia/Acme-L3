@@ -1,0 +1,13 @@
+key,instantiation-moment,display-period-start-date,display-period-end-date,picture-link,slogan,target-web-document-link
+banner-01,2022/08/03 08:00,2022/08/03 14:00,2022/08/13 14:00,https://Acme-L3/picture,Lorem Ipsum,https://Acme-L3/document1
+banner-02,2022/06/03 08:00,2022/08/03 14:00,2022/08/13 14:00,https://Acme-L3/picture,Lorem Ipsum,https://Acme-L3/document1
+banner-03,2022/06/03 08:00,2022/06/03 14:00,2022/08/13 14:00,https://Acme-L3/picture,Lorem Ipsum,https://Acme-L3/document1
+banner-04,2022/10/03 08:00,2022/11/03 14:00,2022/11/16 14:00,https://Acme-L3/picture,Lorem Ipsum,https://Acme-L3/document1
+banner-05,2022/08/03 08:00,2022/08/03 14:00,2024/08/13 14:00,https://Acme-L3/picture,Lorem Ipsum,https://Acme-L3/document1
+banner-06,2022/08/03 08:00,2022/08/04 00:00,2022/08/11 00:00,https://Acme-L3/picture,Lorem Ipsum,https://Acme-L3/document1
+banner-07,2022/08/03 08:00,2022/08/03 14:00,2022/08/13 14:00,https://Acme-L3/picture?size=900,Lorem Ipsum,https://Acme-L3/document1
+banner-08,2022/08/03 08:00,2022/08/03 14:00,2022/08/13 14:00,https://Acme-L3/picture,!"#$%&/()=?¿,!"#$%&/()=?¿,https://Acme-L3/document1
+banner-09,2022/08/03 08:00,2022/08/03 14:00,2022/08/13 14:00,https://Acme-L3/picture,<h1>Lorem Ipsum</h1>,https://Acme-L3/document1
+banner-10,2022/08/03 08:00,2022/08/03 14:00,2022/08/13 14:00,https://Acme-L3/picture,"<script>alert(""hi!"")</script>",https://Acme-L3/document1
+banner-11,2022/08/03 08:00,2022/08/03 14:00,2022/08/13 14:00,https://Acme-L3/picture,Първи урок,https://Acme-L3/document1
+banner-12,2022/08/03 08:00,2022/08/03 14:00,2022/08/13 14:00,https://Acme-L3/picture,Lorem Ipsum,https://Acme-L3/document1?page=7
