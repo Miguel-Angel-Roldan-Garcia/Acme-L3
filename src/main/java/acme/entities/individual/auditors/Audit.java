@@ -5,11 +5,13 @@ import javax.persistence.Column;
 import javax.persistence.ManyToOne;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
 
 import acme.framework.data.AbstractEntity;
+import acme.roles.Auditor;
 
 public class Audit extends AbstractEntity {
 
@@ -19,7 +21,7 @@ public class Audit extends AbstractEntity {
 	// Attributes -------------------------------------------
 
 	@NotBlank
-	@Pattern(regexp = "[A-Z]{1,3}[0-9]{3}")
+	@Pattern(regexp = "^[A-Z]{1,3}[0-9]{3}$")
 	@Column(unique = true)
 	protected String			code;
 
@@ -40,8 +42,8 @@ public class Audit extends AbstractEntity {
 	//TODO implement complex derived attribute mark mode
 
 	// Relationships -------------------------------------------
-
+	@NotNull
 	@Valid
 	@ManyToOne(optional = false)
-	protected AuditingRecord	auditingRecord;
+	protected Auditor			auditor;
 }
