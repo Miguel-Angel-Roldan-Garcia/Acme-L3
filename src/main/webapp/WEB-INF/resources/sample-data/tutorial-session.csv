@@ -1,0 +1,20 @@
+key,title,_abstract,nature,start-date,end-date,link,key:tutorial
+tutorial-session-01,First session,This session will act as part of the tutorial 1 sample,THEORETICAL,2022/08/10 15:00,2022/08/10 17:00,https://Acme-L3.es/tutorial-sessions,tutorial-01
+tutorial-session-02,Primera sesión,This session will act as part of the tutorial 1 sample,THEORETICAL,2022/08/10 15:00,2022/08/10 17:00,https://Acme-L3.es/tutorial-sessions,tutorial-01
+tutorial-session-03,Πρώτο μάθημα,This session will act as part of the tutorial 1 sample,THEORETICAL,2022/08/10 15:00,2022/08/10 17:00,https://Acme-L3.es/tutorial-sessions,tutorial-01
+tutorial-session-04,Primera lliçó,This session will act as part of the tutorial 1 sample,THEORETICAL,2022/08/10 15:00,2022/08/10 17:00,https://Acme-L3.es/tutorial-sessions,tutorial-01
+tutorial-session-05,1.1- First session,This session will act as part of the tutorial 1 sample,THEORETICAL,2022/08/10 15:00,2022/08/10 17:00,https://Acme-L3.es/tutorial-sessions,tutorial-01
+tutorial-session-06,First session,Esta sesión actuará como parte de ejemplo del tutorial 1,THEORETICAL,2022/08/10 15:00,2022/08/10 17:00,https://Acme-L3.es/tutorial-sessions,tutorial-01
+tutorial-session-07,First session,Aquesta sessió actuarà com a part d'exemple del tutorial 1,THEORETICAL,2022/08/10 15:00,2022/08/10 17:00,https://Acme-L3.es/tutorial-sessions,tutorial-01
+tutorial-session-08,First session,Тази сесия ще действа като част от пробата на урок 1,THEORETICAL,2022/08/10 15:00,2022/08/10 17:00,https://Acme-L3.es/tutorial-sessions,tutorial-01
+tutorial-session-09,<h1>Lorem Ipsum</h1>,<h1>Lorem Ipsum</h1>,THEORETICAL,2022/08/10 15:00,2022/08/10 17:00,https://Acme-L3.es/tutorial-sessions,tutorial-01
+tutorial-session-10,"<script>alert(""hi!"")</script>","<script>alert(""hi!"")</script>",THEORETICAL,2022/08/10 15:00,2022/08/10 17:00,https://Acme-L3.es/tutorial-sessions,tutorial-01
+tutorial-session-11,First session,This session will act as part of the tutorial 1 sample,HANDS_ON,2022/08/10 15:00,2022/08/10 17:00,https://Acme-L3.es/tutorial-sessions,tutorial-01
+tutorial-session-12,First session,This session will act as part of the tutorial 1 sample,THEORETICAL,2021/05/15 15:00,2021/05/15 17:00,https://Acme-L3.es/tutorial-sessions,tutorial-01
+tutorial-session-13,First session,This session will act as part of the tutorial 1 sample,THEORETICAL,2022/07/15 15:00,2022/07/15 17:00,https://Acme-L3.es/tutorial-sessions,tutorial-01
+tutorial-session-14,First session,This session will act as part of the tutorial 1 sample,THEORETICAL,2022/07/30 00:15,2022/07/30 05:15,https://Acme-L3.es/tutorial-sessions,tutorial-01
+tutorial-session-15,First session,This session will act as part of the tutorial 1 sample,THEORETICAL,2022/08/01 20:00,2022/08/01 21:00,https://Acme-L3.es/tutorial-sessions,tutorial-01
+tutorial-session-16,First session,This session will act as part of the tutorial 1 sample,THEORETICAL,2023/08/10 15:00,2023/08/10 17:00,https://Acme-L3.es/tutorial-sessions,tutorial-01
+tutorial-session-17,First session,This session will act as part of the tutorial 1 sample,THEORETICAL,2022/08/01 20:00,2022/08/01 21:00,https://Acme-L3.es/tutorial-sessions?sample-query=1,tutorial-01
+tutorial-session-18,First session,This session will act as part of the tutorial 1 sample,THEORETICAL,2022/08/01 20:00,2022/08/01 21:00,http://Acme-L3.es/tutorial-sessions,tutorial-01
+tutorial-session-19,First session,This session will act as part of the tutorial 1 sample,THEORETICAL,2022/08/01 20:00,2022/08/01 21:00,https://Acme-L3.es/tutorial-sessions,tutorial-02
