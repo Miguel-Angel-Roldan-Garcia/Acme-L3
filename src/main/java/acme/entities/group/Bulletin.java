@@ -6,7 +6,6 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PastOrPresent;
@@ -14,7 +13,6 @@ import javax.validation.constraints.PastOrPresent;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
-import acme.framework.components.datatypes.Money;
 import acme.framework.data.AbstractEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -22,41 +20,30 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Offer extends AbstractEntity {
+public class Bulletin extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------------------------
 
-	private static final long serialVersionUID = 1L;
+	private static final long	serialVersionUID	= 1L;
 
 	// Attributes -------------------------------------------------------------
 
 	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
 	@PastOrPresent
-	protected Date instantiationMoment;
+	protected Date				instantiationMoment;
 
 	@NotBlank
 	@Length(max = 75)
-	protected String heading;
+	protected String			title;
 
 	@NotBlank
 	@Length(max = 100)
-	protected String summary;
+	protected String			message;
 
-	// TODO Custom restriction D02-G-010
 	@NotNull
-	@Temporal(TemporalType.TIMESTAMP)
-	protected Date availabilityPeriodStartDate;
-
-	// TODO Custom restriction D02-G-010
-	@NotNull
-	@Temporal(TemporalType.TIMESTAMP)
-	protected Date availabilityPeriodEndDate;
-
-	@Min(value = 0)
-	protected Money price;
+	protected Boolean			critical;
 
 	@URL
-	protected String link;
-
+	protected String			link;
 }
