@@ -14,4 +14,3 @@ user-account-assistant-02,true,"UserIdentity{name: 'assistant', surname: '2', em
 user-account-assistant-03,true,"UserIdentity{name: 'assistant', surname: 'sample-data', email: 'assistantSampleData@acme.com'}",assistantSD,assistant
 user-account-auditor-01,true,"UserIdentity{name: 'auditor', surname: '1', email: 'auditor01@acme.com'}",auditor1,auditor1
 user-account-auditor-02,true,"UserIdentity{name: 'auditor', surname: '2', email: 'auditor02@acme.com'}",auditor2,auditor2
-user-account-assistant-03,true,"UserIdentity{name: 'assistant', surname: 'sample-data', email: 'assistantSampleData@acme.com'}",assistantSD,assistant

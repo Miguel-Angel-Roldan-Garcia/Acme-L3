@@ -1,2 +1,2 @@
-key,code,tittle,abstract$,retail_price,link,key:lecturer
-course-01,AFK-123,titulo,abstract,precio,link,lecturer-01
+key,code,title,abstract$,retail_price,draftMode,link,key:lecturer
+course-01,AFK123,titulo,abstract,"100.24 EUR",true,https://github.com/,lecturer-01
