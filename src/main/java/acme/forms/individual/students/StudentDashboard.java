@@ -1,8 +1,8 @@
 
 package acme.forms.individual.students;
 
-import java.util.Map;
 
+import java.util.Map;
 import acme.entities.individual.students.Enrolment;
 import acme.framework.data.AbstractForm;
 import lombok.Getter;
@@ -11,6 +11,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class StudentDashboard extends AbstractForm {
+
 
 	protected static final long					serialVersionUID	= 1L;
 
