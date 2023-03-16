@@ -32,12 +32,14 @@ public class Activity extends AbstractEntity {
 
 	@NotBlank
 	@Length(max = 100)
-	protected String			textAbstract;
+	protected String			abstract$;
 
 	@Temporal(TemporalType.TIMESTAMP)
+	@NotNull
 	protected Date				initialDate;
 
 	@Temporal(TemporalType.TIMESTAMP)
+	@NotNull
 	protected Date				finishDate;
 	//TODO Custom restriction=> initialDate must be < finishDate 
 	//& finishDate must be > iniialDate
@@ -48,7 +50,7 @@ public class Activity extends AbstractEntity {
 	protected String			link;
 
 	@NotNull
-	protected Nature			typeOfActivity;
+	protected Nature			nature;
 
 	@ManyToOne(optional = false)
 	@Valid
