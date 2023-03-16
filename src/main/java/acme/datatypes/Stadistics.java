@@ -1,12 +1,12 @@
 
-package acme.forms.individual.students;
+package acme.datatypes;
 
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-public class StudentStadistics {
+public class Stadistics {
 
 	Integer	count;
 	Double	maxValue;
