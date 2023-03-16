@@ -45,7 +45,7 @@ public class PracticumSession extends AbstractEntity {
 	/* TODO Custom restriction label D02-S4-6 */
 	@NotNull
 	@Temporal(TemporalType.DATE)
-	protected Date finishDate;
+	protected Date endDate;
 
 	@URL
 	protected String link;
