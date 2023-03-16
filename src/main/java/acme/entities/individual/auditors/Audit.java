@@ -2,6 +2,7 @@
 package acme.entities.individual.auditors;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
@@ -13,7 +14,12 @@ import org.hibernate.validator.constraints.Length;
 import acme.entities.individual.lectures.Course;
 import acme.framework.data.AbstractEntity;
 import acme.roles.Auditor;
+import lombok.Getter;
+import lombok.Setter;
 
+@Entity
+@Setter
+@Getter
 public class Audit extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------
