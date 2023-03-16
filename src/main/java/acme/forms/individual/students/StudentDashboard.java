@@ -3,6 +3,8 @@ package acme.forms.individual.students;
 
 
 import java.util.Map;
+
+import acme.datatypes.Stadistics;
 import acme.entities.individual.students.Enrolment;
 import acme.framework.data.AbstractForm;
 import lombok.Getter;
@@ -19,8 +21,8 @@ public class StudentDashboard extends AbstractForm {
 
 	protected Map<Enrolment, Integer>			totalNumberOfHandsOnActivitiesPerEnrolment;
 
-	protected Map<Enrolment, StudentStadistics>	stadisticsOfTimePeriodFromActivies;
+	protected Map<Enrolment, Stadistics>	stadisticsOfTimePeriodFromActivies;
 
-	protected StudentStadistics					stadisticsOfWorkingTimeFromEnrolments;
+	protected Stadistics					stadisticsOfWorkingTimeFromEnrolments;
 
 }
