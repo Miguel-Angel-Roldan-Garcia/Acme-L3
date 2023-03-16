@@ -20,7 +20,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Banner extends AbstractEntity {
+public class Bulletin extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------------------------
 
@@ -33,26 +33,17 @@ public class Banner extends AbstractEntity {
 	@PastOrPresent
 	protected Date				instantiationMoment;
 
-	// TODO Custom restriction after instantiation or last update date
-	@NotNull
-	@Temporal(TemporalType.TIMESTAMP)
-	protected Date				displayPeriodStartDate;
-
-	// TODO Custom restriction must last at least for one week
-	@NotNull
-	@Temporal(TemporalType.TIMESTAMP)
-	protected Date				displayPeriodEndDate;
-
-	@NotBlank
-	@URL
-	protected String			pictureLink;
-
 	@NotBlank
 	@Length(max = 75)
-	protected String			slogan;
+	protected String			title;
 
 	@NotBlank
-	@URL
-	protected String			targetWebDocumentLink;
+	@Length(max = 100)
+	protected String			message;
 
+	@NotNull
+	protected Boolean			critical;
+
+	@URL
+	protected String			link;
 }

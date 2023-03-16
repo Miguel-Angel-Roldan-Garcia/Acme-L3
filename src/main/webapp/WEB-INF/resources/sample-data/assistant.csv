@@ -5,7 +5,7 @@ assistant-03,John Doe,Lorem Ipsum,Lorem Ipsum,https://Acme-L3.es/assistants/samp
 assistant-04,"Doe, John",Lorem Ipsum,Lorem Ipsum,https://Acme-L3.es/assistants/sample,user-account-assistant-03
 assistant-05,Anaïs Pengüiñòn,Lorem Ipsum,Lorem Ipsum,https://Acme-L3.es/assistants/sample,user-account-assistant-03
 assistant-06,Григор Кузнецов,Lorem Ipsum,Lorem Ipsum,https://Acme-L3.es/assistants/sample,user-account-assistant-03
-assistant-07,John Doe,"''!@#$%&/()=?¿*^{}[]""""","''!@#$%&/()=?¿*^{}[]""""",https://Acme-L3.es/assistants/sample,user-account-assistant-03
+assistant-07,John Doe,"""''!@#$%&/()=?¿*^{}[]""","""''!@#$%&/()=?¿*^{}[]""",https://Acme-L3.es/assistants/sample,user-account-assistant-03
 assistant-08,John Doe,<h1>Lorem Ipsum</h1>,<h1>Lorem Ipsum</h1>,https://Acme-L3.es/assistants/sample,user-account-assistant-03
 assistant-09,John Doe,"<script>alert(""hi!"")</script>","<script>alert(""hi!"")</script>",https://Acme-L3.es/assistants/sample,user-account-assistant-03
 assistant-10,John Doe,紳士淑女の皆様こんにちは,紳士淑女の皆様こんにちは,https://Acme-L3.es/assistants/sample,user-account-assistant-03
