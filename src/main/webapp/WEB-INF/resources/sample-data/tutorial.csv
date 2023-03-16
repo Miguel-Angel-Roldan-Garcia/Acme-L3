@@ -1,4 +1,4 @@
-key,code,title,_abstract,goals,key:assistant
+key,code,title,abstract$,goals,key:assistant
 tutorial-01,AFK001,Sample tutorial,This is a tutorial for using on informal testing,Comply with a requisite,assistant-01
 tutorial-02,A001,Sample tutorial,This is a tutorial for using on informal testing,Comply with a requisite,assistant-01
 tutorial-03,AB001,Sample tutorial,This is a tutorial for using on informal testing,Comply with a requisite,assistant-01
@@ -6,7 +6,7 @@ tutorial-04,AFK159,Sample tutorial,This is a tutorial for using on informal test
 tutorial-05,AFK002,Tutorial de ejemplo,Este es un tutorial para usar en pruebas informales,Cumplir un requisito,assistant-01
 tutorial-06,AFK003,1.1-Sample tutorial,This is a tutorial for using on informal testing,Comply with a requisite,assistant-01
 tutorial-07,AFK004,Първи урок,Това е урок за използване при неофициално тестване,Спазвайте реквизит,assistant-01
-tutorial-08,AFK005,!"#$%&/()=?¿,!"#$%&/()=?¿,!"#$%&/()=?¿,assistant-01
+tutorial-08,AFK005,!#$%&/()=?¿,!#$%&/()=?¿,!#$%&/()=?¿,assistant-01
 tutorial-09,AFK006,<h1>Lorem Ipsum</h1>,<h1>Lorem Ipsum</h1>,<h1>Lorem Ipsum</h1>,assistant-01
 tutorial-10,AFK007,"<script>alert(""hi!"")</script>","<script>alert(""hi!"")</script>","<script>alert(""hi!"")</script>",assistant-01
 tutorial-11,AFK008,Sample tutorial,This is a tutorial for using on informal testing,Comply with a requisite,assistant-02
