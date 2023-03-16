@@ -14,25 +14,23 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Student extends AbstractRole {
+public class Auditor extends AbstractRole {
 
 	protected static final long	serialVersionUID	= 1L;
 
-	//OJO, tanto los espacios como las tabulaciones son ignoradas al poblar el db
-
 	@NotBlank
 	@Length(max = 75)
-	protected String			statement;
+	protected String			firm;
+
+	@NotBlank
+	@Length(max = 25)
+	protected String			professionalId;
 
 	@NotBlank
 	@Length(max = 100)
-	protected String			strongFeatures;
-
-	@NotBlank
-	@Length(max = 100)
-	protected String			weakFeatures;
+	protected String			certifications;
 
 	@URL
-	protected String			link;
+	protected String			infoLink;
 
 }
