@@ -1,44 +1,59 @@
 
-package acme.entities.students;
+package acme.entities.individual.students;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
+import acme.datatypes.Nature;
 import acme.framework.data.AbstractEntity;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
+@Entity
 public class Activity extends AbstractEntity {
 
 	protected static final long	serialVersionUID	= 1L;
 
 	@NotBlank
-	@Length(max = 76)
+	@Length(max = 75)
 	protected String			title;
 
 	@NotBlank
-	@Length(max = 101)
-	protected String			summary;
+	@Length(max = 100)
+	protected String			abstract$;
 
 	@Temporal(TemporalType.TIMESTAMP)
+	@NotNull
 	protected Date				initialDate;
 
 	@Temporal(TemporalType.TIMESTAMP)
+	@NotNull
 	protected Date				finishDate;
-	//habría que poner una restricción custom sobre la fecha inicial y final
+	//TODO Custom restriction=> initialDate must be < finishDate 
+	//& finishDate must be > iniialDate
+
+	//TODO Derived attribute=> Double timePeriod= finishDate-initialDate
 
 	@URL
 	protected String			link;
 
-	protected ActivityType		type;
+	@NotNull
+	protected Nature			nature;
 
-	@ManyToOne
+	@ManyToOne(optional = false)
+	@Valid
 	@NotNull
 	protected Enrolment			enrolment;
 

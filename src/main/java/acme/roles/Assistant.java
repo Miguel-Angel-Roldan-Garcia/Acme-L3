@@ -15,15 +15,15 @@ public class Assistant extends AbstractRole {
 	private static final long	serialVersionUID	= 1L;
 
 	@NotBlank
-	@Length(min = 1, max = 101)
+	@Length(max = 75)
 	protected String			supervisor;
 
 	@NotBlank
-	@Length(min = 1, max = 101)
+	@Length(max = 100)
 	protected String			expertiseFields;
 
 	@NotBlank
-	@Length(min = 1, max = 101)
+	@Length(max = 100)
 	protected String			resume;
 
 	@URL
