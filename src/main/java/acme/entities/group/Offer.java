@@ -3,6 +3,7 @@ package acme.entities.group;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.Min;
@@ -15,7 +16,12 @@ import org.hibernate.validator.constraints.URL;
 
 import acme.framework.components.datatypes.Money;
 import acme.framework.data.AbstractEntity;
+import lombok.Getter;
+import lombok.Setter;
 
+@Entity
+@Getter
+@Setter
 public class Offer extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------------------------
