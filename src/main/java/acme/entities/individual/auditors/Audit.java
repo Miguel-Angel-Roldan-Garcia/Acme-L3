@@ -11,7 +11,6 @@ import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
 
-import acme.entities.individual.lectures.Course;
 import acme.framework.data.AbstractEntity;
 import acme.roles.Auditor;
 import lombok.Getter;
@@ -49,11 +48,6 @@ public class Audit extends AbstractEntity {
 	//TODO implement complex derived attribute mark mode
 
 	// Relationships -------------------------------------------
-
-	@NotNull
-	@Valid
-	@ManyToOne(optional = false)
-	protected Course			course;
 
 	@NotNull
 	@Valid

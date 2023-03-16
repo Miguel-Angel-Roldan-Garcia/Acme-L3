@@ -46,8 +46,8 @@ public class AuditingRecord extends AbstractEntity {
 	@URL
 	protected String			link;
 
-	//	@NotNull
-	//	protected String			mark;
+	@NotNull
+	protected String			mark;
 
 	// Relationships ----------------------------------------------------------
 
