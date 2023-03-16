@@ -35,7 +35,7 @@ public class PracticumSession extends AbstractEntity {
 
 	@NotBlank
 	@Length(max = 100)
-	protected String _abstract;
+	protected String abstract$;
 
 	/* TODO Custom restriction label D02-S4-6 */
 	@NotNull
