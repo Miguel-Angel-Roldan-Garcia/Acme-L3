@@ -1,37 +1,29 @@
 
 package acme.forms.individual.assistants;
 
+import java.util.Map;
+
 import acme.framework.data.AbstractForm;
 
 public class AssistantDashboard extends AbstractForm {
 
 	// Serialisation identifier -----------------------------------------------
 
-	private static final long	serialVersionUID	= 1L;
+	private static final long		serialVersionUID	= 1L;
 
 	// Attributes -------------------------------------------------------------
 
-	protected Integer			totalNumberOfTheoryCourses;
-
-	protected Integer			totalNumberOfHandsOnCourses;
+	// Possible keys: Theory, HandsOn
+	protected Map<String, Integer>	totalNumberOfCourses;
 
 	// Session related attributes ---------------------------------------------
 
-	protected Double			averageTimeOfSessions;
-
-	protected Double			deviationTimeOfSessions;
-
-	protected Double			minimumTimeOfSessions;
-
-	protected Double			maximumTimeOfSessions;
+	// Possible keys: average, deviation, maximum, minimum
+	protected Map<String, Integer>	timeOfSessions;
 
 	// Tutorial related attributes --------------------------------------------
 
-	protected Double			averageTimeOfTutorials;
+	// Possible keys: average, deviation, maximum, minimum
+	protected Map<String, Integer>	timeOfTutorials;
 
-	protected Double			deviationTimeOfTutorials;
-
-	protected Double			minimumTimeOfTutorials;
-
-	protected Double			maximumTimeOfTutorials;
 }
