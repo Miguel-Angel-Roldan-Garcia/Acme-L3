@@ -1,4 +1,4 @@
-key,title,_abstract,nature,start-date,end-date,link,key:tutorial
+key,title,abstract$,nature,start-date,end-date,link,key:tutorial
 tutorial-session-01,First session,This session will act as part of the tutorial 1 sample,THEORETICAL,2022/08/10 15:00,2022/08/10 17:00,https://Acme-L3.es/tutorial-sessions,tutorial-01
 tutorial-session-02,Primera sesión,This session will act as part of the tutorial 1 sample,THEORETICAL,2022/08/10 15:00,2022/08/10 17:00,https://Acme-L3.es/tutorial-sessions,tutorial-01
 tutorial-session-03,Πρώτο μάθημα,This session will act as part of the tutorial 1 sample,THEORETICAL,2022/08/10 15:00,2022/08/10 17:00,https://Acme-L3.es/tutorial-sessions,tutorial-01
