@@ -1,5 +1,5 @@
 
-package acme.forms.students;
+package acme.forms.individual.students;
 
 import lombok.Getter;
 import lombok.Setter;

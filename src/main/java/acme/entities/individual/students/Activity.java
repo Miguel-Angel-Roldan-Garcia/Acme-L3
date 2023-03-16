@@ -1,5 +1,5 @@
 
-package acme.entities.students;
+package acme.entities.individual.students;
 
 import java.util.Date;
 

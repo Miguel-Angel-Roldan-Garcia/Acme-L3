@@ -1,9 +1,9 @@
 
-package acme.forms.students;
+package acme.forms.individual.students;
 
 import java.util.Map;
 
-import acme.entities.students.Enrolment;
+import acme.entities.individual.students.Enrolment;
 import acme.framework.data.AbstractForm;
 import lombok.Getter;
 import lombok.Setter;
