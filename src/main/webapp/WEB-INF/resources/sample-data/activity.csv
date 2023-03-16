@@ -1,4 +1,4 @@
-key,key:enrolment,title,abstract$,initialDate,finishDate,link,nature
+key,key:enrolment,title,abstract$,initial_date,finish_date,link,nature
 activity-01,enrolment-01,"75 caracteres tiene este largo y extenso texto para tener datos variablesss","abstracto",2010/10/30 20:59,2000/01/01 10:30,http://ev.us,THEORETICAL
 activity-02,enrolment-01,.,"abstracto",2010/10/30 20:59,2000/01/01 00:00,http://ev.us,HANDS_ON
 activity-03,enrolment-01,esta es la mitad de caracteres limites,"abstracto",2021/11/30 23:58,2001/01/01 10:30,http://ev.us,HANDS_ON
