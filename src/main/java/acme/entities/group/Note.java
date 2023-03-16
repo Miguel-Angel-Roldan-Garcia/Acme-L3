@@ -28,7 +28,7 @@ public class Note extends AbstractEntity {
 	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
 	@PastOrPresent
-	protected Date				moment;
+	protected Date				instantiationMoment;
 	//TODO moment must be save with -1 milisecond
 
 	@NotBlank
