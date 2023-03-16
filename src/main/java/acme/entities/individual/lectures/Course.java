@@ -24,37 +24,38 @@ import lombok.Setter;
 @Setter
 public class Course extends AbstractEntity {
 
-    // Serialisation identifier -----------------------------------------------
+	// Serialisation identifier -----------------------------------------------
 
-    protected static final long serialVersionUID = 1L;
+	protected static final long	serialVersionUID	= 1L;
 
-    // Attributes -------------------------------------------------------------
+	// Attributes -------------------------------------------------------------
 
-    @NotBlank
-    @Column(unique = true)
-    @Pattern(regexp = "^[A-Z]{1,3}[0-9]{3}$")
-    protected String code;
+	@NotBlank
+	@Column(unique = true)
+	@Pattern(regexp = "^[A-Z]{1,3}[0-9]{3}$")
+	protected String			code;
 
-    @NotBlank
-    @Length(max = 75)
-    protected String title;
+	@NotBlank
+	@Length(max = 75)
+	protected String			title;
 
-    @NotBlank
-    @Length(max = 100)
-    protected String _abstract;
+	@NotBlank
+	@Length(max = 100)
+	protected String			abstract$;
 
-    @NotNull
-    @Min(0)
-    protected Money retailPrice;
+	@NotNull
+	@Min(0)
+	protected Money				retailPrice;
 
-    @URL
-    protected String link;
+	@URL
+	protected String			link;
 
-    // Derived attributes -----------------------------------------------------
-        /* TODO Derived attribute courseNature */
-    // Relationships ----------------------------------------------------------
-    @NotNull
-    @Valid
-    @ManyToOne(optional = false)
-    protected Lecturer lecturer;
+	// Derived attributes -----------------------------------------------------
+	/* TODO Derived attribute courseNature */
+
+	// Relationships ----------------------------------------------------------
+	@NotNull
+	@Valid
+	@ManyToOne(optional = false)
+	protected Lecturer			lecturer;
 }
