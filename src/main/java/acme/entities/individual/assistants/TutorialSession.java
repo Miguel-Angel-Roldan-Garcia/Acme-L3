@@ -36,7 +36,7 @@ public class TutorialSession extends AbstractEntity {
 
 	@NotBlank
 	@Length(max = 100)
-	protected String			_abstract;
+	protected String			abstract$;
 
 	@NotNull
 	protected Nature			nature;
