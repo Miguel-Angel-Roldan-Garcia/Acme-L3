@@ -3,6 +3,8 @@ package acme.forms.individual.assistants;
 
 import java.util.Map;
 
+import acme.datatypes.Nature;
+import acme.datatypes.Statistic;
 import acme.framework.data.AbstractForm;
 
 public class AssistantDashboard extends AbstractForm {
@@ -14,16 +16,16 @@ public class AssistantDashboard extends AbstractForm {
 	// Attributes -------------------------------------------------------------
 
 	// Possible keys: Theory, HandsOn
-	protected Map<String, Integer>	totalNumberOfCourses;
+	protected Map<Nature, Integer>	courseCount;
 
 	// Session related attributes ---------------------------------------------
 
 	// Possible keys: average, deviation, maximum, minimum
-	protected Map<String, Integer>	timeOfSessions;
+	protected Statistic				timeInSession;
 
 	// Tutorial related attributes --------------------------------------------
 
 	// Possible keys: average, deviation, maximum, minimum
-	protected Map<String, Integer>	timeOfTutorials;
+	protected Statistic				timeInTutorial;
 
 }

@@ -6,7 +6,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class Stadistics {
+public class Statistic {
 
 	Integer	count;
 	Double	maxValue;

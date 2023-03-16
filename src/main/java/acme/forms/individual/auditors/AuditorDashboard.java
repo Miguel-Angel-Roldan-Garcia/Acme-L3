@@ -1,31 +1,23 @@
 
 package acme.forms.individual.auditors;
 
+import java.util.Map;
+
+import acme.datatypes.Nature;
+import acme.datatypes.Statistic;
 import acme.framework.data.AbstractForm;
 
 public class AuditorDashboard extends AbstractForm {
 
 	// Serialisation identifier -----------------------------------------------
-	private static final long	serialVersionUID	= 1L;
+	private static final long		serialVersionUID	= 1L;
 
 	// Attributes -------------------------------------------------------
 
-	protected Integer			totalAudits;
+	protected Map<Nature, Integer>	auditCount;
 
-	protected Double			averageAuditingRecordPerAudit;
+	protected Statistic				auditingRecordInAudit;
 
-	protected Double			deviationAuditingRecordPerAudit;
-
-	protected Double			minimumAuditingRecordPerAudit;
-
-	protected Double			maximumAuditingRecordPerAudit;
-
-	protected Double			averageAuditPeriod;
-
-	protected Double			deviationAuditPeriod;
-
-	protected Double			minimumAuditPeriod;
-
-	protected Double			maximumAuditPeriod;
+	protected Statistic				periodLengthInAuditingRecord;
 
 }
