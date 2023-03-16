@@ -1,6 +1,8 @@
 key,enabled,identity,password,username
 user-account-anonymous-01,false,"UserIdentity{name: 'John', surname: 'Doe', email: 'john.doe@acme.com'}",HIDDEN-PASSWORD,anonymous
 user-account-administrator-01,true,"UserIdentity{name: 'Administrator', surname: 'Acme', email: 'administrator@acme.com'}",administrator,administrator
+user-account-administrator-02,true,"UserIdentity{name: 'Administrator', surname: '1', email: 'administrator1@acme.com'}",administrator1,administrator1
+user-account-administrator-03,true,"UserIdentity{name: 'Administrator', surname: '2', email: 'administrator2@acme.com'}",administrator2,administrator2
 user-account-student-01,true,"UserIdentity{name: 'Andres', surname: 'Dominguez', email: 'student01@gmail.com'}",student1,student1
 user-account-student-02,true,"UserIdentity{name: 'Javier', surname: 'Gonzalez', email: 'student02@gmail.com'}",student2,student2
 user-account-company-01,true,"UserIdentity{name: 'Javier', surname: 'Fernández', email: 'company01@gmail.com'}",company1,company1
@@ -9,4 +11,7 @@ user-account-lecturer-01,true,"UserIdentity{name: 'Manuel', surname: 'Otero', em
 user-account-lecturer-02,true,"UserIdentity{name: 'Maria', surname: 'Barbasan', email: 'lecturer02@gmail.com'}",lecturer2,lecturer2
 user-account-assistant-01,true,"UserIdentity{name: 'assistant', surname: '1', email: 'assistant01@acme.com'}",assistant1,assistant1
 user-account-assistant-02,true,"UserIdentity{name: 'assistant', surname: '2', email: 'assistant02@acme.com'}",assistant2,assistant2
+user-account-assistant-03,true,"UserIdentity{name: 'assistant', surname: 'sample-data', email: 'assistantSampleData@acme.com'}",assistantSD,assistant
+user-account-auditor-01,true,"UserIdentity{name: 'auditor', surname: '1', email: 'auditor01@acme.com'}",auditor1,auditor1
+user-account-auditor-02,true,"UserIdentity{name: 'auditor', surname: '2', email: 'auditor02@acme.com'}",auditor2,auditor2
 user-account-assistant-03,true,"UserIdentity{name: 'assistant', surname: 'sample-data', email: 'assistantSampleData@acme.com'}",assistantSD,assistant
