@@ -1,4 +1,3 @@
-
 package acme.entities.individual.lectures;
 
 import javax.persistence.Entity;
