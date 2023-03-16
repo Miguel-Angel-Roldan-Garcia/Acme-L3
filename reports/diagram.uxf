@@ -246,4 +246,24 @@ Offer
 +price: Money{Min(0)}
 +link: String{URL}
 
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>2394</x><y>1395</y><w>423</w><h>171</h></coordinates><panel_attributes>&lt;&lt;Entity&gt;&gt;
+Peep
+--
++id: int
++instantiationMoment: Date{Temporal(TIMESTAMP), NotNull, PastOrPresent}
++title: String{NotBlank,Length(0,75)}
++nick: String{NotBlank,Length(0,75)}
++message: String{NotBlank,Length(0,100)}
++email: String{Email}
++link: String{URL}
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>2385</x><y>1593</y><w>423</w><h>117</h></coordinates><panel_attributes>&lt;&lt;Entity&gt;&gt;
+SystemConfiguration
+--
++id: int
+
++currency: String{NotBlank}
++acceptedCurrencies: String{NotBlank}
+
+
 </panel_attributes><additional_attributes></additional_attributes></element></diagram>
