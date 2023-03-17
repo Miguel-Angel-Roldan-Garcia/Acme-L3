@@ -1,6 +1,8 @@
 package acme.entities.individual.lectures;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.validation.Valid;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -10,6 +12,7 @@ import org.hibernate.validator.constraints.URL;
 
 import acme.datatypes.Nature;
 import acme.framework.data.AbstractEntity;
+import acme.roles.Lecturer;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -30,11 +33,12 @@ public class Lecture extends AbstractEntity {
 
     @NotBlank
     @Length(max = 100)
-    protected String abstract1; // abstract can not be used
+    protected String abstract$; // abstract can not be used
 
     @NotNull
     @Min(1)
-    protected Integer estimatedLearningTime;
+    // hours with decimal values: 1.5 means 1h30min
+    protected Double estimatedLearningTime;
 
     @NotBlank
     @Length(max = 100)
@@ -46,4 +50,10 @@ public class Lecture extends AbstractEntity {
     @URL
     protected String link;
 
+    // Relationships ----------------------------------------------------------
+
+    @NotNull
+    @Valid
+    @ManyToOne(optional = false)
+    protected Lecturer lecturer;
 }

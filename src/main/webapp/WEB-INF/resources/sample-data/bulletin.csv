@@ -1,0 +1,21 @@
+key,instantiationMoment,title,message,critical,link
+bulletin-01,2022/04/13 12:00,.,.,true,null
+bulletin-02,2022/07/30 00:00,.,.,true,null
+bulletin-03,2022/04/13 12:00,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,.,true,null
+bulletin-04,2022/04/13 12:00,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,.,true,null
+bulletin-05,2022/04/13 12:00,a,.,true,null
+bulletin-06,2022/04/13 12:00,aa,.,true,null
+bulletin-07,2022/04/13 12:00,"<script>alert(""hi!"")</script>",.,true,null
+bulletin-08,2022/04/13 12:00,<h1> Hola </h1>,.,true,null
+bulletin-09,2022/04/13 12:00,%$&jo48Ç,.,true,null
+bulletin-10,2022/04/13 12:00,いすてくき,.,true,null
+bulletin-11,2022/04/13 12:00,.,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,true,null
+bulletin-12,2022/04/13 12:00,.,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,true,null
+bulletin-13,2022/04/13 12:00,.,a,true,null
+bulletin-14,2022/04/13 12:00,.,aa,true,null
+bulletin-15,2022/04/13 12:00,.,"<script>alert(""hi!"")</script>",true,null
+bulletin-16,2022/04/13 12:00,.,<h1> Hola </h1>,true,null
+bulletin-17,2022/04/13 12:00,.,%$&jo48Ç,true,null
+bulletin-18,2022/04/13 12:00,.,いすてくき,true,null
+bulletin-19,2022/04/13 12:00,.,.,false,null
+bulletin-20,2022/04/13 12:00,.,.,true,https://www.moxfield.com/
