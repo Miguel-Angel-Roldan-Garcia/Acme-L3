@@ -15,17 +15,14 @@ public class AssistantDashboard extends AbstractForm {
 
 	// Attributes -------------------------------------------------------------
 
-	// Possible keys: Theory, HandsOn
-	protected Map<Nature, Integer>	courseCount;
+	protected Map<Nature, Integer>	tutorialCount;
 
 	// Session related attributes ---------------------------------------------
 
-	// Possible keys: average, deviation, maximum, minimum
-	protected Statistic				timeInSession;
+	protected Statistic				SessionTimeStatistics;
 
 	// Tutorial related attributes --------------------------------------------
 
-	// Possible keys: average, deviation, maximum, minimum
-	protected Statistic				timeInTutorial;
+	protected Statistic				tutorialTimeStatistics;
 
 }
