@@ -14,6 +14,17 @@ Year 2023
 23.1.1  Getting started on the project with Acme-One configuration.
 23.1.2  Configured as Acme-L3-D01 for the first delivery. 
 23.1.3  Added the D01 reports and prepared for release.
+23.2.0  Database and config changed to D02
+		Implemented Lecturer, Student, Assistant and Company roles.
+23.2.1  Implemented Auditor role. Implemented note, activity, enrolment, lecture, 
+		course, practicum, practicum session and company dashboard.
+23.2.2  Implemented banner, tutorial, tutorial session, assistant dashboard course, audit, 
+		auditing record and auditor dashboard.
+23.2.3  Implemented offer. Reorganized the main structure of the project to better 
+		navigate through the different student and group entities, as well as the
+		other classes.
+23.2.4  Lots of minor fixes. Added sample data. Implemented administrator dashboard, 
+		system configuration and bulletin.
 
 Year 2022
 

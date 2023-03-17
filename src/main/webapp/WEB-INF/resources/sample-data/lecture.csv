@@ -1,3 +1,47 @@
-key,title,abstract1,estimatedLearningTime,body,nature,link
-lecture-01,DP2,Conceptos básicos,60,pruebas de sistemas de información web,HANDS_ON,https://www.eii.us.es/pub/plan_estudios/asignatura.php?codasig=2050049
-lecture-02,AE,This is a description,60,This is a body,THEORETICAL,https://www.eii.us.es/pub/plan_estudios/asignatura.php?codasig=2050006
+key,title,abstract$,estimated-learning-time,body,nature,link,key:lecturer
+lecture-1,Matematicas Discretas,Grafos y algoritmos,1.59,Asignatura basada en IMD,THEORETICAL,https://www.amazon.es,lecturer-1
+lecture-2,a,Grafos y algoritmos,1.59,Asignatura basada en IMD,THEORETICAL,https://www.amazon.es,lecturer-1
+lecture-3,bb,Grafos y algoritmos,1.59,Asignatura basada en IMD,THEORETICAL,https://www.amazon.es,lecturer-1
+lecture-4,Medium sized text,Grafos y algoritmos,1.59,Asignatura basada en IMD,THEORETICAL,https://www.amazon.es,lecturer-1
+lecture-5,yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy,Grafos y algoritmos,1.59,Asignatura basada en IMD,THEORETICAL,https://www.amazon.es,lecturer-1
+lecture-6,zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz,Grafos y algoritmos,1.59,Asignatura basada en IMD,THEORETICAL,https://www.amazon.es,lecturer-1
+lecture-7,$$%^&*!@#$%^&*()?.,Grafos y algoritmos,1.59,Asignatura basada en IMD,THEORETICAL,https://www.amazon.es,lecturer-1
+lecture-8,Първи урок,Grafos y algoritmos,1.59,Asignatura basada en IMD,THEORETICAL,https://www.amazon.es,lecturer-1
+lecture-9,español y tíldes,Grafos y algoritmos,1.59,Asignatura basada en IMD,THEORETICAL,https://www.amazon.es,lecturer-1
+lecture-10,<h1>hello there<h1>,Grafos y algoritmos,1.59,Asignatura basada en IMD,THEORETICAL,https://www.amazon.es,lecturer-1
+lecture-11,<script>alert('hi')</script>,Grafos y algoritmos,1.59,Asignatura basada en IMD,THEORETICAL,https://www.amazon.es,lecturer-1
+lecture-12,45,Grafos y algoritmos,1.59,Asignatura basada en IMD,THEORETICAL,https://www.amazon.es,lecturer-1
+lecture-13,Matematicas Discretas,a,1.59,Asignatura basada en IMD,THEORETICAL,https://www.amazon.es,lecturer-1
+lecture-14,Matematicas Discretas,bb,1.59,Asignatura basada en IMD,THEORETICAL,https://www.amazon.es,lecturer-1
+lecture-15,Matematicas Discretas,Medium sized text,1.59,Asignatura basada en IMD,THEORETICAL,https://www.amazon.es,lecturer-1
+lecture-16,Matematicas Discretas,yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy,1.59,Asignatura basada en IMD,THEORETICAL,https://www.amazon.es,lecturer-1
+lecture-17,Matematicas Discretas,zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz,1.59,Asignatura basada en IMD,THEORETICAL,https://www.amazon.es,lecturer-1
+lecture-18,Matematicas Discretas,$$%^&*!@#$%^&*()?.,1.59,Asignatura basada en IMD,THEORETICAL,https://www.amazon.es,lecturer-1
+lecture-19,Matematicas Discretas,Първи урок,1.59,Asignatura basada en IMD,THEORETICAL,https://www.amazon.es,lecturer-1
+lecture-20,Matematicas Discretas,español y tíldes,1.59,Asignatura basada en IMD,THEORETICAL,https://www.amazon.es,lecturer-1
+lecture-21,Matematicas Discretas,<h1>hello there<h1>,1.59,Asignatura basada en IMD,THEORETICAL,https://www.amazon.es,lecturer-1
+lecture-22,Matematicas Discretas,<script>alert('hi')</script>,1.59,Asignatura basada en IMD,THEORETICAL,https://www.amazon.es,lecturer-1
+lecture-23,Matematicas Discretas,45,1.59,Asignatura basada en IMD,THEORETICAL,https://www.amazon.es,lecturer-1
+lecture-24,Matematicas Discretas,Grafos y algoritmos,1.00,Asignatura basada en IMD,THEORETICAL,https://www.amazon.es,lecturer-1
+lecture-25,Matematicas Discretas,Grafos y algoritmos,1.01,Asignatura basada en IMD,THEORETICAL,https://www.amazon.es,lecturer-1
+lecture-26,Matematicas Discretas,Grafos y algoritmos,8.5E307,Asignatura basada en IMD,THEORETICAL,https://www.amazon.es,lecturer-1
+lecture-27,Matematicas Discretas,Grafos y algoritmos,1.7E308,Asignatura basada en IMD,THEORETICAL,https://www.amazon.es,lecturer-1
+lecture-28,Matematicas Discretas,Grafos y algoritmos,1.7E308,Asignatura basada en IMD,THEORETICAL,https://www.amazon.es,lecturer-1
+lecture-29,Matematicas Discretas,Grafos y algoritmos,1.59,a,THEORETICAL,https://www.amazon.es,lecturer-1
+lecture-30,Matematicas Discretas,Grafos y algoritmos,1.59,bb,THEORETICAL,https://www.amazon.es,lecturer-1
+lecture-31,Matematicas Discretas,Grafos y algoritmos,1.59,Medium sized text,THEORETICAL,https://www.amazon.es,lecturer-1
+lecture-32,Matematicas Discretas,Grafos y algoritmos,1.59,yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy,THEORETICAL,https://www.amazon.es,lecturer-1
+lecture-33,Matematicas Discretas,Grafos y algoritmos,1.59,zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz,THEORETICAL,https://www.amazon.es,lecturer-1
+lecture-34,Matematicas Discretas,Grafos y algoritmos,1.59,$$%^&*!@#$%^&*()?.,THEORETICAL,https://www.amazon.es,lecturer-1
+lecture-35,Matematicas Discretas,Grafos y algoritmos,1.59,Първи урок,THEORETICAL,https://www.amazon.es,lecturer-1
+lecture-36,Matematicas Discretas,Grafos y algoritmos,1.59,español y tíldes,THEORETICAL,https://www.amazon.es,lecturer-1
+lecture-37,Matematicas Discretas,Grafos y algoritmos,1.59,<h1>hello there<h1>,THEORETICAL,https://www.amazon.es,lecturer-1
+lecture-38,Matematicas Discretas,Grafos y algoritmos,1.59,<script>alert('hi')</script>,THEORETICAL,https://www.amazon.es,lecturer-1
+lecture-39,Matematicas Discretas,Grafos y algoritmos,1.59,45,THEORETICAL,https://www.amazon.es,lecturer-1
+lecture-40,Matematicas Discretas,Grafos y algoritmos,1.59,Asignatura basada en IMD,HANDS_ON,https://www.amazon.es,lecturer-1
+lecture-41,Matematicas Discretas,Grafos y algoritmos,1.59,Asignatura basada en IMD,THEORETICAL,https://www.amazon.es,lecturer-1
+lecture-42,Matematicas Discretas,Grafos y algoritmos,1.59,Asignatura basada en IMD,THEORETICAL,https://example.com/path?query#fragment,lecturer-1
+lecture-43,Matematicas Discretas,Grafos y algoritmos,1.59,Asignatura basada en IMD,THEORETICAL,https://xn--e1afmkfd.xn--80akhbyknj4f,lecturer-1
+lecture-44,Matematicas Discretas,Grafos y algoritmos,1.59,Asignatura basada en IMD,THEORETICAL,https://www.example.com/~user,lecturer-1
+lecture-45,Matematicas Discretas,Grafos y algoritmos,1.59,Asignatura basada en IMD,THEORETICAL,ftp://ftp.example.com/pub/file.tar.gz,lecturer-1
+lecture-46,Matematicas Discretas,Grafos y algoritmos,1.59,Asignatura basada en IMD,THEORETICAL,https://example.com/path with spaces,lecturer-1

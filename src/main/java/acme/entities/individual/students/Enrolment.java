@@ -6,10 +6,12 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
 
+import acme.entities.individual.lectures.Course;
 import acme.framework.data.AbstractEntity;
 import acme.roles.Student;
 import lombok.Getter;
@@ -24,11 +26,11 @@ public class Enrolment extends AbstractEntity {
 
 	@Column(unique = true)
 	@NotBlank
-	@Pattern(regexp = "[A-Z]{1,3}[0-9]{3}")
+	@Pattern(regexp = "^[A-Z]{1,3}[0-9]{3}$")
 	protected String			code;
 
 	@NotBlank
-	@Length(max = 70)
+	@Length(max = 75)
 	protected String			motivation;
 
 	@NotBlank
@@ -37,6 +39,16 @@ public class Enrolment extends AbstractEntity {
 
 	@ManyToOne(optional = false)
 	@Valid
+	@NotNull
 	protected Student			student;
 
+	protected boolean			draftMode;
+
+	@ManyToOne(optional = false)
+	@Valid
+	@NotNull
+	protected Course			course;
+
+	//TODO Derived attribute=> Double workingTime=
+	//sum(timePeriod of all of their activities)
 }

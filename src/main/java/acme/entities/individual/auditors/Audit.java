@@ -2,15 +2,24 @@
 package acme.entities.individual.auditors;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
 
+import acme.entities.individual.lectures.Course;
 import acme.framework.data.AbstractEntity;
+import acme.roles.Auditor;
+import lombok.Getter;
+import lombok.Setter;
 
+@Entity
+@Setter
+@Getter
 public class Audit extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------
@@ -19,7 +28,7 @@ public class Audit extends AbstractEntity {
 	// Attributes -------------------------------------------
 
 	@NotBlank
-	@Pattern(regexp = "[A-Z]{1,3}[0-9]{3}")
+	@Pattern(regexp = "^[A-Z]{1,3}[0-9]{3}$")
 	@Column(unique = true)
 	protected String			code;
 
@@ -41,7 +50,13 @@ public class Audit extends AbstractEntity {
 
 	// Relationships -------------------------------------------
 
+	@NotNull
 	@Valid
 	@ManyToOne(optional = false)
-	protected AuditingRecord	auditingRecord;
+	protected Course			course;
+
+	@NotNull
+	@Valid
+	@ManyToOne(optional = false)
+	protected Auditor			auditor;
 }

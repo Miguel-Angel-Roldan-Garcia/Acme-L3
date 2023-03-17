@@ -35,7 +35,7 @@ public class PracticumSession extends AbstractEntity {
 
 	@NotBlank
 	@Length(max = 100)
-	protected String _abstract;
+	protected String abstract$;
 
 	/* TODO Custom restriction label D02-S4-6 */
 	@NotNull
@@ -45,7 +45,7 @@ public class PracticumSession extends AbstractEntity {
 	/* TODO Custom restriction label D02-S4-6 */
 	@NotNull
 	@Temporal(TemporalType.DATE)
-	protected Date finishDate;
+	protected Date endDate;
 
 	@URL
 	protected String link;
@@ -54,6 +54,7 @@ public class PracticumSession extends AbstractEntity {
 
 	// Relationships ----------------------------------------------------------
 
+	@NotNull
 	@Valid
 	@ManyToOne(optional = false)
 	protected Practicum practicum;

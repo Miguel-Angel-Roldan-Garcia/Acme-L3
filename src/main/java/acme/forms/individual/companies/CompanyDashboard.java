@@ -1,8 +1,7 @@
+
 package acme.forms.individual.companies;
 
-import java.util.Map;
-
-import acme.entities.individual.companies.Practicum;
+import acme.datatypes.Statistic;
 import acme.framework.data.AbstractForm;
 
 public class CompanyDashboard extends AbstractForm {
@@ -12,26 +11,12 @@ public class CompanyDashboard extends AbstractForm {
 
 	// Attributes -------------------------------------------------------
 
-	protected Map<String, Integer> totalPracticumByMonthInLastYear;
+	protected Integer[] practicumCountByMonth;
 
-	// Session duration per practicum
+	// Session and practicum duration
 
-	protected Map<Practicum, Double> averageSessionsDurationPerPracticum;
+	protected Statistic practicumPeriodLenght;
 
-	protected Map<Practicum, Double> deviationSessionsDurationPerPracticum;
-
-	protected Map<Practicum, Double> minimumSessionDurationPerPracticum;
-
-	protected Map<Practicum, Double> maximumSessionDurationPerPracticum;
-
-	// Practicum duration
-
-	protected double averagePracticumDuration;
-
-	protected double deviationPracticumDuration;
-
-	protected double minimumPracticumDuration;
-
-	protected double maximumPracticumDuration;
+	protected Statistic practicumSessionsPeriodLenght;
 
 }
