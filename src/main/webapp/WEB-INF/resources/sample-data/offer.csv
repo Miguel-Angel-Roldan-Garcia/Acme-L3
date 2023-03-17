@@ -1,0 +1,40 @@
+key,heading,summary,instantiation_moment,availabilityPeriodStartDate,availabilityPeriodEndDate,price,link
+offer-01,Cabecera de la oferta,resumen de la oferta,2021/08/08 15:00,2021/08/10 15:00,2021/08/20 17:00,1000.24 EUR,https://www.amazon.es
+offer-02,a,resumen de la oferta,2021/08/08 15:00,2021/08/10 15:00,2021/08/20 17:00,1000.24 EUR,https://www.amazon.es
+offer-03,aa,resumen de la oferta,2021/08/08 15:00,2021/08/10 15:00,2021/08/20 17:00,1000.24 EUR,https://www.amazon.es
+offer-04,74 caracteres: Cabecera muy larga Cabecera muy larga Cabecera muy larga!!!,resumen de la oferta,2021/08/08 15:00,2021/08/10 15:00,2021/08/20 17:00,1000.24 EUR,https://www.amazon.es
+offer-05,75 caracteres: Cabecera muy larga Cabecera muy larga Cabecera muy larga!!!!,resumen de la oferta,2021/08/08 15:00,2021/08/10 15:00,2021/08/20 17:00,1000.24 EUR,https://www.amazon.es
+offer-06,<h1>hi</h1>,resumen de la oferta,2021/08/08 15:00,2021/08/10 15:00,2021/08/20 17:00,1000.24 EUR,https://www.amazon.es
+offer-07,"<script>alert(""""hi"""")</script>",resumen de la oferta,2021/08/08 15:00,2021/08/10 15:00,2021/08/20 17:00,1000.24 EUR,https://www.amazon.es
+offer-08,@#?¿><&¬!|¡'`+*-_{}[]^ªº\/=()%$·,resumen de la oferta,2021/08/08 15:00,2021/08/10 15:00,2021/08/20 17:00,1000.24 EUR,https://www.amazon.es
+offer-09,你好,resumen de la oferta,2021/08/08 15:00,2021/08/10 15:00,2021/08/20 17:00,1000.24 EUR,https://www.amazon.es
+offer-10,Всем привет,resumen de la oferta,2021/08/08 15:00,2021/08/10 15:00,2021/08/20 17:00,1000.24 EUR,https://www.amazon.es
+offer-11,Cabecera de la oferta,a,2021/08/08 15:00,2021/08/10 15:00,2021/08/20 17:00,1000.24 EUR,https://www.amazon.es
+offer-12,Cabecera de la oferta,aa,2021/08/08 15:00,2021/08/10 15:00,2021/08/20 17:00,1000.24 EUR,https://www.amazon.es
+offer-13,Cabecera de la oferta,100 caracteres: Resumen muy largo Resumen muy largo Resumen muy largo Resumen muy largo Resumen!!!!!,2021/08/08 15:00,2021/08/10 15:00,2021/08/20 17:00,1000.24 EUR,https://www.amazon.es
+offer-14,Cabecera de la oferta,99 caracteres: Resumen muy largo Resumen muy largo Resumen muy largo Resumen muy largo Resumen!!!!!,2021/08/08 15:00,2021/08/10 15:00,2021/08/20 17:00,1000.24 EUR,https://www.amazon.es
+offer-15,Cabecera de la oferta,<h1>hi</h1>,2021/08/08 15:00,2021/08/10 15:00,2021/08/20 17:00,1000.24 EUR,https://www.amazon.es
+offer-16,Cabecera de la oferta,"<script>alert(""""hi"""")</script>",2021/08/08 15:00,2021/08/10 15:00,2021/08/20 17:00,1000.24 EUR,https://www.amazon.es
+offer-17,Cabecera de la oferta,@#?¿><&¬!|¡'`+*-_{}[]^ªº\/=()%$·,2021/08/08 15:00,2021/08/10 15:00,2021/08/20 17:00,1000.24 EUR,https://www.amazon.es
+offer-18,Cabecera de la oferta,你好,2021/08/08 15:00,2021/08/10 15:00,2021/08/20 17:00,1000.24 EUR,https://www.amazon.es
+offer-19,Cabecera de la oferta,Всем привет,2021/08/08 15:00,2021/08/10 15:00,2021/08/20 17:00,1000.24 EUR,https://www.amazon.es
+offer-20,Cabecera de la oferta,resumen de la oferta,2020/08/09 15:00,2020/08/10 15:00,2020/08/17 17:00,1000.24 EUR,https://www.amazon.es
+offer-21,Cabecera de la oferta,resumen de la oferta,2019/12/31 23:59,2020/01/01 23:59,2020/01/08 23:59,1000.24 EUR,https://www.amazon.es
+offer-22,Cabecera de la oferta,resumen de la oferta,2019/12/24 23:59,2019/12/25 23:59,2020/01/01 23:59,1000.24 EUR,https://www.amazon.es
+offer-23,Cabecera de la oferta,resumen de la oferta,2019/12/24 23:59,2019/12/25 23:59,2020/01/01 23:59,1000.24 EUR,https://www.amazon.es
+offer-24,Cabecera de la oferta,resumen de la oferta,2020/05/20 12:00,2020/05/31 12:00,2020/06/25 12:00,1000.24 EUR,https://www.amazon.es
+offer-25,Cabecera de la oferta,resumen de la oferta,2021/01/20 12:00,2021/01/29 12:00,2021/02/25 12:00,1000.24 EUR,https://www.amazon.es
+offer-26,Cabecera de la oferta,resumen de la oferta,2021/08/08 15:00,2021/08/10 15:00,2021/08/20 17:00,0.01 EUR,https://www.amazon.es
+offer-27,Cabecera de la oferta,resumen de la oferta,2021/08/08 15:00,2021/08/10 15:00,2021/08/20 17:00,0.02 EUR,https://www.amazon.es
+offer-28,Cabecera de la oferta,resumen de la oferta,2021/08/08 15:00,2021/08/10 15:00,2021/08/20 17:00,9999999999.35 EUR,https://www.amazon.es
+offer-29,Cabecera de la oferta,resumen de la oferta,2021/08/08 15:00,2021/08/10 15:00,2021/08/20 17:00,99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999 EUR,https://www.amazon.es
+offer-30,Cabecera de la oferta,resumen de la oferta,2021/08/08 15:00,2021/08/10 15:00,2021/08/20 17:00,20 GBP,https://www.amazon.es
+offer-31,Cabecera de la oferta,resumen de la oferta,2021/08/08 15:00,2021/08/10 15:00,2021/08/20 17:00,20 USD,https://www.amazon.es
+offer-32,Cabecera de la oferta,resumen de la oferta,2021/08/08 15:00,2021/08/10 15:00,2021/08/20 17:00,1000.24 EUR,http://Acme-L3.es/practicum-sessions
+offer-33,Cabecera de la oferta,resumen de la oferta,2021/08/08 15:00,2021/08/10 15:00,2021/08/20 17:00,1000.24 EUR,https://example.com/path?query#fragment
+offer-34,Cabecera de la oferta,resumen de la oferta,2021/08/08 15:00,2021/08/10 15:00,2021/08/20 17:00,1000.24 EUR,https://xn--e1afmkfd.xn--80akhbyknj4f
+offer-35,Cabecera de la oferta,resumen de la oferta,2021/08/08 15:00,2021/08/10 15:00,2021/08/20 17:00,1000.24 EUR,https://https://www.example.com/~user
+offer-36,Cabecera de la oferta,resumen de la oferta,2021/08/08 15:00,2021/08/10 15:00,2021/08/20 17:00,1000.24 EUR,ftp://ftp.example.com/pub/file.tar.gz
+offer-37,Cabecera de la oferta,resumen de la oferta,2021/08/08 15:00,2021/08/10 15:00,2021/08/20 17:00,1000.24 EUR,https://example.com/path with spaces
+offer-38,Cabecera de la oferta,resumen de la oferta,2021/08/08 15:00,2021/08/10 15:00,2021/08/20 17:00,1000.24 EUR,https://Acme-L3.es/practicum-sessions?sample-query=1
+offer-39,Cabecera de la oferta,resumen de la oferta,2021/08/08 15:00,2021/08/10 15:00,2021/08/20 17:00,1000.24 EUR,null
