@@ -1,0 +1,24 @@
+key,key:student,code,motivation,goals,draft_mode,key:course
+enrolment-01,student-01,A987,"motivacion","objetivo",true,course-1
+enrolment-02,student-02,B111,"motivacion","objetivo",true,course-1
+enrolment-03,student-01,BBB347,"motivacion","objetivo",true,course-1
+enrolment-04,student-01,BB987,"a","objetivo",true,course-1
+enrolment-05,student-01,B987,"aa","objetivo",false,course-1
+enrolment-06,student-01,BA987,"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","objetivo",false,course-1
+enrolment-07,student-01,AV987,"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","objetivo",false,course-1
+enrolment-08,student-01,AR987,"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","objetivo",false,course-1
+enrolment-09,student-01,AT987,<h1>Hola</h1>,"objetivo",false,course-1
+enrolment-10,student-01,R987,<script>alert("hi")</script>,"objetivo",false,course-1
+enrolment-11,student-01,AY987,こんにちは,"objetivo",false,course-1
+enrolment-12,student-01,AH987,Здравствуйте добрый день,"objetivo",false,course-1
+enrolment-13,student-01,AWW987,)(/()%&/$%&·$%¿=)=,"objetivo",false,course-1
+enrolment-14,student-02,AJ987,"motivacion","a",false,course-1
+enrolment-15,student-02,AK987,"motivacion","aa",true,course-1
+enrolment-16,student-02,AI987,"motivacion","aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",true,course-1
+enrolment-17,student-02,AS987,"motivacion","aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",true,course-1
+enrolment-18,student-02,AM987,"motivacion","aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",true,course-1
+enrolment-19,student-01,AL987,"motivacion",<h1>Hola</h1>,false,course-1
+enrolment-20,student-01,AO987,"motivacion",<script>alert("hi")</script>,true,course-1
+enrolment-21,student-01,APP987,"motivacion",こんにちは,false,course-1
+enrolment-22,student-01,AQ987,"motivacion",Здравствуйте добрый день,false,course-1
+enrolment-23,student-01,AOO987,"motivacion",$%&$/&%(/&&)(·=?,false,course-1

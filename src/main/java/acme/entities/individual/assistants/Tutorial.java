@@ -3,12 +3,17 @@ package acme.entities.individual.assistants;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
 
+import acme.entities.individual.lectures.Course;
 import acme.framework.data.AbstractEntity;
+import acme.roles.Assistant;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -24,7 +29,7 @@ public class Tutorial extends AbstractEntity {
 	// Attributes -------------------------------------------------------------
 
 	@NotBlank
-	@Pattern(regexp = "[A-Z]{1,3}[0-9]{3}")
+	@Pattern(regexp = "^[A-Z]{1,3}[0-9]{3}$")
 	@Column(unique = true)
 	protected String			code;
 
@@ -34,16 +39,28 @@ public class Tutorial extends AbstractEntity {
 
 	@NotBlank
 	@Length(max = 100)
-	protected String			_abstract;
+	protected String			abstract$;
 
 	@NotBlank
 	@Length(max = 100)
 	protected String			goals;
+
+	protected boolean			draftMode;
 
 	// Derived attributes -----------------------------------------------------
 
 	// TODO Implement complex derived attribute estimatedTotalTime
 
 	// Relationships ----------------------------------------------------------
+
+	@NotNull
+	@Valid
+	@ManyToOne(optional = false)
+	protected Assistant			assistant;
+
+	@NotNull
+	@Valid
+	@ManyToOne(optional = false)
+	protected Course			course;
 
 }

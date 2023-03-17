@@ -3,17 +3,23 @@ package acme.entities.group;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Past;
+import javax.validation.constraints.PastOrPresent;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
 import acme.framework.data.AbstractEntity;
+import lombok.Getter;
+import lombok.Setter;
 
+@Entity
+@Getter
+@Setter
 public class Banner extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------------------------
@@ -24,19 +30,17 @@ public class Banner extends AbstractEntity {
 
 	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
-	@Past
-	protected Date				instantiationOrLastUpdateDate;
+	@PastOrPresent
+	protected Date				instantiationMoment;
 
 	// TODO Custom restriction after instantiation or last update date
 	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
-	@Past
 	protected Date				displayPeriodStartDate;
 
 	// TODO Custom restriction must last at least for one week
 	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
-	@Past
 	protected Date				displayPeriodEndDate;
 
 	@NotBlank
