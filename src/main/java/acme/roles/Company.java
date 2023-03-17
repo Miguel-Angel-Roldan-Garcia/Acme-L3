@@ -27,6 +27,7 @@ public class Company extends AbstractRole {
 	@Length(max = 75)
 	protected String name;
 
+	@Column(unique = true)
 	@NotBlank
 	@Length(max = 25)
 	//TODO

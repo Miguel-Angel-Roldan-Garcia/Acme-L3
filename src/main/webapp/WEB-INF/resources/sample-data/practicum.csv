@@ -1,19 +1,35 @@
-key,key:company,code,title,abstract$,goals
-practicum-01,company-01,AAZ999,"Una práctica para aprender sobre programación","abstracto","Aprende a programar"
-practicum-02,company-02,AZ019,"Una práctica para aprender sobre programación","abstracto","Aprende a programar"
-practicum-03,company-01,Z876,"Una práctica para aprender sobre programación","abstracto","Aprende a programar"
-practicum-04,company-02,ABA998,"Una práctica genial para aprender de programación muy motivadora y lúdica!!","abstracto","Aprende a programar"
-practicum-05,company-01,ACA998,".","abstracto","Aprende a programar"
-practicum-06,company-02,ADA998,"你好","abstracto","Aprende a programar"
-practicum-07,company-01,AEA998,<script>alert("hi")</script>,"abstracto","Aprende a programar"
-practicum-08,company-02,AFA998,"@#?¿><&¬!|¡'`+*-_{}[]^ªº\/=()%$·","abstracto","Aprende a programar"
-practicum-09,company-01,AGA998,"Una práctica para aprender sobre programación","Esto es extensamente abstracto Esto es extensamente abstracto Esto es extensamente abstracto!!!!!!!!","Aprende a programar"
-practicum-10,company-02,AHA998,"Una práctica para aprender sobre programación",".","Aprende a programar"
-practicum-11,company-01,AIA998,"Una práctica para aprender sobre programación","你好","Aprende a programar"
-practicum-12,company-02,AJA998,"Una práctica para aprender sobre programación",<script>alert("hi")</script>,"Aprende a programar"
-practicum-13,company-01,AKA998,"Una práctica para aprender sobre programación","@#?¿><&¬!|¡'`+*-_{}[]^ªº\/=()%$·","Aprende a programar"
-practicum-14,company-02,ALA998,"Una práctica para aprender sobre programación","abstracto","Aprende a programar mucho con estos objetivos que te ayudarán a extender tu conocimiento. Gracias!!!"
-practicum-15,company-01,AMA998,"Una práctica para aprender sobre programación","abstracto","."
-practicum-16,company-02,ANA998,"Una práctica para aprender sobre programación","abstracto","你好"
-practicum-17,company-01,AOA998,"Una práctica para aprender sobre programación","abstracto",<script>alert("hi")</script>
-practicum-18,company-02,APA998,"Una práctica para aprender sobre programación","abstracto","@#?¿><&¬!|¡'`+*-_{}[]^ªº\/=()%$·"
+key,key:company,key:course,code,title,abstract$,goals,draftMode
+practicum-01,company-01,course-1,AB112,"Una práctica para aprender sobre programación","abstracto","Aprende a programar",true
+practicum-02,company-01,course-2,AAZ999,"Una práctica para aprender sobre programación","abstracto","Aprende a programar",true
+practicum-03,company-02,course-3,AZ019,"Una práctica para aprender sobre programación","abstracto","Aprende a programar",true
+practicum-04,company-01,course-4,Z876,"Una práctica para aprender sobre programación","abstracto","Aprende a programar",true
+practicum-05,company-01,course-5,ACA998,".","abstracto","Aprende a programar",true
+practicum-06,company-01,course-6,ACD998,"HO","abstracto","Aprende a programar",true
+practicum-07,company-02,course-7,ABC998,"74 caracteres: Una práctica genial para aprender de programación muy buena","abstracto","Aprende a programar",true
+practicum-08,company-02,course-8,ABA998,"75 caracteres: Una práctica genial para aprender de programación muy buena!","abstracto","Aprende a programar",true
+practicum-09,company-01,course-9,AEF918,<h1>Hello</h1>,"abstracto","Aprende a programar",true
+practicum-10,company-01,course-1,AEA998,<script>alert("hi")</script>,"abstracto","Aprende a programar",true
+practicum-11,company-02,course-2,AFA998,"@#?¿><&¬!|¡'`+*-_{}[]^ªº\/=()%$·","abstracto","Aprende a programar",true
+practicum-12,company-02,course-3,ADA998,"你好","abstracto","Aprende a programar",true
+practicum-13,company-02,course-4,ADA918,"Всем привет","abstracto","Aprende a programar",true
+practicum-14,company-02,course-5,AHA998,"Una práctica para aprender sobre programación",".","Aprende a programar",true
+practicum-15,company-02,course-6,AHA918,"Una práctica para aprender sobre programación","LO","Aprende a programar",true
+practicum-16,company-01,course-7,AGA998,"Una práctica para aprender sobre programación","99 caracteres: Una práctica genial para aprender de programación muy buena!!!!!!!!!!!!!!!!!!!!!!!!!","Aprende a programar",true
+practicum-17,company-01,course-8,AGA908,"Una práctica para aprender sobre programación","100 caracteres: Una práctica genial para aprender de programación muy buena!!!!!!!!!!!!!!!!!!!!!!!!!","Aprende a programar",true
+practicum-18,company-01,course-9,AKA998,"Una práctica para aprender sobre programación",<h1>Hello</h1>,"Aprende a programar",true
+practicum-19,company-02,course-1,AJA998,"Una práctica para aprender sobre programación",<script>alert("hi")</script>,"Aprende a programar",true
+practicum-20,company-01,course-2,AKA198,"Una práctica para aprender sobre programación","@#?¿><&¬!|¡'`+*-_{}[]^ªº\/=()%$·","Aprende a programar",true
+practicum-21,company-01,course-3,AIA298,"Una práctica para aprender sobre programación","你好","Aprende a programar",true
+practicum-22,company-01,course-4,AIA398,"Una práctica para aprender sobre programación","Всем привет","Aprende a programar",true
+practicum-23,company-01,course-5,AMA498,"Una práctica para aprender sobre programación","abstracto",".",true
+practicum-24,company-01,course-6,AMA598,"Una práctica para aprender sobre programación","abstracto","pa",true
+practicum-25,company-02,course-7,ALA698,"Una práctica para aprender sobre programación","abstracto","99 caracteres: Una práctica genial para aprender de programación muy buena!!!!!!!!!!!!!!!!!!!!!!!!!",true
+practicum-26,company-02,course-8,ALA798,"Una práctica para aprender sobre programación","abstracto","100 caracteres: Una práctica genial para aprender de programación muy buena!!!!!!!!!!!!!!!!!!!!!!!!!",true
+practicum-27,company-01,course-9,AOA898,"Una práctica para aprender sobre programación","abstracto",<h1>Hello</h1>,true
+practicum-28,company-01,course-1,AOA998,"Una práctica para aprender sobre programación","abstracto",<script>alert("hi")</script>,true
+practicum-29,company-02,course-2,APG998,"Una práctica para aprender sobre programación","abstracto","@#?¿><&¬!|¡'`+*-_{}[]^ªº\/=()%$·",true
+practicum-30,company-02,course-3,ANH998,"Una práctica para aprender sobre programación","abstracto","你好",true
+practicum-31,company-02,course-4,ANE998,"Una práctica para aprender sobre programación","abstracto","Всем привет",true
+practicum-32,company-02,course-5,ANW998,"Una práctica para aprender sobre programación","abstracto","Всем привет",false
+practicum-33,company-01,course-6,ANW938,"Una práctica para aprender sobre programación","abstracto","Всем привет",TRUE
+practicum-34,company-01,course-7,ANW918,"Una práctica para aprender sobre programación","abstracto","Всем привет",FALSE
