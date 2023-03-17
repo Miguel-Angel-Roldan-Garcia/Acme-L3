@@ -1,22 +1,24 @@
-key,key:student,code,motivation,goals
-enrolment-01,student-01,A987,"motivacion","objetivo"
-enrolment-02,student-02,B111,"motivacion","objetivo"
-enrolment-03,student-01,BBB347,"motivacion","objetivo"
-enrolment-04,student-01,BB987,"a","objetivo"
-enrolment-05,student-01,B987,"aa","objetivo"
-enrolment-06,student-01,BA987,"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","objetivo"
-enrolment-07,student-01,AV987,"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","objetivo"
-enrolment-08,student-01,AR987,"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","objetivo"
-enrolment-09,student-01,AT987,<h1>Hola</h1>,"objetivo"
-enrolment-10,student-01,R987,<script>alert("hi")</script>,"objetivo"
-enrolment-11,student-01,AY987,こんにちは,"objetivo"
-enrolment-12,student-01,AH987,Здравствуйте добрый день,"objetivo"
-enrolment-13,student-02,AJ987,"motivacion","a"
-enrolment-14,student-02,AK987,"motivacion","aa"
-enrolment-15,student-02,AI987,"motivacion","aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-enrolment-16,student-02,AS987,"motivacion","aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-enrolment-17,student-02,AM987,"motivacion","aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-enrolment-18,student-01,AL987,"motivacion",<h1>Hola</h1>
-enrolment-19,student-01,AO987,"motivacion",<script>alert("hi")</script>
-enrolment-20,student-01,APP987,"motivacion",こんにちは
-enrolment-21,student-01,AQ987,"motivacion",Здравствуйте добрый день
+key,key:student,code,motivation,goals,draft_mode
+enrolment-01,student-01,A987,"motivacion","objetivo",true
+enrolment-02,student-02,B111,"motivacion","objetivo",true
+enrolment-03,student-01,BBB347,"motivacion","objetivo",true
+enrolment-04,student-01,BB987,"a","objetivo",true
+enrolment-05,student-01,B987,"aa","objetivo",false
+enrolment-06,student-01,BA987,"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","objetivo",false
+enrolment-07,student-01,AV987,"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","objetivo",false
+enrolment-08,student-01,AR987,"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","objetivo",false
+enrolment-09,student-01,AT987,<h1>Hola</h1>,"objetivo",false
+enrolment-10,student-01,R987,<script>alert("hi")</script>,"objetivo",false
+enrolment-11,student-01,AY987,こんにちは,"objetivo",false
+enrolment-12,student-01,AH987,Здравствуйте добрый день,"objetivo",false
+enrolment-13,student-01,AWW987,)(/()%&/$%&·$%¿=)=,"objetivo",false
+enrolment-14,student-02,AJ987,"motivacion","a",false
+enrolment-15,student-02,AK987,"motivacion","aa",true
+enrolment-16,student-02,AI987,"motivacion","aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",true
+enrolment-17,student-02,AS987,"motivacion","aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",true
+enrolment-18,student-02,AM987,"motivacion","aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",true
+enrolment-19,student-01,AL987,"motivacion",<h1>Hola</h1>,false
+enrolment-20,student-01,AO987,"motivacion",<script>alert("hi")</script>,true
+enrolment-21,student-01,APP987,"motivacion",こんにちは,false
+enrolment-22,student-01,AQ987,"motivacion",Здравствуйте добрый день,false
+enrolment-23,student-01,AOO987,"motivacion",$%&$/&%(/&&)(·=?,false
