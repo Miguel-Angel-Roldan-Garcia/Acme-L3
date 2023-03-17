@@ -1,5 +1,6 @@
-<diagram program="umletino" version="15.0.0"><zoom_level>9</zoom_level><help_text>// Uncomment the following line to change the fontsize and font:
-fontsize=17
+<diagram program="umletino" version="15.0.0"><zoom_level>5</zoom_level><help_text>// Uncomment the following line to change the fontsize and font:
+fontsize=20
+
 // fontfamily=SansSerif //possible: SansSerif,Serif,Monospaced
 
 
@@ -21,54 +22,50 @@ fontsize=17
 //////////////////////////////////////////////////////////////////////////////////////////////
 
 
-// This text will be stored with each diagram;  use it for notes.</help_text><element><id>UMLClass</id><coordinates><x>1089</x><y>1143</y><w>423</w><h>171</h></coordinates><panel_attributes>&lt;&lt;Entity&gt;&gt;
+// This text will be stored with each diagram;  use it for notes.</help_text><element><id>UMLClass</id><coordinates><x>605</x><y>635</y><w>235</w><h>95</h></coordinates><panel_attributes>&lt;&lt;Entity&gt;&gt;
 Lecture
 --
-+id: int
 +title: String{NotBlank,Length(0,75)}
 +abstract: String{NotBlank,Length(0,100)}
 +estimatedLearningTime: Double{NotNull,Min(1)}
 +body: String{NotBlank,Length(0,100)}
 +link: String{URL}
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1233</x><y>576</y><w>423</w><h>171</h></coordinates><panel_attributes>&lt;&lt;Entity&gt;&gt;
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>685</x><y>320</y><w>235</w><h>95</h></coordinates><panel_attributes>&lt;&lt;Entity&gt;&gt;
 Course
 --
-+id: int
 +code: String{NotBlank,Unique,Pattern(^[A-Z]{1,3}[0-9]{3}$)}
 +title: String{NotBlank,Length(0,75)}
 +abstract: String{NotBlank,Length(0,100)}
-+retailPrice: Money{NotNull,Min(0)}
-+link: String{URL}</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1692</x><y>1143</y><w>423</w><h>171</h></coordinates><panel_attributes>&lt;&lt;Role&gt;&gt;
++retailPrice: Money{NotNull}
++link: String{URL}</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>940</x><y>635</y><w>235</w><h>95</h></coordinates><panel_attributes>&lt;&lt;Role&gt;&gt;
 Lecturer
 --
-+id: int
+
 +almaMater: String{NotBlank,Length(0,75)}
 +resume: String{NotBlank,Length(0,100)}
 +qualifications: String{NotBlank,Length(0,100)}
 +link: String{URL}
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1503</x><y>1215</y><w>207</w><h>45</h></coordinates><panel_attributes>lt=&lt;-
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>835</x><y>675</y><w>115</w><h>25</h></coordinates><panel_attributes>lt=&lt;-
 m1=1
 m2=1..n
-▶created by</panel_attributes><additional_attributes>210;20;10;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1854</x><y>288</y><w>423</w><h>171</h></coordinates><panel_attributes>&lt;&lt;Role&gt;&gt;
+▶created by</panel_attributes><additional_attributes>210;20;10;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1030</x><y>160</y><w>235</w><h>95</h></coordinates><panel_attributes>&lt;&lt;Role&gt;&gt;
 Student
 --
-+id: int
 +statement: String{NotBlank,Length(0,75)}
 +strongFeatures: String{NotBlank,Length(0,100)}
 +weakFeatures: String{NotBlank,Length(0,100)}
 +link: String{URL}
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1854</x><y>576</y><w>423</w><h>171</h></coordinates><panel_attributes>&lt;&lt;Entity&gt;&gt;
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1030</x><y>320</y><w>235</w><h>95</h></coordinates><panel_attributes>
+&lt;&lt;Entity&gt;&gt;
 Enrolment
 --
-+id: int
 +code: String{NotBlank,Unique,Pattern(^[A-Z]{1,3}[0-9]{3}$)}
 +motivation: String{NotBlank,Length(0,75)}
 +goals: String{NotBlank,Length(0,100)}
 
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1854</x><y>864</y><w>423</w><h>171</h></coordinates><panel_attributes>&lt;&lt;Entity&gt;&gt;
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1030</x><y>480</y><w>235</w><h>95</h></coordinates><panel_attributes>&lt;&lt;Entity&gt;&gt;
 Activity
 --
-+id: int
 +title: String{NotBlank,Length(0,75)}
 +summary: String{NotBlank,Length(0,100)}
 +initialDate: Date{Temporal(TIMESTAMP)}
@@ -76,29 +73,27 @@ Activity
 +link: String{URL}
 +type: ActivityType
 
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>2061</x><y>738</y><w>54</w><h>144</h></coordinates><panel_attributes>lt=&lt;-
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1145</x><y>410</y><w>30</w><h>80</h></coordinates><panel_attributes>lt=&lt;-
 m1=1
 m2=1..n
-▼ has</panel_attributes><additional_attributes>10;10;10;140</additional_attributes></element><element><id>Relation</id><coordinates><x>2061</x><y>450</y><w>54</w><h>144</h></coordinates><panel_attributes>lt=&lt;-
+▼ has</panel_attributes><additional_attributes>10;10;10;140</additional_attributes></element><element><id>Relation</id><coordinates><x>1145</x><y>250</y><w>30</w><h>80</h></coordinates><panel_attributes>lt=&lt;-
 m1=1
 m2=1..n
-▼ has</panel_attributes><additional_attributes>10;10;10;140</additional_attributes></element><element><id>Relation</id><coordinates><x>1647</x><y>648</y><w>225</w><h>45</h></coordinates><panel_attributes>lt=&lt;-
+▼ has</panel_attributes><additional_attributes>10;10;10;140</additional_attributes></element><element><id>Relation</id><coordinates><x>915</x><y>360</y><w>125</w><h>25</h></coordinates><panel_attributes>lt=&lt;-
 m1=1
 m2=1..n
-◀ in</panel_attributes><additional_attributes>10;20;230;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1233</x><y>288</y><w>423</w><h>171</h></coordinates><panel_attributes>&lt;&lt;Entity&gt;&gt;
+◀ in</panel_attributes><additional_attributes>10;20;230;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>685</x><y>160</y><w>235</w><h>95</h></coordinates><panel_attributes>&lt;&lt;Entity&gt;&gt;
 Tutorial
 --
-+id: int
 +code: String{NotBlank,Unique,Pattern(^[A-Z]{1,3}[0-9]{3}$)}
 +title: String{NotBlank,Length(0,75)}
 +abstract: String{NotBlank,Length(0,100)}
 +goals: String{NotBlank,Length(0,100)}
 
 
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1233</x><y>0</y><w>423</w><h>171</h></coordinates><panel_attributes>&lt;&lt;Entity&gt;&gt;
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>685</x><y>0</y><w>235</w><h>95</h></coordinates><panel_attributes>&lt;&lt;Entity&gt;&gt;
 TutorialSession
 --
-+id: int
 +code: String{NotBlank,Unique,Pattern(^[A-Z]{1,3}[0-9]{3}$)}
 +title: String{NotBlank,Length(0,75)}
 +abstract: String{NotBlank,Length(0,100)}
@@ -106,24 +101,23 @@ TutorialSession
 +endDate: Date{Temporal(TIMESTAMP)}
 +link: String{URL}
 
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1440</x><y>162</y><w>90</w><h>144</h></coordinates><panel_attributes>lt=&lt;-
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>800</x><y>90</y><w>50</w><h>80</h></coordinates><panel_attributes>lt=&lt;-
 m1=1
 m2=1..n
-▼ belongs to</panel_attributes><additional_attributes>10;140;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1440</x><y>450</y><w>45</w><h>144</h></coordinates><panel_attributes>lt=&lt;-
+▼ belongs to</panel_attributes><additional_attributes>10;140;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>800</x><y>250</y><w>55</w><h>80</h></coordinates><panel_attributes>lt=&lt;-
 m1=1
-m2=1..n</panel_attributes><additional_attributes>10;140;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>594</x><y>0</y><w>423</w><h>171</h></coordinates><panel_attributes>&lt;&lt;Role&gt;&gt;
+m2=1..n
+▼ regarding a</panel_attributes><additional_attributes>10;140;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>330</x><y>0</y><w>235</w><h>95</h></coordinates><panel_attributes>&lt;&lt;Role&gt;&gt;
 Company
 --
-+id: int
 +name: String{NotBlank,Length(0,75)}
-+vatNumber: String{NotBlank,Length(0,25)}
++vatNumber: String{NotBlank,Length(0,25),Column(unique = true)}
 +summary: String{NotBlank,Length(0,100)}
 +link: String{URL}
 
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>0</x><y>288</y><w>423</w><h>171</h></coordinates><panel_attributes>&lt;&lt;Entity&gt;&gt;
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>0</x><y>160</y><w>235</w><h>95</h></coordinates><panel_attributes>&lt;&lt;Entity&gt;&gt;
 PracticumSession
 --
-+id: int
 +code: String{NotBlank,Unique,Pattern(^[A-Z]{1,3}[0-9]{3}$)}
 +title: String{NotBlank,Length(0,75)}
 +abstract: String{NotBlank,Length(0,100)}
@@ -131,102 +125,92 @@ PracticumSession
 +finishDate: Date{Temporal(TIMESTAMP)}
 +link: String{URL}
 
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>594</x><y>288</y><w>423</w><h>171</h></coordinates><panel_attributes>&lt;&lt;Entity&gt;&gt;
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>330</x><y>160</y><w>235</w><h>95</h></coordinates><panel_attributes>&lt;&lt;Entity&gt;&gt;
 Practicum
 --
-+id: int
 +code: String{NotBlank,Unique,Pattern(^[A-Z]{1,3}[0-9]{3}$)}
 +title: String{NotBlank,Length(0,75)}
 +abstract: String{NotBlank,Length(0,100)}
 +goals: String{NotBlank,Length(0,100)}
 
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>801</x><y>450</y><w>450</w><h>225</h></coordinates><panel_attributes>lt=&lt;-
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>445</x><y>250</y><w>250</w><h>125</h></coordinates><panel_attributes>lt=&lt;-
 m1=1
 m2=1..n
-▶ in</panel_attributes><additional_attributes>480;220;10;220;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>801</x><y>162</y><w>45</w><h>144</h></coordinates><panel_attributes>lt=&lt;-
+▶ in</panel_attributes><additional_attributes>480;220;10;220;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>445</x><y>90</y><w>25</w><h>80</h></coordinates><panel_attributes>lt=&lt;-
 m1=1
 m2=1..n
-▲ in</panel_attributes><additional_attributes>10;10;10;140</additional_attributes></element><element><id>Relation</id><coordinates><x>414</x><y>369</y><w>198</w><h>45</h></coordinates><panel_attributes>lt=&lt;-
+▲ in</panel_attributes><additional_attributes>10;10;10;140</additional_attributes></element><element><id>Relation</id><coordinates><x>230</x><y>205</y><w>110</w><h>25</h></coordinates><panel_attributes>lt=&lt;-
 m1=1
 m2=1..n
-◀ has</panel_attributes><additional_attributes>200;20;10;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>603</x><y>1143</y><w>423</w><h>171</h></coordinates><panel_attributes>&lt;&lt;Role&gt;&gt;
+◀ has</panel_attributes><additional_attributes>200;20;10;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>335</x><y>635</y><w>235</w><h>95</h></coordinates><panel_attributes>&lt;&lt;Role&gt;&gt;
 Auditor
 --
-+id: int
 +firm: String{NotBlank,Length(0,75)}
 +professionalId: String{NotBlank,Length(0,25)}
 +certifications: String{NotBlank,Length(0,100)}
 +link: String{URL}
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>603</x><y>864</y><w>423</w><h>171</h></coordinates><panel_attributes>&lt;&lt;Entity&gt;&gt;
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>335</x><y>480</y><w>235</w><h>95</h></coordinates><panel_attributes>&lt;&lt;Entity&gt;&gt;
 Audit
 --
-+id: int
 +code: String{NotBlank,Unique,Pattern(^[A-Z]{1,3}[0-9]{3}$)}
 +conclussion: String{NotBlank,Length(0,100)}
 +strongPoints: String{NotBlank,Length(0,100)}
 +weakPoints: String{NotBlank,Length(0,100)}
 
 
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>0</x><y>864</y><w>423</w><h>171</h></coordinates><panel_attributes>&lt;&lt;Entity&gt;&gt;
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>0</x><y>480</y><w>235</w><h>95</h></coordinates><panel_attributes>&lt;&lt;Entity&gt;&gt;
 AuditingRecords
 --
-+id: int
 +subject: String{NotBlank,Length(0,75)}
 +assesment: String{NotBlank,Length(0,100)}
 +auditingDate: Date{Temporal(TIMESTAMP)}
 +link: String{URL}
 
 
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>801</x><y>666</y><w>450</w><h>216</h></coordinates><panel_attributes>lt=&lt;-
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>445</x><y>370</y><w>250</w><h>120</h></coordinates><panel_attributes>lt=&lt;-
 m1=1
 m2=1..n
-▶ of</panel_attributes><additional_attributes>480;20;10;20;10;220</additional_attributes></element><element><id>Relation</id><coordinates><x>414</x><y>936</y><w>207</w><h>45</h></coordinates><panel_attributes>lt=&lt;-
+▶ of</panel_attributes><additional_attributes>480;20;10;20;10;220</additional_attributes></element><element><id>Relation</id><coordinates><x>230</x><y>520</y><w>115</w><h>25</h></coordinates><panel_attributes>lt=&lt;-
 m1=1
 m2=1..n
-◀ has</panel_attributes><additional_attributes>210;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>801</x><y>1026</y><w>81</w><h>135</h></coordinates><panel_attributes>lt=&lt;-
+◀ has</panel_attributes><additional_attributes>210;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>445</x><y>570</y><w>45</w><h>75</h></coordinates><panel_attributes>lt=&lt;-
 m1=1
 m2=1..n
-▼done by</panel_attributes><additional_attributes>10;130;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1440</x><y>738</y><w>342</w><h>423</h></coordinates><panel_attributes>lt=&lt;-
+▼done by</panel_attributes><additional_attributes>10;130;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>800</x><y>410</y><w>190</w><h>235</h></coordinates><panel_attributes>lt=&lt;-
 m1=1
 m2=0..n
-▼lectured by </panel_attributes><additional_attributes>350;450;350;90;10;90;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1089</x><y>864</y><w>423</w><h>171</h></coordinates><panel_attributes>&lt;&lt;Entity&gt;&gt;
+▼lectured by </panel_attributes><additional_attributes>350;450;350;90;10;90;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>605</x><y>480</y><w>235</w><h>95</h></coordinates><panel_attributes>&lt;&lt;Entity&gt;&gt;
 CourseLecture
 --
-+id: int
 
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1287</x><y>1026</y><w>54</w><h>135</h></coordinates><panel_attributes>lt=&lt;-
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>715</x><y>570</y><w>30</w><h>75</h></coordinates><panel_attributes>lt=&lt;-
 m1=1
 m2=0..n
-▼ has</panel_attributes><additional_attributes>10;130;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1287</x><y>738</y><w>54</w><h>144</h></coordinates><panel_attributes>lt=&lt;-
+▼ has</panel_attributes><additional_attributes>10;130;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>715</x><y>410</y><w>30</w><h>80</h></coordinates><panel_attributes>lt=&lt;-
 m1=1
 m2=0..n
-▲ has</panel_attributes><additional_attributes>10;10;10;140</additional_attributes></element><element><id>UMLClass</id><coordinates><x>2403</x><y>603</y><w>423</w><h>171</h></coordinates><panel_attributes>&lt;&lt;Entity&gt;&gt;
+▲ has</panel_attributes><additional_attributes>10;10;10;140</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1335</x><y>320</y><w>235</w><h>95</h></coordinates><panel_attributes>&lt;&lt;Entity&gt;&gt;
 Banner
 --
-+id: int
 +instantiationMoment: Date{Temporal(TIMESTAMP), NotNull, PastOrPresent}
 +diplayPeriodStartDate: Date{Temporal(TIMESTAMP), NotNull}
 +diplayPeriodEndDate: Date{Temporal(TIMESTAMP), NotNull}
-
-+finishDate: Date{Temporal(TIMESTAMP)}
 +pictureLink: String{URL, NotBlank}
 +slogan: String{NotBlank,Length(0,100)}
 +tagetWebDocumentLink: String{URL, NotBlank}
 
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>2430</x><y>810</y><w>423</w><h>171</h></coordinates><panel_attributes>&lt;&lt;Entity&gt;&gt;
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1335</x><y>425</y><w>235</w><h>95</h></coordinates><panel_attributes>&lt;&lt;Entity&gt;&gt;
 Bulletin
 --
-+id: int
 +instantiationMoment: Date{Temporal(TIMESTAMP), NotNull, PastOrPresent}
 +title: String{NotBlank,Length(0,75)}
 +message: String{NotBlank,Length(0,100)}
-+critical: Boolean{NotNull}
++critical: boolean
 +link: String{URL}
 
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>2439</x><y>1017</y><w>423</w><h>171</h></coordinates><panel_attributes>&lt;&lt;Entity&gt;&gt;
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1335</x><y>530</y><w>235</w><h>95</h></coordinates><panel_attributes>&lt;&lt;Entity&gt;&gt;
 Note
 --
-+id: int
 +instantiationMoment: Date{Temporal(TIMESTAMP), NotNull, PastOrPresent}
 +title: String{NotBlank,Length(0,75)}
 +message: String{NotBlank,Length(0,100)}
@@ -234,22 +218,20 @@ Note
 +email: String{Email}
 +link: String{URL}
 
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>2412</x><y>1206</y><w>423</w><h>171</h></coordinates><panel_attributes>&lt;&lt;Entity&gt;&gt;
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1335</x><y>635</y><w>235</w><h>95</h></coordinates><panel_attributes>&lt;&lt;Entity&gt;&gt;
 Offer
 --
-+id: int
 +instantiationMoment: Date{Temporal(TIMESTAMP), NotNull, PastOrPresent}
 +aviabilityPeriodStartDate: Date{Temporal(TIMESTAMP), NotNull}
 +aviabilityPeriodEndDate: Date{Temporal(TIMESTAMP), NotNull}
 +heading: String{NotBlank,Length(0,75)}
 +summary: String{NotBlank,Length(0,100)}
-+price: Money{Min(0)}
++price: Money{NotNull}
 +link: String{URL}
 
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>2394</x><y>1395</y><w>423</w><h>171</h></coordinates><panel_attributes>&lt;&lt;Entity&gt;&gt;
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1335</x><y>740</y><w>235</w><h>95</h></coordinates><panel_attributes>&lt;&lt;Entity&gt;&gt;
 Peep
 --
-+id: int
 +instantiationMoment: Date{Temporal(TIMESTAMP), NotNull, PastOrPresent}
 +title: String{NotBlank,Length(0,75)}
 +nick: String{NotBlank,Length(0,75)}
@@ -257,13 +239,19 @@ Peep
 +email: String{Email}
 +link: String{URL}
 
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>2385</x><y>1593</y><w>423</w><h>117</h></coordinates><panel_attributes>&lt;&lt;Entity&gt;&gt;
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1335</x><y>845</y><w>235</w><h>65</h></coordinates><panel_attributes>&lt;&lt;Entity&gt;&gt;
 SystemConfiguration
 --
-+id: int
 
-+currency: String{NotBlank}
-+acceptedCurrencies: String{NotBlank}
++currency: String{NotBlank,Pattern("^[A-Z]{3}$")}
++acceptedCurrencies: String{NotBlank,Pattern("^([A-Z]{3},)*[A-Z]{3}$")}
 
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLSpecialState</id><coordinates><x>800</x><y>250</y><w>10</w><h>10</h></coordinates><panel_attributes>type=termination</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLSpecialState</id><coordinates><x>800</x><y>90</y><w>10</w><h>10</h></coordinates><panel_attributes>type=termination</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLSpecialState</id><coordinates><x>1145</x><y>315</y><w>10</w><h>10</h></coordinates><panel_attributes>type=termination</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLSpecialState</id><coordinates><x>1145</x><y>475</y><w>10</w><h>10</h></coordinates><panel_attributes>type=termination</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLSpecialState</id><coordinates><x>835</x><y>680</y><w>10</w><h>10</h></coordinates><panel_attributes>type=termination</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLSpecialState</id><coordinates><x>715</x><y>570</y><w>10</w><h>10</h></coordinates><panel_attributes>type=termination</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLSpecialState</id><coordinates><x>715</x><y>475</y><w>10</w><h>10</h></coordinates><panel_attributes>type=termination</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLSpecialState</id><coordinates><x>230</x><y>525</y><w>10</w><h>10</h></coordinates><panel_attributes>type=termination</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLSpecialState</id><coordinates><x>445</x><y>570</y><w>10</w><h>10</h></coordinates><panel_attributes>type=termination</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLSpecialState</id><coordinates><x>445</x><y>475</y><w>10</w><h>10</h></coordinates><panel_attributes>type=termination</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLSpecialState</id><coordinates><x>445</x><y>250</y><w>10</w><h>10</h></coordinates><panel_attributes>type=termination</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLSpecialState</id><coordinates><x>230</x><y>210</y><w>10</w><h>10</h></coordinates><panel_attributes>type=termination</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLSpecialState</id><coordinates><x>445</x><y>155</y><w>10</w><h>10</h></coordinates><panel_attributes>type=termination</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLState</id><coordinates><x>30</x><y>110</y><w>50</w><h>20</h></coordinates><panel_attributes>receive
+signal
+type=receiver</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1335</x><y>265</y><w>235</w><h>45</h></coordinates><panel_attributes>&lt;&lt;Enum&gt;&gt;
+Nature
+--
++ {HANDS_ON, THEORETICAL, BALANCED}
 
 </panel_attributes><additional_attributes></additional_attributes></element></diagram>
