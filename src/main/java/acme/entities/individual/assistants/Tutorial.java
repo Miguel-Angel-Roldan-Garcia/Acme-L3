@@ -11,6 +11,7 @@ import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
 
+import acme.entities.individual.lectures.Course;
 import acme.framework.data.AbstractEntity;
 import acme.roles.Assistant;
 import lombok.Getter;
@@ -44,6 +45,8 @@ public class Tutorial extends AbstractEntity {
 	@Length(max = 100)
 	protected String			goals;
 
+	protected boolean			draftMode;
+
 	// Derived attributes -----------------------------------------------------
 
 	// TODO Implement complex derived attribute estimatedTotalTime
@@ -52,7 +55,12 @@ public class Tutorial extends AbstractEntity {
 
 	@NotNull
 	@Valid
-	@ManyToOne
+	@ManyToOne(optional = false)
 	protected Assistant			assistant;
+
+	@NotNull
+	@Valid
+	@ManyToOne(optional = false)
+	protected Course			course;
 
 }
