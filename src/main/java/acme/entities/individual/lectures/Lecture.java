@@ -33,7 +33,7 @@ public class Lecture extends AbstractEntity {
 
     @NotBlank
     @Length(max = 100)
-    protected String lectureAbstract; // abstract can not be used
+    protected String abstract$; // abstract can not be used
 
     @NotNull
     @Min(1)
