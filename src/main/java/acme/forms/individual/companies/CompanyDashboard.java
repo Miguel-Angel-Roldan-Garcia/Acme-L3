@@ -7,16 +7,16 @@ import acme.framework.data.AbstractForm;
 public class CompanyDashboard extends AbstractForm {
 	// Serialisation identifier -----------------------------------------------
 
-	protected static final long	serialVersionUID	= 1L;
+	protected static final long serialVersionUID = 1L;
 
 	// Attributes -------------------------------------------------------
 
-	protected Integer[]			practicumCountByMonth;
+	protected Integer[] practicumCountByMonth;
 
-	// Session duration per practicum
+	// Session and practicum duration
 
-	protected Statistic			practicumInPractica;
+	protected Statistic practicumPeriodLenght;
 
-	protected Statistic			practicumSessionInPractica;
+	protected Statistic practicumSessionsPeriodLenght;
 
 }
