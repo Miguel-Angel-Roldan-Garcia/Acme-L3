@@ -41,6 +41,8 @@ public class Enrolment extends AbstractEntity {
 	@NotNull
 	protected Student			student;
 
+	protected boolean			draftMode;
+
 	//TODO Derived attribute=> Double workingTime=
 	//sum(timePeriod of all of their activities)
 }
