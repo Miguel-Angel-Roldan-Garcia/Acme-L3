@@ -5,10 +5,10 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.validation.constraints.NotBlank;
 
-import org.apache.catalina.users.AbstractRole;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
+import acme.framework.data.AbstractRole;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -30,8 +30,6 @@ public class Company extends AbstractRole {
 	@Column(unique = true)
 	@NotBlank
 	@Length(max = 25)
-	//TODO
-	//@Column(unique=true)
 	protected String vatNumber;
 
 	@NotBlank
