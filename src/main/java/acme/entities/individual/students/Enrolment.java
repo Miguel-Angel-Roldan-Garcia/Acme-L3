@@ -11,6 +11,7 @@ import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
 
+import acme.entities.individual.lectures.Course;
 import acme.framework.data.AbstractEntity;
 import acme.roles.Student;
 import lombok.Getter;
@@ -42,6 +43,11 @@ public class Enrolment extends AbstractEntity {
 	protected Student			student;
 
 	protected boolean			draftMode;
+
+	@ManyToOne(optional = false)
+	@Valid
+	@NotNull
+	protected Course			course;
 
 	//TODO Derived attribute=> Double workingTime=
 	//sum(timePeriod of all of their activities)
