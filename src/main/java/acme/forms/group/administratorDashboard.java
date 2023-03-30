@@ -2,6 +2,8 @@ package acme.forms.group;
 
 import java.util.Map;
 
+import acme.datatypes.Statistic;
+
 public class administratorDashboard {
 
 	// Serialisation identifier -----------------------------------------------
@@ -12,30 +14,20 @@ public class administratorDashboard {
 
 	protected Map<String, Integer> totalNumberOfPrincipalsPerRole;
 
-	protected Double averagePeepsWithEmailAndLink;
+	// Only average
 
-	protected Double averageCriticalBulletins;
+	protected Statistic peepsWithEmailAndLink;
 
-	protected Double averageNonCriticalBulletins;
+	protected Statistic criticalBulletins;
+
+	protected Statistic nonCriticalBulletins;
 
 	// Budget in the offers grouped by currency
 
-	protected Double averageBudgetOffersGroupedByCurrency;
-
-	protected Double minBudgetOfferGroupedByCurrency;
-
-	protected Double maxBudgetOfferGroupedByCurrency;
-
-	protected Double deviationBudgetOffersGroupedByCurrency;
+	protected Statistic budgetOffersGroupedByCurrency;
 
 	// Number of notes posted over the last 10 weeks
 
-	protected Double averageNotesOverLast10Weeks;
-
-	protected Double minNotesOverLast10Weeks;
-
-	protected Double maxNotesOverLast10Weeks;
-
-	protected Double deviationNotesOverLast10Weeks;
+	protected Statistic notesOverLast10Weeks;
 
 }
