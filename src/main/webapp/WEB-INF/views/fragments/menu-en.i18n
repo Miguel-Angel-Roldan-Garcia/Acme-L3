@@ -55,3 +55,7 @@ master.menu.user-account.consumer = Consumer data
 master.menu.user-account.become-consumer = Become a consumer
 master.menu.user-account.student = Student data
 master.menu.user-account.become-student = Become a student
+
+# master.menu.student ########################################################
+master.menu.student = Student
+master.menu.student.my-enrolments = List my enrolments
