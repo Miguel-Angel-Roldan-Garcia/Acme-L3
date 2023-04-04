@@ -18,11 +18,13 @@ public class StudentEnrolmentController extends AbstractController<Student, Enro
     @Autowired
     protected StudentEnrolmentShowService showService;
 
+    @Autowired
+    protected StudentEnrolmentCreateService createService;
+
     @PostConstruct
     protected void initialise() {
 	super.addBasicCommand("show", this.showService);
 	super.addBasicCommand("create", this.createService);
-
 	super.addCustomCommand("list-mine", "list", this.listMineService);
 
     }

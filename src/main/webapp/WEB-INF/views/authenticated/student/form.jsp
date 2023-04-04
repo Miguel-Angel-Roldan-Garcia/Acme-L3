@@ -24,6 +24,5 @@
 	<acme:submit test="${_command == 'create'}" code="authenticated.student.form.button.create" action="/authenticated/student/create"/>
 	<jstl:if test="${_command == 'update'}">
 		<acme:submit code="authenticated.student.form.button.update" action="/authenticated/student/update"/>
-		<acme:button code="authenticated.student.form.button.enrolments" action="/student/enrolment/list"/>
 	</jstl:if>
 </acme:form>

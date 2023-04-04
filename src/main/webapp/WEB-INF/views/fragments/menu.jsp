@@ -46,7 +46,8 @@
 			<acme:menu-suboption code="master.menu.consumer.favourite-link" action="http://www.example.com/"/>
 		</acme:menu-option>
 		<acme:menu-option code="master.menu.student" access="hasRole('Student')">
-			<acme:menu-suboption code="master.menu.student.my-enrolments" action="/student/enrolment/list"/>
+		<%---PARA QUE FUNCIONE LA ACCIÓN, LA ACCIÓN DEBE INDICAR EL COMANDO CON EL QUE SE ESTA ENTRANDO --%>
+			<acme:menu-suboption code="master.menu.student.my-enrolments" action="/student/enrolment/list-mine"/>
 		</acme:menu-option>
 		
 	</acme:menu-left>
