@@ -61,3 +61,4 @@ master.menu.user-account.become-student = Hazte estudiante
 # master.menu.student ########################################################
 master.menu.student = Estudiante
 master.menu.student.my-enrolments = Listar mis inscripciones
+master.menu.student.published-courses = Listar cursos publicados

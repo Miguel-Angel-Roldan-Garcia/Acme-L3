@@ -48,6 +48,7 @@
 		<acme:menu-option code="master.menu.student" access="hasRole('Student')">
 		<%---PARA QUE FUNCIONE LA ACCIÓN, LA ACCIÓN DEBE INDICAR EL COMANDO CON EL QUE SE ESTA ENTRANDO --%>
 			<acme:menu-suboption code="master.menu.student.my-enrolments" action="/student/enrolment/list-mine"/>
+			<acme:menu-suboption code="master.menu.student.published-courses" action="/student/course/list"/>
 		</acme:menu-option>
 		
 	</acme:menu-left>

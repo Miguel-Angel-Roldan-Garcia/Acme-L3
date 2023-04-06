@@ -18,3 +18,6 @@ student.enrolment.form.label.course = Course
 student.enrolment.form.label.motivation = Motivation
 student.enrolment.form.label.goals = Goals
 student.enrolment.form.button.create = Create
+student.enrolment.form.button.update = Update
+student.enrolment.form.button.delete = Delete
+student.enrolment.form.button.finalise = Finalise

@@ -1,4 +1,4 @@
-package acme.features.students.enrolments;
+package acme.features.students.enrolment;
 
 import java.util.Collection;
 
@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.individual.lectures.Course;
+import acme.entities.individual.students.Activity;
 import acme.entities.individual.students.Enrolment;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
@@ -13,30 +14,42 @@ import acme.framework.services.AbstractService;
 import acme.roles.Student;
 
 @Service
-public class StudentEnrolmentCreateService extends AbstractService<Student, Enrolment> {
+public class StudentEnrolmentDeleteService extends AbstractService<Student, Enrolment> {
 
     @Autowired
     protected StudentEnrolmentRepository repository;
 
     @Override
     public void check() {
-	super.getResponse().setChecked(true);
+	boolean status;
+
+	status = super.getRequest().hasData("id", int.class);
+
+	super.getResponse().setChecked(status);
     }
 
     @Override
     public void authorise() {
-	super.getResponse().setAuthorised(true);
+	boolean status;
+	int masterId;
+	Enrolment enrolment;
+	Student student;
+
+	masterId = super.getRequest().getData("id", int.class);
+	enrolment = this.repository.findOneEnrolmentById(masterId);
+	student = enrolment == null ? null : enrolment.getStudent();
+	status = enrolment != null && enrolment.isDraftMode() && super.getRequest().getPrincipal().hasRole(student);
+
+	super.getResponse().setAuthorised(status);
     }
 
     @Override
     public void load() {
-	final Enrolment object;
-	Student student;
+	Enrolment object;
+	int id;
 
-	student = this.repository.findOneStudentById(super.getRequest().getPrincipal().getActiveRoleId());
-	object = new Enrolment();
-	object.setDraftMode(true);
-	object.setStudent(student);
+	id = super.getRequest().getData("id", int.class);
+	object = this.repository.findOneEnrolmentById(id);
 
 	super.getBuffer().setData(object);
     }
@@ -58,25 +71,17 @@ public class StudentEnrolmentCreateService extends AbstractService<Student, Enro
     @Override
     public void validate(final Enrolment object) {
 	assert object != null;
-
-	if (!super.getBuffer().getErrors().hasErrors("code")) {
-	    Enrolment existing;
-
-	    existing = this.repository.findOneEnrolmentByCode(object.getCode());
-	    super.state(existing == null, "code", "student.enrolment.form.error.duplicated");
-	}
-
-	if (!super.getBuffer().getErrors().hasErrors("course")) {
-	    final Course selectedCourse = object.getCourse();
-	    super.state(!selectedCourse.isDraftMode(), "course", "student.enrolment.form.error.not-published");
-	}
     }
 
     @Override
     public void perform(final Enrolment object) {
 	assert object != null;
 
-	this.repository.save(object);
+	Collection<Activity> activities;
+
+	activities = this.repository.findManyActivitiesByEnrolmentId(object.getId());
+	this.repository.deleteAll(activities);
+	this.repository.delete(object);
     }
 
     @Override

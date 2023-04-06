@@ -1,4 +1,4 @@
-package acme.features.students.enrolments;
+package acme.features.students.enrolment;
 
 import java.util.Collection;
 

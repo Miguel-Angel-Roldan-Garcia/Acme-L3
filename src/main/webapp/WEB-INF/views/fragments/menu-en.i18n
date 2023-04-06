@@ -59,3 +59,4 @@ master.menu.user-account.become-student = Become a student
 # master.menu.student ########################################################
 master.menu.student = Student
 master.menu.student.my-enrolments = List my enrolments
+master.menu.student.published-courses = List published courses

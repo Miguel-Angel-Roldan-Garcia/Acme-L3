@@ -25,7 +25,7 @@
 		<jstl:when test="${_command == 'show' && draftMode == false}">	
 		<%-- AQUI IRÍA EL BOTÓN PARA  VER LAS ACTIVIDADES --%>
 		</jstl:when>
-		<jstl:when test="${_command == 'show'&& draftMode == true}">
+		<jstl:when test="${(_command == 'show' || _command == 'update' || _command == 'delete' || _command == 'finalise ')&& draftMode == true}">
 			<acme:submit code="student.enrolment.form.button.update" action="/student/enrolment/update"/>
 			<acme:submit code="student.enrolment.form.button.delete" action="/student/enrolment/delete"/>
 			<acme:submit code="student.enrolment.form.button.finalise" action="/student/enrolment/finalise"/>

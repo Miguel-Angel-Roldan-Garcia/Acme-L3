@@ -1,4 +1,4 @@
-package acme.features.students.enrolments;
+package acme.features.students.enrolment;
 
 import javax.annotation.PostConstruct;
 
@@ -21,10 +21,18 @@ public class StudentEnrolmentController extends AbstractController<Student, Enro
     @Autowired
     protected StudentEnrolmentCreateService createService;
 
+    @Autowired
+    protected StudentEnrolmentDeleteService deleteService;
+
+    @Autowired
+    protected StudentEnrolmentUpdateService updateService;
+
     @PostConstruct
     protected void initialise() {
 	super.addBasicCommand("show", this.showService);
 	super.addBasicCommand("create", this.createService);
+	super.addBasicCommand("delete", this.deleteService);
+	super.addBasicCommand("update", this.updateService);
 	super.addCustomCommand("list-mine", "list", this.listMineService);
 
     }

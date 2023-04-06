@@ -1,4 +1,5 @@
-package acme.features.students.enrolments;
+
+package acme.features.students.enrolment;
 
 import java.util.Collection;
 
@@ -13,7 +14,7 @@ import acme.framework.services.AbstractService;
 import acme.roles.Student;
 
 @Service
-public class StudentEnrolmentShowService extends AbstractService<Student, Enrolment> {
+public class StudentEnrolmentUpdateService extends AbstractService<Student, Enrolment> {
 
     @Autowired
     protected StudentEnrolmentRepository repository;
@@ -37,7 +38,7 @@ public class StudentEnrolmentShowService extends AbstractService<Student, Enrolm
 	masterId = super.getRequest().getData("id", int.class);
 	enrolment = this.repository.findOneEnrolmentById(masterId);
 	student = enrolment == null ? null : enrolment.getStudent();
-	status = super.getRequest().getPrincipal().hasRole(student) || enrolment != null;
+	status = enrolment != null && enrolment.isDraftMode() && super.getRequest().getPrincipal().hasRole(student);
 
 	super.getResponse().setAuthorised(status);
     }
@@ -51,6 +52,45 @@ public class StudentEnrolmentShowService extends AbstractService<Student, Enrolm
 	object = this.repository.findOneEnrolmentById(id);
 
 	super.getBuffer().setData(object);
+    }
+
+    @Override
+    public void bind(final Enrolment object) {
+	assert object != null;
+
+	int courseId;
+	Course course;
+
+	courseId = super.getRequest().getData("course", int.class);
+	course = this.repository.findOneCourseById(courseId);
+
+	super.bind(object, "code", "motivation", "goals");
+	object.setCourse(course);
+    }
+
+    @Override
+    public void validate(final Enrolment object) {
+	assert object != null;
+
+	if (!super.getBuffer().getErrors().hasErrors("code")) {
+	    Enrolment existing;
+	    existing = this.repository.findOneEnrolmentByCode(object.getCode());
+	    // da error, de alguna forma
+	    super.state(existing == null || existing.getId() == object.getId(), "code",
+		    "student.enrolment.form.error.duplicated");
+	}
+
+	if (!super.getBuffer().getErrors().hasErrors("course")) {
+	    final Course selectedCourse = object.getCourse();
+	    super.state(!selectedCourse.isDraftMode(), "course", "student.enrolment.form.error.not-published");
+	}
+    }
+
+    @Override
+    public void perform(final Enrolment object) {
+	assert object != null;
+
+	this.repository.save(object);
     }
 
     @Override
