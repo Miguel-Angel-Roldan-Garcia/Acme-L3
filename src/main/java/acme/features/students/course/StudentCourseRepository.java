@@ -11,7 +11,10 @@ import acme.framework.repositories.AbstractRepository;
 @Repository
 public interface StudentCourseRepository extends AbstractRepository {
 
-    @Query("SELECT course FROM Course course")
+    @Query("SELECT course from Course course where course.id = :courseId")
+    Course findOneCourseById(int courseId);
+
+    @Query("SELECT course FROM Course course WHERE course.draftMode IS FALSE")
     Collection<Course> findAllPublishedCourses();
 
 }
