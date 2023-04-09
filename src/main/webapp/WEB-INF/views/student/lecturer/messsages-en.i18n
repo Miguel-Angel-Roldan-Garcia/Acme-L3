@@ -8,10 +8,9 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-student.lecture.list.label.title = Title
-student.lecture.list.label.estimated-learning-time = Estimated Learning Time
-student.lecture.list.label.nature = Nature
-student.lecture.list.label.link = Link
-
+student.lecturer.form.label.alma-mater = Alma Mater
+student.lecturer.form.label.resume = Resume
+student.lecturer.form.label.qualifications = Qualifications
+student.lecturer.form.label.link = Link
 
 

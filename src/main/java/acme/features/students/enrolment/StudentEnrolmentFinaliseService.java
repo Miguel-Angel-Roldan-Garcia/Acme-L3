@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.individual.lectures.Course;
-import acme.entities.individual.students.Activity;
 import acme.entities.individual.students.Enrolment;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
@@ -14,7 +13,7 @@ import acme.framework.services.AbstractService;
 import acme.roles.Student;
 
 @Service
-public class StudentEnrolmentDeleteService extends AbstractService<Student, Enrolment> {
+public class StudentEnrolmentFinaliseService extends AbstractService<Student, Enrolment> {
 
     @Autowired
     protected StudentEnrolmentRepository repository;
@@ -31,12 +30,12 @@ public class StudentEnrolmentDeleteService extends AbstractService<Student, Enro
     @Override
     public void authorise() {
 	boolean status;
-	int masterId;
+	int enrolmentId;
 	Enrolment enrolment;
 	Student student;
 
-	masterId = super.getRequest().getData("id", int.class);
-	enrolment = this.repository.findOneEnrolmentById(masterId);
+	enrolmentId = super.getRequest().getData("id", int.class);
+	enrolment = this.repository.findOneEnrolmentById(enrolmentId);
 	student = enrolment == null ? null : enrolment.getStudent();
 	status = enrolment != null && enrolment.isDraftMode() && super.getRequest().getPrincipal().hasRole(student);
 
@@ -71,17 +70,27 @@ public class StudentEnrolmentDeleteService extends AbstractService<Student, Enro
     @Override
     public void validate(final Enrolment object) {
 	assert object != null;
+
+	if (!super.getBuffer().getErrors().hasErrors("code")) {
+	    Enrolment existing;
+	    existing = this.repository.findOneEnrolmentByCode(object.getCode());
+	    // da error, de alguna forma
+	    super.state(existing == null || existing.getId() == object.getId(), "code",
+		    "student.enrolment.form.error.duplicated");
+	}
+
+	if (!super.getBuffer().getErrors().hasErrors("course")) {
+	    final Course selectedCourse = object.getCourse();
+	    super.state(!selectedCourse.isDraftMode(), "course", "student.enrolment.form.error.not-published");
+	}
     }
 
     @Override
     public void perform(final Enrolment object) {
 	assert object != null;
 
-	Collection<Activity> activities;
-
-	activities = this.repository.findManyActivitiesByEnrolmentId(object.getId());
-	this.repository.deleteAll(activities);
-	this.repository.delete(object);
+	object.setDraftMode(false);
+	this.repository.save(object);
     }
 
     @Override

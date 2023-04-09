@@ -20,6 +20,9 @@
 	<acme:input-select code="student.enrolment.form.label.course" path="course" choices="${courses}"/>
 	<acme:input-textbox code="student.enrolment.form.label.motivation" path="motivation"/>
 	<acme:input-textarea code="student.enrolment.form.label.goals" path="goals"/>
+	<jstl:if test="${_command != 'create' }">
+		<acme:input-textbox  code="student.enrolment.form.label.credit-card-number" path="creditCardNumber"/>
+	</jstl:if>
 	
 	<jstl:choose>
 		<jstl:when test="${_command == 'show' && draftMode == false}">	

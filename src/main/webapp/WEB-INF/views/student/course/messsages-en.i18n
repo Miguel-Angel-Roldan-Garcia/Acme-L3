@@ -20,5 +20,6 @@ student.course.form.label.abstract$ = Abstract
 student.course.form.label.retailPrice = Retail price
 student.course.form.label.link = Link
 
-student.form.button.lectures = Lectures
+student.form.button.lectures = Their Lectures
+student.form.button.lecturer = Their Lecturer
 

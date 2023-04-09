@@ -54,7 +54,6 @@ public class StudentCourseShowService extends AbstractService<Student, Course> {
 	Tuple tuple;
 
 	tuple = super.unbind(object, "code", "title", "abstract$", "retailPrice", "link", "draftMode");
-	tuple.put("lecturer", object.getLecturer().getId());
 	super.getResponse().setData(tuple);
 
     }

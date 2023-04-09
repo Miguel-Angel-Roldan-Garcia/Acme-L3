@@ -9,6 +9,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
+import org.hibernate.validator.constraints.CreditCardNumber;
 import org.hibernate.validator.constraints.Length;
 
 import acme.entities.individual.lectures.Course;
@@ -51,4 +52,12 @@ public class Enrolment extends AbstractEntity {
 
     // TODO Derived attribute=> Double workingTime=
     // sum(timePeriod of all of their activities)
+
+    // OPTIONAL
+    @CreditCardNumber
+    protected String creditCardNumber;
+
+    public boolean isFinalizable() {
+	return this.draftMode && this.creditCardNumber != null;
+    }
 }
