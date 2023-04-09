@@ -59,3 +59,8 @@ master.menu.user-account.student = Datos de estudiante
 master.menu.user-account.become-student = Hazte estudiante
 master.menu.user-account.company = Datos de compañía
 master.menu.user-account.become-company = Hazte compañía
+
+# master.menu.student ########################################################
+master.menu.student = Estudiante
+master.menu.student.my-enrolments = Listar mis inscripciones
+master.menu.student.published-courses = Listar cursos publicados
