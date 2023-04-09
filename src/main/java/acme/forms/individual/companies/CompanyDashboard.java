@@ -11,7 +11,7 @@ public class CompanyDashboard extends AbstractForm {
 
 	// Attributes -------------------------------------------------------
 
-	protected Integer[] practicumCountByMonth;
+	protected int[] practicumCountByMonth;
 
 	// Session and practicum duration
 
