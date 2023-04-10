@@ -82,7 +82,8 @@ public class StudentEnrolmentFinaliseService extends AbstractService<Student, En
 	if (!super.getBuffer().getErrors().hasErrors("course")) {
 	    final Course selectedCourse = object.getCourse();
 	    super.state(!selectedCourse.isDraftMode(), "course", "student.enrolment.form.error.not-published");
-	}
+	} else
+	    super.state(object.isValidCreditCard(), "*", "student.enrolment.form.error.not-valid-credit-card");
     }
 
     @Override

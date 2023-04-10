@@ -17,6 +17,7 @@ student.enrolment.form.label.code = Código
 student.enrolment.form.label.course = Curso
 student.enrolment.form.label.motivation = Motivación
 student.enrolment.form.label.goals = Objetivos
+student.enrolment.form.label.credit-card-number = Número de Tarjeta de Crédito
 student.enrolment.form.button.create = Crear
 student.enrolment.form.button.update = Actualizar
 student.enrolment.form.button.delete = Borrar

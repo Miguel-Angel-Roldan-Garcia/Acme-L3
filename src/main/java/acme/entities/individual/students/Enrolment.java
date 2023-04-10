@@ -9,7 +9,6 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
-import org.hibernate.validator.constraints.CreditCardNumber;
 import org.hibernate.validator.constraints.Length;
 
 import acme.entities.individual.lectures.Course;
@@ -54,10 +53,17 @@ public class Enrolment extends AbstractEntity {
     // sum(timePeriod of all of their activities)
 
     // OPTIONAL
-    @CreditCardNumber
-    protected String creditCardNumber;
+    @Pattern(regexp = "^[0-9]{4}$")
+    protected String lowerNibble;
+
+    @Length(max = 23)
+    protected String holderName;
+
+    public boolean isValidCreditCard() {
+	return this.lowerNibble != null && this.holderName != null;
+    }
 
     public boolean isFinalizable() {
-	return this.draftMode && this.creditCardNumber != null;
+	return this.draftMode && this.isValidCreditCard();
     }
 }
