@@ -1,4 +1,4 @@
-key,key:userAccount,firm,professionalId,certifications,infoLink
+key,key:userAccount,firm,professionalId,certifications,link
 auditor-01,user-account-auditor-01,firmwithcharacterlimitof75charactersaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,q,.,null
 auditor-02,user-account-auditor-02,firmwithcharacterlimitof75charactersaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,b,.,null
 auditor-03,user-account-auditor-01,a,c,.,null
