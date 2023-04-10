@@ -15,3 +15,4 @@ authenticated.student.form.label.link = Link
 
 authenticated.student.form.button.create = Register
 authenticated.student.form.button.update = Update
+authenticated.student.form.button.enrolments = Enrolments
