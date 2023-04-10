@@ -53,7 +53,11 @@ master.menu.user-account.provider = Provider data
 master.menu.user-account.become-provider = Become a provider
 master.menu.user-account.consumer = Consumer data
 master.menu.user-account.become-consumer = Become a consumer
+
+master.menu.user-account.assistant = Assistant data
+master.menu.user-account.become-assistant = Become an assistant
 master.menu.user-account.student = Student data
 master.menu.user-account.become-student = Become a student
 master.menu.user-account.company = Company data
 master.menu.user-account.become-company = Become a company
+
