@@ -8,11 +8,7 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-authenticated.student.form.label.statement = Declaración: 
-authenticated.student.form.label.strong-features = Puntos fuertes:
-authenticated.student.form.label.weak-features = Puntos débiles:
-authenticated.student.form.label.link = Enlace
-
-authenticated.student.form.button.create = Registrase
-authenticated.student.form.button.update = Actualizar
-authenticated.student.form.button.enrolments = Inscripciones
+student.activity.list.label.title = Título
+student.activity.list.label.link = Enlace
+student.activity.list.label.nature = Naturaleza
+student.activity.list.button.create = Crear

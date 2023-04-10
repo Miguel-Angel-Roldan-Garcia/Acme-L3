@@ -1,4 +1,4 @@
-# messages-es.i18n
+# messages-en.i18n
 #
 # Copyright (C) 2012-2023 Rafael Corchuelo.
 #
@@ -8,11 +8,8 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-authenticated.student.form.label.statement = Declaración: 
-authenticated.student.form.label.strong-features = Puntos fuertes:
-authenticated.student.form.label.weak-features = Puntos débiles:
-authenticated.student.form.label.link = Enlace
+student.activity.list.label.title = Title
+student.activity.list.label.link = Link
+student.activity.list.label.nature = Nature
+student.activity.list.button.create = Create
 
-authenticated.student.form.button.create = Registrase
-authenticated.student.form.button.update = Actualizar
-authenticated.student.form.button.enrolments = Inscripciones
