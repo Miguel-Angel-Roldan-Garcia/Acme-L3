@@ -60,14 +60,13 @@ master.menu.user-account.student = Student data
 master.menu.user-account.become-student = Become a student
 master.menu.user-account.company = Company data
 master.menu.user-account.become-company = Become a company
-<<<<<<< HEAD
+master.menu.user-account.auditor = Auditor data
+master.menu.user-account.become-auditor = Become an auditor
+
 
 # master.menu.student ########################################################
 master.menu.student = Student
 master.menu.student.my-enrolments = List my enrolments
 master.menu.student.published-courses = List published courses
-=======
 master.menu.user-account.auditor = Auditor data
 master.menu.user-account.become-auditor = Become an auditor
-
->>>>>>> develop

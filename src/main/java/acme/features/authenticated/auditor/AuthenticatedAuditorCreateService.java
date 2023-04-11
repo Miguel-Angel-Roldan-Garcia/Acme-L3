@@ -80,7 +80,7 @@ public class AuthenticatedAuditorCreateService extends AbstractService<Authentic
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "supervisor", "expertiseFields", "resume", "link");
+		tuple = super.unbind(object, "firm", "professionalId", "certifications", "link");
 
 		super.getResponse().setData(tuple);
 	}

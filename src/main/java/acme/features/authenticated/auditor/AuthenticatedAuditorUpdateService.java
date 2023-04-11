@@ -46,7 +46,8 @@ public class AuthenticatedAuditorUpdateService extends AbstractService<Authentic
 	public void bind(final Auditor object) {
 		assert object != null;
 
-		super.bind(object, "name", "vatNumber", "summary", "link");
+		super.bind(object, "firm", "professionalId", "certifications", "link");
+
 	}
 
 	@Override
