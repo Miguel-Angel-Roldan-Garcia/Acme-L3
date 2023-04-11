@@ -1,0 +1,30 @@
+# messages-es.i18n
+#
+# Copyright (C) 2012-2023 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+assistant.tutorial.form.label.code = Codigo
+assistant.tutorial.form.label.title = Titulo
+assistant.tutorial.form.label.abstract = Resumen
+assistant.tutorial.form.label.goals = Objetivos
+assistant.tutorial.form.label.estimated-total-time = Tiempo total estimado
+assistant.tutorial.form.label.course = Curso
+
+assistant.tutorial.form.button.sessions = Sesiones
+assistant.tutorial.form.button.update = Actualizar
+assistant.tutorial.form.button.delete = Borrar
+assistant.tutorial.form.button.create = Crear
+assistant.tutorial.form.button.publish = Publicar
+
+assistant.tutorial.form.error.duplicated = Este codigo está en uso
+assistant.tutorial.form.error.not-draft-mode = Este tutorial ya está publicado, no puede ser editado ni borrado
+
+assistant.tutorial.list.label.code = Codigo
+assistant.tutorial.list.label.title = Titulo
+
+assistant.tutorial.list.button.create = Crear

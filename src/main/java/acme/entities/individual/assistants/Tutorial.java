@@ -45,9 +45,9 @@ public class Tutorial extends AbstractEntity {
 	@Length(max = 100)
 	protected String			goals;
 
-	// Derived attributes -----------------------------------------------------
+	protected boolean			draftMode;
 
-	// TODO Implement complex derived attribute estimatedTotalTime
+	// Derived attributes -----------------------------------------------------
 
 	// Relationships ----------------------------------------------------------
 
