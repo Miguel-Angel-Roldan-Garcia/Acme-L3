@@ -65,8 +65,9 @@ master.menu.user-account.become-company = Hazte compañía
 master.menu.user-account.auditor = Datos de auditoría
 master.menu.user-account.become-auditor = Hazte auditoría
 
-
 # master.menu.student ########################################################
 master.menu.student = Estudiante
 master.menu.student.my-enrolments = Listar mis inscripciones
 master.menu.student.published-courses = Listar cursos publicados
+master.menu.user-account.auditor = Datos de auditoría
+master.menu.user-account.become-auditor = Hazte auditoría

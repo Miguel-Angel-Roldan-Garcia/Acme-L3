@@ -64,8 +64,9 @@ master.menu.user-account.auditor = Auditor data
 master.menu.user-account.become-auditor = Become an auditor
 
 
-
 # master.menu.student ########################################################
 master.menu.student = Student
 master.menu.student.my-enrolments = List my enrolments
 master.menu.student.published-courses = List published courses
+master.menu.user-account.auditor = Auditor data
+master.menu.user-account.become-auditor = Become an auditor
