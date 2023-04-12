@@ -15,3 +15,5 @@ authenticated.company.form.label.link = Link
 
 authenticated.company.form.button.create = Register
 authenticated.company.form.button.update = Update
+
+authenticated.company.form.error.existing-vat-number = Existing VAT number

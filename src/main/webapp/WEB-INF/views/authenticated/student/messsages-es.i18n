@@ -13,5 +13,6 @@ authenticated.student.form.label.strong-features = Puntos fuertes:
 authenticated.student.form.label.weak-features = Puntos débiles:
 authenticated.student.form.label.link = Enlace
 
-authenticated.student.form.button.create = Register
-authenticated.student.form.button.update = Update
+authenticated.student.form.button.create = Registrase
+authenticated.student.form.button.update = Actualizar
+authenticated.student.form.button.enrolments = Inscripciones

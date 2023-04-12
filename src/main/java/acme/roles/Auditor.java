@@ -33,6 +33,6 @@ public class Auditor extends AbstractRole {
 	protected String			certifications;
 
 	@URL
-	protected String			infoLink;
+	protected String			link;
 
 }
