@@ -23,6 +23,7 @@ assistant.tutorial-session.form.button.publish = Publicar
 assistant.tutorial-session.form.error.at-least-one-day-ahead = Una sesión debe ser creada al menos con un día de antelación
 assistant.tutorial-session.form.error.end-before-start = El final de la sesión debe ser posterior al inicio de la sesion
 assistant.tutorial-session.form.error.duration = Una sesión debe durar entre 1 y 5 horas
+assistant.tutorial-session.form.error.nature-balanced = Una sesión no puede ser de naturaleza balanceada
 
 assistant.tutorial-session.list.label.title = Título
 assistant.tutorial-session.list.label.nature = Naturaleza 
