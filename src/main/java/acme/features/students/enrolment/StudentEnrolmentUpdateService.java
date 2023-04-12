@@ -64,7 +64,7 @@ public class StudentEnrolmentUpdateService extends AbstractService<Student, Enro
 	courseId = super.getRequest().getData("course", int.class);
 	course = this.repository.findOneCourseById(courseId);
 
-	super.bind(object, "code", "motivation", "goals", "lowerNibble", "holderName");
+	super.bind(object, "code", "motivation", "goals");
 	object.setCourse(course);
     }
 
@@ -76,8 +76,7 @@ public class StudentEnrolmentUpdateService extends AbstractService<Student, Enro
 	    Enrolment existing;
 	    existing = this.repository.findOneEnrolmentByCode(object.getCode());
 	    // da error, de alguna forma
-	    super.state(existing == null || existing.getId() == object.getId(), "code",
-		    "student.enrolment.form.error.duplicated");
+	    super.state(existing == null || existing.equals(object), "code", "student.enrolment.form.error.duplicated");
 	}
 
 	if (!super.getBuffer().getErrors().hasErrors("course")) {
@@ -104,7 +103,7 @@ public class StudentEnrolmentUpdateService extends AbstractService<Student, Enro
 	courses = this.repository.findManyPublishedCourses();
 	choices = SelectChoices.from(courses, "title", object.getCourse());
 
-	tuple = super.unbind(object, "code", "motivation", "goals", "draftMode", "lowerNibble", "holderName");
+	tuple = super.unbind(object, "code", "motivation", "goals", "draftMode");
 	tuple.put("course", choices.getSelected().getKey());
 	tuple.put("courses", choices);
 

@@ -18,12 +18,13 @@
 <acme:form>
 	<acme:input-textbox code="student.activity.form.label.title" path="title"/>
 	<acme:input-textarea code="student.activity.form.label.abstract$" path="abstract$"/>
+	<acme:input-select code="student.activity.form.label.nature" path="nature" choices="${natures}"/>
 	<acme:input-moment code="student.activity.form.label.initial-date" path="initialDate"/>
 	<acme:input-moment code="student.activity.form.label.finish-date" path="finishDate"/>
 	<acme:input-url code="student.activity.form.label.link" path="link"/>
 	
 	<jstl:if test="${_command_ != 'create' }">
-		<%-- AÑADIR CUANDO SE SEPA EL PERIODO DE TIEMPO --%>
+		<acme:input-double readonly="true" code="student.activity.form.label.time-period" path="timePeriod"/>
 	</jstl:if>
 	
 	<jstl:choose>

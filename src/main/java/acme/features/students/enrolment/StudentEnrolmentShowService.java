@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.individual.lectures.Course;
+import acme.entities.individual.students.Activity;
 import acme.entities.individual.students.Enrolment;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
@@ -60,13 +61,20 @@ public class StudentEnrolmentShowService extends AbstractService<Student, Enrolm
 	Collection<Course> courses;
 	SelectChoices choices;
 	Tuple tuple;
+	double totalWorkingTime = 0.;
 
 	courses = this.repository.findManyPublishedCourses();
 	choices = SelectChoices.from(courses, "title", object.getCourse());
+	if (!object.isDraftMode()) {
+	    final Collection<Activity> activities = this.repository.findManyActivitiesByEnrolmentId(object.getId());
+	    for (final Activity activity : activities)
+		totalWorkingTime += activity.getTimePeriod();
+	}
 
-	tuple = super.unbind(object, "code", "motivation", "goals", "draftMode", "creditCardNumber");
+	tuple = super.unbind(object, "code", "motivation", "goals", "draftMode", "lowerNibble", "holderName");
 	tuple.put("course", choices.getSelected().getKey());
 	tuple.put("courses", choices);
+	tuple.put("workTime", totalWorkingTime);
 
 	super.getResponse().setData(tuple);
     }

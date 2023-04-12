@@ -63,7 +63,7 @@ public class StudentEnrolmentFinaliseService extends AbstractService<Student, En
 	courseId = super.getRequest().getData("course", int.class);
 	course = this.repository.findOneCourseById(courseId);
 
-	super.bind(object, "code", "motivation", "goals", "creditCardNumber");
+	super.bind(object, "code", "motivation", "goals", "lowerNibble", "holderName", "draftMode");
 	object.setCourse(course);
     }
 
@@ -75,14 +75,15 @@ public class StudentEnrolmentFinaliseService extends AbstractService<Student, En
 	    Enrolment existing;
 	    existing = this.repository.findOneEnrolmentByCode(object.getCode());
 	    // da error, de alguna forma
-	    super.state(existing == null || existing.getId() == object.getId(), "code",
-		    "student.enrolment.form.error.duplicated");
+	    super.state(existing == null || existing.equals(object), "code", "student.enrolment.form.error.duplicated");
 	}
 
 	if (!super.getBuffer().getErrors().hasErrors("course")) {
 	    final Course selectedCourse = object.getCourse();
 	    super.state(!selectedCourse.isDraftMode(), "course", "student.enrolment.form.error.not-published");
-	} else
+	}
+	if (!super.getBuffer().getErrors().hasErrors("holderName")
+		&& !super.getBuffer().getErrors().hasErrors("lowerNibble"))
 	    super.state(object.isValidCreditCard(), "*", "student.enrolment.form.error.not-valid-credit-card");
     }
 
@@ -105,7 +106,7 @@ public class StudentEnrolmentFinaliseService extends AbstractService<Student, En
 	courses = this.repository.findManyPublishedCourses();
 	choices = SelectChoices.from(courses, "title", object.getCourse());
 
-	tuple = super.unbind(object, "code", "motivation", "goals", "draftMode", "creditCardNumber");
+	tuple = super.unbind(object, "code", "motivation", "goals", "draftMode", "lowerNibble", "holderName");
 	tuple.put("course", choices.getSelected().getKey());
 	tuple.put("courses", choices);
 

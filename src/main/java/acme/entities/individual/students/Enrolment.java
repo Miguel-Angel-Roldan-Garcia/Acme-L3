@@ -56,7 +56,7 @@ public class Enrolment extends AbstractEntity {
     @Pattern(regexp = "^[0-9]{4}$")
     protected String lowerNibble;
 
-    @Length(max = 23)
+    @Length(max = 24, min = 1)
     protected String holderName;
 
     public boolean isValidCreditCard() {
