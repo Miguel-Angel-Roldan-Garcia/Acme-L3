@@ -73,7 +73,7 @@ public class AssistantTutorialPublishService extends AbstractService<Assistant, 
 	public void bind(final Tutorial object) {
 		assert object != null;
 
-		super.bind(object, "code", "title", "abstract$", "goals", "draftMode");
+		super.bind(object, "code", "title", "abstract$", "goals");
 	}
 
 	@Override
