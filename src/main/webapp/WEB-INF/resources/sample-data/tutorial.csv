@@ -1,34 +1,34 @@
-key,code,title,abstract$,goals,key:assistant,key:course
-tutorial-01,AFK001,Sample tutorial,This is a tutorial for using on informal testing,Comply with a requisite,assistant-01,course-1
-tutorial-02,A001,Sample tutorial,This is a tutorial for using on informal testing,Comply with a requisite,assistant-01,course-1
-tutorial-03,AB001,Sample tutorial,This is a tutorial for using on informal testing,Comply with a requisite,assistant-01,course-1
-tutorial-04,AFK999,Sample tutorial,This is a tutorial for using on informal testing,Comply with a requisite,assistant-01,course-1
-tutorial-05,AFK005,Tutorial de ejemplo,This is a tutorial for using on informal testing,Comply with a requisite,assistant-01,course-1
-tutorial-06,AFK006,1.1-Sample tutorial,This is a tutorial for using on informal testing,Comply with a requisite,assistant-01,course-1
-tutorial-07,AFK007,Първи урок,This is a tutorial for using on informal testing,Comply with a requisite,assistant-01,course-1
-tutorial-08,AFK008,!#$%&/()=?¿,This is a tutorial for using on informal testing,Comply with a requisite,assistant-01,course-1
-tutorial-09,AFK009,<h1>Lorem Ipsum</h1>,This is a tutorial for using on informal testing,Comply with a requisite,assistant-01,course-1
-tutorial-10,AFK010,"<script>alert(""hi!"")</script>",This is a tutorial for using on informal testing,Comply with a requisite,assistant-01,course-1
-tutorial-11,AFK011,1,This is a tutorial for using on informal testing,Comply with a requisite,assistant-01,course-1
-tutorial-12,AFK012,2c,This is a tutorial for using on informal testing,Comply with a requisite,assistant-01,course-1
-tutorial-13,AFK013,74 Characters -.-.-.-.-.-.-.-.-.-.-.-.-.--.-.-.-.-.-.-.-.-.-.-.-.-.-.-.74,This is a tutorial for using on informal testing,Comply with a requisite,assistant-01,course-1
-tutorial-14,AFK014,75 Characters -.-.-.-.-.-.-.-.-.-.-.-.-.--.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-75,This is a tutorial for using on informal testing,Comply with a requisite,assistant-01,course-1
-tutorial-15,AFK015,Sample tutorial,Este es un tutorial para usar en pruebas informales,Comply with a requisite,assistant-01,course-1
-tutorial-16,AFK016,Sample tutorial,1.1-This is a tutorial for using on informal testing,Comply with a requisite,assistant-01,course-1
-tutorial-17,AFK017,Sample tutorial,Това е урок за използване при неофициално тестване,Comply with a requisite,assistant-01,course-1
-tutorial-18,AFK018,Sample tutorial,!#$%&/()=?¿,Comply with a requisite,assistant-01,course-1
-tutorial-19,AFK019,Sample tutorial,<h1>Lorem Ipsum</h1>,Comply with a requisite,assistant-01,course-1
-tutorial-20,AFK020,Sample tutorial,"<script>alert(""hi!"")</script>",Comply with a requisite,assistant-01,course-1
-tutorial-21,AFK021,Sample tutorial,1,Comply with a requisite,assistant-02,course-1
-tutorial-22,AFK022,Sample tutorial,2c,Comply with a requisite,assistant-01,course-1
-tutorial-23,AFK023,Sample tutorial,99 Characters -.-.-.-.-.-.-.-.-.-.-.-.-.--.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-99,Comply with a requisite,assistant-01,course-1
-tutorial-24,AFK024,Sample tutorial,100 Characters -.-.-.-.-.-.-.-.-.-.-.-.-.--.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-100,Comply with a requisite,assistant-01,course-1
-tutorial-25,AFK025,Sample tutorial,This is a tutorial for using on informal testing,1.1-Comply with a requisite,assistant-01,course-1
-tutorial-26,AFK026,Sample tutorial,This is a tutorial for using on informal testing,Първи урок,assistant-01,course-1
-tutorial-27,AFK027,Sample tutorial,This is a tutorial for using on informal testing,!#$%&/()=?¿,assistant-01,course-1
-tutorial-28,AFK028,Sample tutorial,This is a tutorial for using on informal testing,<h1>Lorem Ipsum</h1>,assistant-01,course-1
-tutorial-29,AFK029,Sample tutorial,This is a tutorial for using on informal testing,"<script>alert(""hi!"")</script>",assistant-01,course-1
-tutorial-30,AFK030,Sample tutorial,This is a tutorial for using on informal testing,1,assistant-01,course-1
-tutorial-31,AFK031,Sample tutorial,This is a tutorial for using on informal testing,2c,assistant-01,course-1
-tutorial-32,AFK032,Sample tutorial,This is a tutorial for using on informal testing,99 Characters -.-.-.-.-.-.-.-.-.-.-.-.-.--.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-99,assistant-01,course-1
-tutorial-33,AFK033,Sample tutorial,This is a tutorial for using on informal testing,100 Characters -.-.-.-.-.-.-.-.-.-.-.-.-.--.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-100,assistant-01,course-1
+key,code,title,abstract$,goals,draftMode,key:assistant,key:course
+tutorial-01,AFK001,Sample tutorial,This is a tutorial for using on informal testing,Comply with a requisite,1,assistant-01,course-1
+tutorial-02,A001,Sample tutorial,This is a tutorial for using on informal testing,Comply with a requisite,1,assistant-01,course-1
+tutorial-03,AB001,Sample tutorial,This is a tutorial for using on informal testing,Comply with a requisite,1,assistant-01,course-1
+tutorial-04,AFK999,Sample tutorial,This is a tutorial for using on informal testing,Comply with a requisite,1,assistant-01,course-1
+tutorial-05,AFK005,Tutorial de ejemplo,This is a tutorial for using on informal testing,Comply with a requisite,1,assistant-01,course-1
+tutorial-06,AFK006,1.1-Sample tutorial,This is a tutorial for using on informal testing,Comply with a requisite,1,assistant-01,course-1
+tutorial-07,AFK007,Първи урок,This is a tutorial for using on informal testing,Comply with a requisite,1,assistant-01,course-1
+tutorial-08,AFK008,!#$%&/()=?¿,This is a tutorial for using on informal testing,Comply with a requisite,1,assistant-01,course-1
+tutorial-09,AFK009,<h1>Lorem Ipsum</h1>,This is a tutorial for using on informal testing,Comply with a requisite,1,assistant-01,course-1
+tutorial-10,AFK010,"<script>alert(""hi!"")</script>",This is a tutorial for using on informal testing,Comply with a requisite,1,assistant-01,course-1
+tutorial-11,AFK011,1,This is a tutorial for using on informal testing,Comply with a requisite,1,assistant-01,course-1
+tutorial-12,AFK012,2c,This is a tutorial for using on informal testing,Comply with a requisite,1,assistant-01,course-1
+tutorial-13,AFK013,74 Characters -.-.-.-.-.-.-.-.-.-.-.-.-.--.-.-.-.-.-.-.-.-.-.-.-.-.-.-.74,This is a tutorial for using on informal testing,Comply with a requisite,1,assistant-01,course-1
+tutorial-14,AFK014,75 Characters -.-.-.-.-.-.-.-.-.-.-.-.-.--.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-75,This is a tutorial for using on informal testing,Comply with a requisite,1,assistant-01,course-1
+tutorial-15,AFK015,Sample tutorial,Este es un tutorial para usar en pruebas informales,Comply with a requisite,1,assistant-01,course-1
+tutorial-16,AFK016,Sample tutorial,1.1-This is a tutorial for using on informal testing,Comply with a requisite,1,assistant-01,course-1
+tutorial-17,AFK017,Sample tutorial,Това е урок за използване при неофициално тестване,Comply with a requisite,1,assistant-01,course-1
+tutorial-18,AFK018,Sample tutorial,!#$%&/()=?¿,Comply with a requisite,1,assistant-01,course-1
+tutorial-19,AFK019,Sample tutorial,<h1>Lorem Ipsum</h1>,Comply with a requisite,1,assistant-01,course-1
+tutorial-20,AFK020,Sample tutorial,"<script>alert(""hi!"")</script>",Comply with a requisite,1,assistant-01,course-1
+tutorial-21,AFK021,Sample tutorial,1,Comply with a requisite,1,assistant-02,course-1
+tutorial-22,AFK022,Sample tutorial,2c,Comply with a requisite,1,assistant-01,course-1
+tutorial-23,AFK023,Sample tutorial,99 Characters -.-.-.-.-.-.-.-.-.-.-.-.-.--.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-99,Comply with a requisite,1,assistant-01,course-1
+tutorial-24,AFK024,Sample tutorial,100 Characters -.-.-.-.-.-.-.-.-.-.-.-.-.--.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-100,Comply with a requisite,1,assistant-01,course-1
+tutorial-25,AFK025,Sample tutorial,This is a tutorial for using on informal testing,1.1-Comply with a requisite,1,assistant-01,course-1
+tutorial-26,AFK026,Sample tutorial,This is a tutorial for using on informal testing,Първи урок,1,assistant-01,course-1
+tutorial-27,AFK027,Sample tutorial,This is a tutorial for using on informal testing,!#$%&/()=?¿,1,assistant-01,course-1
+tutorial-28,AFK028,Sample tutorial,This is a tutorial for using on informal testing,<h1>Lorem Ipsum</h1>,1,assistant-01,course-1
+tutorial-29,AFK029,Sample tutorial,This is a tutorial for using on informal testing,"<script>alert(""hi!"")</script>",1,assistant-01,course-1
+tutorial-30,AFK030,Sample tutorial,This is a tutorial for using on informal testing,1,1,assistant-01,course-1
+tutorial-31,AFK031,Sample tutorial,This is a tutorial for using on informal testing,2c,1,assistant-01,course-1
+tutorial-32,AFK032,Sample tutorial,This is a tutorial for using on informal testing,99 Characters -.-.-.-.-.-.-.-.-.-.-.-.-.--.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-99,1,assistant-01,course-1
+tutorial-33,AFK033,Sample tutorial,This is a tutorial for using on informal testing,100 Characters -.-.-.-.-.-.-.-.-.-.-.-.-.--.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-100,1,assistant-01,course-1

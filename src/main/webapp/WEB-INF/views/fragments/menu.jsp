@@ -45,8 +45,13 @@
 		<acme:menu-option code="master.menu.consumer" access="hasRole('Consumer')">
 			<acme:menu-suboption code="master.menu.consumer.favourite-link" action="http://www.example.com/"/>
 		</acme:menu-option>
+
+		<acme:menu-option code="master.menu.assistant" access="hasRole('Assistant')">
+			<acme:menu-suboption code="master.menu.assistant.list-mine-tutorials" action="/assistant/tutorial/list-mine"/>
+		</acme:menu-option>
+    
 		<acme:menu-option code="master.menu.student" access="hasRole('Student')">
-		<%---PARA QUE FUNCIONE LA ACCIÓN, LA ACCIÓN DEBE INDICAR EL COMANDO CON EL QUE SE ESTA ENTRANDO --%>
+		<%---PARA QUE FUNCIONE LA ACCIÃ“N, LA ACCIÃ“N DEBE INDICAR EL COMANDO CON EL QUE SE ESTA ENTRANDO --%>
 			<acme:menu-suboption code="master.menu.student.my-enrolments" action="/student/enrolment/list-mine"/>
 			<acme:menu-suboption code="master.menu.student.published-courses" action="/student/course/list"/>
 		</acme:menu-option>
