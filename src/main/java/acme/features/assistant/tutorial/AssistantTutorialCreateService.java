@@ -82,7 +82,7 @@ public class AssistantTutorialCreateService extends AbstractService<Assistant, T
 	public void bind(final Tutorial object) {
 		assert object != null;
 
-		super.bind(object, "code", "title", "abstract$", "goals", "draftMode");
+		super.bind(object, "code", "title", "abstract$", "goals");
 	}
 
 	@Override
@@ -92,7 +92,7 @@ public class AssistantTutorialCreateService extends AbstractService<Assistant, T
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			Tutorial existing;
 			existing = this.repository.findOneTutorialByCode(object.getCode());
-			super.state(existing == null, "code", "assistant.tutorial.form.error.duplicated");
+			super.state(existing == null || existing.equals(object), "code", "assistant.tutorial.form.error.duplicated");
 		}
 
 	}

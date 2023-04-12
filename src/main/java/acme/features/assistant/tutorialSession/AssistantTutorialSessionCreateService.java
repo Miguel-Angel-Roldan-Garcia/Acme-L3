@@ -84,7 +84,7 @@ public class AssistantTutorialSessionCreateService extends AbstractService<Assis
 	public void bind(final TutorialSession object) {
 		assert object != null;
 
-		super.bind(object, "title", "abstract$", "nature", "startDate", "endDate", "link", "draftMode");
+		super.bind(object, "title", "abstract$", "nature", "startDate", "endDate", "link");
 	}
 
 	@Override
@@ -117,6 +117,10 @@ public class AssistantTutorialSessionCreateService extends AbstractService<Assis
 
 			super.state(endDateError, "endDate", "assistant.tutorial-session.form.error.end-before-start");
 		}
+
+		if (!super.getBuffer().getErrors().hasErrors("nature"))
+			super.state(!object.getNature().equals(Nature.BALANCED), "nature", "assistant.tutorial-session.form.error.nature-balanced");
+
 	}
 
 	@Override
@@ -137,7 +141,7 @@ public class AssistantTutorialSessionCreateService extends AbstractService<Assis
 
 		masterId = super.getRequest().getData("masterId", int.class);
 
-		tuple = super.unbind(object, "title", "abstract$", "nature", "startDate", "endDate", "link", "draftMode");
+		tuple = super.unbind(object, "title", "abstract$", "nature", "startDate", "endDate", "link");
 		tuple.put("masterId", masterId);
 		tuple.put("natures", choices);
 
