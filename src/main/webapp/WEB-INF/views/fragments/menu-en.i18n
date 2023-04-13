@@ -51,6 +51,25 @@ master.menu.consumer.favourite-link = Favourite link
 master.menu.assistant = Assistant
 master.menu.assistant.list-mine-tutorials = List my tutorials
 
+# master.menu.company #########################################################
+
+master.menu.company = Company
+master.menu.company.list-mine-practicum = List my practica
+
+# master.menu.course #########################################################
+
+master.menu.course = Course
+master.menu.student.published-courses = List published courses
+
+# master.menu.student ########################################################
+master.menu.student = Student
+master.menu.student.my-enrolments = List my enrolments
+
+# master.menu.auditor ########################################################
+
+master.menu.user-account.auditor = Auditor data
+master.menu.user-account.become-auditor = Become an auditor
+
 # master.menu.user-account ####################################################
 
 master.menu.user-account = Account
@@ -68,14 +87,6 @@ master.menu.user-account.lecturer = Lecturer data
 master.menu.user-account.become-lecturer = Become a lecturer
 master.menu.user-account.company = Company data
 master.menu.user-account.become-company = Become a company
-master.menu.user-account.auditor = Auditor data
-master.menu.user-account.become-auditor = Become an auditor
-
-
-# master.menu.student ########################################################
-master.menu.student = Student
-master.menu.student.my-enrolments = List my enrolments
-master.menu.student.published-courses = List published courses
 master.menu.user-account.auditor = Auditor data
 master.menu.user-account.become-auditor = Become an auditor
 
