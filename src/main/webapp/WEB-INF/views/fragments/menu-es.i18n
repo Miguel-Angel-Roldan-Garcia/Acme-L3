@@ -52,6 +52,26 @@ master.menu.consumer.favourite-link = Enlace favorito
 master.menu.assistant = Asistente
 master.menu.assistant.list-mine-tutorials = Listar mis tutoriales
 
+# master.menu.company #########################################################
+
+master.menu.company = Compañía
+master.menu.company.list-mine-practicum = Listar mis prácticasç
+
+# master.menu.course #########################################################
+
+master.menu.course = Curso
+master.menu.student.published-courses = Listar cursos publicados
+
+# master.menu.student ########################################################
+
+master.menu.student = Estudiante
+master.menu.student.my-enrolments = Listar mis inscripciones
+
+# master.menu.auditor ########################################################
+
+master.menu.user-account.auditor = Datos de auditoría
+master.menu.user-account.become-auditor = Hazte auditoría
+
 # master.menu.user-account ####################################################
 
 master.menu.user-account = Cuenta
@@ -67,12 +87,5 @@ master.menu.user-account.student = Datos de estudiante
 master.menu.user-account.become-student = Hazte estudiante
 master.menu.user-account.company = Datos de compañía
 master.menu.user-account.become-company = Hazte compañía
-master.menu.user-account.auditor = Datos de auditoría
-master.menu.user-account.become-auditor = Hazte auditoría
-
-# master.menu.student ########################################################
-master.menu.student = Estudiante
-master.menu.student.my-enrolments = Listar mis inscripciones
-master.menu.student.published-courses = Listar cursos publicados
 master.menu.user-account.auditor = Datos de auditoría
 master.menu.user-account.become-auditor = Hazte auditoría
