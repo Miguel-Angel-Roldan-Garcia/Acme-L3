@@ -18,4 +18,10 @@ public interface StudentActivityRepository extends AbstractRepository {
     @Query("SELECT activity from Activity activity where activity.enrolment.id =:masterId")
     Collection<Activity> findManyActivitiesByEnrolmentId(int masterId);
 
+    @Query("select activity.enrolment from Activity activity where activity.id = :activityId")
+    Enrolment findOneEnrolmentByActivityId(int activityId);
+
+    @Query("select activity from Activity activity where activity.id = :id")
+    Activity findOneActivityById(int id);
+
 }

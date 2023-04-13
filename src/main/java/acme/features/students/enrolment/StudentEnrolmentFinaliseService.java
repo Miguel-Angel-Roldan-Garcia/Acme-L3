@@ -63,7 +63,7 @@ public class StudentEnrolmentFinaliseService extends AbstractService<Student, En
 	courseId = super.getRequest().getData("course", int.class);
 	course = this.repository.findOneCourseById(courseId);
 
-	super.bind(object, "code", "motivation", "goals", "lowerNibble", "holderName", "draftMode");
+	super.bind(object, "code", "motivation", "goals", "lowerNibble", "holderName");
 	object.setCourse(course);
     }
 

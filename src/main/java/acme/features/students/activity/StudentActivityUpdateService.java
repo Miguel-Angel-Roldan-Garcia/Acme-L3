@@ -8,11 +8,12 @@ import acme.entities.individual.students.Activity;
 import acme.entities.individual.students.Enrolment;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
+import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
 import acme.roles.Student;
 
 @Service
-public class StudentActivityShowService extends AbstractService<Student, Activity> {
+public class StudentActivityUpdateService extends AbstractService<Student, Activity> {
 
     @Autowired
     protected StudentActivityRepository repository;
@@ -52,6 +53,29 @@ public class StudentActivityShowService extends AbstractService<Student, Activit
     }
 
     @Override
+    public void bind(final Activity object) {
+	assert object != null;
+
+	super.bind(object, "title", "abstract$", "initialDate", "finishDate", "link", "nature");
+    }
+
+    @Override
+    public void validate(final Activity object) {
+	assert object != null;
+	if (!super.getBuffer().getErrors().hasErrors("initialDate")
+		&& !super.getBuffer().getErrors().hasErrors("finishDate"))
+	    super.state(MomentHelper.isBefore(object.getInitialDate(), object.getFinishDate()), "*",
+		    "student.activity.form.error.not-valid-dates");
+    }
+
+    @Override
+    public void perform(final Activity object) {
+	assert object != null;
+
+	this.repository.save(object);
+    }
+
+    @Override
     public void unbind(final Activity object) {
 	assert object != null;
 
@@ -61,10 +85,9 @@ public class StudentActivityShowService extends AbstractService<Student, Activit
 	choices = SelectChoices.from(Nature.class, object.getNature());
 	tuple = super.unbind(object, "title", "abstract$", "initialDate", "finishDate", "link", "nature");
 	tuple.put("timePeriod", object.getTimePeriod());
+	tuple.put("masterId", super.getRequest().getData("masterId", int.class));
 	tuple.put("nature", choices.getSelected().getKey());
 	tuple.put("natures", choices);
-	tuple.put("masterId", object.getEnrolment().getId());
-
 	super.getResponse().setData(tuple);
     }
 
