@@ -1,5 +1,5 @@
 /*
- * WorkerApplicationShowService.java
+ * AuthenticatedAnnouncementListAllService.java
  *
  * Copyright (C) 2012-2023 Rafael Corchuelo.
  *
@@ -10,23 +10,25 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.administrator;
+package acme.features.administrator.banner;
+
+import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.group.SystemConfiguration;
+import acme.entities.group.Banner;
 import acme.framework.components.accounts.Administrator;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 
 @Service
-public class AdministratorSystemConfigurationShowService extends AbstractService<Administrator, SystemConfiguration> {
+public class AdministratorBannerListAllService extends AbstractService<Administrator, Banner> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AdministratorSystemConfigurationRepository repository;
+	protected AdministratorBannerRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -38,31 +40,25 @@ public class AdministratorSystemConfigurationShowService extends AbstractService
 
 	@Override
 	public void authorise() {
-		boolean status;
-		SystemConfiguration systemConfiguration;
-
-		systemConfiguration = this.repository.findSystemConfiguration();
-		status = systemConfiguration != null && super.getRequest().getPrincipal().hasRole(Administrator.class);
-
-		super.getResponse().setAuthorised(status);
+		super.getResponse().setAuthorised(true);
 	}
 
 	@Override
 	public void load() {
-		SystemConfiguration object;
+		Collection<Banner> objects;
 
-		object = this.repository.findSystemConfiguration();
+		objects = this.repository.findAllBanners();
 
-		super.getBuffer().setData(object);
+		super.getBuffer().setData(objects);
 	}
 
 	@Override
-	public void unbind(final SystemConfiguration object) {
+	public void unbind(final Banner object) {
 		assert object != null;
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "currency", "acceptedCurrencies");
+		tuple = super.unbind(object, "instantiationMoment", "slogan");
 
 		super.getResponse().setData(tuple);
 	}

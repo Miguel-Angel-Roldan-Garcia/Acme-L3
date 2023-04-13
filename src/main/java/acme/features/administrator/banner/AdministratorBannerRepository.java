@@ -1,5 +1,5 @@
 /*
- * WorkerApplicationRepository.java
+ * AuthenticatedAnnouncementRepository.java
  *
  * Copyright (C) 2012-2023 Rafael Corchuelo.
  *
@@ -10,24 +10,23 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.administrator;
+package acme.features.administrator.banner;
 
 import java.util.Collection;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import acme.entities.group.SystemConfiguration;
+import acme.entities.group.Banner;
 import acme.framework.repositories.AbstractRepository;
 
 @Repository
-public interface AdministratorSystemConfigurationRepository extends AbstractRepository {
+public interface AdministratorBannerRepository extends AbstractRepository {
 
-	@Query("select sc from SystemConfiguration sc")
-	Collection<SystemConfiguration> findManySystemConfigurations();
+	@Query("select b from Banner b where b.id = :id")
+	Banner findOneBannerById(int id);
 
-	default SystemConfiguration findSystemConfiguration() {
-		return this.findManySystemConfigurations().stream().findFirst().orElse(null);
-	}
+	@Query("select b from Banner b")
+	Collection<Banner> findAllBanners();
 
 }
