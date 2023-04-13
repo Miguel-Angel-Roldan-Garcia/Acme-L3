@@ -94,20 +94,9 @@ public class AssistantTutorialSessionCreateService extends AbstractService<Assis
 		if (!super.getBuffer().getErrors().hasErrors("startDate")) {
 			boolean startDateError;
 
-			startDateError = MomentHelper.isBefore(object.getStartDate(), MomentHelper.deltaFromCurrentMoment(1l, ChronoUnit.DAYS));
+			startDateError = MomentHelper.isAfter(object.getStartDate(), MomentHelper.deltaFromCurrentMoment(1l, ChronoUnit.DAYS));
 
 			super.state(startDateError, "startDate", "assistant.tutorial-session.form.error.at-least-one-day-ahead");
-		}
-
-		if (!super.getBuffer().getErrors().hasErrors("endDate")) {
-			boolean endDateErrorDuration;
-
-			endDateErrorDuration = !MomentHelper.isLongEnough(object.getStartDate(), object.getEndDate(), 1l, ChronoUnit.HOURS);
-
-			if (!endDateErrorDuration)
-				endDateErrorDuration = MomentHelper.isLongEnough(object.getStartDate(), object.getEndDate(), (long) 5 * 3600 + 1, ChronoUnit.SECONDS);
-
-			super.state(endDateErrorDuration, "endDate", "assistant.tutorial-session.form.error.duration");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("endDate")) {
@@ -116,6 +105,17 @@ public class AssistantTutorialSessionCreateService extends AbstractService<Assis
 			endDateError = MomentHelper.isBefore(object.getStartDate(), object.getEndDate());
 
 			super.state(endDateError, "endDate", "assistant.tutorial-session.form.error.end-before-start");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("endDate")) {
+			boolean endDateErrorDuration;
+
+			endDateErrorDuration = MomentHelper.isLongEnough(object.getStartDate(), object.getEndDate(), 1l, ChronoUnit.HOURS);
+
+			if (endDateErrorDuration)
+				endDateErrorDuration = !MomentHelper.isLongEnough(object.getStartDate(), object.getEndDate(), (long) 5 * 3600 + 1, ChronoUnit.SECONDS);
+
+			super.state(endDateErrorDuration, "endDate", "assistant.tutorial-session.form.error.duration");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("nature"))

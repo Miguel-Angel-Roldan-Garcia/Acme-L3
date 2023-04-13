@@ -33,6 +33,7 @@ master.menu.administrator.dashboard = Dashboard
 master.menu.administrator.user-accounts = User accounts
 master.menu.administrator.populate-initial = Populate DB (initial)
 master.menu.administrator.populate-sample = Populate DB (samples)
+master.menu.administrator.system-configuration = System configuration
 master.menu.administrator.shut-down = Shut down
 
 # master.menu.provider ########################################################
@@ -82,7 +83,14 @@ master.menu.user-account.assistant = Assistant data
 master.menu.user-account.become-assistant = Become an assistant
 master.menu.user-account.student = Student data
 master.menu.user-account.become-student = Become a student
+master.menu.user-account.lecturer = Lecturer data
+master.menu.user-account.become-lecturer = Become a lecturer
 master.menu.user-account.company = Company data
 master.menu.user-account.become-company = Become a company
 master.menu.user-account.auditor = Auditor data
 master.menu.user-account.become-auditor = Become an auditor
+
+# master.menu.lecturer ########################################################
+master.menu.lecturer = Lecturer
+master.menu.lecturer.lectures = List my lectures
+master.menu.lecturer.courses = List courses

@@ -58,7 +58,7 @@ public class Activity extends AbstractEntity {
 
     // TODO Derived attribute=> Double timePeriod= finishDate-initialDate
     public Double getTimePeriod() {
-	return MomentHelper.computeDuration(this.initialDate, this.finishDate).getSeconds() / 360.;
+	return MomentHelper.computeDuration(this.initialDate, this.finishDate).getSeconds() / 3600.;
     }
 
 }

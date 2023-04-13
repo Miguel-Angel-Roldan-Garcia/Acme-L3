@@ -35,6 +35,7 @@ master.menu.administrator.dashboard = Panel de indicadores
 master.menu.administrator.user-accounts = Cuentas de usuario
 master.menu.administrator.populate-initial = Poblar BD (inicial)
 master.menu.administrator.populate-sample = Poblar BD (ejemplos)
+master.menu.administrator.system-configuration = Configuración del sistema
 master.menu.administrator.shut-down = Parar el sistema
 
 # master.menu.provider ########################################################
@@ -85,7 +86,14 @@ master.menu.user-account.assistant = Datos de assistente
 master.menu.user-account.become-assistant = Hazte assistente
 master.menu.user-account.student = Datos de estudiante
 master.menu.user-account.become-student = Hazte estudiante
+master.menu.user-account.lecturer = Datos de Profesor
+master.menu.user-account.become-lecturer = Hazte Profesor
 master.menu.user-account.company = Datos de compañía
 master.menu.user-account.become-company = Hazte compañía
-master.menu.user-account.auditor = Datos de auditoría
-master.menu.user-account.become-auditor = Hazte auditoría
+master.menu.user-account.auditor = Datos de auditor
+master.menu.user-account.become-auditor = Hazte auditor
+
+# master.menu.lecturer ########################################################
+master.menu.lecturer = Profesor
+master.menu.lecturer.lectures = Listar mis lecciones
+master.menu.lecturer.courses = Listar curso

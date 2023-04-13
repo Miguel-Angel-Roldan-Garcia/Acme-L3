@@ -1,5 +1,5 @@
 <%--
-- list.jsp
+- form.jsp
 -
 - Copyright (C) 2012-2023 Rafael Corchuelo.
 -
@@ -15,13 +15,9 @@
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 
-<acme:list>
-	<acme:list-column code="student.enrolment.list.label.code" path="code" width="10%"/>
-	<acme:list-column code="student.enrolment.list.label.motivation" path="motivation" width="10%"/>
-	<acme:list-column code="student.enrolment.list.label.goals" path="goals" width="80%"/>
-	<acme:list-column code="student.enrolment.list.label.draft-mode" path="draftMode" width="80%"/>
-</acme:list>
+<acme:form> 
+	<acme:input-textbox code="administrator.system-configuration.form.label.currency" path="currency"/>
+	<acme:input-textbox code="administrator.system-configuration.form.label.currencies" path="acceptedCurrencies"/>
 
-<jstl:if test="${_command == 'list-mine'}">
-	<acme:button code="student.enrolment.list.button.create" action="/student/enrolment/create"/>
-</jstl:if>		
+	<acme:submit code="administrator.system-configuration.form.button.update" action="/administrator/system-configuration/update"/>
+</acme:form>

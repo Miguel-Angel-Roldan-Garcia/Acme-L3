@@ -12,3 +12,15 @@ student.activity.list.label.title = Título
 student.activity.list.label.link = Enlace
 student.activity.list.label.nature = Naturaleza
 student.activity.list.button.create = Crear
+
+student.activity.form.label.title = Título
+student.activity.form.label.abstract$ = Abstracto
+student.activity.form.label.nature = Naturaleza
+student.activity.form.label.initial-date = Fecha de inicio
+student.activity.form.label.finish-date = Fecha de fin
+student.activity.form.label.link = Enlace opcional
+student.activity.form.label.time-period = Periodo de Tiempo
+
+student.activity.form.button.update = Actualizar
+student.activity.form.button.delete = Borrar
+student.activity.form.button.create = Crear

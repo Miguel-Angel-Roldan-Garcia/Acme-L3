@@ -56,11 +56,12 @@ public class Enrolment extends AbstractEntity {
     @Pattern(regexp = "^[0-9]{4}$")
     protected String lowerNibble;
 
-    @Length(max = 23)
+    @Length(max = 24)
     protected String holderName;
 
     public boolean isValidCreditCard() {
-	return this.lowerNibble != null && this.holderName != null;
+	return this.lowerNibble != null && !this.lowerNibble.isEmpty() && this.holderName != null
+		&& !this.holderName.isEmpty();
     }
 
     public boolean isFinalizable() {
