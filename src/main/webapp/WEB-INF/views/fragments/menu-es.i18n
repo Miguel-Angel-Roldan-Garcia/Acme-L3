@@ -64,8 +64,8 @@ master.menu.user-account.lecturer = Datos de conferenciante
 master.menu.user-account.become-lecturer = Hazte conferenciante
 master.menu.user-account.company = Datos de compañía
 master.menu.user-account.become-company = Hazte compañía
-master.menu.user-account.auditor = Datos de auditoría
-master.menu.user-account.become-auditor = Hazte auditoría
+master.menu.user-account.auditor = Datos de auditor
+master.menu.user-account.become-auditor = Hazte auditor
 
 
 # master.menu.student ########################################################
@@ -74,6 +74,6 @@ master.menu.student.my-enrolments = Listar mis inscripciones
 master.menu.student.published-courses = Listar cursos publicados
 
 # master.menu.lecturer ########################################################
-master.menu.lecturer = Conferenciante
-master.menu.lecturer.lectures = Listar mis conferencias
+master.menu.lecturer = Profesor
+master.menu.lecturer.lectures = Listar mis lecciones
 master.menu.lecturer.courses = Listar curso
