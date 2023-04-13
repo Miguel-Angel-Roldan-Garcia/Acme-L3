@@ -35,6 +35,7 @@ master.menu.administrator.dashboard = Panel de indicadores
 master.menu.administrator.user-accounts = Cuentas de usuario
 master.menu.administrator.populate-initial = Poblar BD (inicial)
 master.menu.administrator.populate-sample = Poblar BD (ejemplos)
+master.menu.administrator.system-configuration = Configuración del sistema
 master.menu.administrator.shut-down = Parar el sistema
 
 # master.menu.provider ########################################################
