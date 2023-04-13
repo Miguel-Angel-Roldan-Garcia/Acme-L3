@@ -76,8 +76,7 @@ public class StudentEnrolmentUpdateService extends AbstractService<Student, Enro
 	    Enrolment existing;
 	    existing = this.repository.findOneEnrolmentByCode(object.getCode());
 	    // da error, de alguna forma
-	    super.state(existing == null || existing.getId() == object.getId(), "code",
-		    "student.enrolment.form.error.duplicated");
+	    super.state(existing == null || existing.equals(object), "code", "student.enrolment.form.error.duplicated");
 	}
 
 	if (!super.getBuffer().getErrors().hasErrors("course")) {
