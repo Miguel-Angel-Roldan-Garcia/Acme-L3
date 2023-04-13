@@ -92,14 +92,6 @@ public class AssistantTutorialSessionUpdateService extends AbstractService<Assis
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("endDate")) {
-			boolean endDateError;
-
-			endDateError = MomentHelper.isBefore(object.getStartDate(), object.getEndDate());
-
-			super.state(endDateError, "endDate", "assistant.tutorial-session.form.error.end-before-start");
-		}
-
-		if (!super.getBuffer().getErrors().hasErrors("endDate")) {
 			boolean endDateErrorDuration;
 
 			endDateErrorDuration = MomentHelper.isLongEnough(object.getStartDate(), object.getEndDate(), 1l, ChronoUnit.HOURS);
@@ -108,6 +100,14 @@ public class AssistantTutorialSessionUpdateService extends AbstractService<Assis
 				endDateErrorDuration = !MomentHelper.isLongEnough(object.getStartDate(), object.getEndDate(), (long) 5 * 3600 + 1, ChronoUnit.SECONDS);
 
 			super.state(endDateErrorDuration, "endDate", "assistant.tutorial-session.form.error.duration");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("endDate")) {
+			boolean endDateError;
+
+			endDateError = MomentHelper.isBefore(object.getStartDate(), object.getEndDate());
+
+			super.state(endDateError, "endDate", "assistant.tutorial-session.form.error.end-before-start");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("nature"))
