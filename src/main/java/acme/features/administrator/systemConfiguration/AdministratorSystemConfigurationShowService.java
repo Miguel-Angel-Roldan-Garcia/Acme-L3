@@ -1,5 +1,5 @@
 /*
- * EmployerJobUpdateService.java
+ * WorkerApplicationShowService.java
  *
  * Copyright (C) 2012-2023 Rafael Corchuelo.
  *
@@ -10,9 +10,7 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.administrator;
-
-import java.util.Collection;
+package acme.features.administrator.systemConfiguration;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,14 +21,14 @@ import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 
 @Service
-public class AdministratorSystemConfigurationUpdateService extends AbstractService<Administrator, SystemConfiguration> {
+public class AdministratorSystemConfigurationShowService extends AbstractService<Administrator, SystemConfiguration> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
 	protected AdministratorSystemConfigurationRepository repository;
 
-	// AbstractService<Employer, Job> -------------------------------------
+	// AbstractService interface ----------------------------------------------
 
 
 	@Override
@@ -56,31 +54,6 @@ public class AdministratorSystemConfigurationUpdateService extends AbstractServi
 		object = this.repository.findSystemConfiguration();
 
 		super.getBuffer().setData(object);
-	}
-
-	@Override
-	public void bind(final SystemConfiguration object) {
-		assert object != null;
-
-		super.bind(object, "currency", "acceptedCurrencies");
-	}
-
-	@Override
-	public void validate(final SystemConfiguration object) {
-		assert object != null;
-
-		if (!super.getBuffer().getErrors().hasErrors("currency")) {
-			final Collection<String> acceptedCurrencies = object.getAcceptedCurrenciesAsCollection();
-
-			super.state(acceptedCurrencies.contains(object.getCurrency()), "currency", "administrator.system-configuration.form.error.currency-not-accepted");
-		}
-	}
-
-	@Override
-	public void perform(final SystemConfiguration object) {
-		assert object != null;
-
-		this.repository.save(object);
 	}
 
 	@Override
