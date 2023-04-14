@@ -51,6 +51,7 @@ master.menu.consumer.favourite-link = Favourite link
 
 master.menu.assistant = Assistant
 master.menu.assistant.list-mine-tutorials = List my tutorials
+master.menu.assistant.show-dashboard = Show assistant dashboard
 
 # master.menu.company #########################################################
 
