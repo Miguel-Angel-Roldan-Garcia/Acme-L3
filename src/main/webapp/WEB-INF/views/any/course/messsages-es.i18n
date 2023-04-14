@@ -23,3 +23,5 @@ student.course.form.label.link = Enlace
 student.form.button.lectures = Sus Lecturas
 student.form.button.lecturer = Su Lector
 
+any.course.form.button.tutorials-list = Listar tutorias
+any.course.form.button.tutorials-create = Crear tutoria

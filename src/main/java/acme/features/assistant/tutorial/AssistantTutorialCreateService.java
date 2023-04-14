@@ -47,11 +47,11 @@ public class AssistantTutorialCreateService extends AbstractService<Assistant, T
 	@Override
 	public void authorise() {
 		boolean status;
-		String courseId;
+		int courseId;
 		Course course;
 
-		courseId = super.getRequest().getData("courseId", String.class);
-		course = this.repository.findOneCourseByCode(courseId);
+		courseId = super.getRequest().getData("courseId", int.class);
+		course = this.repository.findOneCourseById(courseId);
 		status = course != null;
 
 		super.getResponse().setAuthorised(status);
@@ -64,7 +64,7 @@ public class AssistantTutorialCreateService extends AbstractService<Assistant, T
 		Course course;
 
 		assistant = this.repository.findOneAssistantById(super.getRequest().getPrincipal().getActiveRoleId());
-		course = this.repository.findOneCourseByCode(super.getRequest().getData("courseId", String.class));
+		course = this.repository.findOneCourseById(super.getRequest().getData("courseId", int.class));
 
 		object = new Tutorial();
 		object.setTitle("");
@@ -119,7 +119,7 @@ public class AssistantTutorialCreateService extends AbstractService<Assistant, T
 			estimatedTotalTime += ts.getDurationInHours();
 
 		tuple = super.unbind(object, "code", "title", "abstract$", "goals", "draftMode");
-		tuple.put("courseCode", this.repository.findOneCourseByCode(super.getRequest().getData("courseId", String.class)).getCode());
+		tuple.put("courseCode", this.repository.findOneCourseById(super.getRequest().getData("courseId", int.class)).getCode());
 		tuple.put("estimatedTotalTime", estimatedTotalTime);
 
 		super.getResponse().setData(tuple);
