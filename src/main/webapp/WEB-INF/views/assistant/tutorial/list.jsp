@@ -17,7 +17,8 @@
 
 <acme:list>
 	<acme:list-column code="assistant.tutorial.list.label.code" path="code" width="20%"/>
-	<acme:list-column code="assistant.tutorial.list.label.title" path="title" width="80%"/>
+	<acme:list-column code="assistant.tutorial.list.label.title" path="title" width="60%"/>
+	<acme:list-column code="assistant.tutorial.list.label.course" path="courseCode" width="20%"/>
 </acme:list>
 
 <jstl:if test="${_command == 'list-mine'}">
