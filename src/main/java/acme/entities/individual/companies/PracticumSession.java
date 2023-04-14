@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -15,6 +16,7 @@ import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
 import acme.framework.data.AbstractEntity;
+import acme.framework.helpers.MomentHelper;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -51,6 +53,15 @@ public class PracticumSession extends AbstractEntity {
 	protected String link;
 
 	// Derived attributes -----------------------------------------------------
+
+	@Transient
+	public Double getDurationInHours() {
+		Double duration;
+
+		duration = MomentHelper.computeDuration(this.startDate, this.endDate).getSeconds() / 3600.;
+
+		return duration;
+	}
 
 	// Relationships ----------------------------------------------------------
 

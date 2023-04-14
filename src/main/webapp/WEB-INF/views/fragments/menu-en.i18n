@@ -33,6 +33,8 @@ master.menu.administrator.dashboard = Dashboard
 master.menu.administrator.user-accounts = User accounts
 master.menu.administrator.populate-initial = Populate DB (initial)
 master.menu.administrator.populate-sample = Populate DB (samples)
+master.menu.administrator.system-configuration = System configuration
+master.menu.administrator.banner = List banners
 master.menu.administrator.shut-down = Shut down
 
 # master.menu.provider ########################################################
@@ -44,6 +46,30 @@ master.menu.provider.favourite-link = Favourite link
 
 master.menu.consumer = Consumer
 master.menu.consumer.favourite-link = Favourite link
+
+# master.menu.assistant #########################################################
+
+master.menu.assistant = Assistant
+master.menu.assistant.list-mine-tutorials = List my tutorials
+
+# master.menu.company #########################################################
+
+master.menu.company = Company
+master.menu.company.list-mine-practicum = List my practica
+
+# master.menu.course #########################################################
+
+master.menu.course = Course
+master.menu.student.published-courses = List published courses
+
+# master.menu.student ########################################################
+master.menu.student = Student
+master.menu.student.my-enrolments = List my enrolments
+
+# master.menu.auditor ########################################################
+
+master.menu.user-account.auditor = Auditor data
+master.menu.user-account.become-auditor = Become an auditor
 
 # master.menu.user-account ####################################################
 
@@ -58,14 +84,14 @@ master.menu.user-account.assistant = Assistant data
 master.menu.user-account.become-assistant = Become an assistant
 master.menu.user-account.student = Student data
 master.menu.user-account.become-student = Become a student
+master.menu.user-account.lecturer = Lecturer data
+master.menu.user-account.become-lecturer = Become a lecturer
 master.menu.user-account.company = Company data
 master.menu.user-account.become-company = Become a company
 master.menu.user-account.auditor = Auditor data
 master.menu.user-account.become-auditor = Become an auditor
 
-
-
-# master.menu.student ########################################################
-master.menu.student = Student
-master.menu.student.my-enrolments = List my enrolments
-master.menu.student.published-courses = List published courses
+# master.menu.lecturer ########################################################
+master.menu.lecturer = Lecturer
+master.menu.lecturer.lectures = List my lectures
+master.menu.lecturer.courses = List courses

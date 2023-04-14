@@ -20,7 +20,11 @@ public class AuthenticatedCompanyUpdateService extends AbstractService<Authentic
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status;
+
+		status = super.getRequest().getPrincipal().hasRole(Company.class);
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
@@ -51,6 +55,13 @@ public class AuthenticatedCompanyUpdateService extends AbstractService<Authentic
 	@Override
 	public void validate(final Company object) {
 		assert object != null;
+
+		if (!super.getBuffer().getErrors().hasErrors("vatNumber")) {
+			Company existing;
+			existing = this.repository.findOneCompanyByVatNumber(object.getVatNumber());
+			super.state(existing == null || object.equals(existing), "vatNumber",
+					"authenticated.company.form.error.existing-vat-number");
+		}
 	}
 
 	@Override

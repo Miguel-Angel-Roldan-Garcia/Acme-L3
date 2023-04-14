@@ -35,6 +35,8 @@ master.menu.administrator.dashboard = Panel de indicadores
 master.menu.administrator.user-accounts = Cuentas de usuario
 master.menu.administrator.populate-initial = Poblar BD (inicial)
 master.menu.administrator.populate-sample = Poblar BD (ejemplos)
+master.menu.administrator.system-configuration = Configuración del sistema
+master.menu.administrator.banner = Listar banners
 master.menu.administrator.shut-down = Parar el sistema
 
 # master.menu.provider ########################################################
@@ -46,6 +48,31 @@ master.menu.provider.favourite-link = Enlace favorito
 
 master.menu.consumer = Consumidor
 master.menu.consumer.favourite-link = Enlace favorito
+
+# master.menu.assistant #########################################################
+
+master.menu.assistant = Asistente
+master.menu.assistant.list-mine-tutorials = Listar mis tutoriales
+
+# master.menu.company #########################################################
+
+master.menu.company = Compañía
+master.menu.company.list-mine-practicum = Listar mis prácticasç
+
+# master.menu.course #########################################################
+
+master.menu.course = Curso
+master.menu.student.published-courses = Listar cursos publicados
+
+# master.menu.student ########################################################
+
+master.menu.student = Estudiante
+master.menu.student.my-enrolments = Listar mis inscripciones
+
+# master.menu.auditor ########################################################
+
+master.menu.user-account.auditor = Datos de auditoría
+master.menu.user-account.become-auditor = Hazte auditoría
 
 # master.menu.user-account ####################################################
 
@@ -60,13 +87,14 @@ master.menu.user-account.assistant = Datos de assistente
 master.menu.user-account.become-assistant = Hazte assistente
 master.menu.user-account.student = Datos de estudiante
 master.menu.user-account.become-student = Hazte estudiante
+master.menu.user-account.lecturer = Datos de Profesor
+master.menu.user-account.become-lecturer = Hazte Profesor
 master.menu.user-account.company = Datos de compañía
 master.menu.user-account.become-company = Hazte compañía
-master.menu.user-account.auditor = Datos de auditoría
-master.menu.user-account.become-auditor = Hazte auditoría
+master.menu.user-account.auditor = Datos de auditor
+master.menu.user-account.become-auditor = Hazte auditor
 
-
-# master.menu.student ########################################################
-master.menu.student = Estudiante
-master.menu.student.my-enrolments = Listar mis inscripciones
-master.menu.student.published-courses = Listar cursos publicados
+# master.menu.lecturer ########################################################
+master.menu.lecturer = Profesor
+master.menu.lecturer.lectures = Listar mis lecciones
+master.menu.lecturer.courses = Listar curso

@@ -1,7 +1,11 @@
 
 package acme.entities.group;
 
+import java.util.Arrays;
+import java.util.Collection;
+
 import javax.persistence.Entity;
+import javax.persistence.Transient;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 
@@ -28,4 +32,11 @@ public class SystemConfiguration extends AbstractEntity {
 	@Pattern(regexp = "^([A-Z]{3},)*[A-Z]{3}$")
 	protected String			acceptedCurrencies;
 
+	// Methods ----------------------------------------------------------------
+
+
+	@Transient
+	public Collection<String> getAcceptedCurrenciesAsCollection() {
+		return Arrays.asList(this.acceptedCurrencies.split(","));
+	}
 }

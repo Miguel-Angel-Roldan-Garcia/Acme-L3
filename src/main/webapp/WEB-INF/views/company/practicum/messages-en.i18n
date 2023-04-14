@@ -1,0 +1,35 @@
+# messages-en.i18n
+#
+# Copyright (C) 2012-2023 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+# company.practicum.form #################################################################
+
+company.practicum.form.label.code = Code
+company.practicum.form.label.title = Title
+company.practicum.form.label.abstract = Abstract
+company.practicum.form.label.goals = Goals
+company.practicum.form.label.estimated-total-time = Estimated total time
+company.practicum.form.label.course-code = Course code
+
+company.practicum.form.button.practicum-sessions = Practicum sessions
+company.practicum.form.button.update = Update
+company.practicum.form.button.delete = Delete
+company.practicum.form.button.create = Create
+company.practicum.form.button.publish = Publish
+
+company.practicum.form.error.duplicated = This code is taken
+company.practicum.form.error.not-draft-mode = This practicum is already published, can't be edited or deleted
+
+# company.practicum.list #################################################################
+
+company.practicum.list.label.code = Code
+company.practicum.list.label.title = Title
+company.practicum.list.label.course-code = Course code
+
+company.practicum.list.button.create = Create

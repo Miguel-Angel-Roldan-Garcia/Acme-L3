@@ -33,12 +33,10 @@ public class Banner extends AbstractEntity {
 	@PastOrPresent
 	protected Date				instantiationMoment;
 
-	// TODO Custom restriction after instantiation or last update date
 	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
 	protected Date				displayPeriodStartDate;
 
-	// TODO Custom restriction must last at least for one week
 	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
 	protected Date				displayPeriodEndDate;
