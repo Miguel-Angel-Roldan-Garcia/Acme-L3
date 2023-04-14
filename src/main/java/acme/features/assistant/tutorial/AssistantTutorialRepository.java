@@ -38,8 +38,8 @@ public interface AssistantTutorialRepository extends AbstractRepository {
 	@Query("select t from Tutorial t where t.assistant.id = :id")
 	Collection<Tutorial> findManyTutorialsByAssistantId(int id);
 
-	@Query("select c from Course c where c.code = :code")
-	Course findOneCourseByCode(String code);
+	@Query("select c from Course c where c.id = :id")
+	Course findOneCourseById(int id);
 
 	@Query("select ts from TutorialSession ts where ts.tutorial.id = :id")
 	Collection<TutorialSession> findManySessionsByTutorialId(int id);
