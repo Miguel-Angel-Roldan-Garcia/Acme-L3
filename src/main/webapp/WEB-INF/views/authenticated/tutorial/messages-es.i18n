@@ -15,16 +15,9 @@ assistant.tutorial.form.label.goals = Objetivos
 assistant.tutorial.form.label.estimated-total-time = Tiempo total estimado
 assistant.tutorial.form.label.course = Curso
 
-assistant.tutorial.form.button.sessions = Sesiones
-assistant.tutorial.form.button.update = Actualizar
-assistant.tutorial.form.button.delete = Borrar
-assistant.tutorial.form.button.create = Crear
-assistant.tutorial.form.button.publish = Publicar
-
-assistant.tutorial.form.error.duplicated = Este codigo está en uso
-assistant.tutorial.form.error.not-draft-mode = Este tutorial ya está publicado, no puede ser editado ni borrado
+assistant.tutorial.form.button.assistant = Asistente
 
 assistant.tutorial.list.label.code = Codigo
 assistant.tutorial.list.label.title = Titulo
+assistant.tutorial.list.label.course = Curso
 
-assistant.tutorial.list.button.create = Crear
