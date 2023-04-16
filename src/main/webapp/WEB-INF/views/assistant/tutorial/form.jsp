@@ -34,7 +34,7 @@
 			<acme:submit code="assistant.tutorial.form.button.publish" action="/assistant/tutorial/publish"/>
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}">
-			<acme:submit code="assistant.tutorial.form.button.create" action="/assistant/tutorial/create?courseId=G139"/>
+			<acme:submit code="assistant.tutorial.form.button.create" action="/assistant/tutorial/create?courseId=${course.id}"/>
 		</jstl:when>		
 	</jstl:choose>
 </acme:form>
