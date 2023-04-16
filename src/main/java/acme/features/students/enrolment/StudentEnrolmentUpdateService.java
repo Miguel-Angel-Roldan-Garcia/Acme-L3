@@ -83,12 +83,18 @@ public class StudentEnrolmentUpdateService extends AbstractService<Student, Enro
 	    final Course selectedCourse = object.getCourse();
 	    super.state(!selectedCourse.isDraftMode(), "course", "student.enrolment.form.error.not-published");
 	}
+	if (!super.getBuffer().getErrors().hasErrors("creditCardNumber")) {
+	    final String creditNumber = (String) super.getBuffer().getData("creditCardNumber");
+	    super.state(creditNumber.equals("hola"), "creditCardNumber",
+		    "student.enrolment.form.error.not-valid-creditCard");
+	}
     }
 
     @Override
     public void perform(final Enrolment object) {
 	assert object != null;
-
+	// if (object.isFinalizable())
+	// object.setDraftMode(false);
 	this.repository.save(object);
     }
 
@@ -101,7 +107,7 @@ public class StudentEnrolmentUpdateService extends AbstractService<Student, Enro
 	Tuple tuple;
 
 	courses = this.repository.findManyPublishedCourses();
-	choices = SelectChoices.from(courses, "title", object.getCourse());
+	choices = SelectChoices.from(courses, "code", object.getCourse());
 
 	tuple = super.unbind(object, "code", "motivation", "goals", "draftMode", "lowerNibble", "holderName");
 	tuple.put("course", choices.getSelected().getKey());

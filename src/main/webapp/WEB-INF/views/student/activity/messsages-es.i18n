@@ -24,3 +24,7 @@ student.activity.form.label.time-period = Periodo de Tiempo
 student.activity.form.button.update = Actualizar
 student.activity.form.button.delete = Borrar
 student.activity.form.button.create = Crear
+
+student.activity.form.error.not-valid-initial-date = La fecha de inicio debe estar entre 2000/01/01 00:01 y 2100/12/31 23:59
+student.activity.form.error.not-valid-finish-date = La fecha de fin debe estar entre 2000/01/01 00:01 y 2100/12/31 23:59
+student.activity.form.error.not-valid-dates = La fecha de inicio debe ser anterior a la de fin, y la fecha de fin debe ser superior a la de inicio

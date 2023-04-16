@@ -13,11 +13,12 @@ student.enrolment.list.label.motivation = Motivación
 student.enrolment.list.label.goals = Objetivos
 student.enrolment.list.label.draft-mode = Modo Borrador
 student.enrolment.list.button.create = Crear
-
+============================================================
 student.enrolment.form.label.code = Código
 student.enrolment.form.label.course = Curso
 student.enrolment.form.label.motivation = Motivación
 student.enrolment.form.label.goals = Objetivos
+student.enrolment.form.label.credit-card-number = Número de la tarjeta de crédito
 student.enrolment.form.label.holder-name = Propietario (Sólo se necesita para finalizar)
 student.enrolment.form.label.lower-nibble = Dígitos finales (Sólo se necesita para finalizar)
 student.enrolment.form.label.work-time = Tiempo de trabajo total
@@ -25,3 +26,7 @@ student.enrolment.form.button.create = Crear
 student.enrolment.form.button.update = Actualizar
 student.enrolment.form.button.delete = Borrar
 student.enrolment.form.button.finalise = Finalizar
+
+student.enrolment.form.error.duplicated = No puedes utilizar códigos duplicados
+student.enrolment.form.error.not-published = No puedes utilizar un curso que no ha sido publicado
+

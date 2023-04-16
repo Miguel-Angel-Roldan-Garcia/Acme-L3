@@ -13,11 +13,12 @@ student.enrolment.list.label.motivation = Motivation
 student.enrolment.list.label.goals = Goals
 student.enrolment.list.label.draft-mode = DraftMode
 student.enrolment.list.button.create = Create
-
+================================================
 student.enrolment.form.label.code = Code
 student.enrolment.form.label.course = Course
 student.enrolment.form.label.motivation = Motivation
 student.enrolment.form.label.goals = Goals
+student.enrolment.form.label.credit-card-number = Credit Card Number
 student.enrolment.form.label.holder-name = Holder name (Only its need to finalise)
 student.enrolment.form.label.lower-nibble = Lower nibble (Only its need to finalise)
 student.enrolment.form.label.work-time = Total Working Time
@@ -26,4 +27,7 @@ student.enrolment.form.button.update = Update
 student.enrolment.form.button.delete = Delete
 student.enrolment.form.button.finalise = Finalise
 student.enrolment.form.button.activities = Their activities
+
+student.enrolment.form.error.duplicated = You cant use a duplicated code
+student.enrolment.form.error.not-published = You cant use a not published course
 
