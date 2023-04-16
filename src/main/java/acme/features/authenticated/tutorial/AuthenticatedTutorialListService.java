@@ -67,6 +67,7 @@ public class AuthenticatedTutorialListService extends AbstractService<Authentica
 		Tuple tuple;
 
 		tuple = super.unbind(object, "code", "title", "assistant", "course");
+		tuple.put("courseCode", this.repository.findCourseCodeByTutorialId(object.getId()));
 
 		super.getResponse().setData(tuple);
 	}
