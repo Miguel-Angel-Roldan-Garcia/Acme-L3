@@ -1,5 +1,5 @@
 /*
- * AuthenticatedAnnouncementListService.java
+ * WorkerApplicationShowService.java
  *
  * Copyright (C) 2012-2023 Rafael Corchuelo.
  *
@@ -10,25 +10,23 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.authenticated.tutorial;
-
-import java.util.Collection;
+package acme.features.authenticated.assistant;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.individual.assistants.Tutorial;
 import acme.framework.components.accounts.Authenticated;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
+import acme.roles.Assistant;
 
 @Service
-public class AuthenticatedTutorialListService extends AbstractService<Authenticated, Tutorial> {
+public class AuthenticatedAssistantShowService extends AbstractService<Authenticated, Assistant> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AuthenticatedTutorialRepository repository;
+	protected AuthenticatedAssistantRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -37,7 +35,7 @@ public class AuthenticatedTutorialListService extends AbstractService<Authentica
 	public void check() {
 		boolean status;
 
-		status = super.getRequest().hasData("courseId", int.class);
+		status = super.getRequest().hasData("username", int.class);
 
 		super.getResponse().setChecked(status);
 	}
@@ -49,25 +47,22 @@ public class AuthenticatedTutorialListService extends AbstractService<Authentica
 
 	@Override
 	public void load() {
-		Collection<Tutorial> objects;
+		Assistant object;
+		String username;
 
-		int courseId;
+		username = super.getRequest().getData("username", String.class);
+		object = this.repository.findOneAssistantByUsername(username);
 
-		courseId = super.getRequest().getData("courseId", int.class);
-
-		objects = this.repository.findAllCourseTutorials(courseId);
-
-		super.getBuffer().setData(objects);
+		super.getBuffer().setData(object);
 	}
 
 	@Override
-	public void unbind(final Tutorial object) {
+	public void unbind(final Assistant object) {
 		assert object != null;
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "code", "title", "assistant", "course");
-		tuple.put("courseCode", this.repository.findCourseCodeByTutorialId(object.getId()));
+		tuple = super.unbind(object, "supervisor", "expertiseFields", "resume", "link");
 
 		super.getResponse().setData(tuple);
 	}

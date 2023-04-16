@@ -25,6 +25,10 @@
 	<acme:button code="student.form.button.lectures" action="/student/lecture/list?masterId=${id}"/>
 	<acme:button code="student.form.button.lecturer" action="/student/lecturer/show?masterId=${id}"/>
 	
-	<acme:button code="any.course.form.button.tutorials-list" action="/authenticated/tutorial/list" test="isAuthenticated()"/>
-	<acme:button code="any.course.form.button.tutorials-create" action="/assistant/tutorial/create?courseId=${id}" test="hasRole('Assistant')"/>
+	<acme:check-access test="isAuthenticated()">
+		<acme:button code="any.course.form.button.tutorials-list" action="/authenticated/tutorial/list?courseId=${id}"/>
+	</acme:check-access>
+	<acme:check-access test="hasRole('Assistant')">
+		<acme:button code="any.course.form.button.tutorials-create" action="/assistant/tutorial/create?courseId=${id}"/>
+	</acme:check-access>
 </acme:form>

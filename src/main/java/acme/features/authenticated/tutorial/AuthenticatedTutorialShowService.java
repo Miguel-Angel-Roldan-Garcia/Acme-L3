@@ -12,10 +12,13 @@
 
 package acme.features.authenticated.tutorial;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.individual.assistants.Tutorial;
+import acme.entities.individual.assistants.TutorialSession;
 import acme.framework.components.accounts.Authenticated;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
@@ -61,8 +64,18 @@ public class AuthenticatedTutorialShowService extends AbstractService<Authentica
 		assert object != null;
 
 		Tuple tuple;
+		Collection<TutorialSession> tutorialSessions;
+		Double estimatedTotalTime;
 
-		tuple = super.unbind(object, "code", "title", "abstract$", "goals", "assistant", "course");
+		tutorialSessions = this.repository.findManySessionsByTutorialId(object.getId());
+		estimatedTotalTime = 0.;
+
+		for (final TutorialSession ts : tutorialSessions)
+			estimatedTotalTime += ts.getDurationInHours();
+
+		tuple = super.unbind(object, "code", "title", "abstract$", "goals", "assistant");
+		tuple.put("courseCode", this.repository.findCourseCodeByTutorialId(object.getId()));
+		tuple.put("estimatedTotalTime", estimatedTotalTime);
 
 		super.getResponse().setData(tuple);
 	}

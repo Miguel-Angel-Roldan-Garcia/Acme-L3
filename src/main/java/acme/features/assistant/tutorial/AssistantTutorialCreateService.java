@@ -118,7 +118,7 @@ public class AssistantTutorialCreateService extends AbstractService<Assistant, T
 		for (final TutorialSession ts : tutorialSessions)
 			estimatedTotalTime += ts.getDurationInHours();
 
-		tuple = super.unbind(object, "code", "title", "abstract$", "goals", "draftMode");
+		tuple = super.unbind(object, "code", "title", "abstract$", "goals", "draftMode", "course");
 		tuple.put("courseCode", this.repository.findOneCourseById(super.getRequest().getData("courseId", int.class)).getCode());
 		tuple.put("estimatedTotalTime", estimatedTotalTime);
 

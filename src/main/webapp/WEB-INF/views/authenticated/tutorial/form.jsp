@@ -23,5 +23,5 @@
 	<acme:input-double code="assistant.tutorial.form.label.estimated-total-time" path="estimatedTotalTime" readonly="true"/>
 	<acme:input-textbox code="assistant.tutorial.form.label.course" path="courseCode" readonly="true"/>
 
-	<acme:button code="assistant.tutorial.form.button.sessions" action="/assistant/tutorial-session/list?masterId=${id}"/>
+	<acme:button code="assistant.tutorial.form.button.assistant" action="/authenticated/assistant/show?username=${assistant.userAccount.username}"/>
 </acme:form>
