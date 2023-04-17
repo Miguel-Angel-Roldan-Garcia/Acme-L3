@@ -9,7 +9,7 @@
 # they accept any liabilities with respect to them.
 
 auditor.audit.form.label.code = Codigo
-auditor.audit.form.label.conclusion = Conclusión
+auditor.audit.form.label.conclusion = Conclusion
 auditor.audit.form.label.strongPoints = Puntos Fuertes
 auditor.audit.form.label.weakPoints = Puntos débiles
 auditor.audit.form.label.course = Curso
@@ -25,6 +25,7 @@ auditor.audit.form.error.not-draft-mode = Esta auditoría ya está publicada, no
 auditor.audit.form.error.no-records = Esta auditoría no puede ser publicada todavía porque no tiene registros
 
 auditor.audit.list.label.code = Codigo
-auditor.audit.list.label.title = Titulo
+auditor.audit.list.label.conclusion = Conclusión
+auditor.audit.list.label.course = Curso
 
 auditor.audit.list.button.create = Crear

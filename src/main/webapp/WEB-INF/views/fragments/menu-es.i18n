@@ -79,7 +79,7 @@ master.menu.student.my-enrolments = Listar mis inscripciones
 # master.menu.auditor ########################################################
 
 master.menu.auditor = Auditor
-master.menu.auditor.list-mine-tutorials = Listar mis auditorías
+master.menu.auditor.list-mine-audits = Listar mis auditorías
 
 # master.menu.user-account ####################################################
 

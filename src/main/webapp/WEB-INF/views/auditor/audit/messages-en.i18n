@@ -25,6 +25,7 @@ auditor.audit.form.error.not-draft-mode = This audit is already published, can't
 auditor.audit.form.error.no-records = This audit can't be published yet because it doesn't have any records
 
 auditor.audit.list.label.code = Code
-auditor.audit.list.label.title = Title
+auditor.audit.list.label.conclusion = Conclusion
+auditor.audit.list.label.course = Course
 
 auditor.audit.list.button.create = Create
