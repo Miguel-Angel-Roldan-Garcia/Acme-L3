@@ -15,6 +15,11 @@ master.menu.sign-up = Registrarse
 master.menu.sign-in = Entrar
 master.menu.sign-out = Salir
 
+# master.menu.authenticated #######################################################
+
+master.menu.authenticated = Autenticado
+master.menu.authenticated.bulletin.list = Listar Boletines
+
 # master.menu.anonymous #######################################################
 
 master.menu.anonymous = Anónimo
@@ -33,6 +38,7 @@ master.menu.anonymous.favourite-link-by-student-5 = 21150103Q : Urquijo Martíne
 master.menu.administrator = Administrador
 master.menu.administrator.dashboard = Panel de indicadores
 master.menu.administrator.user-accounts = Cuentas de usuario
+master.menu.administrator.create-bulletin = Crear Boletín
 master.menu.administrator.populate-initial = Poblar BD (inicial)
 master.menu.administrator.populate-sample = Poblar BD (ejemplos)
 master.menu.administrator.system-configuration = Configuración del sistema
