@@ -69,8 +69,8 @@ master.menu.student.my-enrolments = List my enrolments
 
 # master.menu.auditor ########################################################
 
-master.menu.user-account.auditor = Auditor data
-master.menu.user-account.become-auditor = Become an auditor
+master.menu.auditor = Auditor
+master.menu.auditor.list-mine-tutorials = List my audits
 
 # master.menu.user-account ####################################################
 

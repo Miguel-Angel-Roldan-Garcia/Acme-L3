@@ -1,28 +1,28 @@
-key,code,conclusion,strongPoints,weakPoints,key:auditor,key:course
-audit-01,A000,.,.,.,auditor-01,course-1
-audit-02,AZ999,.,.,.,auditor-02,course-1
-audit-03,AJG765,.,.,.,auditor-01,course-1
-audit-04,AAA111,conclusionwithcharacterlimitof100charactersandiwillfillthemwith aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,.,.,auditor-02,course-1
-audit-05,AAA112,conclusionwithcharacterlimitof100charactersandiwillfillthemwith aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,.,.,auditor-01,course-1
-audit-06,AAA113,a,.,.,auditor-02,course-1
-audit-07,AAA114,aa,.,.,auditor-01,course-1
-audit-08,AAA115,"<script>alert(""hi!"")</script>",.,.,auditor-02,course-1
-audit-09,AAA116,<h1> Hola </h1>,.,.,auditor-01,course-1
-audit-10,AAA117,вяаяяф,.,.,auditor-01,course-1
-audit-11,AAA118,%·&$·&%,.,.,auditor-02,course-1
-audit-12,AAA119,.,strongpointwithcharacterlimitof100charactersandiwillfillthemwithaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,.,auditor-02,course-1
-audit-13,AAA120,.,strongpointwithcharacterlimitof100charactersandiwillfillthemwithaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,.,auditor-01,course-1
-audit-14,AAA121,.,a,.,auditor-02,course-1
-audit-15,AAA122,.,aa,.,auditor-01,course-1
-audit-16,AAA123,.,"<script>alert(""hi!"")</script>",.,auditor-02,course-1
-audit-17,AAA124,.,<h1> Hola </h1>,.,auditor-01,course-1
-audit-18,AAA125,.,вяаяяф,.,auditor-01,course-1
-audit-19,AAA126,.,%·&$·&%,.,auditor-02,course-1
-audit-20,AAA127,.,.,weakpointwithcharacterlimitof100charactersandiwillfillthemwithaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,auditor-02,course-1
-audit-21,AAA128,.,.,weakpointwithcharacterlimitof100charactersandiwillfillthemwithaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,auditor-01,course-1
-audit-22,AAA129,.,.,a,auditor-02,course-1
-audit-23,AAA130,.,.,aa,auditor-01,course-1
-audit-24,AAA131,.,.,"<script>alert(""hi!"")</script>",auditor-02,course-1
-audit-25,AAA132,.,.,<h1> Hola </h1>,auditor-01,course-1
-audit-26,AAA133,.,.,вяаяяф,auditor-01,course-1
-audit-27,AAA134,.,.,%·&$·&%,auditor-02,course-1
+key,code,conclusion,strongPoints,weakPoints,draftmode,key:auditor,key:course
+audit-01,A000,.,.,.,1,auditor-01,course-1
+audit-02,AZ999,.,.,.,1,auditor-02,course-1
+audit-03,AJG765,.,.,.,1,auditor-01,course-1
+audit-04,AAA111,conclusionwithcharacterlimitof100charactersandiwillfillthemwith aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,.,.,1,auditor-02,course-1
+audit-05,AAA112,conclusionwithcharacterlimitof100charactersandiwillfillthemwith aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,.,.,1,auditor-01,course-1
+audit-06,AAA113,a,.,.,1,auditor-02,course-1
+audit-07,AAA114,aa,.,.,1,auditor-01,course-1
+audit-08,AAA115,"<script>alert(""hi!"")</script>",.,.,1,auditor-02,course-1
+audit-09,AAA116,<h1> Hola </h1>,.,.,1,auditor-01,course-1
+audit-10,AAA117,вяаяяф,.,.,1,auditor-01,course-1
+audit-11,AAA118,%·&$·&%,.,.,1,auditor-02,course-1
+audit-12,AAA119,.,strongpointwithcharacterlimitof100charactersandiwillfillthemwithaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,.,1,auditor-02,course-1
+audit-13,AAA120,.,strongpointwithcharacterlimitof100charactersandiwillfillthemwithaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,.,1,auditor-01,course-1
+audit-14,AAA121,.,a,.,1,auditor-02,course-1
+audit-15,AAA122,.,aa,.,1,auditor-01,course-1
+audit-16,AAA123,.,"<script>alert(""hi!"")</script>",.,1,auditor-02,course-1
+audit-17,AAA124,.,<h1> Hola </h1>,.,1,auditor-01,course-1
+audit-18,AAA125,.,вяаяяф,.,1,auditor-01,course-1
+audit-19,AAA126,.,%·&$·&%,.,1,auditor-02,course-1
+audit-20,AAA127,.,.,weakpointwithcharacterlimitof100charactersandiwillfillthemwithaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,1,auditor-02,course-1
+audit-21,AAA128,.,.,weakpointwithcharacterlimitof100charactersandiwillfillthemwithaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,1,auditor-01,course-1
+audit-22,AAA129,.,.,a,1,auditor-02,course-1
+audit-23,AAA130,.,.,aa,1,auditor-01,course-1
+audit-24,AAA131,.,.,"<script>alert(""hi!"")</script>",1,auditor-02,course-1
+audit-25,AAA132,.,.,<h1> Hola </h1>,1,auditor-01,course-1
+audit-26,AAA133,.,.,вяаяяф,1,auditor-01,course-1
+audit-27,AAA134,.,.,%·&$·&%,1,auditor-02,course-1
