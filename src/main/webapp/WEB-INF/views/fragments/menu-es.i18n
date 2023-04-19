@@ -68,6 +68,7 @@ master.menu.student.published-courses = Listar cursos publicados
 
 master.menu.student = Estudiante
 master.menu.student.my-enrolments = Listar mis inscripciones
+master.menu.student.show-dashboard = Mostrar tablero de estudiante
 
 # master.menu.auditor ########################################################
 

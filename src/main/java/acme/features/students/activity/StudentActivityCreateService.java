@@ -70,16 +70,16 @@ public class StudentActivityCreateService extends AbstractService<Student, Activ
     @Override
     public void validate(final Activity object) {
 	assert object != null;
-	final Date maxDate = MomentHelper.parse("YYYY/MM/DD HH:mm", "2100/12/31 23:59");
-	final Date minDate = MomentHelper.parse("YYYY/MM/DD HH:mm", "2000/01/01 00:01");
+	final Date maxDate = MomentHelper.parse("yyyy/MM/dd HH:mm", "2100/12/31 23:59");
+	final Date minDate = MomentHelper.parse("yyyy/MM/dd HH:mm", "2000/01/01 00:01");
 	if (!super.getBuffer().getErrors().hasErrors("initialDate")) {
 	    final Date initialDate = object.getInitialDate();
-	    super.state(MomentHelper.isBefore(initialDate, maxDate) && MomentHelper.isAfter(minDate, initialDate),
+	    super.state(MomentHelper.isBefore(initialDate, maxDate) && MomentHelper.isAfter(initialDate, minDate),
 		    "initialDate", "student.activity.form.error.not-valid-initial-date");
 	}
 	if (!super.getBuffer().getErrors().hasErrors("finishDate")) {
-	    final Date initialDate = object.getInitialDate();
-	    super.state(MomentHelper.isBefore(initialDate, maxDate) && MomentHelper.isAfter(minDate, initialDate),
+	    final Date finishDate = object.getFinishDate();
+	    super.state(MomentHelper.isBefore(finishDate, maxDate) && MomentHelper.isAfter(finishDate, minDate),
 		    "finishDate", "student.activity.form.error.not-valid-finish-date");
 	}
 
@@ -87,7 +87,7 @@ public class StudentActivityCreateService extends AbstractService<Student, Activ
 		&& !super.getBuffer().getErrors().hasErrors("finishDate"))
 	    super.state(
 		    MomentHelper.isBefore(object.getInitialDate(), object.getFinishDate())
-			    && MomentHelper.isAfter(object.getFinishDate(), object.getFinishDate()),
+			    && MomentHelper.isAfter(object.getFinishDate(), object.getInitialDate()),
 		    "*", "student.activity.form.error.not-valid-dates");
     }
 

@@ -2,6 +2,7 @@
 package acme.features.students.enrolment;
 
 import java.util.Collection;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,6 +11,7 @@ import acme.entities.individual.lectures.Course;
 import acme.entities.individual.students.Enrolment;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
+import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
 import acme.roles.Student;
 
@@ -71,6 +73,20 @@ public class StudentEnrolmentUpdateService extends AbstractService<Student, Enro
     @Override
     public void validate(final Enrolment object) {
 	assert object != null;
+	// Es necesario inicializar estas variables para la validación de sus
+	// condiciones
+	String creditNumber = "";
+	String cvc = "";
+	String holderName = "";
+	String expiryDate = "";
+	boolean finishable = false;
+	if (object.isDraftMode()) {
+	    creditNumber = super.getRequest().getData("creditCardNumber", String.class);
+	    cvc = super.getRequest().getData("cvc", String.class);
+	    holderName = super.getRequest().getData("holderName", String.class);
+	    expiryDate = super.getRequest().getData("expiryDate", String.class);
+	    finishable = !creditNumber.isEmpty() || !cvc.isEmpty() || !holderName.isEmpty() || !expiryDate.isEmpty();
+	}
 
 	if (!super.getBuffer().getErrors().hasErrors("code")) {
 	    Enrolment existing;
@@ -83,18 +99,51 @@ public class StudentEnrolmentUpdateService extends AbstractService<Student, Enro
 	    final Course selectedCourse = object.getCourse();
 	    super.state(!selectedCourse.isDraftMode(), "course", "student.enrolment.form.error.not-published");
 	}
-	if (!super.getBuffer().getErrors().hasErrors("creditCardNumber")) {
-	    final String creditNumber = (String) super.getBuffer().getData("creditCardNumber");
-	    super.state(creditNumber.equals("hola"), "creditCardNumber",
-		    "student.enrolment.form.error.not-valid-creditCard");
+	if (finishable) {
+	    if (!super.getBuffer().getErrors().hasErrors("creditCardNumber"))
+		super.state(creditNumber.matches("^[0-9]{16}$"), "creditCardNumber",
+			"student.enrolment.form.error.not-valid-creditCard");
+	    if (!super.getBuffer().getErrors().hasErrors("expiryDate")) {
+		final boolean validFormat = expiryDate.matches("^\\d{2}/\\d{2}$");
+
+		if (validFormat && Integer.parseInt(expiryDate.split("/")[1]) <= 12) {
+		    final Date date = MomentHelper.parse("yy/MM", expiryDate);
+		    final Date actualExpiryDate = new Date(date.getYear(), date.getMonth(),
+			    this.getLastDayOfMonth(date.getMonth()), 23, 59);
+		    super.state(date != null && MomentHelper.isAfter(actualExpiryDate, MomentHelper.getCurrentMoment()),
+			    "expiryDate", "student.enrolment.form.error.past-expiry-date");
+		} else
+		    super.state(false, "expiryDate", "student.enrolment.form.error.not-valid-date-format");
+	    }
+	    if (!super.getBuffer().getErrors().hasErrors("cvc"))
+		super.state(cvc.matches("^[0-9]{3}$"), "cvc", "student.enrolment.form.error.not-valid-cvc-pattern");
+	    if (!super.getBuffer().getErrors().hasErrors("holderName"))
+		super.state(!holderName.isEmpty() && holderName.length() < 25, "holderName",
+			"student.enrolment.form.error.not-valid-holderName");
+
 	}
     }
 
     @Override
     public void perform(final Enrolment object) {
 	assert object != null;
-	// if (object.isFinalizable())
-	// object.setDraftMode(false);
+	String creditNumber = "";
+	String cvc = "";
+	String holderName = "";
+	String expiryDate = "";
+	boolean finishable = false;
+	if (object.isDraftMode()) {
+	    creditNumber = super.getRequest().getData("creditCardNumber", String.class);
+	    cvc = super.getRequest().getData("cvc", String.class);
+	    holderName = super.getRequest().getData("holderName", String.class);
+	    expiryDate = super.getRequest().getData("expiryDate", String.class);
+	    finishable = !creditNumber.isEmpty() || !cvc.isEmpty() || !holderName.isEmpty() || !expiryDate.isEmpty();
+	}
+	if (finishable) {
+	    object.setDraftMode(false);
+	    object.setHolderName(holderName);
+	    object.setLowerNibble(creditNumber.substring(creditNumber.length() - 4));
+	}
 	this.repository.save(object);
     }
 
@@ -114,6 +163,16 @@ public class StudentEnrolmentUpdateService extends AbstractService<Student, Enro
 	tuple.put("courses", choices);
 
 	super.getResponse().setData(tuple);
+    }
+
+    // ----------AUXILIAR METHOT-------------
+    private int getLastDayOfMonth(final int month) {
+	if (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12)
+	    return 31;
+	else if (month == 4 || month == 6 || month == 9 || month == 11)
+	    return 30;
+	else
+	    return 29;
     }
 
 }

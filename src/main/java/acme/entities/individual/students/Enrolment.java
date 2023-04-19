@@ -1,8 +1,6 @@
 
 package acme.entities.individual.students;
 
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
@@ -15,7 +13,6 @@ import org.hibernate.validator.constraints.Length;
 
 import acme.entities.individual.lectures.Course;
 import acme.framework.data.AbstractEntity;
-import acme.framework.helpers.MomentHelper;
 import acme.roles.Student;
 import lombok.Getter;
 import lombok.Setter;
@@ -60,31 +57,5 @@ public class Enrolment extends AbstractEntity {
     protected String lowerNibble;
 
     protected String holderName;
-
-    String cvc;
-
-    String creditCardNumber;
-
-    Date expiryDate;
-
-    public boolean isValidCvc() {
-	return this.cvc != null && this.cvc.matches("^[0-9]{3}$");
-    }
-
-    public boolean isValidHolderName() {
-	return this.holderName != null && this.holderName.length() > 0;
-    }
-
-    public boolean isValidCreditCardNumber() {
-	return this.creditCardNumber != null && this.creditCardNumber.matches("^[0-9]{16}$");
-    }
-
-    public boolean isValidExpityDate() {
-	return this.expiryDate != null && MomentHelper.isFuture(this.expiryDate);
-    }
-
-    public String getLowerNibbleFromValidCreditCardNumber() {
-	return this.creditCardNumber.substring(this.creditCardNumber.length() - 5);
-    }
 
 }

@@ -65,6 +65,7 @@ master.menu.student.published-courses = List published courses
 # master.menu.student ########################################################
 master.menu.student = Student
 master.menu.student.my-enrolments = List my enrolments
+master.menu.student.show-dashboard = Show student dashboard
 
 # master.menu.auditor ########################################################
 

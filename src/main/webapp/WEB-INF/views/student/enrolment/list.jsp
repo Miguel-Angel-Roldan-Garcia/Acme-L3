@@ -19,7 +19,6 @@
 	<acme:list-column code="student.enrolment.list.label.code" path="code" width="10%"/>
 	<acme:list-column code="student.enrolment.list.label.motivation" path="motivation" width="10%"/>
 	<acme:list-column code="student.enrolment.list.label.goals" path="goals" width="80%"/>
-	<acme:list-column code="student.enrolment.list.label.draft-mode" path="draftMode" width="80%"/>
 </acme:list>
 
 <jstl:if test="${_command == 'list-mine'}">

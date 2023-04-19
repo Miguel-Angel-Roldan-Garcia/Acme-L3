@@ -18,9 +18,12 @@ student.enrolment.form.label.code = Código
 student.enrolment.form.label.course = Curso
 student.enrolment.form.label.motivation = Motivación
 student.enrolment.form.label.goals = Objetivos
-student.enrolment.form.label.credit-card-number = Número de la tarjeta de crédito
-student.enrolment.form.label.holder-name = Propietario (Sólo se necesita para finalizar)
-student.enrolment.form.label.lower-nibble = Dígitos finales (Sólo se necesita para finalizar)
+student.enrolment.form.label.credit-card-number = Número de la tarjeta de crédito (Sólo para finalizar)
+student.enrolment.form.label.expiry-date = Fecha de expiración (Sólo para finalizar)
+student.enrolment.form.label.cvc = CVC (Sólo para finalizar)
+student.enrolment.form.label.lower-nibble = Dígitos finales
+student.enrolment.form.label.finish-holder-name = Nombre del propietario (Sólo para finalizar)
+student.enrolment.form.label.holder-name = Nombre del propietario
 student.enrolment.form.label.work-time = Tiempo de trabajo total
 student.enrolment.form.button.create = Crear
 student.enrolment.form.button.update = Actualizar
@@ -29,4 +32,9 @@ student.enrolment.form.button.finalise = Finalizar
 
 student.enrolment.form.error.duplicated = No puedes utilizar códigos duplicados
 student.enrolment.form.error.not-published = No puedes utilizar un curso que no ha sido publicado
+student.enrolment.form.error.past-expiry-date = La fecha de expiración deber ser futura
+student.enrolment.form.error.not-valid-date-format = El patrón de la fecha de expiración debe ser ^\d{2}/\d{2}$
+student.enrolment.form.error.not-valid-cvc-pattern = El patrón del cvc debe ser ^[0-9]{3}$
+student.enrolment.form.error.not-valid-holderName = El nombre del propietario no debe estar vacio y debe tener menos de 25 carácteres
+student.enrolment.form.error.not-valid-creditCard = El patrón del número de la tarjeta de crédito debe ser ^[0-9]{16}$
 

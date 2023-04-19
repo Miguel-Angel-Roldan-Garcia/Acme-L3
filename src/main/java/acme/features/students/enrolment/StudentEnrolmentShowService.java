@@ -75,7 +75,6 @@ public class StudentEnrolmentShowService extends AbstractService<Student, Enrolm
 	tuple.put("course", choices.getSelected().getKey());
 	tuple.put("courses", choices);
 	tuple.put("workTime", totalWorkingTime);
-	tuple.put("creditCardNumber", "");
 
 	super.getResponse().setData(tuple);
     }

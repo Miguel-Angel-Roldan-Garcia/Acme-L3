@@ -1,0 +1,26 @@
+# messages-es.i18n
+#
+# Copyright (C) 2012-2023 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+student.dashboard.form.title.general-indicators = Indicaciones generales
+student.dashboard.form.tittle.activities-indicators = Indicaciones de las Actividades
+student.dashboard.form.tittle.enrolments-indicators = Indicaciones de las Inscripciones
+
+student.dashboard.form.label.average-time-period-activities =  Media del periodo de tiempo de las actividades
+student.dashboard.form.label.deviation-time-period-activities = Desvicación del periodo de tiempo de las actividades
+student.dashboard.form.label.min-time-period-activities = Mínimo periodo de tiempo de las actividades
+student.dashboard.form.label.max-time-period-activities = Máximo periodo de tiempo de las actividades
+
+student.dashboard.form.label.average-total-time-enrolments = Media del tiempo total de las inscripciones de los cursos
+student.dashboard.form.label.deviation-total-time-enrolments = Desviación del tiempo total de las inscripciones de los cursos
+student.dashboard.form.label.min-total-time-enrolments = Mínimo tiempo total de las inscripciones de los cursos
+student.dashboard.form.label.max-total-time-enrolments = Máximo tiempo total de las inscripciones de los cursos
+
+student.dashboard.form.title.number-of-activities-by-nature = Número de actividades por naturaleza
+
