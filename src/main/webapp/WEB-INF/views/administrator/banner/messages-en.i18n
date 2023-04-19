@@ -18,6 +18,7 @@ administrator.banner.form.label.target-web-document-link = Target web document l
 administrator.banner.form.error.start-after-instantiation = The display period must start after last update moment
 administrator.banner.form.error.end-before-start = The display period end date must be after the start date
 administrator.banner.form.error.at-least-one-week-long = The display period must be at least a week long
+administrator.banner.form.error.date-out-of-bounds = Introduced dates must be between Jan 1 2000 at 00:00 and Dec 31 2100 at 23:59
 
 administrator.banner.form.button.create = Create
 administrator.banner.form.button.update = Update

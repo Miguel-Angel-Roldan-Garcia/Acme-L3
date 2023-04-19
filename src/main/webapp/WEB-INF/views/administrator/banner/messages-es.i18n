@@ -18,6 +18,7 @@ administrator.banner.form.label.target-web-document-link = Enlace a la página w
 administrator.banner.form.error.start-after-instantiation = El periodo de exposición deberá empezar después del momento de última actualización
 administrator.banner.form.error.end-before-start = La fecha final del periodo de exposición deberá ser posterior al comienzo
 administrator.banner.form.error.at-least-one-week-long = El periodo de exposición deberá durar al menos una semana
+administrator.banner.form.error.date-out-of-bounds = Las fechas introducidas deben estar entre el 1 Enero 2000 a las 00:00 y el 31 Diciembre 2100 a las 23:59
 
 administrator.banner.form.button.create = Crear
 administrator.banner.form.button.update = Actualizar
