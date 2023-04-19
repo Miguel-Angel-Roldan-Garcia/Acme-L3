@@ -31,7 +31,6 @@ public interface BannerRepository extends AbstractRepository {
 
 	default Banner findRandomBanner() {
 		Banner result;
-		final int count;
 		int index;
 		ThreadLocalRandom random;
 		List<Banner> list;

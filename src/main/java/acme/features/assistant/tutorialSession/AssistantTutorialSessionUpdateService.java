@@ -13,6 +13,7 @@
 package acme.features.assistant.tutorialSession;
 
 import java.time.temporal.ChronoUnit;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -91,6 +92,20 @@ public class AssistantTutorialSessionUpdateService extends AbstractService<Assis
 			super.state(startDateError, "startDate", "assistant.tutorial-session.form.error.at-least-one-day-ahead");
 		}
 
+		if (!super.getBuffer().getErrors().hasErrors("startDate")) {
+			boolean startDateStatus;
+			Date inferiorLimitDate;
+			Date upperLimitDate;
+
+			inferiorLimitDate = new Date(946681200000l); // HINT This is Jan 1 2000 at 00:00
+			upperLimitDate = new Date(4133977140000l); // HINT This is Dec 31 2100 at 23:59
+
+			startDateStatus = MomentHelper.isAfterOrEqual(object.getStartDate(), inferiorLimitDate);
+			startDateStatus &= MomentHelper.isBeforeOrEqual(object.getStartDate(), upperLimitDate);
+
+			super.state(startDateStatus, "startDate", "assistant.tutorial-session.form.error.date-out-of-bounds");
+		}
+
 		if (!super.getBuffer().getErrors().hasErrors("endDate")) {
 			boolean endDateErrorDuration;
 
@@ -108,6 +123,20 @@ public class AssistantTutorialSessionUpdateService extends AbstractService<Assis
 			endDateError = MomentHelper.isBefore(object.getStartDate(), object.getEndDate());
 
 			super.state(endDateError, "endDate", "assistant.tutorial-session.form.error.end-before-start");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("endDate")) {
+			boolean endDateStatus;
+			Date inferiorLimitDate;
+			Date upperLimitDate;
+
+			inferiorLimitDate = new Date(946681200000l); // HINT This is Jan 1 2000 at 00:00
+			upperLimitDate = new Date(4133977140000l); // HINT This is Dec 31 2100 at 23:59
+
+			endDateStatus = MomentHelper.isAfterOrEqual(object.getEndDate(), inferiorLimitDate);
+			endDateStatus &= MomentHelper.isBeforeOrEqual(object.getEndDate(), upperLimitDate);
+
+			super.state(endDateStatus, "endDate", "assistant.tutorial-session.form.error.date-out-of-bounds");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("nature"))
