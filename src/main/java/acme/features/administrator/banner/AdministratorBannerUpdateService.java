@@ -77,6 +77,20 @@ public class AdministratorBannerUpdateService extends AbstractService<Administra
 			super.state(startDateStatus, "displayPeriodStartDate", "administrator.banner.form.error.start-after-instantiation");
 		}
 
+		if (!super.getBuffer().getErrors().hasErrors("displayPeriodStartDate")) {
+			boolean startDateStatus;
+			Date inferiorLimitDate;
+			Date upperLimitDate;
+
+			inferiorLimitDate = new Date(946681200000l); // HINT This is Jan 1 2000 at 00:00
+			upperLimitDate = new Date(4133977140000l); // HINT This is Dec 31 2100 at 23:59
+
+			startDateStatus = MomentHelper.isAfterOrEqual(object.getDisplayPeriodStartDate(), inferiorLimitDate);
+			startDateStatus &= MomentHelper.isBeforeOrEqual(object.getDisplayPeriodStartDate(), upperLimitDate);
+
+			super.state(startDateStatus, "displayPeriodStartDate", "administrator.banner.form.error.date-out-of-bounds");
+		}
+
 		if (!super.getBuffer().getErrors().hasErrors("displayPeriodEndDate")) {
 			boolean endDateStatus;
 
@@ -91,6 +105,20 @@ public class AdministratorBannerUpdateService extends AbstractService<Administra
 			endDateStatus = MomentHelper.isLongEnough(object.getDisplayPeriodStartDate(), object.getDisplayPeriodEndDate(), 1l, ChronoUnit.WEEKS);
 
 			super.state(endDateStatus, "displayPeriodEndDate", "administrator.banner.form.error.at-least-one-week-long");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("displayPeriodEndDate")) {
+			boolean endDateStatus;
+			Date inferiorLimitDate;
+			Date upperLimitDate;
+
+			inferiorLimitDate = new Date(946681200000l); // HINT This is Jan 1 2000 at 00:00
+			upperLimitDate = new Date(4133977140000l); // HINT This is Dec 31 2100 at 23:59
+
+			endDateStatus = MomentHelper.isAfterOrEqual(object.getDisplayPeriodEndDate(), inferiorLimitDate);
+			endDateStatus &= MomentHelper.isBeforeOrEqual(object.getDisplayPeriodEndDate(), upperLimitDate);
+
+			super.state(endDateStatus, "displayPeriodEndDate", "administrator.banner.form.error.date-out-of-bounds");
 		}
 
 	}
