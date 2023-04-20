@@ -27,16 +27,12 @@ public class StudentEnrolmentController extends AbstractController<Student, Enro
     @Autowired
     protected StudentEnrolmentUpdateService updateService;
 
-    @Autowired
-    protected StudentEnrolmentFinaliseService finaliseService;
-
     @PostConstruct
     protected void initialise() {
 	super.addBasicCommand("show", this.showService);
 	super.addBasicCommand("create", this.createService);
 	super.addBasicCommand("delete", this.deleteService);
 	super.addBasicCommand("update", this.updateService);
-	super.addCustomCommand("finalise", "update", this.finaliseService);
 	super.addCustomCommand("list-mine", "list", this.listMineService);
 
     }

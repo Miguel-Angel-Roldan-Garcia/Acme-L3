@@ -69,6 +69,7 @@
     
 		<acme:menu-option code="master.menu.student" access="hasRole('Student')">
 			<acme:menu-suboption code="master.menu.student.my-enrolments" action="/student/enrolment/list-mine"/>
+			<acme:menu-suboption code="master.menu.student.show-dashboard" action="/student/student-dashboard/show"/>
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.lecturer" access="hasRole('Lecturer')">

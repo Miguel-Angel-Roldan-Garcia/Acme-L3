@@ -13,17 +13,29 @@ student.enrolment.list.label.motivation = Motivation
 student.enrolment.list.label.goals = Goals
 student.enrolment.list.label.draft-mode = DraftMode
 student.enrolment.list.button.create = Create
-
+================================================
 student.enrolment.form.label.code = Code
 student.enrolment.form.label.course = Course
 student.enrolment.form.label.motivation = Motivation
 student.enrolment.form.label.goals = Goals
-student.enrolment.form.label.holder-name = Holder name (Only its need to finalise)
-student.enrolment.form.label.lower-nibble = Lower nibble (Only its need to finalise)
+student.enrolment.form.label.credit-card-number = Credit Card Number (Only to finish)
+student.enrolment.form.label.expiry-date = Expiry Date (Only to finish)
+student.enrolment.form.label.cvc = CVC (Only to finish)
+student.enrolment.form.label.lower-nibble = Lower Nibble
+student.enrolment.form.label.finish-holder-name = Holder Name (Only to finish)
+student.enrolment.form.label.holder-name = Holder Name
 student.enrolment.form.label.work-time = Total Working Time
 student.enrolment.form.button.create = Create
 student.enrolment.form.button.update = Update
 student.enrolment.form.button.delete = Delete
 student.enrolment.form.button.finalise = Finalise
 student.enrolment.form.button.activities = Their activities
+
+student.enrolment.form.error.duplicated = You cant use a duplicated code
+student.enrolment.form.error.not-published = You cant use a not published course
+student.enrolment.form.error.past-expiry-date = You cant use a past or present date
+student.enrolment.form.error.not-valid-date-format = The pattern of the expiry date must be ^\d{2}/\d{2}$
+student.enrolment.form.error.not-valid-cvc-pattern = The pattern of the cvc must be ^[0-9]{3}$
+student.enrolment.form.error.not-valid-holderName = The holder name cant be empty or higher than 25 characters
+student.enrolment.form.error.not-valid-creditCard = The pattern of the credit card number must be ^[0-9]{16}$
 

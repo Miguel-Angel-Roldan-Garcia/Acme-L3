@@ -64,7 +64,7 @@ public class StudentEnrolmentShowService extends AbstractService<Student, Enrolm
 	double totalWorkingTime = 0.;
 
 	courses = this.repository.findManyPublishedCourses();
-	choices = SelectChoices.from(courses, "title", object.getCourse());
+	choices = SelectChoices.from(courses, "code", object.getCourse());
 	if (!object.isDraftMode()) {
 	    final Collection<Activity> activities = this.repository.findManyActivitiesByEnrolmentId(object.getId());
 	    for (final Activity activity : activities)
