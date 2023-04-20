@@ -1,4 +1,4 @@
-key,subject,assessment,auditingDate,mark,link,key:audit
+key,subject,assessment,auditing-date,mark,link,key:audit
 auditing-record-01,Subject 1,Assessment 1,2022/04/30 00:00,A+,null,audit-01
 auditing-record-02,S,Assessment 1,2022/04/30 00:00,A+,null,audit-01
 auditing-record-03,Subject 1,A,2022/04/30 00:00,A+,null,audit-01
