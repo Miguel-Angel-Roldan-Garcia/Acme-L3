@@ -53,6 +53,7 @@ master.menu.consumer.favourite-link = Enlace favorito
 
 master.menu.assistant = Asistente
 master.menu.assistant.list-mine-tutorials = Listar mis tutoriales
+master.menu.assistant.show-dashboard = Mostrar tablero de asistente
 
 # master.menu.company #########################################################
 

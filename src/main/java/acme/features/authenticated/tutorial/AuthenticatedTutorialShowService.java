@@ -1,5 +1,5 @@
 /*
- * AssistantTutorialPublishService.java
+ * AuthenticatedAnnouncementShowService.java
  *
  * Copyright (C) 2012-2023 Rafael Corchuelo.
  *
@@ -10,7 +10,7 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.assistant.tutorial;
+package acme.features.authenticated.tutorial;
 
 import java.util.Collection;
 
@@ -19,17 +19,17 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.individual.assistants.Tutorial;
 import acme.entities.individual.assistants.TutorialSession;
+import acme.framework.components.accounts.Authenticated;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
-import acme.roles.Assistant;
 
 @Service
-public class AssistantTutorialPublishService extends AbstractService<Assistant, Tutorial> {
+public class AuthenticatedTutorialShowService extends AbstractService<Authenticated, Tutorial> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AssistantTutorialRepository repository;
+	protected AuthenticatedTutorialRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -45,17 +45,7 @@ public class AssistantTutorialPublishService extends AbstractService<Assistant, 
 
 	@Override
 	public void authorise() {
-		boolean status;
-		int tutorialId;
-		Tutorial tutorial;
-		Assistant assistant;
-
-		tutorialId = super.getRequest().getData("id", int.class);
-		tutorial = this.repository.findOneTutorialById(tutorialId);
-		assistant = tutorial == null ? null : tutorial.getAssistant();
-		status = tutorial != null && tutorial.isDraftMode() && super.getRequest().getPrincipal().hasRole(assistant);
-
-		super.getResponse().setAuthorised(status);
+		super.getResponse().setAuthorised(true);
 	}
 
 	@Override
@@ -67,36 +57,6 @@ public class AssistantTutorialPublishService extends AbstractService<Assistant, 
 		object = this.repository.findOneTutorialById(id);
 
 		super.getBuffer().setData(object);
-	}
-
-	@Override
-	public void bind(final Tutorial object) {
-		assert object != null;
-
-		super.bind(object, "code", "title", "abstract$", "goals");
-	}
-
-	@Override
-	public void validate(final Tutorial object) {
-		assert object != null;
-
-		if (!super.getBuffer().getErrors().hasErrors("code")) {
-			Tutorial existing;
-			existing = this.repository.findOneTutorialByCode(object.getCode());
-			super.state(existing == null || existing.equals(object), "code", "assistant.tutorial.form.error.duplicated");
-		}
-
-		Collection<TutorialSession> sessions;
-		sessions = this.repository.findManySessionsByTutorialId(object.getId());
-		super.state(!sessions.isEmpty(), "*", "assistant.tutorial.form.error.no-sessions");
-	}
-
-	@Override
-	public void perform(final Tutorial object) {
-		assert object != null;
-
-		object.setDraftMode(false);
-		this.repository.save(object);
 	}
 
 	@Override
@@ -113,7 +73,7 @@ public class AssistantTutorialPublishService extends AbstractService<Assistant, 
 		for (final TutorialSession ts : tutorialSessions)
 			estimatedTotalTime += ts.getDurationInHours();
 
-		tuple = super.unbind(object, "code", "title", "abstract$", "goals", "draftMode");
+		tuple = super.unbind(object, "code", "title", "abstract$", "goals", "assistant");
 		tuple.put("courseCode", this.repository.findCourseCodeByTutorialId(object.getId()));
 		tuple.put("estimatedTotalTime", estimatedTotalTime);
 

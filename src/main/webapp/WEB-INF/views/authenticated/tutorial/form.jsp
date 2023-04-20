@@ -23,18 +23,5 @@
 	<acme:input-double code="assistant.tutorial.form.label.estimated-total-time" path="estimatedTotalTime" readonly="true"/>
 	<acme:input-textbox code="assistant.tutorial.form.label.course" path="courseCode" readonly="true"/>
 
-	<jstl:choose>	 
-		<jstl:when test="${_command == 'show' && draftMode == false}">
-			<acme:button code="assistant.tutorial.form.button.sessions" action="/assistant/tutorial-session/list?masterId=${id}"/>			
-		</jstl:when>
-		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && draftMode == true}">
-			<acme:button code="assistant.tutorial.form.button.sessions" action="/assistant/tutorial-session/list?masterId=${id}"/>
-			<acme:submit code="assistant.tutorial.form.button.update" action="/assistant/tutorial/update"/>
-			<acme:submit code="assistant.tutorial.form.button.delete" action="/assistant/tutorial/delete"/>
-			<acme:submit code="assistant.tutorial.form.button.publish" action="/assistant/tutorial/publish"/>
-		</jstl:when>
-		<jstl:when test="${_command == 'create'}">
-			<acme:submit code="assistant.tutorial.form.button.create" action="/assistant/tutorial/create?courseId=${course.id}"/>
-		</jstl:when>		
-	</jstl:choose>
+	<acme:button code="assistant.tutorial.form.button.assistant" action="/authenticated/assistant/show?username=${assistant.userAccount.username}"/>
 </acme:form>

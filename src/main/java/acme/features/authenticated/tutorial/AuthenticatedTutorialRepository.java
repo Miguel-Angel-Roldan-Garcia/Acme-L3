@@ -1,5 +1,5 @@
 /*
- * WorkerApplicationRepository.java
+ * AuthenticatedAnnouncementRepository.java
  *
  * Copyright (C) 2012-2023 Rafael Corchuelo.
  *
@@ -10,7 +10,7 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.assistant.tutorial;
+package acme.features.authenticated.tutorial;
 
 import java.util.Collection;
 
@@ -19,27 +19,16 @@ import org.springframework.stereotype.Repository;
 
 import acme.entities.individual.assistants.Tutorial;
 import acme.entities.individual.assistants.TutorialSession;
-import acme.entities.individual.lectures.Course;
 import acme.framework.repositories.AbstractRepository;
-import acme.roles.Assistant;
 
 @Repository
-public interface AssistantTutorialRepository extends AbstractRepository {
-
-	@Query("select a from Assistant a where a.id = :id")
-	Assistant findOneAssistantById(int id);
+public interface AuthenticatedTutorialRepository extends AbstractRepository {
 
 	@Query("select t from Tutorial t where t.id = :id")
 	Tutorial findOneTutorialById(int id);
 
-	@Query("select t from Tutorial t where t.code = :code")
-	Tutorial findOneTutorialByCode(String code);
-
-	@Query("select t from Tutorial t where t.assistant.id = :id")
-	Collection<Tutorial> findManyTutorialsByAssistantId(int id);
-
-	@Query("select c from Course c where c.id = :id")
-	Course findOneCourseById(int id);
+	@Query("select t from Tutorial t where t.course.id = :courseId")
+	Collection<Tutorial> findAllCourseTutorials(int courseId);
 
 	@Query("select ts from TutorialSession ts where ts.tutorial.id = :id")
 	Collection<TutorialSession> findManySessionsByTutorialId(int id);

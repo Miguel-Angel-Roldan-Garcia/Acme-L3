@@ -1,5 +1,5 @@
 /*
- * AuthenticatedAnnouncementShowService.java
+ * AuthenticatedAnnouncementListService.java
  *
  * Copyright (C) 2012-2023 Rafael Corchuelo.
  *
@@ -10,23 +10,25 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.administrator.banner;
+package acme.features.authenticated.tutorial;
+
+import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.group.Banner;
-import acme.framework.components.accounts.Administrator;
+import acme.entities.individual.assistants.Tutorial;
+import acme.framework.components.accounts.Authenticated;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 
 @Service
-public class AdministratorBannerShowService extends AbstractService<Administrator, Banner> {
+public class AuthenticatedTutorialListService extends AbstractService<Authenticated, Tutorial> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AdministratorBannerRepository repository;
+	protected AuthenticatedTutorialRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -35,7 +37,7 @@ public class AdministratorBannerShowService extends AbstractService<Administrato
 	public void check() {
 		boolean status;
 
-		status = super.getRequest().hasData("id", int.class);
+		status = super.getRequest().hasData("courseId", int.class);
 
 		super.getResponse().setChecked(status);
 	}
@@ -47,23 +49,25 @@ public class AdministratorBannerShowService extends AbstractService<Administrato
 
 	@Override
 	public void load() {
-		Banner object;
-		int id;
+		Collection<Tutorial> objects;
 
-		id = super.getRequest().getData("id", int.class);
-		object = this.repository.findOneBannerById(id);
+		int courseId;
 
-		super.getBuffer().setData(object);
+		courseId = super.getRequest().getData("courseId", int.class);
+
+		objects = this.repository.findAllCourseTutorials(courseId);
+
+		super.getBuffer().setData(objects);
 	}
 
 	@Override
-	public void unbind(final Banner object) {
+	public void unbind(final Tutorial object) {
 		assert object != null;
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "instantiationMoment", "displayPeriodStartDate", "displayPeriodEndDate", "pictureLink", "slogan", "targetWebDocumentLink");
-		tuple.put("isBeingDisplayed", object.isBeingDisplayed());
+		tuple = super.unbind(object, "code", "title", "assistant", "course");
+		tuple.put("courseCode", this.repository.findCourseCodeByTutorialId(object.getId()));
 
 		super.getResponse().setData(tuple);
 	}
