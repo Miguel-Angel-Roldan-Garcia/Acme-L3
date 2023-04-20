@@ -10,17 +10,17 @@
 
 student.dashboard.form.title.general-indicators = General indicators
 student.dashboard.form.tittle.activities-indicators = Activities Indicators
-student.dashboard.form.tittle.enrolments-indicators = Enrolments Indicators
+student.dashboard.form.tittle.my-courses-indicators = Courses Indicators
 
 student.dashboard.form.label.average-time-period-activities =  Average time period of activities
 student.dashboard.form.label.deviation-time-period-activities = Deviation time period of activities
 student.dashboard.form.label.min-time-period-activities = Minimum time period of activities
 student.dashboard.form.label.max-time-period-activities = Maximum time period of activities
 
-student.dashboard.form.label.average-total-time-enrolments = Average total time of enrolments of courses
-student.dashboard.form.label.deviation-total-time-enrolments = Deviation total time of enrolments of courses
-student.dashboard.form.label.min-total-time-enrolments = Minimum total time of enrolments of courses
-student.dashboard.form.label.max-total-time-enrolments = Maximum total time of enrolments of courses
+student.dashboard.form.label.average-total-learning-time-my-courses = Average total learning time of courses I am enrolled in
+student.dashboard.form.label.deviation-total-learning-time-my-courses = Deviation total learning time of courses I am enrolled in
+student.dashboard.form.label.min-total-learning-time-my-courses = Minimum total learning time of courses I am enrolled in
+student.dashboard.form.label.max-total-learning-time-my-courses = Maximum total learning time of courses I am enrolled in
 
 student.dashboard.form.title.number-of-activities-by-nature = Number of activities per nature
 

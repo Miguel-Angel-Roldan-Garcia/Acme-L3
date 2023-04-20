@@ -17,7 +17,7 @@ public class StudentDashboard extends AbstractForm {
 
 	protected Map<Nature, Integer>	activityCount;
 
-	protected Statistic				enrolmentsInCourses;
+	protected Statistic				coursesOfStudent;
 
 	protected Statistic				activitiesInEnrolments;
 

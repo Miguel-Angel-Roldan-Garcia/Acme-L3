@@ -4,6 +4,7 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 import org.springframework.data.jpa.repository.Query;
@@ -57,51 +58,50 @@ public interface StudentDashboardRepository extends AbstractRepository {
 
     // -----ENROLMENT STATISTICS-----------------
 
-    @Query("select count(enrolment) from Enrolment enrolment where enrolment.student.id = :studentId")
-    int countOfEnrolmentsByStudentId(int studentId);
+    @Query("select count(DISTINCT enrolment.course) from Enrolment enrolment where enrolment.student.id = :studentId")
+    int countOfDistinctCoursesOfStudent(int studentId);
 
     @Query("select enrolment from Enrolment enrolment where enrolment.student.id =:studentId")
     List<Enrolment> findAllEnrolmentsByStudentId(int studentId);
 
-    @Query("select sum((TIME_TO_SEC(TIMEDIFF(act.finishDate, act.initialDate)) / 3600.)) from Activity act where act.enrolment.id =:enrolmentId")
-    Double totalTimeByEnrolmentId(int enrolmentId);
+    @Query("select enrolment.course from Enrolment enrolment where enrolment.student.id =:studentId")
+    Set<Course> findAllDistintCoursesByStudentId(int studentId);
 
-    default Map<Course, Double> totalTimeOfEnrolmentsPerStudentCourses(final int studentId) {
-	final List<Enrolment> enrolmentsOfStudent = this.findAllEnrolmentsByStudentId(studentId);
+    @Query("select sum(courseLecture.lecture.estimatedLearningTime) from CourseLecture courseLecture where courseLecture.course.id =:courseId")
+    Double totalLearningTimeByCourseId(int courseId);
+
+    default Map<Course, Double> totalLearningTimeOfCoursesOfStudent(final int studentId) {
+	final Set<Course> coursesOfStudent = this.findAllDistintCoursesByStudentId(studentId);
 	final Map<Course, Double> totalTimePerCourse = new HashMap<>();
-	for (final Enrolment enrolment : enrolmentsOfStudent) {
-	    final Course key = enrolment.getCourse();
-	    final Double totalTime = this.totalTimeByEnrolmentId(enrolment.getId()) != null
-		    ? this.totalTimeByEnrolmentId(enrolment.getId())
+	for (final Course course : coursesOfStudent) {
+	    final Double totalTime = this.totalLearningTimeByCourseId(course.getId()) != null
+		    ? this.totalLearningTimeByCourseId(course.getId())
 		    : 0.;
-	    if (totalTimePerCourse.containsKey(key))
-		totalTimePerCourse.put(key, totalTimePerCourse.get(key) + totalTime);
-	    else
-		totalTimePerCourse.put(key, totalTime);
+	    totalTimePerCourse.put(course, totalTime);
 	}
 	return totalTimePerCourse;
     }
 
-    default Double averageTotalTimeOfEnrolmentsInCoursesOfStudentId(final int studentId) {
-	final Map<Course, Double> totalTimePerCourse = this.totalTimeOfEnrolmentsPerStudentCourses(studentId);
+    default Double averageTotalLearningTimeOfCoursesByStudentId(final int studentId) {
+	final Map<Course, Double> totalTimePerCourse = this.totalLearningTimeOfCoursesOfStudent(studentId);
 	return totalTimePerCourse.entrySet().stream().collect(Collectors.summingDouble(x -> x.getValue()))
 		/ totalTimePerCourse.keySet().size();
     }
 
-    default Double desviationTotalTimeOfEnrolmentsInCoursesOfStudentId(final int studentId, final Double averageValue) {
-	final Map<Course, Double> totalTimePerCourse = this.totalTimeOfEnrolmentsPerStudentCourses(studentId);
+    default Double desviationTotalLearningTimeOfCoursesByStudentId(final int studentId, final Double averageValue) {
+	final Map<Course, Double> totalTimePerCourse = this.totalLearningTimeOfCoursesOfStudent(studentId);
 	return Math.sqrt(totalTimePerCourse.entrySet().stream()
 		.collect(Collectors.summingDouble(x -> Math.pow(x.getValue() - averageValue, 2.)))
 		/ totalTimePerCourse.keySet().size());
     }
 
     default Double minimumTotalTimeOfEnrolmentsInCoursesOfStudentId(final int studentId) {
-	final Map<Course, Double> totalTimePerCourse = this.totalTimeOfEnrolmentsPerStudentCourses(studentId);
+	final Map<Course, Double> totalTimePerCourse = this.totalLearningTimeOfCoursesOfStudent(studentId);
 	return totalTimePerCourse.values().stream().min(Comparator.naturalOrder()).get();
     }
 
     default Double maximumTotalTimeOfEnrolmentsInCoursesOfStudentId(final int studentId) {
-	final Map<Course, Double> totalTimePerCourse = this.totalTimeOfEnrolmentsPerStudentCourses(studentId);
+	final Map<Course, Double> totalTimePerCourse = this.totalLearningTimeOfCoursesOfStudent(studentId);
 	return totalTimePerCourse.values().stream().max(Comparator.naturalOrder()).get();
     }
 

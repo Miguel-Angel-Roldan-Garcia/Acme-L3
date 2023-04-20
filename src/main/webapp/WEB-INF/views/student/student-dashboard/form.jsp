@@ -59,39 +59,39 @@
 	</tr>	
 	<tr>
 		<th scope="row">
-			<acme:message code="student.dashboard.form.tittle.enrolments-indicators"/>
+			<acme:message code="student.dashboard.form.tittle.my-courses-indicators"/>
 		</th>
 	</tr>	
 	<tr>
 		<th scope="row">
-			<acme:message code="student.dashboard.form.label.average-total-time-enrolments"/>
+			<acme:message code="student.dashboard.form.label.average-total-learning-time-my-courses"/>
 		</th>
 		<td>
-			<acme:print value="${enrolmentsInCourses.getAverageValue()}"/>
+			<acme:print value="${coursesOfStudent.getAverageValue()}"/>
 		</td>
 	</tr>
 	<tr>
 		<th scope="row">
-			<acme:message code="student.dashboard.form.label.deviation-total-time-enrolments"/>
+			<acme:message code="student.dashboard.form.label.deviation-total-learning-time-my-courses"/>
 		</th>
 		<td>
-			<acme:print value="${enrolmentsInCourses.getDeviationValue()}"/>
+			<acme:print value="${coursesOfStudent.getDeviationValue()}"/>
 		</td>
 	</tr>
 	<tr>
 		<th scope="row">
-			<acme:message code="student.dashboard.form.label.min-total-time-enrolments"/>
+			<acme:message code="student.dashboard.form.label.min-total-learning-time-my-courses"/>
 		</th>
 		<td>
-			<acme:print value="${enrolmentsInCourses.getMinValue()}"/>
+			<acme:print value="${coursesOfStudent.getMinValue()}"/>
 		</td>
 	</tr>
 	<tr>
 		<th scope="row">
-			<acme:message code="student.dashboard.form.label.max-total-time-enrolments"/>
+			<acme:message code="student.dashboard.form.label.max-total-learning-time-my-courses"/>
 		</th>
 		<td>
-			<acme:print value="${enrolmentsInCourses.getMaxValue()}"/>
+			<acme:print value="${coursesOfStudent.getMaxValue()}"/>
 		</td>
 	</tr>
 </table>

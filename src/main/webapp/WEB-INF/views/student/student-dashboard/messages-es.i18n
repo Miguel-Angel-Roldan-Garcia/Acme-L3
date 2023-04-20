@@ -10,17 +10,17 @@
 
 student.dashboard.form.title.general-indicators = Indicaciones generales
 student.dashboard.form.tittle.activities-indicators = Indicaciones de las Actividades
-student.dashboard.form.tittle.enrolments-indicators = Indicaciones de las Inscripciones
+student.dashboard.form.tittle.my-courses-indicators = Indicaciones de los Cursos
 
 student.dashboard.form.label.average-time-period-activities =  Media del periodo de tiempo de las actividades
 student.dashboard.form.label.deviation-time-period-activities = Desvicación del periodo de tiempo de las actividades
 student.dashboard.form.label.min-time-period-activities = Mínimo periodo de tiempo de las actividades
 student.dashboard.form.label.max-time-period-activities = Máximo periodo de tiempo de las actividades
 
-student.dashboard.form.label.average-total-time-enrolments = Media del tiempo total de las inscripciones de los cursos
-student.dashboard.form.label.deviation-total-time-enrolments = Desviación del tiempo total de las inscripciones de los cursos
-student.dashboard.form.label.min-total-time-enrolments = Mínimo tiempo total de las inscripciones de los cursos
-student.dashboard.form.label.max-total-time-enrolments = Máximo tiempo total de las inscripciones de los cursos
+student.dashboard.form.label.average-total-learning-time-my-courses = Media del tiempo de aprendizaje total de los cursos en los que estoy inscrito
+student.dashboard.form.label.deviation-total-learning-time-my-courses = Desviación del tiempo de aprendizaje total de los cursos en los que estoy inscrito
+student.dashboard.form.label.min-total-learning-time-my-courses = Mínimo tiempo de aprendizaje total de los cursos en los que estoy inscrito
+student.dashboard.form.label.max-total-learning-time-my-courses = Máximo tiempo de aprendizaje total de los cursos en los que estoy inscrito
 
 student.dashboard.form.title.number-of-activities-by-nature = Número de actividades por naturaleza
 

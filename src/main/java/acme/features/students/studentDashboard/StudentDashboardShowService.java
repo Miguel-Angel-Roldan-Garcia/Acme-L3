@@ -36,7 +36,7 @@ public class StudentDashboardShowService extends AbstractService<Student, Studen
 	final StudentDashboard dashboard = new StudentDashboard();
 	final Map<Nature, Integer> activityCount;
 	final Statistic activitiesInWorkbookStatistics;
-	final Statistic enrolmentsInCoursesStatistics;
+	final Statistic coursesOfStudentStatistics;
 
 	studentId = super.getRequest().getPrincipal().getActiveRoleId();
 
@@ -56,24 +56,24 @@ public class StudentDashboardShowService extends AbstractService<Student, Studen
 		    .setMaxValue(this.repository.maxPeriodTimeOfActivitiesOfEnrolmentsByStudentId(studentId));
 	}
 
-	enrolmentsInCoursesStatistics = new Statistic();
-	enrolmentsInCoursesStatistics.setCount(this.repository.countOfEnrolmentsByStudentId(studentId));
+	coursesOfStudentStatistics = new Statistic();
+	coursesOfStudentStatistics.setCount(this.repository.countOfDistinctCoursesOfStudent(studentId));
 
-	if (enrolmentsInCoursesStatistics.getCount() > 0) {
-	    enrolmentsInCoursesStatistics
-		    .setAverageValue(this.repository.averageTotalTimeOfEnrolmentsInCoursesOfStudentId(studentId));
-	    enrolmentsInCoursesStatistics
-		    .setDeviationValue(this.repository.desviationTotalTimeOfEnrolmentsInCoursesOfStudentId(studentId,
-			    enrolmentsInCoursesStatistics.getAverageValue()));
-	    enrolmentsInCoursesStatistics
+	if (coursesOfStudentStatistics.getCount() > 0) {
+	    coursesOfStudentStatistics
+		    .setAverageValue(this.repository.averageTotalLearningTimeOfCoursesByStudentId(studentId));
+	    coursesOfStudentStatistics
+		    .setDeviationValue(this.repository.desviationTotalLearningTimeOfCoursesByStudentId(studentId,
+			    coursesOfStudentStatistics.getAverageValue()));
+	    coursesOfStudentStatistics
 		    .setMinValue(this.repository.minimumTotalTimeOfEnrolmentsInCoursesOfStudentId(studentId));
-	    enrolmentsInCoursesStatistics
+	    coursesOfStudentStatistics
 		    .setMaxValue(this.repository.maximumTotalTimeOfEnrolmentsInCoursesOfStudentId(studentId));
 	}
 
 	dashboard.setActivityCount(activityCount);
 	dashboard.setActivitiesInEnrolments(activitiesInWorkbookStatistics);
-	dashboard.setEnrolmentsInCourses(enrolmentsInCoursesStatistics);
+	dashboard.setCoursesOfStudent(coursesOfStudentStatistics);
 
 	super.getBuffer().setData(dashboard);
     }
@@ -82,7 +82,7 @@ public class StudentDashboardShowService extends AbstractService<Student, Studen
     public void unbind(final StudentDashboard object) {
 	Tuple tuple;
 
-	tuple = super.unbind(object, "activityCount", "activitiesInEnrolments", "enrolmentsInCourses");
+	tuple = super.unbind(object, "activityCount", "activitiesInEnrolments", "coursesOfStudent");
 
 	super.getResponse().setData(tuple);
     }
