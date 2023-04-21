@@ -15,6 +15,13 @@ master.menu.sign-up = Sign up
 master.menu.sign-in = Sign in
 master.menu.sign-out = Sign out
 
+# master.menu.authenticated #######################################################
+
+master.menu.authenticated = Authenticated
+master.menu.authenticated.bulletin.list = List Bulletins
+master.menu.authenticated.student.offers.list = List Offers
+
+
 # master.menu.anonymous #######################################################
 
 master.menu.anonymous = Anonymous
@@ -31,8 +38,12 @@ master.menu.anonymous.favourite-link-by-student-5 = 21150103Q : Urquijo Martíne
 master.menu.administrator = Administrator
 master.menu.administrator.dashboard = Dashboard
 master.menu.administrator.user-accounts = User accounts
+master.menu.administrator.create-bulletin = Create Bulletin
 master.menu.administrator.populate-initial = Populate DB (initial)
 master.menu.administrator.populate-sample = Populate DB (samples)
+master.menu.administrator.system-configuration = System configuration
+master.menu.administrator.banner = List banners
+master.menu.administrator.offer = List offers
 master.menu.administrator.shut-down = Shut down
 
 # master.menu.provider ########################################################
@@ -45,6 +56,33 @@ master.menu.provider.favourite-link = Favourite link
 master.menu.consumer = Consumer
 master.menu.consumer.favourite-link = Favourite link
 
+# master.menu.assistant #########################################################
+
+master.menu.assistant = Assistant
+master.menu.assistant.list-mine-tutorials = List my tutorials
+master.menu.assistant.show-dashboard = Show assistant dashboard
+
+# master.menu.company #########################################################
+
+master.menu.company = Company
+master.menu.company.list-mine-practicum = List my practica
+
+# master.menu.course #########################################################
+
+master.menu.course = Course
+master.menu.student.published-courses = List published courses
+
+# master.menu.student ########################################################
+master.menu.student = Student
+master.menu.student.my-enrolments = List my enrolments
+master.menu.student.enrolled-courses = List the courses where i m enrolled with
+master.menu.student.show-dashboard = Show student dashboard
+
+# master.menu.auditor ########################################################
+
+master.menu.auditor = Auditor
+master.menu.auditor.list-mine-audits = List my audits
+
 # master.menu.user-account ####################################################
 
 master.menu.user-account = Account
@@ -53,3 +91,24 @@ master.menu.user-account.provider = Provider data
 master.menu.user-account.become-provider = Become a provider
 master.menu.user-account.consumer = Consumer data
 master.menu.user-account.become-consumer = Become a consumer
+
+master.menu.user-account.assistant = Assistant data
+master.menu.user-account.become-assistant = Become an assistant
+master.menu.user-account.student = Student data
+master.menu.user-account.become-student = Become a student
+master.menu.user-account.lecturer = Lecturer data
+master.menu.user-account.become-lecturer = Become a lecturer
+master.menu.user-account.company = Company data
+master.menu.user-account.become-company = Become a company
+master.menu.user-account.auditor = Auditor data
+master.menu.user-account.become-auditor = Become an auditor
+
+# master.menu.lecturer ########################################################
+master.menu.lecturer = Lecturer
+master.menu.lecturer.lectures = List my lectures
+master.menu.lecturer.courses = List courses
+
+
+# master.menu.note #####################################
+master.menu.note = Notes
+master.menu.authenticated.notes = List recent notes less than a month

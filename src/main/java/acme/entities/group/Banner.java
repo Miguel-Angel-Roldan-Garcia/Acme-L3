@@ -6,6 +6,7 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PastOrPresent;
@@ -14,6 +15,7 @@ import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
 import acme.framework.data.AbstractEntity;
+import acme.framework.helpers.MomentHelper;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -33,12 +35,10 @@ public class Banner extends AbstractEntity {
 	@PastOrPresent
 	protected Date				instantiationMoment;
 
-	// TODO Custom restriction after instantiation or last update date
 	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
 	protected Date				displayPeriodStartDate;
 
-	// TODO Custom restriction must last at least for one week
 	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
 	protected Date				displayPeriodEndDate;
@@ -54,5 +54,14 @@ public class Banner extends AbstractEntity {
 	@NotBlank
 	@URL
 	protected String			targetWebDocumentLink;
+
+	// Derived attributes -----------------------------------------------------
+
+
+	@Transient
+	public boolean isBeingDisplayed() {
+		return MomentHelper.isAfterOrEqual(MomentHelper.getCurrentMoment(), this.displayPeriodStartDate) //
+			&& MomentHelper.isBeforeOrEqual(MomentHelper.getCurrentMoment(), this.displayPeriodEndDate);
+	}
 
 }

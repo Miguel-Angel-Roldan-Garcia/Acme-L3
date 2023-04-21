@@ -49,8 +49,6 @@ public class Tutorial extends AbstractEntity {
 
 	// Derived attributes -----------------------------------------------------
 
-	// TODO Implement complex derived attribute estimatedTotalTime
-
 	// Relationships ----------------------------------------------------------
 
 	@NotNull

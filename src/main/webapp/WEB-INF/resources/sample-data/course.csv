@@ -1,7 +1,7 @@
 key,code,title,abstract$,retail-price,draftMode,link,key:lecturer
 course-1,AZ123,INGENIERIA INDUSTRIAL,Se dan muchas asignaturas de formacion basica,1000.24 EUR,true,https://www.amazon.es,lecturer-1
 course-2,A000,INGENIERIA INDUSTRIAL,Se dan muchas asignaturas de formacion basica,1000.24 EUR,true,https://www.amazon.es,lecturer-1
-course-3,AB000,INGENIERIA INDUSTRIAL,Se dan muchas asignaturas de formacion basica,1000.24 EUR,true,https://www.amazon.es,lecturer-1
+course-3,AB000,INGENIERIA INDUSTRIAL,Se dan muchas asignaturas de formacion basica,1000.24 EUR,false,https://www.amazon.es,lecturer-1
 course-4,ABC000,INGENIERIA INDUSTRIAL,Se dan muchas asignaturas de formacion basica,1000.24 EUR,true,https://www.amazon.es,lecturer-1
 course-5,ZZZ001,INGENIERIA INDUSTRIAL,Se dan muchas asignaturas de formacion basica,1000.24 EUR,true,https://www.amazon.es,lecturer-1
 course-6,ZZZ998,INGENIERIA INDUSTRIAL,Se dan muchas asignaturas de formacion basica,1000.24 EUR,true,https://www.amazon.es,lecturer-1

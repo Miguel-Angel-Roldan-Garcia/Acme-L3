@@ -44,6 +44,8 @@ public class Audit extends AbstractEntity {
 	@Length(max = 100)
 	protected String			weakPoints;
 
+	protected boolean			draftMode;
+
 	// Derived attributes --------------------------------------
 
 	//TODO implement complex derived attribute mark mode

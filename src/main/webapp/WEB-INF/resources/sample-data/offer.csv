@@ -37,4 +37,4 @@ offer-35,Cabecera de la oferta,resumen de la oferta,2021/08/08 15:00,2021/08/10 
 offer-36,Cabecera de la oferta,resumen de la oferta,2021/08/08 15:00,2021/08/10 15:00,2021/08/20 17:00,1000.24 EUR,ftp://ftp.example.com/pub/file.tar.gz
 offer-37,Cabecera de la oferta,resumen de la oferta,2021/08/08 15:00,2021/08/10 15:00,2021/08/20 17:00,1000.24 EUR,https://example.com/path with spaces
 offer-38,Cabecera de la oferta,resumen de la oferta,2021/08/08 15:00,2021/08/10 15:00,2021/08/20 17:00,1000.24 EUR,https://Acme-L3.es/practicum-sessions?sample-query=1
-offer-39,Cabecera de la oferta,resumen de la oferta,2021/08/08 15:00,2021/08/10 15:00,2021/08/20 17:00,1000.24 EUR,null
+offer-39,Cabecera no editable,resumen de la oferta,2021/08/08 15:00,2022/07/28 15:00,2022/08/10 15:00,1000.24 EUR,null
