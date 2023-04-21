@@ -1,5 +1,5 @@
 /*
- * EmployerAuditingRecordShowService.java
+ * WorkerApplicationShowService.java
  *
  * Copyright (C) 2012-2023 Rafael Corchuelo.
  *
@@ -10,24 +10,23 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.auditor.auditingRecord;
+package acme.features.authenticated.bulletin;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.individual.auditors.Audit;
-import acme.entities.individual.auditors.AuditingRecord;
+import acme.entities.group.Bulletin;
+import acme.framework.components.accounts.Authenticated;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
-import acme.roles.Auditor;
 
 @Service
-public class AuditorAuditingRecordShowService extends AbstractService<Auditor, AuditingRecord> {
+public class AuthenticatedBulletinShowService extends AbstractService<Authenticated, Bulletin> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AuditorAuditingRecordRepository repository;
+	protected AuthenticatedBulletinRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -44,35 +43,35 @@ public class AuditorAuditingRecordShowService extends AbstractService<Auditor, A
 	@Override
 	public void authorise() {
 		boolean status;
-		int AuditingRecordId;
-		Audit Audit;
+		final boolean authenticated = super.getRequest().getPrincipal().hasRole(Authenticated.class);
+		int id;
+		final Bulletin bulletin;
 
-		AuditingRecordId = super.getRequest().getData("id", int.class);
-		Audit = this.repository.findOneAuditByAuditRecordId(AuditingRecordId);
-		status = Audit != null && super.getRequest().getPrincipal().hasRole(Audit.getAuditor());
+		id = super.getRequest().getData("id", int.class);
+		bulletin = this.repository.findBulletinById(id);
+		status = bulletin != null;
 
-		super.getResponse().setAuthorised(status);
+		super.getResponse().setAuthorised(status && authenticated);
 	}
 
 	@Override
 	public void load() {
-		AuditingRecord object;
+		Bulletin object;
 		int id;
 
 		id = super.getRequest().getData("id", int.class);
-		object = this.repository.findOneAuditingRecordById(id);
+		object = this.repository.findBulletinById(id);
 
 		super.getBuffer().setData(object);
 	}
 
 	@Override
-	public void unbind(final AuditingRecord object) {
+	public void unbind(final Bulletin object) {
 		assert object != null;
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "subject", "assessment", "startDate", "finishDate", "link", "mark");
-		tuple.put("masterId", object.getAudit().getId());
+		tuple = super.unbind(object, "instantiationMoment", "title", "message", "critical", "link");
 
 		super.getResponse().setData(tuple);
 	}

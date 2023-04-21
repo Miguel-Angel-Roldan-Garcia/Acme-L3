@@ -19,6 +19,8 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.individual.auditors.Audit;
 import acme.entities.individual.auditors.AuditingRecord;
+import acme.entities.individual.lectures.Course;
+import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Auditor;
@@ -99,10 +101,16 @@ public class AuditorAuditDeleteService extends AbstractService<Auditor, Audit> {
 	public void unbind(final Audit object) {
 		assert object != null;
 
+		Collection<Course> courses;
+		SelectChoices choices;
 		Tuple tuple;
 
+		courses = this.repository.findManyPublishedCourses();
+		choices = SelectChoices.from(courses, "code", object.getCourse());
+
 		tuple = super.unbind(object, "code", "strongPoints", "weakPoints", "conclusion", "draftMode");
-		tuple.put("courseCode", this.repository.findCourseCodeByAuditId(object.getId()));
+		tuple.put("course", choices.getSelected().getKey());
+		tuple.put("courses", choices);
 
 		super.getResponse().setData(tuple);
 	}

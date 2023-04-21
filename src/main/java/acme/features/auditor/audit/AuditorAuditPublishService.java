@@ -1,10 +1,13 @@
 
 package acme.features.auditor.audit;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.individual.auditors.Audit;
+import acme.entities.individual.auditors.AuditingRecord;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Auditor;
@@ -65,6 +68,10 @@ public class AuditorAuditPublishService extends AbstractService<Auditor, Audit> 
 	@Override
 	public void validate(final Audit object) {
 		assert object != null;
+
+		Collection<AuditingRecord> records;
+		records = this.repository.findManyRecordsByAuditId(object.getId());
+		super.state(!records.isEmpty(), "*", "auditor.audit.form.error.no-records");
 	}
 
 	@Override
