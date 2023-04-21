@@ -61,7 +61,7 @@ public class AssistantTutorialListMineService extends AbstractService<Assistant,
 		Tuple tuple;
 
 		tuple = super.unbind(object, "code", "title");
-		tuple.put("courseCode", this.repository.findCourseCodeByTutorialId(object.getId()));
+		tuple.put("courseCode", object.getCourse().getCode());
 
 		super.getResponse().setData(tuple);
 	}

@@ -20,6 +20,7 @@ import org.springframework.stereotype.Service;
 import acme.entities.individual.assistants.Tutorial;
 import acme.entities.individual.assistants.TutorialSession;
 import acme.entities.individual.lectures.Course;
+import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Assistant;
@@ -37,34 +38,20 @@ public class AssistantTutorialCreateService extends AbstractService<Assistant, T
 
 	@Override
 	public void check() {
-		boolean status;
-
-		status = super.getRequest().hasData("courseId", String.class);
-
-		super.getResponse().setChecked(status);
+		super.getResponse().setChecked(true);
 	}
 
 	@Override
 	public void authorise() {
-		boolean status;
-		int courseId;
-		Course course;
-
-		courseId = super.getRequest().getData("courseId", int.class);
-		course = this.repository.findOneCourseById(courseId);
-		status = course != null;
-
-		super.getResponse().setAuthorised(status);
+		super.getResponse().setAuthorised(true);
 	}
 
 	@Override
 	public void load() {
 		Tutorial object;
 		Assistant assistant;
-		Course course;
 
 		assistant = this.repository.findOneAssistantById(super.getRequest().getPrincipal().getActiveRoleId());
-		course = this.repository.findOneCourseById(super.getRequest().getData("courseId", int.class));
 
 		object = new Tutorial();
 		object.setTitle("");
@@ -72,7 +59,6 @@ public class AssistantTutorialCreateService extends AbstractService<Assistant, T
 		object.setGoals("");
 		object.setCode("");
 		object.setDraftMode(true);
-		object.setCourse(course);
 		object.setAssistant(assistant);
 
 		super.getBuffer().setData(object);
@@ -82,7 +68,14 @@ public class AssistantTutorialCreateService extends AbstractService<Assistant, T
 	public void bind(final Tutorial object) {
 		assert object != null;
 
+		int courseId;
+		Course course;
+
+		courseId = super.getRequest().getData("course", int.class);
+		course = this.repository.findOneCourseById(courseId);
+
 		super.bind(object, "code", "title", "abstract$", "goals");
+		object.setCourse(course);
 	}
 
 	@Override
@@ -94,6 +87,9 @@ public class AssistantTutorialCreateService extends AbstractService<Assistant, T
 			existing = this.repository.findOneTutorialByCode(object.getCode());
 			super.state(existing == null || existing.equals(object), "code", "assistant.tutorial.form.error.duplicated");
 		}
+
+		if (!super.getBuffer().getErrors().hasErrors("course"))
+			super.state(!object.getCourse().isDraftMode(), "course", "assistant.tutorial.form.error.non-published-course");
 
 	}
 
@@ -111,6 +107,11 @@ public class AssistantTutorialCreateService extends AbstractService<Assistant, T
 		Tuple tuple;
 		Collection<TutorialSession> tutorialSessions;
 		Double estimatedTotalTime;
+		SelectChoices choices;
+		Collection<Course> courses;
+
+		courses = this.repository.findManyPublishedCourses();
+		choices = SelectChoices.from(courses, "code", object.getCourse());
 
 		tutorialSessions = this.repository.findManySessionsByTutorialId(object.getId());
 		estimatedTotalTime = 0.;
@@ -118,9 +119,10 @@ public class AssistantTutorialCreateService extends AbstractService<Assistant, T
 		for (final TutorialSession ts : tutorialSessions)
 			estimatedTotalTime += ts.getDurationInHours();
 
-		tuple = super.unbind(object, "code", "title", "abstract$", "goals", "draftMode", "course");
-		tuple.put("courseCode", this.repository.findOneCourseById(super.getRequest().getData("courseId", int.class)).getCode());
+		tuple = super.unbind(object, "code", "title", "abstract$", "goals", "draftMode");
 		tuple.put("estimatedTotalTime", estimatedTotalTime);
+		tuple.put("course", choices.getSelected().getKey());
+		tuple.put("courses", choices);
 
 		super.getResponse().setData(tuple);
 	}
