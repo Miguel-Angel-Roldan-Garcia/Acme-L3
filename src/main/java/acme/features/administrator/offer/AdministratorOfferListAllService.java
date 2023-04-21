@@ -1,5 +1,5 @@
 /*
- * WorkerApplicationShowService.java
+ * AuthenticatedAnnouncementListAllService.java
  *
  * Copyright (C) 2012-2023 Rafael Corchuelo.
  *
@@ -10,39 +10,32 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.authenticated.assistant;
+package acme.features.administrator.offer;
+
+import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.framework.components.accounts.Authenticated;
+import acme.entities.group.Offer;
+import acme.framework.components.accounts.Administrator;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
-import acme.roles.Assistant;
 
 @Service
-public class AuthenticatedAssistantShowService extends AbstractService<Authenticated, Assistant> {
+public class AdministratorOfferListAllService extends AbstractService<Administrator, Offer> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AuthenticatedAssistantRepository repository;
+	protected AdministratorOfferRepository repository;
 
 	// AbstractService interface ----------------------------------------------
-	@Override
-	public void authorise() {
-		super.getResponse().setAuthorised(true);
-	}
 
 	@Override
 	public void check() {
-		boolean status;
-
-		status = super.getRequest().hasData("username", int.class);
-
-		super.getResponse().setChecked(status);
+		super.getResponse().setChecked(true);
 	}
-
 
 	@Override
 	public void authorise() {
@@ -51,22 +44,20 @@ public class AuthenticatedAssistantShowService extends AbstractService<Authentic
 
 	@Override
 	public void load() {
-		Assistant object;
-		String username;
+		Collection<Offer> objects;
 
-		username = super.getRequest().getData("username", String.class);
-		object = this.repository.findOneAssistantByUsername(username);
+		objects = this.repository.findAllOffers();
 
-		super.getBuffer().setData(object);
+		super.getBuffer().setData(objects);
 	}
 
 	@Override
-	public void unbind(final Assistant object) {
+	public void unbind(final Offer object) {
 		assert object != null;
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "supervisor", "expertiseFields", "resume", "link");
+		tuple = super.unbind(object, "instantiationMoment", "heading");
 
 		super.getResponse().setData(tuple);
 	}

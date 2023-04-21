@@ -19,6 +19,7 @@ master.menu.sign-out = Salir
 
 master.menu.authenticated = Autenticado
 master.menu.authenticated.bulletin.list = Listar Boletines
+master.menu.authenticated.student.offers.list = Listar ofertas
 
 # master.menu.anonymous #######################################################
 
@@ -43,6 +44,7 @@ master.menu.administrator.populate-initial = Poblar BD (inicial)
 master.menu.administrator.populate-sample = Poblar BD (ejemplos)
 master.menu.administrator.system-configuration = Configuración del sistema
 master.menu.administrator.banner = Listar banners
+master.menu.administrator.offer = Listar ofertas
 master.menu.administrator.shut-down = Parar el sistema
 
 # master.menu.provider ########################################################
@@ -64,7 +66,7 @@ master.menu.assistant.show-dashboard = Mostrar tablero de asistente
 # master.menu.company #########################################################
 
 master.menu.company = Compañía
-master.menu.company.list-mine-practicum = Listar mis prácticasç
+master.menu.company.list-mine-practicum = Listar mis prácticas
 
 # master.menu.course #########################################################
 

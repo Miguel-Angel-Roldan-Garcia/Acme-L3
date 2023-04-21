@@ -1,5 +1,5 @@
 /*
- * WorkerApplicationShowService.java
+ * AuthenticatedAnnouncementShowService.java
  *
  * Copyright (C) 2012-2023 Rafael Corchuelo.
  *
@@ -10,39 +10,37 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.authenticated.assistant;
+package acme.features.administrator.offer;
+
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.framework.components.accounts.Authenticated;
+import acme.entities.group.Offer;
+import acme.framework.components.accounts.Administrator;
 import acme.framework.components.models.Tuple;
+import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
-import acme.roles.Assistant;
 
 @Service
-public class AuthenticatedAssistantShowService extends AbstractService<Authenticated, Assistant> {
+public class AdministratorOfferShowService extends AbstractService<Administrator, Offer> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AuthenticatedAssistantRepository repository;
+	protected AdministratorOfferRepository repository;
 
 	// AbstractService interface ----------------------------------------------
-	@Override
-	public void authorise() {
-		super.getResponse().setAuthorised(true);
-	}
 
 	@Override
 	public void check() {
 		boolean status;
 
-		status = super.getRequest().hasData("username", int.class);
+		status = super.getRequest().hasData("id", int.class);
 
 		super.getResponse().setChecked(status);
 	}
-
 
 	@Override
 	public void authorise() {
@@ -51,22 +49,32 @@ public class AuthenticatedAssistantShowService extends AbstractService<Authentic
 
 	@Override
 	public void load() {
-		Assistant object;
-		String username;
+		Offer object;
+		int id;
 
-		username = super.getRequest().getData("username", String.class);
-		object = this.repository.findOneAssistantByUsername(username);
+		id = super.getRequest().getData("id", int.class);
+		object = this.repository.findOneOfferById(id);
 
 		super.getBuffer().setData(object);
 	}
 
 	@Override
-	public void unbind(final Assistant object) {
+	public void unbind(final Offer object) {
 		assert object != null;
+
+		boolean updateOrDelete;
+		Offer offer;
+		Date moment;
+		moment = MomentHelper.getCurrentMoment();
+
+		offer = this.repository.findActiveOfferById(moment, object.getId());
+		updateOrDelete = offer != null ? false : true;
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "supervisor", "expertiseFields", "resume", "link");
+		tuple = super.unbind(object, "instantiationMoment", "heading", "summary", "availabilityPeriodStartDate",
+				"availabilityPeriodEndDate", "price", "link");
+		tuple.put("updateOrDelete", updateOrDelete);
 
 		super.getResponse().setData(tuple);
 	}
