@@ -49,6 +49,10 @@
 			<acme:menu-suboption code="master.menu.student.published-courses" action="/any/course/list"/>
 		</acme:menu-option>
 		
+		<acme:menu-option code="master.menu.authenticated" access="isAuthenticated()">
+			<acme:menu-suboption code="master.menu.authenticated.bulletin.list" action="/authenticated/bulletin/list"/>
+		</acme:menu-option>
+		
 		<acme:menu-option code="master.menu.note" access="isAuthenticated()">
 			<acme:menu-suboption code="master.menu.authenticated.notes" action="/authenticated/note/list"/>
 		</acme:menu-option>
