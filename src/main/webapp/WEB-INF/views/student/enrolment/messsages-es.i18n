@@ -37,4 +37,5 @@ student.enrolment.form.error.not-valid-date-format = El patrón de la fecha de e
 student.enrolment.form.error.not-valid-cvc-pattern = El patrón del cvc debe ser ^[0-9]{3}$
 student.enrolment.form.error.not-valid-holderName = El nombre del propietario no debe estar vacio y debe tener menos de 25 carácteres
 student.enrolment.form.error.not-valid-creditCard = El patrón del número de la tarjeta de crédito debe ser ^[0-9]{16}$
+student.enrolment.form.error.not-valid-creditCard-checksum = El checksum de la tarjeta de crédito debe ser válida
 

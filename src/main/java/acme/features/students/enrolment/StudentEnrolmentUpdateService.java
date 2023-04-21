@@ -101,8 +101,11 @@ public class StudentEnrolmentUpdateService extends AbstractService<Student, Enro
 	}
 	if (finishable) {
 	    if (!super.getBuffer().getErrors().hasErrors("creditCardNumber"))
-		super.state(creditNumber.matches("^[0-9]{16}$"), "creditCardNumber",
-			"student.enrolment.form.error.not-valid-creditCard");
+		if (creditNumber.matches("^[0-9]{16}$"))
+		    super.state(this.isValidCheckSum(creditNumber), "creditCardNumber",
+			    "student.enrolment.form.error.not-valid-creditCard-checksum");
+		else
+		    super.state(false, "creditCardNumber", "student.enrolment.form.error.not-valid-creditCard");
 	    if (!super.getBuffer().getErrors().hasErrors("expiryDate")) {
 		final boolean validFormat = expiryDate.matches("^\\d{2}/\\d{2}$");
 
@@ -154,6 +157,18 @@ public class StudentEnrolmentUpdateService extends AbstractService<Student, Enro
 	Collection<Course> courses;
 	SelectChoices choices;
 	Tuple tuple;
+	String creditNumber = "";
+	String cvc = "";
+	String holderName = "";
+	String expiryDate = "";
+	boolean finishable = false;
+	if (object.isDraftMode()) {
+	    creditNumber = super.getRequest().getData("creditCardNumber", String.class);
+	    cvc = super.getRequest().getData("cvc", String.class);
+	    holderName = super.getRequest().getData("holderName", String.class);
+	    expiryDate = super.getRequest().getData("expiryDate", String.class);
+	    finishable = !creditNumber.isEmpty() || !cvc.isEmpty() || !holderName.isEmpty() || !expiryDate.isEmpty();
+	}
 
 	courses = this.repository.findManyPublishedCourses();
 	choices = SelectChoices.from(courses, "code", object.getCourse());
@@ -161,6 +176,22 @@ public class StudentEnrolmentUpdateService extends AbstractService<Student, Enro
 	tuple = super.unbind(object, "code", "motivation", "goals", "draftMode", "lowerNibble", "holderName");
 	tuple.put("course", choices.getSelected().getKey());
 	tuple.put("courses", choices);
+	if (finishable) {
+	    if (creditNumber.matches("^[0-9]{16}$") && this.isValidCheckSum(creditNumber))
+		tuple.put("creditCardNumber", creditNumber);
+	    if (cvc.matches("^[0-9]{3}$"))
+		tuple.put("cvc", cvc);
+	    if (expiryDate.matches("^\\d{2}/\\d{2}$") && Integer.parseInt(expiryDate.split("/")[1]) <= 12) {
+		final Date date = MomentHelper.parse("yy/MM", expiryDate);
+		final Date actualExpiryDate = new Date(date.getYear(), date.getMonth(),
+			this.getLastDayOfMonth(date.getMonth()), 23, 59);
+		if (date != null && MomentHelper.isAfter(actualExpiryDate, MomentHelper.getCurrentMoment()))
+		    tuple.put("expiryDate", expiryDate);
+	    }
+	    if (!holderName.isEmpty() && holderName.length() < 25)
+		tuple.put("holderName", holderName);
+
+	}
 
 	super.getResponse().setData(tuple);
     }
@@ -173,6 +204,25 @@ public class StudentEnrolmentUpdateService extends AbstractService<Student, Enro
 	    return 30;
 	else
 	    return 29;
+    }
+
+    // VALID NUMBER = 2600000000000000
+    private boolean isValidCheckSum(final String creditNumber) {
+	int sum = 0;
+	for (int i = 0; i < creditNumber.length() - 1; i++) {
+	    final char number = creditNumber.charAt(i);
+	    int value = 0;
+	    if ((i + 2) % 2 == 0)
+		value = Character.getNumericValue(number) * 2;
+	    else
+		value = Character.getNumericValue(number);
+	    if (value >= 10) {
+		final String newNumber = Integer.toString(value);
+		sum += Character.getNumericValue(newNumber.charAt(0)) + Character.getNumericValue(newNumber.charAt(1));
+	    } else
+		sum += value;
+	}
+	return sum % 10 == 0;
     }
 
 }

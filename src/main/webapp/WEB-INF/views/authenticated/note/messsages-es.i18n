@@ -1,0 +1,29 @@
+# messages-es.i18n
+#
+# Copyright (C) 2012-2023 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+autheticated.note.list.label.title = Título
+authenticated.note.list.label.author = Autor/a
+authenticated.note.list.label.instantiationmoment = Momento de instaciación
+authenticated.note.list.button.create = Crear nueva nota
+
+================================================
+authenticated.note.form.label.title = Título
+authenticated.note.form.label.message = Mensaje
+authenticated.note.form.label.link = Enlace
+authenticated.note.form.label.email = Email
+authenticated.note.form.label.instantiation-moment = Momento de instanciación
+authenticated.note.form.label.author = Autor
+authenticated.note.form.label.name = Nombre
+authenticated.note.form.label.confirm = Confirmar
+
+============================================
+authenticated.note.form.error.not-confirmed-note = Debes confirmar para crear
+authenticated.note.form.error.not-correct-size = Tu nombre más tu nombre de usuario debe ser menor que 73
+
