@@ -10,8 +10,10 @@
 
 authenticated.auditor.form.label.firm = Firma: 
 authenticated.auditor.form.label.professional-id = Id Profesional:
-authenticated.auditor.form.label.certifications = Certificationes:
+authenticated.auditor.form.label.certifications = Certificaciones:
 authenticated.auditor.form.label.link = Link
 
 authenticated.auditor.form.button.create = Register
 authenticated.auditor.form.button.update = Update
+
+authenticated.auditor.form.error.duplicated = Este Id está en uso

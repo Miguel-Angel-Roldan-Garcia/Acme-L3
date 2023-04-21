@@ -72,7 +72,7 @@ public class AuditorAuditingRecordUpdateService extends AbstractService<Auditor,
 	public void bind(final AuditingRecord object) {
 		assert object != null;
 
-		super.bind(object, "subject", "assessment", "auditingDate", "link", "mark");
+		super.bind(object, "subject", "assessment", "startDate", "finishDate", "link", "mark");
 	}
 
 	@Override
@@ -80,11 +80,30 @@ public class AuditorAuditingRecordUpdateService extends AbstractService<Auditor,
 		assert object != null;
 
 		if (!super.getBuffer().getErrors().hasErrors("startDate")) {
-			boolean auditingDateError;
+			boolean startDateError;
 
-			auditingDateError = MomentHelper.isAfter(object.getAuditingDate(), MomentHelper.deltaFromCurrentMoment(1l, ChronoUnit.DAYS));
+			startDateError = MomentHelper.isBefore(object.getStartDate(), MomentHelper.deltaFromCurrentMoment(1l, ChronoUnit.DAYS));
 
-			super.state(auditingDateError, "auditingDate", "Auditor.Audit-ingRecord.form.error.not-valid-date");
+			super.state(startDateError, "startDate", "assistant.tutorial-session.form.error.at-least-one-day-ahead");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("finishDate")) {
+			boolean endDateErrorDuration;
+
+			endDateErrorDuration = MomentHelper.isLongEnough(object.getStartDate(), object.getFinishDate(), 1l, ChronoUnit.HOURS);
+
+			if (endDateErrorDuration)
+				endDateErrorDuration = !MomentHelper.isLongEnough(object.getStartDate(), object.getFinishDate(), (long) 3600 + 1, ChronoUnit.SECONDS);
+
+			super.state(endDateErrorDuration, "finishDate", "assistant.tutorial-session.form.error.duration");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("finishDate")) {
+			boolean endDateError;
+
+			endDateError = MomentHelper.isBefore(object.getStartDate(), object.getFinishDate());
+
+			super.state(endDateError, "finishDate", "assistant.tutorial-session.form.error.end-before-start");
 		}
 	}
 
@@ -101,7 +120,7 @@ public class AuditorAuditingRecordUpdateService extends AbstractService<Auditor,
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "subject", "assessment", "auditingDate", "link", "mark");
+		tuple = super.unbind(object, "subject", "assessment", "startDate", "finishDate", "link", "mark");
 		tuple.put("masterId", object.getAudit().getId());
 
 		super.getResponse().setData(tuple);

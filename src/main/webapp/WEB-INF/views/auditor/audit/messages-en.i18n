@@ -26,6 +26,5 @@ auditor.audit.form.error.no-records = This audit can't be published yet because 
 
 auditor.audit.list.label.code = Code
 auditor.audit.list.label.conclusion = Conclusion
-auditor.audit.list.label.course = Course
 
 auditor.audit.list.button.create = Create
