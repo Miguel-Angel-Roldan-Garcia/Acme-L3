@@ -19,6 +19,8 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.individual.assistants.Tutorial;
 import acme.entities.individual.assistants.TutorialSession;
+import acme.entities.individual.lectures.Course;
+import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Assistant;
@@ -74,7 +76,14 @@ public class AssistantTutorialUpdateService extends AbstractService<Assistant, T
 	public void bind(final Tutorial object) {
 		assert object != null;
 
+		int courseId;
+		Course course;
+
+		courseId = super.getRequest().getData("course", int.class);
+		course = this.repository.findOneCourseById(courseId);
+
 		super.bind(object, "code", "title", "abstract$", "goals");
+		object.setCourse(course);
 	}
 
 	@Override
@@ -86,6 +95,10 @@ public class AssistantTutorialUpdateService extends AbstractService<Assistant, T
 			existing = this.repository.findOneTutorialByCode(object.getCode());
 			super.state(existing == null || existing.equals(object), "code", "assistant.tutorial.form.error.duplicated");
 		}
+
+		if (!super.getBuffer().getErrors().hasErrors("course"))
+			super.state(!object.getCourse().isDraftMode(), "course", "assistant.tutorial.form.error.non-published-course");
+
 	}
 
 	@Override
@@ -102,6 +115,11 @@ public class AssistantTutorialUpdateService extends AbstractService<Assistant, T
 		Tuple tuple;
 		Collection<TutorialSession> tutorialSessions;
 		Double estimatedTotalTime;
+		SelectChoices choices;
+		Collection<Course> courses;
+
+		courses = this.repository.findManyPublishedCourses();
+		choices = SelectChoices.from(courses, "code", object.getCourse());
 
 		tutorialSessions = this.repository.findManySessionsByTutorialId(object.getId());
 		estimatedTotalTime = 0.;
@@ -112,6 +130,8 @@ public class AssistantTutorialUpdateService extends AbstractService<Assistant, T
 		tuple = super.unbind(object, "code", "title", "abstract$", "goals", "draftMode");
 		tuple.put("courseCode", this.repository.findCourseCodeByTutorialId(object.getId()));
 		tuple.put("estimatedTotalTime", estimatedTotalTime);
+		tuple.put("course", choices.getSelected().getKey());
+		tuple.put("courses", choices);
 
 		super.getResponse().setData(tuple);
 	}

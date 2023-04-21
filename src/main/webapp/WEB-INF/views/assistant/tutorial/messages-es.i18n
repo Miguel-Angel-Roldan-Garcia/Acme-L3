@@ -24,6 +24,7 @@ assistant.tutorial.form.button.publish = Publicar
 assistant.tutorial.form.error.duplicated = Este codigo está en uso
 assistant.tutorial.form.error.not-draft-mode = Este tutorial ya está publicado, no puede ser editado ni borrado
 assistant.tutorial.form.error.no-sessions = Este tutorial no puede ser publicado todavía porque no tiene sesiones
+assistant.tutorial.form.error.non-published-course = Este curso no está publicado
 
 assistant.tutorial.list.label.code = Codigo
 assistant.tutorial.list.label.title = Titulo
