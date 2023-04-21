@@ -10,7 +10,7 @@
 - they accept any liabilities with respect to them.
 --%>
 
-<%@page language="java"%>
+<%@page language="java" import="acme.roles.Assistant"%>
 
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
@@ -24,4 +24,8 @@
 	
 	<acme:button code="student.form.button.lectures" action="/student/lecture/list?masterId=${id}"/>
 	<acme:button code="student.form.button.lecturer" action="/student/lecturer/show?masterId=${id}"/>
+	
+	<acme:check-access test="isAuthenticated()">
+		<acme:button code="any.course.form.button.tutorials-list" action="/authenticated/tutorial/list?courseId=${id}"/>
+	</acme:check-access>
 </acme:form>

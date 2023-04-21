@@ -15,6 +15,12 @@ master.menu.sign-up = Registrarse
 master.menu.sign-in = Entrar
 master.menu.sign-out = Salir
 
+# master.menu.authenticated #######################################################
+
+master.menu.authenticated = Autenticado
+master.menu.authenticated.bulletin.list = Listar Boletines
+master.menu.authenticated.student.offers.list = Listar ofertas
+
 # master.menu.anonymous #######################################################
 
 master.menu.anonymous = Anónimo
@@ -33,9 +39,12 @@ master.menu.anonymous.favourite-link-by-student-5 = 21150103Q : Urquijo Martíne
 master.menu.administrator = Administrador
 master.menu.administrator.dashboard = Panel de indicadores
 master.menu.administrator.user-accounts = Cuentas de usuario
+master.menu.administrator.create-bulletin = Crear Boletín
 master.menu.administrator.populate-initial = Poblar BD (inicial)
 master.menu.administrator.populate-sample = Poblar BD (ejemplos)
 master.menu.administrator.system-configuration = Configuración del sistema
+master.menu.administrator.banner = Listar banners
+master.menu.administrator.offer = Listar ofertas
 master.menu.administrator.shut-down = Parar el sistema
 
 # master.menu.provider ########################################################
@@ -52,11 +61,12 @@ master.menu.consumer.favourite-link = Enlace favorito
 
 master.menu.assistant = Asistente
 master.menu.assistant.list-mine-tutorials = Listar mis tutoriales
+master.menu.assistant.show-dashboard = Mostrar tablero de asistente
 
 # master.menu.company #########################################################
 
 master.menu.company = Compañía
-master.menu.company.list-mine-practicum = Listar mis prácticasç
+master.menu.company.list-mine-practicum = Listar mis prácticas
 
 # master.menu.course #########################################################
 
@@ -67,11 +77,13 @@ master.menu.student.published-courses = Listar cursos publicados
 
 master.menu.student = Estudiante
 master.menu.student.my-enrolments = Listar mis inscripciones
+master.menu.student.enrolled-courses = Listar los cursos en los que estoy inscrito
+master.menu.student.show-dashboard = Mostrar tablero de estudiante
 
 # master.menu.auditor ########################################################
 
-master.menu.user-account.auditor = Datos de auditoría
-master.menu.user-account.become-auditor = Hazte auditoría
+master.menu.auditor = Auditor
+master.menu.auditor.list-mine-audits = Listar mis auditorías
 
 # master.menu.user-account ####################################################
 
@@ -97,3 +109,7 @@ master.menu.user-account.become-auditor = Hazte auditor
 master.menu.lecturer = Profesor
 master.menu.lecturer.lectures = Listar mis lecciones
 master.menu.lecturer.courses = Listar curso
+
+# master.menu.note #####################################
+master.menu.note = Notas
+master.menu.authenticated.notes = Listar notas recientes de hace menos de un mes

@@ -53,18 +53,9 @@ public class Enrolment extends AbstractEntity {
     // sum(timePeriod of all of their activities)
 
     // OPTIONAL
-    @Pattern(regexp = "^[0-9]{4}$")
+
     protected String lowerNibble;
 
-    @Length(max = 24)
     protected String holderName;
 
-    public boolean isValidCreditCard() {
-	return this.lowerNibble != null && !this.lowerNibble.isEmpty() && this.holderName != null
-		&& !this.holderName.isEmpty();
-    }
-
-    public boolean isFinalizable() {
-	return this.draftMode && this.isValidCreditCard();
-    }
 }

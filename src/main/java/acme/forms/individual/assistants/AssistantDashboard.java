@@ -6,7 +6,11 @@ import java.util.Map;
 import acme.datatypes.Nature;
 import acme.datatypes.Statistic;
 import acme.framework.data.AbstractForm;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 public class AssistantDashboard extends AbstractForm {
 
 	// Serialisation identifier -----------------------------------------------
@@ -19,7 +23,7 @@ public class AssistantDashboard extends AbstractForm {
 
 	// Session related attributes ---------------------------------------------
 
-	protected Statistic				SessionTimeStatistics;
+	protected Statistic				sessionTimeStatistics;
 
 	// Tutorial related attributes --------------------------------------------
 

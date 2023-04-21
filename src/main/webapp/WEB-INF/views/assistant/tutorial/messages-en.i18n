@@ -23,6 +23,8 @@ assistant.tutorial.form.button.publish = Publish
 
 assistant.tutorial.form.error.duplicated = This code is taken
 assistant.tutorial.form.error.not-draft-mode = This tutorial is already published, can't be edited or deleted
+assistant.tutorial.form.error.no-sessions = This tutorial can't be published yet because it doesn't have any sessions
+assistant.tutorial.form.error.non-published-course = This course isn't published
 
 assistant.tutorial.list.label.code = Code
 assistant.tutorial.list.label.title = Title

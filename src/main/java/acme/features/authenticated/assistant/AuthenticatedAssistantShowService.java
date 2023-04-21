@@ -10,59 +10,59 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.administrator;
+package acme.features.authenticated.assistant;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.group.SystemConfiguration;
-import acme.framework.components.accounts.Administrator;
+import acme.framework.components.accounts.Authenticated;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
+import acme.roles.Assistant;
 
 @Service
-public class AdministratorSystemConfigurationShowService extends AbstractService<Administrator, SystemConfiguration> {
+public class AuthenticatedAssistantShowService extends AbstractService<Authenticated, Assistant> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AdministratorSystemConfigurationRepository repository;
+	protected AuthenticatedAssistantRepository repository;
 
 	// AbstractService interface ----------------------------------------------
-
+	@Override
+	public void authorise() {
+		super.getResponse().setAuthorised(true);
+	}
 
 	@Override
 	public void check() {
-		super.getResponse().setChecked(true);
-	}
-
-	@Override
-	public void authorise() {
 		boolean status;
-		SystemConfiguration systemConfiguration;
 
-		systemConfiguration = this.repository.findSystemConfiguration();
-		status = systemConfiguration != null && super.getRequest().getPrincipal().hasRole(Administrator.class);
+		status = super.getRequest().hasData("username", int.class);
 
-		super.getResponse().setAuthorised(status);
+		super.getResponse().setChecked(status);
 	}
+
+
 
 	@Override
 	public void load() {
-		SystemConfiguration object;
+		Assistant object;
+		String username;
 
-		object = this.repository.findSystemConfiguration();
+		username = super.getRequest().getData("username", String.class);
+		object = this.repository.findOneAssistantByUsername(username);
 
 		super.getBuffer().setData(object);
 	}
 
 	@Override
-	public void unbind(final SystemConfiguration object) {
+	public void unbind(final Assistant object) {
 		assert object != null;
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "currency", "acceptedCurrencies");
+		tuple = super.unbind(object, "supervisor", "expertiseFields", "resume", "link");
 
 		super.getResponse().setData(tuple);
 	}

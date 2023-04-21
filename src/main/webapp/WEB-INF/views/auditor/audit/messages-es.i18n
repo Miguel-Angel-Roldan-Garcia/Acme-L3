@@ -1,0 +1,31 @@
+# messages-es.i18n
+#
+# Copyright (C) 2012-2023 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+auditor.audit.form.label.code = Codigo
+auditor.audit.form.label.conclusion = Conclusion
+auditor.audit.form.label.strongPoints = Puntos Fuertes
+auditor.audit.form.label.weakPoints = Puntos débiles
+auditor.audit.form.label.course = Curso
+
+auditor.audit.form.button.records = Registros
+auditor.audit.form.button.update = Actualizar
+auditor.audit.form.button.delete = Borrar
+auditor.audit.form.button.create = Crear
+auditor.audit.form.button.publish = Publicar
+
+auditor.audit.form.error.duplicated = Este codigo está en uso
+auditor.audit.form.error.not-draft-mode = Esta auditoría ya está publicada, no puede ser editado ni borrado
+auditor.audit.form.error.no-records = Esta auditoría no puede ser publicada todavía porque no tiene registros
+
+auditor.audit.list.label.code = Codigo
+auditor.audit.list.label.conclusion = Conclusión
+auditor.audit.list.label.course = Curso
+
+auditor.audit.list.button.create = Crear

@@ -1,0 +1,35 @@
+# messages-en.i18n
+#
+# Copyright (C) 2012-2023 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+administrator.offer.form.label.instantiation-moment = Instantiation moment
+administrator.offer.form.label.availability-period-start-date = Availability period start date
+administrator.offer.form.label.availability-period-end-date = Availability period end date
+administrator.offer.form.label.heading = Heading
+administrator.offer.form.label.summary = Summary
+administrator.offer.form.label.price = Price
+administrator.offer.form.label.link = Link
+
+administrator.offer.form.error.start-after-instantiation = The availability period must start after instantiation moment
+administrator.offer.form.error.start-after-one-day-of-instantiation = The availability start period date must start at least one day after instantiation moment 
+administrator.offer.form.error.end-before-start = The availability period end date must be after the start date
+administrator.offer.form.error.at-least-one-week-long = The availability period must be at least a week long
+administrator.offer.form.error.date-out-of-bounds = Introduced dates must be between Jan 1 2000 at 00:00 and Dec 31 2100 at 23:59
+administrator.offer.form.error.price.negative-or-zero = The amount must be higher than 0
+administrator.offer.form.error.price.too-big = The amount must be lower than 1,000,000
+administrator.offer.form.error.price.non-existent-currency = Non-existing currency
+
+administrator.offer.form.button.create = Create
+administrator.offer.form.button.update = Update
+administrator.offer.form.button.delete = Delete
+ 
+administrator.offer.list.label.instantiation-moment = Last updated
+administrator.offer.list.label.heading = Heading
+
+administrator.offer.list.button.create = Create

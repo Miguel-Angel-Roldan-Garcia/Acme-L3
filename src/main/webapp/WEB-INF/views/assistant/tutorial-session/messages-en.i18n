@@ -24,6 +24,7 @@ assistant.tutorial-session.form.error.at-least-one-day-ahead = A session must be
 assistant.tutorial-session.form.error.end-before-start = The end of the session must be after the start of the session
 assistant.tutorial-session.form.error.duration = A session must be between 1 and 5 hour long
 assistant.tutorial-session.form.error.nature-balanced = A session can't be of balanced nature
+assistant.tutorial-session.form.error.date-out-of-bounds = Introduced dates must be between Jan 1 2000 at 00:00 and Dec 31 2100 at 23:59
 
 assistant.tutorial-session.list.label.title = Title
 assistant.tutorial-session.list.label.nature = Nature 

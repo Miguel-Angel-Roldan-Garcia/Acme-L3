@@ -23,3 +23,6 @@ student.course.form.label.link = Link
 student.form.button.lectures = Their Lectures
 student.form.button.lecturer = Their Lecturer
 
+any.course.form.button.tutorials-list = List tutorials
+any.course.form.button.tutorials-create = Create tutorial
+

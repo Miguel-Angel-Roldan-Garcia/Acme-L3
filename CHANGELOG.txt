@@ -25,6 +25,23 @@ Year 2023
 		other classes.
 23.2.4  Lots of minor fixes. Added sample data. Implemented administrator dashboard, 
 		system configuration and bulletin.
+23.2.5  Implemented relations of course lecture and lecturer.
+23.2.6  Added practicum sessions sample data.
+23.2.7  Finalized the relational model.
+23.2.8  Lots of minor bugfixes.
+23.2.9  Prepared the D02 release.
+23.3.0  Getting new D03 version ready. Updated to the new version of the Acme Framework.
+23.3.1  Roles Student, Company and Assistant sign ups and role update.
+23.3.2  Student operations: list-mine, create, delete enrollments, list lectures. 
+		Authenticated assistant operations.
+23.3.3  Updated to the new version of the Acme Framework.
+23.3.4  Create and update auditor. Company operations . Authenticated lecturer operations.
+23.3.5  Assistant operations on tutorials and sessions.
+23.3.6  Student operations on activities and enrollments. System configuration operations. 
+		Banner operations. Assistant dashboard.
+23.3.7  Lots of minor bugfixes and improvements.
+23.3.8  Exchange rate implemented.
+
 
 Year 2022
 

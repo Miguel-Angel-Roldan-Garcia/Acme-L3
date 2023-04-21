@@ -23,7 +23,11 @@ public class StudentEnrolmentListMineService extends AbstractService<Student, En
 
     @Override
     public void authorise() {
-	super.getResponse().setAuthorised(true);
+	boolean state;
+	final int studentId = super.getRequest().getPrincipal().getActiveRoleId();
+	final Student student = this.repository.findOneStudentById(studentId);
+	state = super.getRequest().getPrincipal().hasRole(student);
+	super.getResponse().setAuthorised(state);
     }
 
     @Override

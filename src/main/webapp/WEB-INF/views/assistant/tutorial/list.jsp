@@ -17,11 +17,11 @@
 
 <acme:list>
 	<acme:list-column code="assistant.tutorial.list.label.code" path="code" width="20%"/>
-	<acme:list-column code="assistant.tutorial.list.label.title" path="title" width="80%"/>
+	<acme:list-column code="assistant.tutorial.list.label.title" path="title" width="60%"/>
+	<acme:list-column code="assistant.tutorial.list.label.course" path="courseCode" width="20%"/>
 </acme:list>
 
-<jstl:if test="${_command == 'list-mine'}">
-	<acme:button code="assistant.tutorial.list.button.create" action="/assistant/tutorial/create?courseId=G139"/>
-</jstl:if>		
-	
+<acme:check-access test="hasRole('Assistant')">
+	<acme:button code="any.course.form.button.tutorials-create" action="/assistant/tutorial/create"/>
+</acme:check-access>
 

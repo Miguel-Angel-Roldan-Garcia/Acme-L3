@@ -24,6 +24,7 @@ assistant.tutorial-session.form.error.at-least-one-day-ahead = Una sesión debe 
 assistant.tutorial-session.form.error.end-before-start = El final de la sesión debe ser posterior al inicio de la sesion
 assistant.tutorial-session.form.error.duration = Una sesión debe durar entre 1 y 5 horas
 assistant.tutorial-session.form.error.nature-balanced = Una sesión no puede ser de naturaleza balanceada
+assistant.tutorial-session.form.error.date-out-of-bounds = Las fechas introducidas deben estar entre el 1 Enero 2000 a las 00:00 y el 31 Diciembre 2100 a las 23:59
 
 assistant.tutorial-session.list.label.title = Título
 assistant.tutorial-session.list.label.nature = Naturaleza 
