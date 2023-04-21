@@ -20,7 +20,7 @@
 	<acme:input-textarea code="auditor.audit.form.label.conclusion" path="conclusion"/>
 	<acme:input-textarea code="auditor.audit.form.label.strongPoints" path="strongPoints"/>
 	<acme:input-textarea code="auditor.audit.form.label.weakPoints" path="weakPoints"/>
-	<acme:input-textbox code="auditor.audit.form.label.course" path="courseCode" readonly="true"/>
+	<acme:input-select code="auditor.audit.form.label.course" path="course" choices="${courses}"/>
 
 	<jstl:choose>	 
 		<jstl:when test="${_command == 'show' && draftMode == false}">
@@ -33,7 +33,7 @@
 			<acme:submit code="auditor.audit.form.button.publish" action="/auditor/audit/publish"/>
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}">
-			<acme:submit code="auditor.audit.form.button.create" action="/auditor/audit/create?courseId=${course.id}"/>
+			<acme:submit code="auditor.audit.form.button.create" action="/auditor/audit/create"/>
 		</jstl:when>		
 	</jstl:choose>
 </acme:form>

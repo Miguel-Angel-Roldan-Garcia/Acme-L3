@@ -1,5 +1,5 @@
 <%--
-- list.jsp
+- form.jsp
 -
 - Copyright (C) 2012-2023 Rafael Corchuelo.
 -
@@ -15,7 +15,11 @@
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 
-<acme:list>
-	<acme:list-column code="authenticated.bulletin.list.label.title" path="title" width="10%"/>
-
-</acme:list>
+<acme:form>
+	<acme:input-moment code="authenticated.bulletin.label.instantiationMoment" path="instantiationMoment"/>
+	<acme:input-textbox code="authenticated.bulletin.label.title" path="title"/>
+	<acme:input-textarea code="authenticated.bulletin.label.message" path="message"/>
+	<acme:input-textbox code="authenticated.bulletin.label.critical" path="critical"/>
+	<acme:input-textbox code="authenticated.bulletin.label.link" path="link"/>
+	
+</acme:form>
