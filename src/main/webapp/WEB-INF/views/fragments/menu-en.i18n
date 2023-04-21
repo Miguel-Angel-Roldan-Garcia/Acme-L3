@@ -72,6 +72,7 @@ master.menu.student.published-courses = List published courses
 # master.menu.student ########################################################
 master.menu.student = Student
 master.menu.student.my-enrolments = List my enrolments
+master.menu.student.enrolled-courses = List the courses where i m enrolled with
 master.menu.student.show-dashboard = Show student dashboard
 
 # master.menu.auditor ########################################################
@@ -103,3 +104,8 @@ master.menu.user-account.become-auditor = Become an auditor
 master.menu.lecturer = Lecturer
 master.menu.lecturer.lectures = List my lectures
 master.menu.lecturer.courses = List courses
+
+
+# master.menu.note #####################################
+master.menu.note = Notes
+master.menu.authenticated.notes = List recent notes less than a month

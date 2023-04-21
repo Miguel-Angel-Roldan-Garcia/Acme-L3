@@ -58,13 +58,13 @@ public interface StudentDashboardRepository extends AbstractRepository {
 
     // -----ENROLMENT STATISTICS-----------------
 
-    @Query("select count(DISTINCT enrolment.course) from Enrolment enrolment where enrolment.student.id = :studentId")
+    @Query("select count(DISTINCT enrolment.course) from Enrolment enrolment where enrolment.student.id = :studentId and enrolment.draftMode is false")
     int countOfDistinctCoursesOfStudent(int studentId);
 
     @Query("select enrolment from Enrolment enrolment where enrolment.student.id =:studentId")
     List<Enrolment> findAllEnrolmentsByStudentId(int studentId);
 
-    @Query("select enrolment.course from Enrolment enrolment where enrolment.student.id =:studentId")
+    @Query("select enrolment.course from Enrolment enrolment where enrolment.student.id =:studentId and enrolment.draftMode is false")
     Set<Course> findAllDistintCoursesByStudentId(int studentId);
 
     @Query("select sum(courseLecture.lecture.estimatedLearningTime) from CourseLecture courseLecture where courseLecture.course.id =:courseId")

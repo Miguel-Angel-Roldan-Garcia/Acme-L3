@@ -55,6 +55,12 @@
 			<acme:menu-suboption code="master.menu.authenticated.bulletin.list" action="/authenticated/bulletin/list"/>
 		</acme:menu-option>
 
+		
+		<acme:menu-option code="master.menu.note" access="isAuthenticated()">
+			<acme:menu-suboption code="master.menu.authenticated.notes" action="/authenticated/note/list"/>
+		</acme:menu-option>
+
+
 		<acme:menu-option code="master.menu.provider" access="hasRole('Provider')">
 			<acme:menu-suboption code="master.menu.provider.favourite-link" action="http://www.example.com/"/>
 		</acme:menu-option>
@@ -75,6 +81,7 @@
     
 		<acme:menu-option code="master.menu.student" access="hasRole('Student')">
 			<acme:menu-suboption code="master.menu.student.my-enrolments" action="/student/enrolment/list-mine"/>
+			<acme:menu-suboption code="master.menu.student.enrolled-courses" action="/student/course/list"/>
 			<acme:menu-suboption code="master.menu.student.show-dashboard" action="/student/student-dashboard/show"/>
 		</acme:menu-option>
 

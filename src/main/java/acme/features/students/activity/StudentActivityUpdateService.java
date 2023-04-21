@@ -77,9 +77,12 @@ public class StudentActivityUpdateService extends AbstractService<Student, Activ
 		    "finishDate", "student.activity.form.error.not-valid-finish-date");
 	}
 	if (!super.getBuffer().getErrors().hasErrors("initialDate")
-		&& !super.getBuffer().getErrors().hasErrors("finishDate"))
-	    super.state(MomentHelper.isBefore(object.getInitialDate(), object.getInitialDate()), "*",
-		    "student.activity.form.error.not-valid-dates");
+		&& !super.getBuffer().getErrors().hasErrors("finishDate")) {
+	    final Date initialDate = object.getInitialDate();
+	    final Date finishDate = object.getFinishDate();
+	    super.state(MomentHelper.isBefore(initialDate, finishDate) && MomentHelper.isAfter(initialDate, finishDate),
+		    "*", "student.activity.form.error.not-valid-dates");
+	}
     }
 
     @Override

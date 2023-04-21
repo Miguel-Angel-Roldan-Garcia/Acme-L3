@@ -75,6 +75,7 @@ master.menu.student.published-courses = Listar cursos publicados
 
 master.menu.student = Estudiante
 master.menu.student.my-enrolments = Listar mis inscripciones
+master.menu.student.enrolled-courses = Listar los cursos en los que estoy inscrito
 master.menu.student.show-dashboard = Mostrar tablero de estudiante
 
 # master.menu.auditor ########################################################
@@ -106,3 +107,7 @@ master.menu.user-account.become-auditor = Hazte auditor
 master.menu.lecturer = Profesor
 master.menu.lecturer.lectures = Listar mis lecciones
 master.menu.lecturer.courses = Listar curso
+
+# master.menu.note #####################################
+master.menu.note = Notas
+master.menu.authenticated.notes = Listar notas recientes de hace menos de un mes

@@ -1,0 +1,25 @@
+# messages-en.i18n
+#
+# Copyright (C) 2012-2023 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+student.course.list.label.code = Code
+student.course.list.label.title = Title
+student.course.list.label.abstract$ = Abstract
+student.course.list.label.retailPrice = Retail price
+student.course.list.label.link = Link
+
+student.course.form.label.code = Code
+student.course.form.label.title = Title
+student.course.form.label.abstract$ = Abstract
+student.course.form.label.retailPrice = Retail price
+student.course.form.label.link = Link
+
+student.form.button.lectures = Their Lectures
+student.form.button.lecturer = Their Lecturer
+

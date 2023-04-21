@@ -38,4 +38,5 @@ student.enrolment.form.error.not-valid-date-format = The pattern of the expiry d
 student.enrolment.form.error.not-valid-cvc-pattern = The pattern of the cvc must be ^[0-9]{3}$
 student.enrolment.form.error.not-valid-holderName = The holder name cant be empty or higher than 25 characters
 student.enrolment.form.error.not-valid-creditCard = The pattern of the credit card number must be ^[0-9]{16}$
+student.enrolment.form.error.not-valid-creditCard-checksum = Checksum of card must be valid
 
