@@ -44,6 +44,10 @@ public class AuthenticatedAssistantShowService extends AbstractService<Authentic
 	}
 
 
+	@Override
+	public void authorise() {
+		super.getResponse().setAuthorised(true);
+	}
 
 	@Override
 	public void load() {

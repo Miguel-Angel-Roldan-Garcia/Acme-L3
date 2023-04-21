@@ -21,6 +21,7 @@ master.menu.authenticated = Authenticated
 master.menu.authenticated.bulletin.list = List Bulletins
 master.menu.authenticated.student.offers.list = List Offers
 
+
 # master.menu.anonymous #######################################################
 
 master.menu.anonymous = Anonymous
