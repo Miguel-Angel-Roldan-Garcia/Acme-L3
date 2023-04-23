@@ -1,0 +1,30 @@
+# messages-es.i18n
+#
+# Copyright (C) 2012-2023 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+auditor.auditing-record.form.label.subject = Tema
+auditor.auditing-record.form.label.assessment = Evaluación
+auditor.auditing-record.form.label.startDate = Fecha de inicio
+auditor.auditing-record.form.label.finishDate = Fecha de finalización
+auditor.auditing-record.form.label.mark = Nota
+student.activity.form.label.link = Link
+
+auditor.auditing-record.form.button.update = Actualizar
+auditor.auditing-record.form.button.delete = Borrar
+auditor.auditing-record.form.button.create = Crear
+auditor.auditing-record.form.button.publish = Publicar
+
+auditor.auditing-record.form.error.duration = El registro debe durar mas de una hora
+auditor.auditing-record.form.error.end-before-start = El registro no puede terminar antes de comenzar
+
+auditor.auditing-record.list.label.subject = Tema
+auditor.auditing-record.list.label.assessment = Evaluación
+auditor.auditing-record.list.label.mark = Nota
+
+auditor.auditing-record.list.button.create = Crear Registro

@@ -39,6 +39,7 @@
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.system-configuration" action="/administrator/system-configuration/show"/>
 			<acme:menu-suboption code="master.menu.administrator.banner" action="/administrator/banner/list-all"/>
+			<acme:menu-suboption code="master.menu.administrator.offer" action="/administrator/offer/list-all"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.shut-down" action="/administrator/shut-down"/>
 		</acme:menu-option>
@@ -48,12 +49,23 @@
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.course" access="isAuthenticated()">
-			<acme:menu-suboption code="master.menu.student.published-courses" action="/any/course/list"/>
+			<acme:menu-suboption code="master.menu.student.published-courses" action="/any/course/list"/>	
+		</acme:menu-option>
+		
+		<acme:menu-option code="master.menu.authenticated" access="isAuthenticated()">
+			<acme:menu-suboption code="master.menu.authenticated.bulletin.list" action="/authenticated/bulletin/list"/>
+			<acme:menu-suboption code="master.menu.authenticated.student.offers.list" action="/authenticated/offer/list"/>
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.authenticated" access="isAuthenticated()">
 			<acme:menu-suboption code="master.menu.authenticated.bulletin.list" action="/authenticated/bulletin/list"/>
 		</acme:menu-option>
+
+		
+		<acme:menu-option code="master.menu.note" access="isAuthenticated()">
+			<acme:menu-suboption code="master.menu.authenticated.notes" action="/authenticated/note/list"/>
+		</acme:menu-option>
+
 
 		
 		<acme:menu-option code="master.menu.note" access="isAuthenticated()">

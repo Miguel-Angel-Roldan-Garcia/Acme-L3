@@ -47,4 +47,7 @@ public interface AssistantTutorialRepository extends AbstractRepository {
 	@Query("select t.course.code from Tutorial t where t.id = :id")
 	String findCourseCodeByTutorialId(int id);
 
+	@Query("SELECT course from Course course where course.draftMode = false")
+	Collection<Course> findManyPublishedCourses();
+
 }

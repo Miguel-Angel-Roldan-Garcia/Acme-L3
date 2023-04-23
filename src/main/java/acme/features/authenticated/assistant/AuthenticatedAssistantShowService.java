@@ -29,7 +29,10 @@ public class AuthenticatedAssistantShowService extends AbstractService<Authentic
 	protected AuthenticatedAssistantRepository repository;
 
 	// AbstractService interface ----------------------------------------------
-
+	@Override
+	public void authorise() {
+		super.getResponse().setAuthorised(true);
+	}
 
 	@Override
 	public void check() {
@@ -40,10 +43,6 @@ public class AuthenticatedAssistantShowService extends AbstractService<Authentic
 		super.getResponse().setChecked(status);
 	}
 
-	@Override
-	public void authorise() {
-		super.getResponse().setAuthorised(true);
-	}
 
 	@Override
 	public void load() {
