@@ -52,7 +52,7 @@ public class AuditorAuditingRecordCreateService extends AbstractService<Auditor,
 
 		masterId = super.getRequest().getData("masterId", int.class);
 		Audit = this.repository.findOneAuditById(masterId);
-		status = Audit != null && Audit.isDraftMode() && super.getRequest().getPrincipal().hasRole(Audit.getAuditor());
+		status = Audit != null && !Audit.isDraftMode() && super.getRequest().getPrincipal().hasRole(Audit.getAuditor());
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -67,11 +67,8 @@ public class AuditorAuditingRecordCreateService extends AbstractService<Auditor,
 		Audit = this.repository.findOneAuditById(masterId);
 
 		object = new AuditingRecord();
-		object.setSubject("");
-		object.setAssessment("");
-		object.setAuditingDate(MomentHelper.getCurrentMoment());
-		object.setMark("");
-		object.setLink("");
+		object.setStartDate(MomentHelper.getCurrentMoment());
+		object.setFinishDate(MomentHelper.getCurrentMoment());
 		object.setAudit(Audit);
 
 		super.getBuffer().setData(object);
@@ -81,19 +78,30 @@ public class AuditorAuditingRecordCreateService extends AbstractService<Auditor,
 	public void bind(final AuditingRecord object) {
 		assert object != null;
 
-		super.bind(object, "subject", "assessment", "auditingDate", "link", "mark");
+		super.bind(object, "subject", "assessment", "startDate", "finishDate", "link", "mark");
 	}
 
 	@Override
 	public void validate(final AuditingRecord object) {
 		assert object != null;
 
-		if (!super.getBuffer().getErrors().hasErrors("startDate")) {
-			boolean auditingDateError;
+		if (!super.getBuffer().getErrors().hasErrors("finishDate")) {
+			boolean endDateErrorDuration;
 
-			auditingDateError = MomentHelper.isAfter(object.getAuditingDate(), MomentHelper.deltaFromCurrentMoment(1l, ChronoUnit.DAYS));
+			endDateErrorDuration = MomentHelper.isLongEnough(object.getStartDate(), object.getFinishDate(), 1l, ChronoUnit.HOURS);
 
-			super.state(auditingDateError, "auditingDate", "Auditor.Audit-ingRecord.form.error.not-valid-date");
+			if (endDateErrorDuration)
+				endDateErrorDuration = !MomentHelper.isLongEnough(object.getStartDate(), object.getFinishDate(), (long) 3600 + 1, ChronoUnit.SECONDS);
+
+			super.state(endDateErrorDuration, "finishDate", "auditor.auditing-record.form.error.duration");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("finishDate")) {
+			boolean endDateError;
+
+			endDateError = MomentHelper.isBefore(object.getStartDate(), object.getFinishDate());
+
+			super.state(endDateError, "finishDate", "auditor.auditing-record.form.error.end-before-start");
 		}
 	}
 
@@ -112,7 +120,7 @@ public class AuditorAuditingRecordCreateService extends AbstractService<Auditor,
 
 		masterId = super.getRequest().getData("masterId", int.class);
 
-		tuple = super.unbind(object, "subject", "assessment", "auditingDate", "link", "mark");
+		tuple = super.unbind(object, "subject", "assessment", "startDate", "finishDate", "link", "mark");
 		tuple.put("masterId", masterId);
 
 		super.getResponse().setData(tuple);

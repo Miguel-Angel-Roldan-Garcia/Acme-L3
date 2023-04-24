@@ -26,6 +26,5 @@ auditor.audit.form.error.no-records = Esta auditoría no puede ser publicada tod
 
 auditor.audit.list.label.code = Codigo
 auditor.audit.list.label.conclusion = Conclusión
-auditor.audit.list.label.course = Curso
 
 auditor.audit.list.button.create = Crear
