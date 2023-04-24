@@ -1,6 +1,6 @@
 ## ACME L3 PROJECT
 
-Currently in sprint for milestone: **D02**
+Currently in sprint for milestone: **D04**
 
 ## Database creation script for current milestone
 ```
