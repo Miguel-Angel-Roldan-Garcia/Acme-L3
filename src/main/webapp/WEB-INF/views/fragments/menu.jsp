@@ -67,11 +67,6 @@
 		</acme:menu-option>
 
 
-		
-		<acme:menu-option code="master.menu.note" access="isAuthenticated()">
-			<acme:menu-suboption code="master.menu.authenticated.notes" action="/authenticated/note/list"/>
-		</acme:menu-option>
-
 
 		<acme:menu-option code="master.menu.provider" access="hasRole('Provider')">
 			<acme:menu-suboption code="master.menu.provider.favourite-link" action="http://www.example.com/"/>
