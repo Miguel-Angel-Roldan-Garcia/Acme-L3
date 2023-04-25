@@ -29,7 +29,7 @@ administrator.offer.form.button.create = Crear
 administrator.offer.form.button.update = Actualizar
 administrator.offer.form.button.delete = Borrar
  
-administrator.offer.list.label.instantiation-moment = Ultima actualización
+administrator.offer.list.label.instantiation-moment = Fecha de instanciación
 administrator.offer.list.label.heading = Cabecera
 
 administrator.offer.list.button.create = Crear
