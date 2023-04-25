@@ -25,6 +25,7 @@ company.practicum.form.button.publish = Publicar
 
 company.practicum.form.error.duplicated = Este código está en uso
 company.practicum.form.error.not-draft-mode = Esta práctica ya está publicado, no puede ser editado ni borrado
+company.practicum.form.error.no-sessions = Esta práctica no puede ser publicada todavía porque no tiene sesiones
 
 # company.practicum.list #################################################################
 

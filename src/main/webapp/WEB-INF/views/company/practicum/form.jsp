@@ -21,7 +21,7 @@
 	<acme:input-textarea code="company.practicum.form.label.abstract" path="abstract$"/>
 	<acme:input-textarea code="company.practicum.form.label.goals" path="goals"/>
 	<acme:input-double code="company.practicum.form.label.estimated-total-time" path="estimatedTotalTime" readonly="true"/>
-	<acme:input-textbox code="company.practicum.form.label.course-code" path="courseCode" readonly="true"/>
+	<acme:input-select code="company.practicum.form.label.course-code" path="course" choices="${courses}"/>
 
 	<jstl:choose>
 		<jstl:when test="${_command == 'show' && draftMode == false}">
@@ -34,7 +34,7 @@
 			<acme:submit code="company.practicum.form.button.publish" action="/company/practicum/publish"/>
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}">
-			<acme:submit code="company.practicum.form.button.create" action="/company/practicum/create?courseId=G139"/>
+			<acme:submit code="company.practicum.form.button.create" action="/company/practicum/create"/>
 		</jstl:when>		
 	</jstl:choose>
 </acme:form>
