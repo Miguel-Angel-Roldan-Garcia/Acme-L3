@@ -1,5 +1,5 @@
 /*
- * EmployerTutorialSessionCreateService.java
+ * EmployerLectureCreateService.java
  *
  * Copyright (C) 2012-2023 Rafael Corchuelo.
  *
@@ -19,7 +19,7 @@ import org.springframework.stereotype.Service;
 
 import acme.datatypes.Nature;
 import acme.entities.individual.assistants.Tutorial;
-import acme.entities.individual.assistants.TutorialSession;
+import acme.entities.individual.lectures.Lecture;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.helpers.MomentHelper;
@@ -27,7 +27,7 @@ import acme.framework.services.AbstractService;
 import acme.roles.Assistant;
 
 @Service
-public class LecturerLectureCreateService extends AbstractService<Assistant, TutorialSession> {
+public class LecturerLectureCreateService extends AbstractService<Assistant, Lecture> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -61,14 +61,14 @@ public class LecturerLectureCreateService extends AbstractService<Assistant, Tut
 
 	@Override
 	public void load() {
-		TutorialSession object;
+		Lecture object;
 		int masterId;
 		Tutorial tutorial;
 
 		masterId = super.getRequest().getData("masterId", int.class);
 		tutorial = this.repository.findOneTutorialById(masterId);
 
-		object = new TutorialSession();
+		object = new Lecture();
 		object.setTitle("");
 		object.setAbstract$("");
 		object.setNature(Nature.THEORETICAL);
@@ -81,14 +81,14 @@ public class LecturerLectureCreateService extends AbstractService<Assistant, Tut
 	}
 
 	@Override
-	public void bind(final TutorialSession object) {
+	public void bind(final Lecture object) {
 		assert object != null;
 
 		super.bind(object, "title", "abstract$", "nature", "startDate", "endDate", "link");
 	}
 
 	@Override
-	public void validate(final TutorialSession object) {
+	public void validate(final Lecture object) {
 		assert object != null;
 
 		if (!super.getBuffer().getErrors().hasErrors("startDate")) {
@@ -124,13 +124,13 @@ public class LecturerLectureCreateService extends AbstractService<Assistant, Tut
 	}
 
 	@Override
-	public void perform(final TutorialSession object) {
+	public void perform(final Lecture object) {
 		assert object != null;
 		this.repository.save(object);
 	}
 
 	@Override
-	public void unbind(final TutorialSession object) {
+	public void unbind(final Lecture object) {
 		assert object != null;
 
 		int masterId;

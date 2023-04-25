@@ -17,14 +17,13 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.individual.assistants.Tutorial;
-import acme.entities.individual.assistants.TutorialSession;
+import acme.entities.individual.lectures.Lecture;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
-import acme.roles.Assistant;
+import acme.roles.Lecturer;
 
 @Service
-public class LecturerLectureListService extends AbstractService<Assistant, TutorialSession> {
+public class LecturerLectureListService extends AbstractService<Lecturer, Lecture> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -47,28 +46,28 @@ public class LecturerLectureListService extends AbstractService<Assistant, Tutor
 	public void authorise() {
 		boolean status;
 		int masterId;
-		Tutorial tutorial;
+		Lecture lecture;
 
 		masterId = super.getRequest().getData("masterId", int.class);
-		tutorial = this.repository.findOneTutorialById(masterId);
-		status = tutorial != null && super.getRequest().getPrincipal().hasRole(tutorial.getAssistant());
+		lecture = this.repository.findOneLectureById(masterId);
+		status = lecture != null && super.getRequest().getPrincipal().hasRole(lecture.getLecturer());
 
 		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void load() {
-		Collection<TutorialSession> objects;
+		Collection<Lecture> objects;
 		int masterId;
 
 		masterId = super.getRequest().getData("masterId", int.class);
-		objects = this.repository.findManyTutorialSessionsByMasterId(masterId);
+		objects = this.repository.findManyLecturesByMasterId(masterId);
 
 		super.getBuffer().setData(objects);
 	}
 
 	@Override
-	public void unbind(final TutorialSession object) {
+	public void unbind(final Lecture object) {
 		assert object != null;
 
 		Tuple tuple;
@@ -79,16 +78,16 @@ public class LecturerLectureListService extends AbstractService<Assistant, Tutor
 	}
 
 	@Override
-	public void unbind(final Collection<TutorialSession> objects) {
+	public void unbind(final Collection<Lecture> objects) {
 		assert objects != null;
 
 		int masterId;
-		Tutorial tutorial;
+		Lecture lecture;
 		final boolean showCreate;
 
 		masterId = super.getRequest().getData("masterId", int.class);
-		tutorial = this.repository.findOneTutorialById(masterId);
-		showCreate = tutorial.isDraftMode() && super.getRequest().getPrincipal().hasRole(tutorial.getAssistant());
+		lecture = this.repository.findOneLectureById(masterId);
+		showCreate = lecture.isDraftMode() && super.getRequest().getPrincipal().hasRole(lecture.getLecturer());
 
 		super.getResponse().setGlobal("masterId", masterId);
 		super.getResponse().setGlobal("showCreate", showCreate);

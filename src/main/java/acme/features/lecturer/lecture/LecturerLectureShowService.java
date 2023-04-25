@@ -1,5 +1,5 @@
 /*
- * EmployerTutorialSessionShowService.java
+ * EmployerLectureShowService.java
  *
  * Copyright (C) 2012-2023 Rafael Corchuelo.
  *
@@ -17,14 +17,14 @@ import org.springframework.stereotype.Service;
 
 import acme.datatypes.Nature;
 import acme.entities.individual.assistants.Tutorial;
-import acme.entities.individual.assistants.TutorialSession;
+import acme.entities.individual.lectures.Lecture;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Assistant;
 
 @Service
-public class LecturerLectureShowService extends AbstractService<Assistant, TutorialSession> {
+public class LecturerLectureShowService extends AbstractService<Assistant, Lecture> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -46,11 +46,11 @@ public class LecturerLectureShowService extends AbstractService<Assistant, Tutor
 	@Override
 	public void authorise() {
 		boolean status;
-		int tutorialSessionId;
+		int lectureId;
 		Tutorial tutorial;
 
-		tutorialSessionId = super.getRequest().getData("id", int.class);
-		tutorial = this.repository.findOneTutorialByTutorialSessionId(tutorialSessionId);
+		lectureId = super.getRequest().getData("id", int.class);
+		tutorial = this.repository.findOneTutorialByLectureId(lectureId);
 		status = tutorial != null && super.getRequest().getPrincipal().hasRole(tutorial.getAssistant());
 
 		super.getResponse().setAuthorised(status);
@@ -58,17 +58,17 @@ public class LecturerLectureShowService extends AbstractService<Assistant, Tutor
 
 	@Override
 	public void load() {
-		TutorialSession object;
+		Lecture object;
 		int id;
 
 		id = super.getRequest().getData("id", int.class);
-		object = this.repository.findOneTutorialSessionById(id);
+		object = this.repository.findOneLectureById(id);
 
 		super.getBuffer().setData(object);
 	}
 
 	@Override
-	public void unbind(final TutorialSession object) {
+	public void unbind(final Lecture object) {
 		assert object != null;
 
 		Tuple tuple;

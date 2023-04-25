@@ -61,17 +61,14 @@ public class LecturerCourseDeleteService extends AbstractService<Lecturer, Cours
 	public void load() {
 		Course object;
 		int id;
-
 		id = super.getRequest().getData("id", int.class);
 		object = this.repository.findOneCourseById(id);
-
 		super.getBuffer().setData(object);
 	}
 
 	@Override
 	public void bind(final Course object) {
 		assert object != null;
-
 		super.bind(object, "code", "title", "abstract$", "retailPrice");
 	}
 
@@ -85,11 +82,11 @@ public class LecturerCourseDeleteService extends AbstractService<Lecturer, Cours
 	@Override
 	public void perform(final Course object) {
 		assert object != null;
-
-		Collection<Lecture> sessions;
-
-		sessions = this.repository.findManyLecturesByCourseId(object.getId());
-		this.repository.deleteAll(sessions);
+//		TODO delete lectures on cascade?
+//		Collection<Lecture> lectures;
+//
+//		lectures = this.repository.findManyLecturesByCourseId(object.getId());
+//		this.repository.deleteAll(lectures);
 		this.repository.delete(object);
 	}
 
@@ -98,17 +95,8 @@ public class LecturerCourseDeleteService extends AbstractService<Lecturer, Cours
 		assert object != null;
 
 		Tuple tuple;
-		Collection<Lecture> lectures;
-		Double estimatedTotalTime;
-
-		lectures = this.repository.findManyLecturesByCourseId(object.getId());
-		estimatedTotalTime = 0.;
-
-		for (final Lecture ts : lectures)
-			estimatedTotalTime += ts.getEstimatedLearningTime();
-
 		tuple = super.unbind(object, "code", "title", "abstract$", "retailPrice", "draftMode");
-		tuple.put("estimatedTotalTime", estimatedTotalTime);
+
 
 		super.getResponse().setData(tuple);
 	}

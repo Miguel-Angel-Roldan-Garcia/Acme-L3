@@ -1,5 +1,5 @@
 /*
- * EmployerTutorialSessionUpdateService.java
+ * EmployerLectureUpdateService.java
  *
  * Copyright (C) 2012-2023 Rafael Corchuelo.
  *
@@ -19,7 +19,7 @@ import org.springframework.stereotype.Service;
 
 import acme.datatypes.Nature;
 import acme.entities.individual.assistants.Tutorial;
-import acme.entities.individual.assistants.TutorialSession;
+import acme.entities.individual.lectures.Lecture;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.helpers.MomentHelper;
@@ -27,7 +27,7 @@ import acme.framework.services.AbstractService;
 import acme.roles.Assistant;
 
 @Service
-public class LecturerLectureUpdateService extends AbstractService<Assistant, TutorialSession> {
+public class LecturerLectureUpdateService extends AbstractService<Assistant, Lecture> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -49,38 +49,38 @@ public class LecturerLectureUpdateService extends AbstractService<Assistant, Tut
 	@Override
 	public void authorise() {
 		boolean status;
-		int tutorialSessionId;
+		int lectureId;
 		Tutorial tutorial;
-		TutorialSession tutorialSession;
+		Lecture lecture;
 
-		tutorialSessionId = super.getRequest().getData("id", int.class);
-		tutorial = this.repository.findOneTutorialByTutorialSessionId(tutorialSessionId);
-		tutorialSession = this.repository.findOneTutorialSessionById(tutorialSessionId);
-		status = tutorial != null && tutorialSession.isDraftMode() && super.getRequest().getPrincipal().hasRole(tutorial.getAssistant());
+		lectureId = super.getRequest().getData("id", int.class);
+		tutorial = this.repository.findOneTutorialByLectureId(lectureId);
+		lecture = this.repository.findOneLectureById(lectureId);
+		status = tutorial != null && lecture.isDraftMode() && super.getRequest().getPrincipal().hasRole(tutorial.getAssistant());
 
 		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void load() {
-		TutorialSession object;
+		Lecture object;
 		int id;
 
 		id = super.getRequest().getData("id", int.class);
-		object = this.repository.findOneTutorialSessionById(id);
+		object = this.repository.findOneLectureById(id);
 
 		super.getBuffer().setData(object);
 	}
 
 	@Override
-	public void bind(final TutorialSession object) {
+	public void bind(final Lecture object) {
 		assert object != null;
 
 		super.bind(object, "title", "abstract$", "nature", "startDate", "endDate", "link");
 	}
 
 	@Override
-	public void validate(final TutorialSession object) {
+	public void validate(final Lecture object) {
 		assert object != null;
 
 		if (!super.getBuffer().getErrors().hasErrors("startDate")) {
@@ -116,14 +116,14 @@ public class LecturerLectureUpdateService extends AbstractService<Assistant, Tut
 	}
 
 	@Override
-	public void perform(final TutorialSession object) {
+	public void perform(final Lecture object) {
 		assert object != null;
 
 		this.repository.save(object);
 	}
 
 	@Override
-	public void unbind(final TutorialSession object) {
+	public void unbind(final Lecture object) {
 		assert object != null;
 
 		Tuple tuple;

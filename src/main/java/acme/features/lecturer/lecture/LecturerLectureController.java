@@ -46,11 +46,11 @@ public class LecturerLectureController extends AbstractController<Lecturer, Lect
 
 	@PostConstruct
 	protected void initialise() {
-//		super.addBasicCommand("list", this.listService);
-//		super.addBasicCommand("show", this.showService);
-//		super.addBasicCommand("create", this.createService);
-//		super.addBasicCommand("update", this.updateService);
-//		super.addBasicCommand("delete", this.deleteService);
+		super.addBasicCommand("list", this.listService);
+		super.addBasicCommand("show", this.showService);
+		super.addBasicCommand("create", this.createService);
+		super.addBasicCommand("update", this.updateService);
+		super.addBasicCommand("delete", this.deleteService);
 	}
 
 }
