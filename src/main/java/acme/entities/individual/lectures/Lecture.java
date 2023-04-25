@@ -46,6 +46,9 @@ public class Lecture extends AbstractEntity {
 
     @NotNull
     protected Nature nature;
+    
+
+    protected boolean draftMode;
 
     @URL
     protected String link;

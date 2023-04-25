@@ -1,0 +1,33 @@
+# messages-es.i18n
+#
+# Copyright (C) 2012-2023 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+lecturer.course.list.label.code = Código
+lecturer.course.list.label.title = Título
+lecturer.course.list.label.abstract$ = Resumen
+lecturer.course.list.label.retailPrice = Precio
+lecturer.course.list.label.link = Enlace
+
+lecturer.course.list.button.create = Crear Curso
+
+
+lecturer.course.form.label.code = Código
+lecturer.course.form.label.title = Título
+lecturer.course.form.label.abstract$ = Resumen
+lecturer.course.form.label.retail-price = Precio
+lecturer.course.form.label.link = Enlace
+
+lecturer.form.button.publish = Publicar Curso
+lecturer.form.button.update = Actualizar Curso
+lecturer.form.button.delete = Borrar Curso
+lecturer.form.button.lectures-in-course = Clases de este curso
+
+
+lecturer.course.form.error.duplicated = Este código no está disponible
+lecturer.course.form.error.not-draft-mode = Este curso no se puede borrar ya que está publicado
