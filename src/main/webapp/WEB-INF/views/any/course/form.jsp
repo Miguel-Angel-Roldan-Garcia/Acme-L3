@@ -20,7 +20,7 @@
 	<acme:input-textbox code="student.course.form.label.title" path="title"/>
 	<acme:input-textarea code="student.course.form.label.abstract$" path="abstract$"/>
 	<acme:input-url code="student.course.form.label.link" path="link"/>
-	<acme:input-money code="student.course.form.label.rentail-price" path="retailPrice"/>
+	<acme:input-money code="student.course.form.label.retail-price" path="retailPrice"/>
 	
 	<acme:check-access test="isAuthenticated()">
 		<acme:button code="any.course.form.button.tutorials-list" action="/authenticated/tutorial/list?courseId=${id}"/>

@@ -11,13 +11,13 @@
 student.course.list.label.code = Código
 student.course.list.label.title = Título
 student.course.list.label.abstract$ = Abstracto
-student.course.list.label.retailPrice = Precio de venta
+student.course.list.label.retail-price = Precio de venta
 student.course.list.label.link = Enlace
 
 student.course.form.label.code = Código
 student.course.form.label.title = Título
 student.course.form.label.abstract$ = Abstracto
-student.course.form.label.retailPrice = Precio de venta
+student.course.form.label.retail-price = Precio de venta
 student.course.form.label.link = Enlace
 
 student.form.button.lectures = Sus Lecturas
