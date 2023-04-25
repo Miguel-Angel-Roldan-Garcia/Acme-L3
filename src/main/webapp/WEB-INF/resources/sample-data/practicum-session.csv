@@ -22,11 +22,15 @@ practicum-session-20,practicum-20,Una sesión de prácticas muy interesante,abst
 practicum-session-21,practicum-21,Una sesión de prácticas muy interesante,abstracto,2022/12/31 23:59,2023/01/01 00:01,https://Acme-L3.es/practicum-sessions
 practicum-session-22,practicum-22,Una sesión de prácticas muy interesante,abstracto,2021/08/10 15:00,2021/08/10 17:00,https://Acme-L3.es/practicum-sessions
 practicum-session-23,practicum-23,Una sesión de prácticas muy interesante,abstracto,2024/10/10 15:00,2024/10/10 17:00,https://Acme-L3.es/practicum-sessions
-practicum-session-24,practicum-24,Una sesión de prácticas muy interesante,abstracto,2022/10/10 15:00,2022/10/10 17:00,http://Acme-L3.es/practicum-sessions
-practicum-session-25,practicum-25,Una sesión de prácticas muy interesante,abstracto,2022/10/10 15:00,2022/10/10 17:00,https://example.com/path?query#fragment
-practicum-session-26,practicum-26,Una sesión de prácticas muy interesante,abstracto,2022/10/10 15:00,2022/10/10 17:00,https://xn--e1afmkfd.xn--80akhbyknj4f
-practicum-session-27,practicum-27,Una sesión de prácticas muy interesante,abstracto,2022/10/10 15:00,2022/10/10 17:00,https://www.example.com/~user
-practicum-session-28,practicum-28,Una sesión de prácticas muy interesante,abstracto,2022/10/10 15:00,2022/10/10 17:00,ftp://ftp.example.com/pub/file.tar.gz
-practicum-session-29,practicum-29,Una sesión de prácticas muy interesante,abstracto,2022/10/10 15:00,2022/10/10 17:00,https://example.com/path with spaces
-practicum-session-30,practicum-30,Una sesión de prácticas muy interesante,abstracto,2022/10/10 15:00,2022/10/10 17:00,https://Acme-L3.es/practicum-sessions?sample-query=1
-practicum-session-31,practicum-31,Una sesión de prácticas muy interesante,abstracto,2022/10/10 15:00,2022/10/10 17:00,null
+practicum-session-24,practicum-24,Una sesión de prácticas muy interesante,abstracto,2000/01/01 00:00,2000/01/08 00:00,https://Acme-L3.es/practicum-sessions
+practicum-session-25,practicum-25,Una sesión de prácticas muy interesante,abstracto,2000/01/01 00:01,2000/01/08 00:01,https://Acme-L3.es/practicum-sessions
+practicum-session-26,practicum-26,Una sesión de prácticas muy interesante,abstracto,2100/12/24 23:58,2100/12/31 23:58,https://Acme-L3.es/practicum-sessions
+practicum-session-27,practicum-27,Una sesión de prácticas muy interesante,abstracto,2100/12/24 23:59,2100/12/31 23:59,https://Acme-L3.es/practicum-sessions
+practicum-session-28,practicum-28,Una sesión de prácticas muy interesante,abstracto,2022/10/10 15:00,2022/10/10 17:00,http://Acme-L3.es/practicum-sessions
+practicum-session-29,practicum-29,Una sesión de prácticas muy interesante,abstracto,2022/10/10 15:00,2022/10/10 17:00,https://example.com/path?query#fragment
+practicum-session-30,practicum-30,Una sesión de prácticas muy interesante,abstracto,2022/10/10 15:00,2022/10/10 17:00,https://xn--e1afmkfd.xn--80akhbyknj4f
+practicum-session-31,practicum-31,Una sesión de prácticas muy interesante,abstracto,2022/10/10 15:00,2022/10/10 17:00,https://www.example.com/~user
+practicum-session-32,practicum-32,Una sesión de prácticas muy interesante,abstracto,2022/10/10 15:00,2022/10/10 17:00,ftp://ftp.example.com/pub/file.tar.gz
+practicum-session-33,practicum-33,Una sesión de prácticas muy interesante,abstracto,2022/10/10 15:00,2022/10/10 17:00,https://example.com/path with spaces
+practicum-session-34,practicum-34,Una sesión de prácticas muy interesante,abstracto,2022/10/10 15:00,2022/10/10 17:00,https://Acme-L3.es/practicum-sessions?sample-query=1
+practicum-session-35,practicum-01,Una sesión de prácticas muy interesante,abstracto,2022/10/10 15:00,2022/10/10 17:00,null

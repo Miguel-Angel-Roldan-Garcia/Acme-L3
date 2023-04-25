@@ -13,3 +13,9 @@ authenticated.bulletin.list.label.title = Título
 authenticated.bulletin.list.label.message = Mensaje
 authenticated.bulletin.list.label.critical = Crítico
 authenticated.bulletin.list.label.link = Link
+
+authenticated.bulletin.form.label.instantiationMoment = Momento de Instanciación
+authenticated.bulletin.form.label.title = Título
+authenticated.bulletin.form.label.message = Mensaje
+authenticated.bulletin.form.label.critical = Crítico
+authenticated.bulletin.form.label.link = Link

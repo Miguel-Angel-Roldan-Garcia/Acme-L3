@@ -1,5 +1,5 @@
 /*
- * EmployerLectureShowService.java
+ * AuthenticatedAnnouncementShowService.java
  *
  * Copyright (C) 2012-2023 Rafael Corchuelo.
  *
@@ -10,26 +10,26 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.lecturer.lecture;
+package acme.features.authenticated.practicum;
+
+import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.datatypes.Nature;
-import acme.entities.individual.assistants.Tutorial;
-import acme.entities.individual.lectures.Lecture;
-import acme.framework.components.jsp.SelectChoices;
+import acme.entities.individual.companies.Practicum;
+import acme.entities.individual.companies.PracticumSession;
+import acme.framework.components.accounts.Authenticated;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
-import acme.roles.Assistant;
 
 @Service
-public class LecturerLectureShowService extends AbstractService<Assistant, Lecture> {
+public class AuthenticatedPracticumShowService extends AbstractService<Authenticated, Practicum> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected LecturerLectureRepository repository;
+	protected AuthenticatedPracticumRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -45,41 +45,37 @@ public class LecturerLectureShowService extends AbstractService<Assistant, Lectu
 
 	@Override
 	public void authorise() {
-		boolean status;
-		int lectureId;
-		Tutorial tutorial;
-
-		lectureId = super.getRequest().getData("id", int.class);
-		tutorial = this.repository.findOneTutorialByLectureId(lectureId);
-		status = tutorial != null && super.getRequest().getPrincipal().hasRole(tutorial.getAssistant());
-
-		super.getResponse().setAuthorised(status);
+		super.getResponse().setAuthorised(true);
 	}
 
 	@Override
 	public void load() {
-		Lecture object;
+		Practicum object;
 		int id;
 
 		id = super.getRequest().getData("id", int.class);
-		object = this.repository.findOneLectureById(id);
+		object = this.repository.findOnePracticumById(id);
 
 		super.getBuffer().setData(object);
 	}
 
 	@Override
-	public void unbind(final Lecture object) {
+	public void unbind(final Practicum object) {
 		assert object != null;
 
 		Tuple tuple;
-		SelectChoices choices;
+		Collection<PracticumSession> practicumSessions;
+		Double estimatedTotalTime;
 
-		choices = SelectChoices.from(Nature.class, object.getNature());
+		practicumSessions = this.repository.findManyPracticumSessionsByPracticumId(object.getId());
+		estimatedTotalTime = 0.;
 
-		tuple = super.unbind(object, "title", "abstract$", "nature", "startDate", "endDate", "link");
-		tuple.put("masterId", object.getTutorial().getId());
-		tuple.put("draftMode", object.isDraftMode());
-		tuple.put("natures", choices);
+		for (final PracticumSession ps : practicumSessions)
+			estimatedTotalTime += ps.getDurationInHours();
+
+		tuple = super.unbind(object, "code", "title", "abstract$", "goals", "company");
+		tuple.put("courseCode", this.repository.findCourseCodeByPracticumId(object.getId()));
+		tuple.put("estimatedTotalTime", estimatedTotalTime);
 
 		super.getResponse().setData(tuple);
 	}

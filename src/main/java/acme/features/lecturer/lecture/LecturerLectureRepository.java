@@ -24,16 +24,16 @@ import acme.framework.repositories.AbstractRepository;
 @Repository
 public interface LecturerLectureRepository extends AbstractRepository {
 
-	@Query("select t from Tutorial t where t.id = :id")
-	Tutorial findOneTutorialById(int id);
-
-	@Query("select ts.tutorial from Lecture ts where ts.id = :id")
-	Tutorial findOneTutorialByLectureId(int id);
-
-	@Query("select ts from Lecture ts where ts.id = :id")
-	Lecture findOneLectureById(int id);
-
-	@Query("select ts from Lecture ts where ts.tutorial.id = :masterId")
-	Collection<Lecture> findManyLecturesByMasterId(int masterId);
+//	@Query("select t from Tutorial t where t.id = :id")
+//	Tutorial findOneTutorialById(int id);
+//
+//	@Query("select ts.tutorial from Lecture ts where ts.id = :id")
+//	Tutorial findOneTutorialByLectureId(int id);
+//
+//	@Query("select ts from Lecture ts where ts.id = :id")
+//	Lecture findOneLectureById(int id);
+//
+//	@Query("select ts from Lecture ts where ts.tutorial.id = :masterId")
+//	Collection<Lecture> findManyLecturesByMasterId(int masterId);
 
 }

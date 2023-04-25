@@ -1,5 +1,5 @@
 /*
- * EmployerDutyController.java
+ * AuthenticatedAnnouncementController.java
  *
  * Copyright (C) 2012-2023 Rafael Corchuelo.
  *
@@ -10,47 +10,35 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.lecturer.lecture;
+package acme.features.authenticated.practicum;
 
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
-import acme.entities.individual.lectures.Lecture;
+import acme.entities.individual.companies.Practicum;
+import acme.framework.components.accounts.Authenticated;
 import acme.framework.controllers.AbstractController;
-import acme.roles.Lecturer;
 
 @Controller
-public class LecturerLectureController extends AbstractController<Lecturer, Lecture> {
+public class AuthenticatedPracticumController extends AbstractController<Authenticated, Practicum> {
 
 	// Internal state ---------------------------------------------------------
 
-//	@Autowired
-//	protected LecturerLectureListService	listService;
-//
-//	@Autowired
-//	protected LecturerLectureShowService	showService;
-//
-//	@Autowired
-//	protected LecturerLectureCreateService	createService;
-//
-//	@Autowired
-//	protected LecturerLectureUpdateService	updateService;
-//
-//	@Autowired
-//	protected LecturerLectureDeleteService	deleteService;
+	@Autowired
+	protected AuthenticatedPracticumListService	listService;
+
+	@Autowired
+	protected AuthenticatedPracticumShowService	showService;
 
 	// Constructors -----------------------------------------------------------
 
 
 	@PostConstruct
 	protected void initialise() {
-//		super.addBasicCommand("list", this.listService);
-//		super.addBasicCommand("show", this.showService);
-//		super.addBasicCommand("create", this.createService);
-//		super.addBasicCommand("update", this.updateService);
-//		super.addBasicCommand("delete", this.deleteService);
+		super.addBasicCommand("list", this.listService);
+		super.addBasicCommand("show", this.showService);
 	}
 
 }

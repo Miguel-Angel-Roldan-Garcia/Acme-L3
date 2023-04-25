@@ -23,6 +23,7 @@ authenticated.note.form.label.instantiation-moment = Instantiation Moment
 authenticated.note.form.label.author = Author
 authenticated.note.form.label.name = Name
 authenticated.note.form.label.confirm = Confirm
+authenticated.note.form.button.create = Post note
 
 ============================================
 authenticated.note.form.error.not-confirmed-note = You must confirm it to post it

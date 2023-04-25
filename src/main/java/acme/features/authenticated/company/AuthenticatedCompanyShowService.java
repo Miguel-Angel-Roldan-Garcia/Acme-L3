@@ -1,5 +1,5 @@
 /*
- * WorkerApplicationListService.java
+ * WorkerApplicationShowService.java
  *
  * Copyright (C) 2012-2023 Rafael Corchuelo.
  *
@@ -10,58 +10,59 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.company.practicum;
-
-import java.util.Collection;
+package acme.features.authenticated.company;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.individual.companies.Practicum;
+import acme.framework.components.accounts.Authenticated;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Company;
 
 @Service
-public class CompanyPracticumListMineService extends AbstractService<Company, Practicum> {
+public class AuthenticatedCompanyShowService extends AbstractService<Authenticated, Company> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected CompanyPracticumRepository repository;
+	protected AuthenticatedCompanyRepository repository;
+
 
 	// AbstractService interface ----------------------------------------------
-
-
-	@Override
-	public void check() {
-		super.getResponse().setChecked(true);
-	}
-
 	@Override
 	public void authorise() {
 		super.getResponse().setAuthorised(true);
 	}
 
 	@Override
-	public void load() {
-		Collection<Practicum> object;
-		int companyId;
+	public void check() {
+		boolean status;
 
-		companyId = super.getRequest().getPrincipal().getActiveRoleId();
-		object = this.repository.findManyPracticumByCompanyId(companyId);
+		status = super.getRequest().hasData("username", int.class);
+
+		super.getResponse().setChecked(status);
+	}
+
+	@Override
+	public void load() {
+		Company object;
+		String username;
+
+		username = super.getRequest().getData("username", String.class);
+		object = this.repository.findOneCompanyByUsername(username);
 
 		super.getBuffer().setData(object);
 	}
 
 	@Override
-	public void unbind(final Practicum object) {
+	public void unbind(final Company object) {
 		assert object != null;
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "code", "title");
-		tuple.put("courseCode", this.repository.findCourseCodeByPracticumId(object.getId()));
+		tuple = super.unbind(object, "name", "vatNumber", "summary", "link");
+
 		super.getResponse().setData(tuple);
 	}
 

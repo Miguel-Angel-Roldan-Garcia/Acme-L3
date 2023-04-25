@@ -20,6 +20,7 @@ master.menu.sign-out = Salir
 master.menu.authenticated = Autenticado
 master.menu.authenticated.bulletin.list = Listar Boletines
 master.menu.authenticated.student.offers.list = Listar ofertas
+master.menu.authenticated.notes = Listar notas recientes de hace menos de un mes
 
 # master.menu.anonymous #######################################################
 
@@ -47,16 +48,6 @@ master.menu.administrator.banner = Listar banners
 master.menu.administrator.offer = Listar ofertas
 master.menu.administrator.shut-down = Parar el sistema
 
-# master.menu.provider ########################################################
-
-master.menu.provider = Proveedor
-master.menu.provider.favourite-link = Enlace favorito
-
-# master.menu.consumer ##########################################################
-
-master.menu.consumer = Consumidor
-master.menu.consumer.favourite-link = Enlace favorito
-
 # master.menu.assistant #########################################################
 
 master.menu.assistant = Asistente
@@ -68,10 +59,10 @@ master.menu.assistant.show-dashboard = Mostrar tablero de asistente
 master.menu.company = Compañía
 master.menu.company.list-mine-practicum = Listar mis prácticas
 
-# master.menu.course #########################################################
+# master.menu.any #########################################################
 
-master.menu.course = Curso
-master.menu.student.published-courses = Listar cursos publicados
+master.menu.any = Cualquiera
+master.menu.any.published-courses = Listar cursos publicados
 
 # master.menu.student ########################################################
 
@@ -108,7 +99,5 @@ master.menu.user-account.become-auditor = Hazte auditor
 # master.menu.lecturer ########################################################
 master.menu.lecturer = Profesor
 master.menu.lecturer.my-courses = Listar mis cursos
+master.menu.lecturer.my-lectures = Listar mis clases
 
-# master.menu.note #####################################
-master.menu.note = Notas
-master.menu.authenticated.notes = Listar notas recientes de hace menos de un mes
