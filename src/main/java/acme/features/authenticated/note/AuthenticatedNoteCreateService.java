@@ -1,12 +1,16 @@
 package acme.features.authenticated.note;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.group.Note;
 import acme.framework.components.accounts.Authenticated;
 import acme.framework.components.accounts.Principal;
+import acme.framework.components.accounts.UserAccount;
 import acme.framework.components.models.Tuple;
+import acme.framework.controllers.HttpMethod;
 import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
 
@@ -29,10 +33,21 @@ public class AuthenticatedNoteCreateService extends AbstractService<Authenticate
     @Override
     public void load() {
 	final Note object;
+	UserAccount userAccount;
+	Principal principal;
+
 	object = new Note();
-	object.setInstantiationMoment(MomentHelper.getCurrentMoment());
 	object.setTitle("");
 	object.setMessage("");
+
+	final Date date = MomentHelper.getCurrentMoment();
+	date.setSeconds(date.getSeconds() - 1);
+	object.setInstantiationMoment(date);
+	principal = super.getRequest().getPrincipal();
+	userAccount = this.repository.findOneUserAccountById(principal.getAccountId());
+	final String author = "" + principal.getUsername() + " - " + userAccount.getIdentity().getFullName();
+	object.setAuthor(author);
+	object.setEmail(userAccount.getIdentity().getEmail());
 	super.getBuffer().setData(object);
     }
 
@@ -40,28 +55,22 @@ public class AuthenticatedNoteCreateService extends AbstractService<Authenticate
     public void bind(final Note object) {
 	assert object != null;
 
-	super.bind(object, "instantiationMoment", "title", "message", "email", "link");
+	super.bind(object, "title", "message", "link");
     }
 
     @Override
     public void validate(final Note object) {
 	assert object != null;
-	final Principal principal = super.getRequest().getPrincipal();
-	final boolean confirmed = super.getRequest().getData("confirmed", boolean.class);
-	final String name = super.getRequest().getData("name", String.class);
+
+	boolean confirmed = false;
+	confirmed = this.getRequest().getData("confirmed", boolean.class);
 	if (!super.getBuffer().getErrors().hasErrors("confirmed"))
 	    super.state(confirmed, "confirmed", "authenticated.note.form.error.not-confirmed-note");
-	if (!super.getBuffer().getErrors().hasErrors("name"))
-	    super.state(name != null && !name.isEmpty() && (name + principal.getUsername()).length() < 73, "confirmed",
-		    "authenticated.note.form.error.not-correct-size");
     }
 
     @Override
     public void perform(final Note object) {
 	assert object != null;
-	final String name = super.getRequest().getData("name", String.class);
-	final Principal principal = super.getRequest().getPrincipal();
-	object.setAuthor("<" + principal.getUsername() + "," + name + ">");
 	this.repository.save(object);
     }
 
@@ -70,14 +79,18 @@ public class AuthenticatedNoteCreateService extends AbstractService<Authenticate
 	assert object != null;
 
 	Tuple tuple;
-	final Principal principal = super.getRequest().getPrincipal();
-	final boolean confirmed = super.getRequest().getData("confirmed", boolean.class);
-	final String name = super.getRequest().getData("name", String.class);
-	tuple = super.unbind(object, "instantiationMoment", "title", "message", "email", "link");
-	if (confirmed)
-	    tuple.put("confirmed", confirmed);
-	if (name != null && !name.isEmpty() && (name + principal.getUsername()).length() < 73)
-	    tuple.put("name", name);
+
+	tuple = super.unbind(object, "title", "message", "link");
+	// cuando quieres utilizar objetos que no pertenecen a una entidad
+	// durante un create-service, debes distinguir si estas haciendo un post y
+	// cuando un get
+	// ya que al principio haces un get, y luego al añadir los datos, es cuando
+	// haces el post
+	if (super.getRequest().getMethod().equals(HttpMethod.POST))
+	    tuple.put("confirmed", super.getRequest().getData("confirmed", boolean.class));
+	else
+	    tuple.put("confirmed", "false");
+
 	super.getResponse().setData(tuple);
     }
 
