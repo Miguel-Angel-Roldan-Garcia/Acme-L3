@@ -29,7 +29,7 @@ administrator.offer.form.button.create = Create
 administrator.offer.form.button.update = Update
 administrator.offer.form.button.delete = Delete
  
-administrator.offer.list.label.instantiation-moment = Last updated
+administrator.offer.list.label.instantiation-moment = Instantiation moment
 administrator.offer.list.label.heading = Heading
 
 administrator.offer.list.button.create = Create
