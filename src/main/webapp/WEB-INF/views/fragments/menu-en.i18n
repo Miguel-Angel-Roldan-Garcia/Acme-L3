@@ -105,8 +105,8 @@ master.menu.user-account.become-auditor = Become an auditor
 
 # master.menu.lecturer ########################################################
 master.menu.lecturer = Lecturer
-master.menu.lecturer.lectures = List my lectures
-master.menu.lecturer.courses = List courses
+master.menu.lecturer.my-courses = List my courses
+
 
 
 # master.menu.note #####################################
