@@ -13,3 +13,9 @@ authenticated.bulletin.list.label.title = Title
 authenticated.bulletin.list.label.message = Message
 authenticated.bulletin.list.label.critical = Critical
 authenticated.bulletin.list.label.link = Link
+
+authenticated.bulletin.form.label.instantiationMoment = Instantiation Moment
+authenticated.bulletin.form.label.title = Title
+authenticated.bulletin.form.label.message = Message
+authenticated.bulletin.form.label.critical = Critical
+authenticated.bulletin.form.label.link = Link
