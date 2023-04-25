@@ -1,0 +1,33 @@
+# messages-es.i18n
+#
+# Copyright (C) 2012-2023 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+assistant.course-session.form.label.title = Título:
+assistant.course-session.form.label.abstract = Resumen:
+assistant.course-session.form.label.nature = Naturaleza:
+assistant.course-session.form.label.start-date = Fecha de inicio: 
+assistant.course-session.form.label.end-date = Fecha final: 
+assistant.course-session.form.label.moreInfo = Más información: (Opcional)
+
+assistant.course-session.form.button.create = Crear	
+assistant.course-session.form.button.update = Actualizar
+assistant.course-session.form.button.delete = Borrar
+assistant.course-session.form.button.publish = Publicar
+
+assistant.course-session.form.error.at-least-one-day-ahead = Una sesión debe ser creada al menos con un día de antelación
+assistant.course-session.form.error.end-before-start = El final de la sesión debe ser posterior al inicio de la sesion
+assistant.course-session.form.error.duration = Una sesión debe durar entre 1 y 5 horas
+assistant.course-session.form.error.nature-balanced = Una sesión no puede ser de naturaleza balanceada
+assistant.course-session.form.error.date-out-of-bounds = Las fechas introducidas deben estar entre el 1 Enero 2000 a las 00:00 y el 31 Diciembre 2100 a las 23:59
+
+assistant.course-session.list.label.title = Título
+assistant.course-session.list.label.nature = Naturaleza 
+assistant.course-session.list.label.start-date = Fecha de inicio 
+
+assistant.course-session.list.button.create = Crear

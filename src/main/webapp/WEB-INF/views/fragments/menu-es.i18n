@@ -98,6 +98,6 @@ master.menu.user-account.become-auditor = Hazte auditor
 
 # master.menu.lecturer ########################################################
 master.menu.lecturer = Profesor
-master.menu.lecturer.lectures = Listar mis lecciones
-master.menu.lecturer.courses = Listar curso
+master.menu.lecturer.my-courses = Listar mis cursos
+master.menu.lecturer.my-lectures = Listar mis clases
 
