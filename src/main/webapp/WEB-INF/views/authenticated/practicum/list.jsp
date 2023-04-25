@@ -16,9 +16,10 @@
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 
 <acme:list>
-	<acme:list-column code="student.course.list.label.code" path="code" width="10%"/>
-	<acme:list-column code="student.course.list.label.title" path="title" width="10%"/>
-	<acme:list-column code="student.course.list.label.abstract$" path="abstract$" width="80%"/>	
-	<acme:list-column code="student.course.list.label.retail-price" path="retailPrice" width="80%"/>	
-	<acme:list-column code="student.course.list.label.link" path="link" width="80%"/>	
+	<acme:list-column code="company.practicum.list.label.code" path="code" width="20%"/>
+	<acme:list-column code="company.practicum.list.label.title" path="title" width="60%"/>
+	<acme:list-column code="company.practicum.list.label.course" path="courseCode" width="20%"/>
 </acme:list>
+
+	
+

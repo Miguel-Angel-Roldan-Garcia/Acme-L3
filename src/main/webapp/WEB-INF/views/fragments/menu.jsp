@@ -18,7 +18,6 @@
 
 <acme:menu-bar code="master.menu.home">
 	<acme:menu-left>
-		
 	
 		<acme:menu-option code="master.menu.anonymous" access="isAnonymous()">
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link" action="https://www.example.com/"/>
@@ -44,36 +43,18 @@
 			<acme:menu-suboption code="master.menu.administrator.shut-down" action="/administrator/shut-down"/>
 		</acme:menu-option>
 		
-		<acme:menu-option code="master.menu.course" access="isAnonymous()">
-			<acme:menu-suboption code="master.menu.student.published-courses" action="/any/course/list"/>
+		<acme:menu-option code="master.menu.any" access="isAnonymous()">
+			<acme:menu-suboption code="master.menu.any.published-courses" action="/any/course/list"/>
 		</acme:menu-option>
 		
-		<acme:menu-option code="master.menu.course" access="isAuthenticated()">
-			<acme:menu-suboption code="master.menu.student.published-courses" action="/any/course/list"/>	
+		<acme:menu-option code="master.menu.any" access="isAuthenticated()">
+			<acme:menu-suboption code="master.menu.any.published-courses" action="/any/course/list"/>	
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.authenticated" access="isAuthenticated()">
-			<acme:menu-suboption code="master.menu.authenticated.bulletin.list" action="/authenticated/bulletin/list"/>
 			<acme:menu-suboption code="master.menu.authenticated.student.offers.list" action="/authenticated/offer/list"/>
-		</acme:menu-option>
-		
-		<acme:menu-option code="master.menu.authenticated" access="isAuthenticated()">
 			<acme:menu-suboption code="master.menu.authenticated.bulletin.list" action="/authenticated/bulletin/list"/>
-		</acme:menu-option>
-
-		
-		<acme:menu-option code="master.menu.note" access="isAuthenticated()">
 			<acme:menu-suboption code="master.menu.authenticated.notes" action="/authenticated/note/list"/>
-		</acme:menu-option>
-
-
-
-		<acme:menu-option code="master.menu.provider" access="hasRole('Provider')">
-			<acme:menu-suboption code="master.menu.provider.favourite-link" action="http://www.example.com/"/>
-		</acme:menu-option>
-
-		<acme:menu-option code="master.menu.consumer" access="hasRole('Consumer')">
-			<acme:menu-suboption code="master.menu.consumer.favourite-link" action="http://www.example.com/"/>
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.assistant" access="hasRole('Assistant')">

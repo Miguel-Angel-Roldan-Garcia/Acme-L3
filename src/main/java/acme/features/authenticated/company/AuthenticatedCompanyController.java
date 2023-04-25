@@ -14,15 +14,21 @@ import acme.roles.Company;
 public class AuthenticatedCompanyController extends AbstractController<Authenticated, Company> {
 
 	@Autowired
-	protected AuthenticatedCompanyCreateService createService;
+	protected AuthenticatedCompanyCreateService	createService;
 
 	@Autowired
-	protected AuthenticatedCompanyUpdateService updateService;
+	protected AuthenticatedCompanyUpdateService	updateService;
+
+	@Autowired
+	protected AuthenticatedCompanyShowService	showService;
+
 
 	@PostConstruct
 	protected void initialise() {
 		super.addBasicCommand("create", this.createService);
 		super.addBasicCommand("update", this.updateService);
+		super.addBasicCommand("show", this.showService);
+
 	}
 
 }
