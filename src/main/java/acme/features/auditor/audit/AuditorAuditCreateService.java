@@ -12,11 +12,14 @@
 
 package acme.features.auditor.audit;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.individual.auditors.Audit;
 import acme.entities.individual.lectures.Course;
+import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Auditor;
@@ -34,43 +37,20 @@ public class AuditorAuditCreateService extends AbstractService<Auditor, Audit> {
 
 	@Override
 	public void check() {
-		boolean status;
-
-		status = super.getRequest().hasData("courseId", String.class);
-
-		super.getResponse().setChecked(status);
+		super.getResponse().setChecked(true);
 	}
 
 	@Override
 	public void authorise() {
-		boolean status;
-		int courseId;
-		Course course;
-
-		courseId = super.getRequest().getData("courseId", int.class);
-		course = this.repository.findOneCourseById(courseId);
-		status = course != null;
-
-		super.getResponse().setAuthorised(status);
+		super.getResponse().setAuthorised(true);
 	}
 
 	@Override
 	public void load() {
 		Audit object;
-		Auditor auditor;
-		Course course;
-
-		auditor = this.repository.findOneAuditorById(super.getRequest().getPrincipal().getActiveRoleId());
-		course = this.repository.findOneCourseById(super.getRequest().getData("courseId", int.class));
 
 		object = new Audit();
-		object.setConclusion("");
-		object.setStrongPoints("");
-		object.setWeakPoints("");
-		object.setCode("");
 		object.setDraftMode(true);
-		object.setCourse(course);
-		object.setAuditor(auditor);
 
 		super.getBuffer().setData(object);
 	}
@@ -79,7 +59,16 @@ public class AuditorAuditCreateService extends AbstractService<Auditor, Audit> {
 	public void bind(final Audit object) {
 		assert object != null;
 
-		super.bind(object, "code", "strongPoints", "weakPoints", "conclusion");
+		int courseId;
+		Course course;
+
+		courseId = super.getRequest().getData("course", int.class);
+		course = this.repository.findOneCourseById(courseId);
+
+		super.bind(object, "code", "conclusion", "strongPoints", "weakPoints");
+		final Auditor auditor = this.repository.findOneAuditorById(super.getRequest().getPrincipal().getActiveRoleId());
+		object.setAuditor(auditor);
+		object.setCourse(course);
 	}
 
 	@Override
@@ -92,6 +81,10 @@ public class AuditorAuditCreateService extends AbstractService<Auditor, Audit> {
 			super.state(existing == null || existing.equals(object), "code", "auditor.audit.form.error.duplicated");
 		}
 
+		if (!super.getBuffer().getErrors().hasErrors("course")) {
+			final Course selectedCourse = object.getCourse();
+			super.state(!selectedCourse.isDraftMode(), "course", "auditor.audit.error.not-published");
+		}
 	}
 
 	@Override
@@ -105,10 +98,16 @@ public class AuditorAuditCreateService extends AbstractService<Auditor, Audit> {
 	public void unbind(final Audit object) {
 		assert object != null;
 
+		Collection<Course> courses;
+		SelectChoices choices;
 		Tuple tuple;
 
+		courses = this.repository.findManyPublishedCourses();
+		choices = SelectChoices.from(courses, "code", object.getCourse());
+
 		tuple = super.unbind(object, "code", "strongPoints", "weakPoints", "conclusion", "draftMode");
-		tuple.put("courseCode", this.repository.findOneCourseById(super.getRequest().getData("courseId", int.class)).getCode());
+		tuple.put("course", choices.getSelected().getKey());
+		tuple.put("courses", choices);
 
 		super.getResponse().setData(tuple);
 	}
