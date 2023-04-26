@@ -16,9 +16,14 @@
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 
 <acme:list>
-	<acme:list-column code="assistant.course-session.list.label.title" path="title" width="60%"/>	
-	<acme:list-column code="assistant.course-session.list.label.nature" path="nature" width="20%"/>
-	<acme:list-column code="assistant.course-session.list.label.start-date" path="startDate" width="20%"/>
+	<acme:list-column code="lecturer.lecture.list.label.title"
+		path="title" width="60%" />
+	<acme:list-column code="lecturer.lecture.list.label.nature"
+		path="nature" width="20%" />
+	<acme:list-column code="lecturer.lecture.list.label.estimated-learning-time"
+		path="estimatedLearningTime" width="20%" />
 </acme:list>
 
-<acme:button test="${showCreate}" code="assistant.course-session.list.button.create" action="/assistant/course-session/create?masterId=${masterId}"/>
+<acme:button
+	code="lecturer.lecture.list.button.create"
+	action="/lecturer/lecture/create?masterId=${masterId}" />

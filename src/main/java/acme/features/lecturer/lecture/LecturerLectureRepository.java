@@ -17,12 +17,19 @@ import java.util.Collection;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import acme.entities.individual.assistants.Tutorial;
 import acme.entities.individual.lectures.Lecture;
 import acme.framework.repositories.AbstractRepository;
+import acme.roles.Lecturer;
 
 @Repository
 public interface LecturerLectureRepository extends AbstractRepository {
+	@Query("select l from Lecture l where l.lecturer.id = :lecturerId")
+	Collection<Lecture> findManyLecturesByLecturerId(int lecturerId);
+	
+	@Query("select lecturer from Lecturer lecturer where lecturer.id = :lecturerId")
+	Lecturer findOneLecturerById(int lecturerId);
+	@Query("select lecture from Lecture lecture where lecture.id = :id")
+	Lecture findOneLectureById(int id);
 
 //	@Query("select t from Tutorial t where t.id = :id")
 //	Tutorial findOneTutorialById(int id);

@@ -8,26 +8,21 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-assistant.course-session.form.label.title = Title:
-assistant.course-session.form.label.abstract = Abstract:
-assistant.course-session.form.label.nature = Nature:
-assistant.course-session.form.label.start-date = Start date: 
-assistant.course-session.form.label.end-date = End date: 
-assistant.course-session.form.label.link = More info: (Optional)
+lecturer.lecture.form.label.title = Title:
+lecturer.lecture.form.label.abstract$ = Abstract:
+lecturer.lecture.form.label.body = Body: 
+lecturer.lecture.form.label.estimated-learning-time = Estimated Learning Time: 
+lecturer.lecture.form.label.nature = Nature:
+lecturer.lecture.form.label.link = More Info: (Optional)
 
-assistant.course-session.form.button.create = Create		
-assistant.course-session.form.button.update = Update
-assistant.course-session.form.button.delete = Delete
-assistant.course-session.form.button.publish = Publish
+lecturer.lecture.form.button.create = Create		
+lecturer.lecture.form.button.update = Update
+lecturer.lecture.form.button.delete = Delete
+lecturer.lecture.form.button.publish = Publish
 
-assistant.course-session.form.error.at-least-one-day-ahead = A session must be created at least one day ahead from its start date
-assistant.course-session.form.error.end-before-start = The end of the session must be after the start of the session
-assistant.course-session.form.error.duration = A session must be between 1 and 5 hour long
-assistant.course-session.form.error.nature-balanced = A session can't be of balanced nature
-assistant.course-session.form.error.date-out-of-bounds = Introduced dates must be between Jan 1 2000 at 00:00 and Dec 31 2100 at 23:59
 
-assistant.course-session.list.label.title = Title
-assistant.course-session.list.label.nature = Nature 
-assistant.course-session.list.label.start-date = Start date 
 
-assistant.course-session.list.button.create = Create
+lecturer.lecture.list.label.title = Title
+lecturer.lecture.list.label.nature = Nature 
+
+lecturer.lecture.list.button.create = Create

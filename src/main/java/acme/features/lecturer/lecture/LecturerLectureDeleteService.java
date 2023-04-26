@@ -1,5 +1,5 @@
 /*
- * WorkerApplicationShowService.java
+ * EmployerJobDeleteService.java
  *
  * Copyright (C) 2012-2023 Rafael Corchuelo.
  *
@@ -10,27 +10,23 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.lecturer.course;
-
-import java.util.Collection;
+package acme.features.lecturer.lecture;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.datatypes.Nature;
-import acme.entities.individual.lectures.Course;
 import acme.entities.individual.lectures.Lecture;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Lecturer;
 
 @Service
-public class LecturerCourseShowService extends AbstractService<Lecturer, Course> {
+public class LecturerLectureDeleteService extends AbstractService<Lecturer, Lecture> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected LecturerCourseRepository repository;
+	protected LecturerLectureRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -47,51 +43,57 @@ public class LecturerCourseShowService extends AbstractService<Lecturer, Course>
 	@Override
 	public void authorise() {
 		boolean status;
-		int courseId;
-		Course course;
+		int lectureId;
+		Lecture lecture;
+		Lecturer lecturer;
 
-		courseId = super.getRequest().getData("id", int.class);
-		course = this.repository.findOneCourseById(courseId);
-		status = course != null && super.getRequest().getPrincipal().getActiveRoleId() == course.getLecturer().getId();
-
+		lectureId = super.getRequest().getData("id", int.class);
+		lecture = this.repository.findOneLectureById(lectureId);
+		lecturer = lecture == null ? null : lecture.getLecturer();
+		status = lecture != null && lecture.isDraftMode() && super.getRequest().getPrincipal().hasRole(lecturer);
 		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void load() {
-		Course object;
+		Lecture object;
 		int id;
-
 		id = super.getRequest().getData("id", int.class);
-		object = this.repository.findOneCourseById(id);
-
+		object = this.repository.findOneLectureById(id);
 		super.getBuffer().setData(object);
 	}
 
 	@Override
-	public void unbind(final Course object) {
+	public void bind(final Lecture object) {
+		assert object != null;
+		super.bind(object, "code", "title", "abstract$", "retailPrice");
+	}
+
+	@Override
+	public void validate(final Lecture object) {
+		assert object != null;
+
+		super.state(object.isDraftMode(), "*", "lecturer.lecture.form.error.not-draft-mode");
+	}
+
+	@Override
+	public void perform(final Lecture object) {
+		assert object != null;
+//		TODO delete lectures on cascade?
+//		Collection<Lecture> lectures;
+//
+//		lectures = this.repository.findManyLecturesByLectureId(object.getId());
+//		this.repository.deleteAll(lectures);
+		this.repository.delete(object);
+	}
+
+	@Override
+	public void unbind(final Lecture object) {
 		assert object != null;
 
 		Tuple tuple;
-		Collection<Lecture> lectures;
-		lectures = this.repository.findManyLecturesByCourseId(object.getId());
+		tuple = super.unbind(object, "code", "title", "abstract$", "retailPrice", "draftMode");
 
-		int theoreticalCount = 0;
-		int handsOnCount = 0;
-		for (final Lecture lecture : lectures) {
-			if(lecture.getNature().equals(Nature.HANDS_ON)) {
-				handsOnCount ++;
-			}else {
-				theoreticalCount ++;
-			}
-		}
-		Nature nature = theoreticalCount == handsOnCount? Nature.BALANCED : theoreticalCount > handsOnCount ? Nature.THEORETICAL : Nature.HANDS_ON;
-		
-		boolean publishable = object.isDraftMode() && lectures != null && !lectures.isEmpty();
-		tuple = super.unbind(object, "code", "title", "abstract$", "retailPrice","draftMode","link");
-		
-		tuple.put("nature", nature);
-		tuple.put("publishable", publishable);
 
 		super.getResponse().setData(tuple);
 	}

@@ -10,29 +10,25 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.lecturer.course;
-
-import static org.assertj.core.api.Assertions.assertThatIllegalStateException;
-
-import java.util.Collection;
+package acme.features.lecturer.lecture;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.individual.lectures.Course;
+import acme.datatypes.Nature;
 import acme.entities.individual.lectures.Lecture;
-import acme.framework.components.datatypes.Money;
+import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Lecturer;
 
 @Service
-public class LecturerCourseCreateService extends AbstractService<Lecturer, Course> {
+public class LecturerLectureCreateService extends AbstractService<Lecturer, Lecture> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected LecturerCourseRepository repository;
+	protected LecturerLectureRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -49,19 +45,18 @@ public class LecturerCourseCreateService extends AbstractService<Lecturer, Cours
 
 	@Override
 	public void load() {
-		Course object;
+		Lecture object;
 		Lecturer lecturer;
 
 		lecturer = this.repository.findOneLecturerById(super.getRequest().getPrincipal().getActiveRoleId());
-		String currentCurrency = this.repository.findCurrentSystemCurrency();
-		Money money = new Money();
-		money.setAmount(0.);
-		money.setCurrency(currentCurrency);
-		object = new Course();
-		object.setCode("");
+
+
+		object = new Lecture();
 		object.setTitle("");
 		object.setAbstract$("");
-		object.setRetailPrice(money);
+		object.setBody("");
+		object.setEstimatedLearningTime(1.);
+		object.setNature(Nature.THEORETICAL);
 		object.setDraftMode(true);
 		object.setLecturer(lecturer);
 
@@ -69,42 +64,29 @@ public class LecturerCourseCreateService extends AbstractService<Lecturer, Cours
 	}
 
 	@Override
-	public void bind(final Course object) {
+	public void bind(final Lecture object) {
 		assert object != null;
-		super.bind(object, "code", "title", "abstract$", "retailPrice", "link");
+		super.bind(object, "title", "abstract$", "body", "estimatedLearningTime", "nature", "link");
 	}
 
 	@Override
-	public void validate(final Course object) { //custom restrictions
+	public void validate(final Lecture object) { //custom restrictions
 		assert object != null;
-		//Unique code
-		if (!super.getBuffer().getErrors().hasErrors("code")) {
-			Course existing;
-			existing = this.repository.findOneCourseByCode(object.getCode());
-			super.state(existing == null || existing.equals(object), "code", "lecturer.course.form.error.duplicated");
-		}
-		//Money positive
-		if (!super.getBuffer().getErrors().hasErrors("retailPrice")) {
-			
-			super.state(object.getRetailPrice().getAmount() >= 0. 
-				|| object.getRetailPrice().getAmount() <1000000, "retailPrice", "lecturer.course.form.error.money-bounds");
-		}
-
 	}
 
 	@Override
-	public void perform(final Course object) {
+	public void perform(final Lecture object) {
 		assert object != null;
-
 		this.repository.save(object);
 	}
 
 	@Override
-	public void unbind(final Course object) {
+	public void unbind(final Lecture object) {
 		assert object != null;
 
 		Tuple tuple;	
-		tuple = super.unbind(object, "code", "title", "abstract$", "retailPrice", "draftMode","link");
+		tuple = super.unbind(object, "title", "abstract$", "estimatedLearningTime", "body", "nature","draftMode", "link");
+		tuple.put("natures", SelectChoices.from(Nature.class, object.getNature()));
 		super.getResponse().setData(tuple);
 	}
 
