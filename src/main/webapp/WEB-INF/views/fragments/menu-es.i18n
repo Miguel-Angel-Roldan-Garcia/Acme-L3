@@ -100,4 +100,5 @@ master.menu.user-account.become-auditor = Hazte auditor
 master.menu.lecturer = Profesor
 master.menu.lecturer.my-courses = Listar mis cursos
 master.menu.lecturer.my-lectures = Listar mis clases
+master.menu.lecturer.my-course-lectures = Clases en Cursos
 

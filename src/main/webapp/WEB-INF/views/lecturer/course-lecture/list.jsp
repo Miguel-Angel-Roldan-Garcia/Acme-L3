@@ -14,16 +14,17 @@
 
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
-
 <acme:list>
-	<acme:list-column code="lecturer.lecture.list.label.title"
-		path="title" width="60%" />
-	<acme:list-column code="lecturer.lecture.list.label.nature"
-		path="nature" width="20%" />
-	<acme:list-column code="lecturer.lecture.list.label.estimated-learning-time"
-		path="estimatedLearningTime" width="20%" />
+	
+	<acme:list-column code="lecturer.course-lecture.list.label.course-code"
+		path="courseCode" width="20%" />
+	<acme:list-column code="lecturer.course-lecture.list.label.course-title"
+		path="courseTitle" width="40%" />
+	<acme:list-column code="lecturer.course-lecture.list.label.lecture"
+		path="lecture" width="40%" />
+
 </acme:list>
 
 <acme:button
-	code="lecturer.lecture.list.button.create"
-	action="/lecturer/lecture/create" />
+	code="lecturer.course-lecture.list.button.create"
+	action="/lecturer/course-lecture/create" />
