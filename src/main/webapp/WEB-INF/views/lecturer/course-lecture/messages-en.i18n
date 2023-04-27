@@ -14,7 +14,12 @@ lecturer.course-lecture.form.button.create = Create
 lecturer.course-lecture.form.button.update = Update
 lecturer.course-lecture.form.button.delete = Delete
 
+lecturer.course-lecture.form.label.course-code = Course code
+lecturer.course-lecture.form.label.lecture-title = Attached lecture
 
+lecturer.course-lecture.list.label.course-code = Course code
+lecturer.course-lecture.list.label.course-title = Course title
+lecturer.course-lecture.list.label.lecture-title = Attached lecture
 
 
 

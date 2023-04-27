@@ -12,11 +12,14 @@
 
 package acme.features.lecturer.courseLecture;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.datatypes.Nature;
+import acme.entities.individual.lectures.Course;
 import acme.entities.individual.lectures.CourseLecture;
+import acme.entities.individual.lectures.Lecture;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
@@ -45,13 +48,24 @@ public class LecturerCourseLectureShowService extends AbstractService<Lecturer, 
 	@Override
 	public void authorise() {
 		boolean status;
-		int lectureId;
+		int courseLectureId;
+		Course course;
 		CourseLecture courseLecture;
-
-		lectureId = super.getRequest().getData("id", int.class);
-		courseLecture = this.repository.findOneCourseLectureById(lectureId);
-		status = courseLecture != null && super.getRequest().getPrincipal().getActiveRoleId() == courseLecture.getCourse().getLecturer().getId();
-
+		Lecturer lecturer;
+		
+		courseLectureId = super.getRequest().getData("id", int.class);
+		courseLecture = this.repository.findOneCourseLectureById(courseLectureId);
+		
+		if(courseLecture != null) {
+			course = courseLecture.getCourse();
+			lecturer = course.getLecturer();
+			
+			status = course.isDraftMode()
+				&& super.getRequest().getPrincipal().getActiveRoleId() == lecturer.getId();
+		}else {
+			status = false;
+		}
+		
 		super.getResponse().setAuthorised(status);
 	}
 
@@ -70,10 +84,17 @@ public class LecturerCourseLectureShowService extends AbstractService<Lecturer, 
 	public void unbind(final CourseLecture object) {
 		assert object != null;
 
-		Tuple tuple;	
-		tuple = super.unbind(object, "course", "lecture");
-		
+		Tuple tuple = new Tuple();	
+		int lecturerId = super.getRequest().getPrincipal().getActiveRoleId();
+		tuple = super.unbind(object, "id");
+		Collection<Course> courses = this.repository.findManyCoursesByLecturerId(lecturerId );
+		Collection<Lecture> lectures = this.repository.findManyLecturesByLecturerId(lecturerId);
+		tuple.put("editable", object.getCourse().isDraftMode());
+		tuple.put("courses", SelectChoices.from(courses, "code", object.getCourse()));
+		tuple.put("lectures", SelectChoices.from(lectures, "title", object.getLecture()));
 		super.getResponse().setData(tuple);
+		super.getResponse().setGlobal("editable", object.getCourse().isDraftMode());
+		super.getResponse().setGlobal("courseId", object.getCourse().getId());
 	}
 
 }

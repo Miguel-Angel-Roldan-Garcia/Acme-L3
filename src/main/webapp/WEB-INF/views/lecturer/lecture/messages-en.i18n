@@ -24,5 +24,5 @@ lecturer.lecture.form.button.publish = Publish
 
 lecturer.lecture.list.label.title = Title
 lecturer.lecture.list.label.nature = Nature 
-
+lecturer.lecture.list.label.estimated-learning-time = Estimated learning time
 lecturer.lecture.list.button.create = Create

@@ -40,7 +40,10 @@ public class LecturerLectureCreateService extends AbstractService<Lecturer, Lect
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		Boolean status;
+		
+		status = super.getRequest().getPrincipal().hasRole("acme.roles.Lecturer");
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
@@ -70,8 +73,12 @@ public class LecturerLectureCreateService extends AbstractService<Lecturer, Lect
 	}
 
 	@Override
-	public void validate(final Lecture object) { //custom restrictions
+	public void validate(final Lecture object) {
 		assert object != null;
+		if(!super.getBuffer().getErrors().hasErrors("nature")) {
+			super.state(object.getNature() != Nature.BALANCED, "nature", "lecturer.lecture.form.error.nature-balanced");
+		}
+		super.state(object.isDraftMode(), "*", "lecturer.lecture.form.error.not-draft-mode");
 	}
 
 	@Override

@@ -31,8 +31,6 @@ public interface LecturerCourseLectureRepository extends AbstractRepository {
 	@Query("select lecturer from Lecturer lecturer where lecturer.id = :lecturerId")
 	Lecturer findOneLecturerById(int lecturerId);
 	
-//	@Query("select lecture from CourseLecture lecture where lecture.id = :id")
-//	CourseLecture findOneCourseLectureById(int id);
 	
 	@Query("select c from Course c where c.lecturer.id = :id")
 	Collection<Course> findManyCoursesByLecturerId(int id);
@@ -40,8 +38,8 @@ public interface LecturerCourseLectureRepository extends AbstractRepository {
 	@Query("select l from Lecture l where l.lecturer.id = :id")
 	Collection<Lecture> findManyLecturesByLecturerId(int id);
 
-
-	@Query("select cl.lecture from CourseLecture cl where cl.course.id = :id")
+	//show
+	@Query("select cl from CourseLecture cl where cl.id = :id")
 	CourseLecture findOneCourseLectureById(int id);
 
 	//creation
@@ -49,6 +47,10 @@ public interface LecturerCourseLectureRepository extends AbstractRepository {
 	Course findOneCourseById(int courseId);
 	@Query("select l from Lecture l where l.id = :lectureId")
 	Lecture findOneLectureById(int lectureId);
+
+	//List by course
+	@Query("select cl from CourseLecture cl where cl.course.id = :courseId")
+	Collection<CourseLecture> findManyCourseLecturesByCourseId(int courseId);
 
 
 

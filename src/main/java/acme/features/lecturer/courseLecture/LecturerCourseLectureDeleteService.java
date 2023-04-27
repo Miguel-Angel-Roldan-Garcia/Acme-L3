@@ -12,10 +12,15 @@
 
 package acme.features.lecturer.courseLecture;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.individual.lectures.Course;
 import acme.entities.individual.lectures.CourseLecture;
+import acme.entities.individual.lectures.Lecture;
+import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Lecturer;
@@ -43,15 +48,25 @@ public class LecturerCourseLectureDeleteService extends AbstractService<Lecturer
 	@Override
 	public void authorise() {
 		boolean status;
-		int lectureId;
-		CourseLecture lecture;
+		int courseLectureId;
+		Course course;
+		CourseLecture courseLecture;
 		Lecturer lecturer;
-
-		lectureId = super.getRequest().getData("id", int.class);
-//		lecture = this.repository.findOneCourseLectureById(lectureId);
-//		lecturer = lecture == null ? null : lecture.getLecturer();
-//		status = lecture != null && lecture.isDraftMode() && super.getRequest().getPrincipal().hasRole(lecturer);
-//		super.getResponse().setAuthorised(status);
+		
+		courseLectureId = super.getRequest().getData("id", int.class);
+		courseLecture = this.repository.findOneCourseLectureById(courseLectureId);
+		
+		if(courseLecture != null) {
+			course = courseLecture.getCourse();
+			lecturer = course.getLecturer();
+			
+			status = course.isDraftMode()
+				&& super.getRequest().getPrincipal().getActiveRoleId() == lecturer.getId();
+		}else {
+			status = false;
+		}
+		
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
@@ -66,36 +81,37 @@ public class LecturerCourseLectureDeleteService extends AbstractService<Lecturer
 	@Override
 	public void bind(final CourseLecture object) {
 		assert object != null;
-		super.bind(object, "code", "title", "abstract$", "retailPrice");
+		super.bind(object, "course", "lecture");
 	}
 
 	@Override
 	public void validate(final CourseLecture object) {
 		assert object != null;
 
-//		super.state(object.isDraftMode(), "*", "lecturer.lecture.form.error.not-draft-mode");
+		super.state(object.getCourse().isDraftMode(), "*", "lecturer.lecture.form.error.not-draft-mode");
 	}
 
 	@Override
 	public void perform(final CourseLecture object) {
 		assert object != null;
-//		TODO delete lectures on cascade?
-//		Collection<CourseLecture> lectures;
-//
-//		lectures = this.repository.findManyCourseLecturesByCourseLectureId(object.getId());
-//		this.repository.deleteAll(lectures);
 		this.repository.delete(object);
 	}
 
 	@Override
 	public void unbind(final CourseLecture object) {
 		assert object != null;
-
-		Tuple tuple;
-		tuple = super.unbind(object, "code", "title", "abstract$", "retailPrice", "draftMode");
-
-
+		
+		Tuple tuple = new Tuple();	
+		int lecturerId = super.getRequest().getPrincipal().getActiveRoleId();
+		tuple = super.unbind(object, "id");
+		Collection<Course> courses = this.repository.findManyCoursesByLecturerId(lecturerId );
+		Collection<Lecture> lectures = this.repository.findManyLecturesByLecturerId(lecturerId);
+		tuple.put("editable", object.getCourse().isDraftMode());
+		tuple.put("courses", SelectChoices.from(courses, "code", object.getCourse()));
+		tuple.put("lectures", SelectChoices.from(lectures, "title", object.getLecture()));
 		super.getResponse().setData(tuple);
+		super.getResponse().setGlobal("editable", object.getCourse().isDraftMode());
+		super.getResponse().setGlobal("courseId", object.getCourse().getId());
 	}
 
 }

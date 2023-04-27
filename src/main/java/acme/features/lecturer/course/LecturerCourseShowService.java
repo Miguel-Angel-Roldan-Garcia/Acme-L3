@@ -73,12 +73,12 @@ public class LecturerCourseShowService extends AbstractService<Lecturer, Course>
 		assert object != null;
 
 		Tuple tuple;
-		Collection<Lecture> lectures;
-		lectures = this.repository.findManyLecturesByCourseId(object.getId());
+		Collection<Lecture> lecturesInCourse;
+		lecturesInCourse = this.repository.findManyLecturesByCourseId(object.getId());
 
 		int theoreticalCount = 0;
 		int handsOnCount = 0;
-		for (final Lecture lecture : lectures) {
+		for (final Lecture lecture : lecturesInCourse) {
 			if(lecture.getNature().equals(Nature.HANDS_ON)) {
 				handsOnCount ++;
 			}else {
@@ -87,10 +87,18 @@ public class LecturerCourseShowService extends AbstractService<Lecturer, Course>
 		}
 		Nature nature = theoreticalCount == handsOnCount? Nature.BALANCED : theoreticalCount > handsOnCount ? Nature.THEORETICAL : Nature.HANDS_ON;
 		
-		boolean publishable = object.isDraftMode() && lectures != null && !lectures.isEmpty();
 		tuple = super.unbind(object, "code", "title", "abstract$", "retailPrice","draftMode","link");
 		
 		tuple.put("nature", nature);
+		boolean publishable = object.isDraftMode() && lecturesInCourse != null && !lecturesInCourse.isEmpty();
+		publishable = object.isDraftMode()
+			//pure theroetical courses must be rejected by the system
+			&& lecturesInCourse.stream()
+				.map(lecture-> lecture.getNature())
+				.anyMatch(n -> n.equals(Nature.HANDS_ON)) //if no lectures return false
+			//lectures in a course must be published
+			&& lecturesInCourse.stream()
+				.anyMatch(lec -> !lec.isDraftMode());
 		tuple.put("publishable", publishable);
 
 		super.getResponse().setData(tuple);

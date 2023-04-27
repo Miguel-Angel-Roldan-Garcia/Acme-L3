@@ -38,19 +38,29 @@ public class LecturerCourseLectureCreateService extends AbstractService<Lecturer
 
 	@Override
 	public void check() {
-		super.getResponse().setChecked(true);
+		boolean status;
+		
+		status = super.getRequest().hasData("courseId", int.class);
+		
+		super.getResponse().setChecked(status);
 	}
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		Boolean status;
+		
+		status = super.getRequest().getPrincipal().hasRole("acme.roles.Lecturer");
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void load() {
 		CourseLecture object;
+		Course course;
 		object = new CourseLecture();
-		object.setCourse(new Course());
+		course = this.repository.findOneCourseById(super.getRequest().getData("courseId", int.class));
+		
+		object.setCourse(course);
 		object.setLecture(new Lecture());
 
 		super.getBuffer().setData(object);
@@ -70,6 +80,8 @@ public class LecturerCourseLectureCreateService extends AbstractService<Lecturer
 	@Override
 	public void validate(final CourseLecture object) { //custom restrictions
 		assert object != null;
+		if(!super.getBuffer().getErrors().hasErrors("lecture"))
+			super.state(object.getCourse().getLecturer() == object.getLecture().getLecturer(), "*", "lecturer.course-lecture.form.error.not-same-lecturer");
 	}
 
 	@Override
@@ -83,11 +95,13 @@ public class LecturerCourseLectureCreateService extends AbstractService<Lecturer
 		assert object != null;
 		int lecturerId = super.getRequest().getPrincipal().getActiveRoleId();
 		Collection<Course> courses = this.repository.findManyCoursesByLecturerId(lecturerId);
-		Collection<Lecture> lectures = this.repository.findManyLecturesByLecturerId(lecturerId);;
+		Collection<Lecture> lectures = this.repository.findManyLecturesByLecturerId(lecturerId);
 		Tuple tuple = new Tuple();
-		tuple.put("courses", SelectChoices.from(courses, "code", null));
+		tuple.put("courses", SelectChoices.from(courses, "code", object.getCourse()));
 		tuple.put("lectures", SelectChoices.from(lectures, "title", null));
 		super.getResponse().setData(tuple);
+		super.getResponse().setGlobal("editable", true);
+		super.getResponse().setGlobal("courseId", object.getCourse().getId());
 	}
 
 }

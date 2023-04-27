@@ -13,7 +13,7 @@ lecturer.lecture.form.label.abstract$ = Resumen:
 lecturer.lecture.form.label.body = Cuerpo: 
 lecturer.lecture.form.label.estimated-learning-time = Tiempo estimado de aprendizaje: 
 lecturer.lecture.form.label.nature = Naturaleza:
-lecturer.lecture.form.label.link = Más información: (Opcional)
+lecturer.lecture.form.label.link = Enlace: (Opcional)
 
 lecturer.lecture.form.button.create = Crear	
 lecturer.lecture.form.button.update = Actualizar
@@ -24,5 +24,5 @@ lecturer.lecture.form.button.publish = Publicar
 
 lecturer.lecture.list.label.title = Título
 lecturer.lecture.list.label.nature = Naturaleza 
-
+lecturer.lecture.list.label.estimated-learning-time = Tiempo estimado de aprendizaje
 lecturer.lecture.list.button.create = Crear

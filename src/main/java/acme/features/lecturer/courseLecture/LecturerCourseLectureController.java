@@ -27,7 +27,7 @@ public class LecturerCourseLectureController extends AbstractController<Lecturer
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected LecturerCourseLectureListMineService	listMineService;
+	protected LecturerCourseLectureListService	listMineService;
 
 	@Autowired
 	protected LecturerCourseLectureShowService	showService;

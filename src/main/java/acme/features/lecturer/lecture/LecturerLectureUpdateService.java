@@ -78,7 +78,10 @@ public class LecturerLectureUpdateService extends AbstractService<Lecturer, Lect
 	@Override
 	public void validate(final Lecture object) {
 		assert object != null;
-
+		if(!super.getBuffer().getErrors().hasErrors("nature")) {
+			super.state(object.getNature() != Nature.BALANCED, "nature", "lecturer.lecture.form.error.nature-balanced");
+		}
+		super.state(object.isDraftMode(), "*", "lecturer.lecture.form.error.not-draft-mode");
 	}
 
 	@Override

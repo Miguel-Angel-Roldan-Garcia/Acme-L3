@@ -27,7 +27,7 @@ public class LecturerCourseController extends AbstractController<Lecturer, Cours
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected LecturerCourseListMineService	listService;
+	protected LecturerCourseListService	listService;
 
 	@Autowired
 	protected LecturerCourseShowService		showService;
@@ -49,12 +49,11 @@ public class LecturerCourseController extends AbstractController<Lecturer, Cours
 
 	@PostConstruct
 	protected void initialise() {
+		super.addCustomCommand("list-mine", "list", this.listService);
 		super.addBasicCommand("show", this.showService);
 		super.addBasicCommand("create", this.createService);
 		super.addBasicCommand("update", this.updateService);
 		super.addBasicCommand("delete", this.deleteService);
-
-		super.addCustomCommand("list-mine", "list", this.listService);
 		super.addCustomCommand("publish", "update", this.publishService);
 	}
 

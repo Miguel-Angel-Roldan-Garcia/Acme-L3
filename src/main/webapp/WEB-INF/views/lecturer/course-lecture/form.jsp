@@ -15,20 +15,20 @@
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 
-<acme:form>
+<acme:form readonly="${!editable}">
 
-	<acme:input-select path="course" code="lecturer.course-lecture.form.label.nature" choices="${courses}"/>
-	<acme:input-select path="lecture" code="lecturer.course-lecture.form.label.nature" choices="${lectures}"/>
+	<acme:input-select path="course" code="lecturer.course-lecture.form.label.course-code" choices="${courses}" readonly="true"/>
+	<acme:input-select path="lecture" code="lecturer.course-lecture.form.label.lecture-title" choices="${lectures}"/>
 
 	
 	<jstl:choose>
 		<jstl:when test="${acme:anyOf(_command, 'show|update|delete') && editable == true}">
 			<acme:submit code="lecturer.course-lecture.form.button.update" action="/lecturer/course-lecture/update"/>
 			<acme:submit code="lecturer.course-lecture.form.button.delete" action="/lecturer/course-lecture/delete"/>
-			<acme:submit code="lecturer.course-lecture.form.button.publish" action="/lecturer/course-lecture/publish"/>
+
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}">
-			<acme:submit code="lecturer.course-lecture.form.button.create" action="/lecturer/course-lecture/create"/>
+			<acme:submit code="lecturer.course-lecture.form.button.create" action="/lecturer/course-lecture/create?courseId=${courseId}"/>
 		</jstl:when>		
 	</jstl:choose>		
 </acme:form>

@@ -10,7 +10,7 @@
 - they accept any liabilities with respect to them.
 --%>
 
-<%@page language="java"%>
+<%@page language="java"%>5
 
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
@@ -24,6 +24,8 @@
 		path="estimatedLearningTime" width="20%" />
 </acme:list>
 
+<jstl:if test="${showCreate}">
 <acme:button
 	code="lecturer.lecture.list.button.create"
 	action="/lecturer/lecture/create" />
+</jstl:if>

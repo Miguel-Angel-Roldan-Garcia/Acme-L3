@@ -10,25 +10,25 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.lecturer.lecture;
+package acme.features.lecturer.courseLecture;
 
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.individual.lectures.Lecture;
+import acme.entities.individual.lectures.CourseLecture;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Lecturer;
 
 @Service
-public class LecturerLectureListMineService extends AbstractService<Lecturer, Lecture> {
+public class LecturerCourseLectureListService extends AbstractService<Lecturer, CourseLecture> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected LecturerLectureRepository repository;
+	protected LecturerCourseLectureRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -40,28 +40,36 @@ public class LecturerLectureListMineService extends AbstractService<Lecturer, Le
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		Boolean status;
+		
+		status = super.getRequest().getPrincipal().hasRole("acme.roles.Lecturer");
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void load() {
-		Collection<Lecture> object;
-		int lecturerId;
-
-		lecturerId = super.getRequest().getPrincipal().getActiveRoleId();
-		object = this.repository.findManyLecturesByLecturerId(lecturerId);
+		Collection<CourseLecture> object;
+		if(super.getRequest().hasData("courseId")) {
+			int courseId = super.getRequest().getData("courseId",int.class);
+			object = this.repository.findManyCourseLecturesByCourseId(courseId);
+		}else {	
+			int lecturerId = super.getRequest().getPrincipal().getActiveRoleId();
+			object = this.repository.findManyCourseLecturesByLecturerId(lecturerId);
+		}
 
 		super.getBuffer().setData(object);
 	}
 
 	@Override
-	public void unbind(final Lecture object) {
+	public void unbind(final CourseLecture object) {
 		assert object != null;
 
-		Tuple tuple;
-
-		tuple = super.unbind(object, "title", "estimatedLearningTime", "nature");
-
+		Tuple tuple ;
+		tuple = super.unbind(object,"id");
+		tuple.put("editable",object.getCourse().isDraftMode());
+		tuple.put("courseCode", object.getCourse().getCode());
+		tuple.put("courseTitle", object.getCourse().getTitle());
+		tuple.put("lectureTitle", object.getLecture().getTitle());
 		super.getResponse().setData(tuple);
 	}
 

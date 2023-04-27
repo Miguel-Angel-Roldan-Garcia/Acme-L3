@@ -12,9 +12,13 @@
 
 package acme.features.lecturer.lecture;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.datatypes.Nature;
+import acme.entities.individual.lectures.CourseLecture;
 import acme.entities.individual.lectures.Lecture;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
@@ -72,18 +76,20 @@ public class LecturerLectureDeleteService extends AbstractService<Lecturer, Lect
 	@Override
 	public void validate(final Lecture object) {
 		assert object != null;
-
+		if(!super.getBuffer().getErrors().hasErrors("nature")) {
+			super.state(object.getNature() != Nature.BALANCED, "nature", "lecturer.lecture.form.error.nature-balanced");
+		}
 		super.state(object.isDraftMode(), "*", "lecturer.lecture.form.error.not-draft-mode");
 	}
 
 	@Override
 	public void perform(final Lecture object) {
 		assert object != null;
-//		TODO delete lectures on cascade?
-//		Collection<Lecture> lectures;
-//
-//		lectures = this.repository.findManyLecturesByLectureId(object.getId());
-//		this.repository.deleteAll(lectures);
+
+		Collection<CourseLecture> courseLectures;
+
+		courseLectures = this.repository.findManyCourseLecturesByLectureId(object.getId());
+		this.repository.deleteAll(courseLectures);
 		this.repository.delete(object);
 	}
 

@@ -13,7 +13,12 @@ lecturer.course-lecture.form.button.create = Crear
 lecturer.course-lecture.form.button.update = Actualizar
 lecturer.course-lecture.form.button.delete = Borrar
 
+lecturer.course-lecture.form.label.course-code = Código de curso
+lecturer.course-lecture.form.label.lecture-title = Clase asignada
 
+lecturer.course-lecture.list.label.course-code = Código de curso
+lecturer.course-lecture.list.label.course-title = Título de curso
+lecturer.course-lecture.list.label.lecture-title = Clase asignada
 
 
 

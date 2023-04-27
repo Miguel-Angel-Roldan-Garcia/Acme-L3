@@ -23,7 +23,7 @@ import acme.framework.services.AbstractService;
 import acme.roles.Lecturer;
 
 @Service
-public class LecturerCourseListMineService extends AbstractService<Lecturer, Course> {
+public class LecturerCourseListService extends AbstractService<Lecturer, Course> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -40,7 +40,9 @@ public class LecturerCourseListMineService extends AbstractService<Lecturer, Cou
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		Boolean status;
+		status = super.getRequest().getPrincipal().hasRole("acme.roles.Lecturer");
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
