@@ -17,6 +17,7 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.datatypes.Nature;
 import acme.entities.individual.lectures.Course;
 import acme.entities.individual.lectures.Lecture;
 import acme.framework.components.models.Tuple;
@@ -62,10 +63,10 @@ public class LecturerCourseUpdateService extends AbstractService<Lecturer, Cours
 	@Override
 	public void load() {
 		Course object;
-		int id;
+		int courseId;
 
-		id = super.getRequest().getData("id", int.class);
-		object = this.repository.findOneCourseById(id);
+		courseId = super.getRequest().getData("id", int.class);
+		object = this.repository.findOneCourseById(courseId);
 
 		super.getBuffer().setData(object);
 	}
@@ -74,18 +75,26 @@ public class LecturerCourseUpdateService extends AbstractService<Lecturer, Cours
 	public void bind(final Course object) {
 		assert object != null;
 
-		super.bind(object, "code", "title", "abstract$", "retailPrice");
+		super.bind(object, "code", "title", "abstract$", "retailPrice","link");
 	}
 
 	@Override
 	public void validate(final Course object) {
 		assert object != null;
-
+		//Unique code
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			Course existing;
 			existing = this.repository.findOneCourseByCode(object.getCode());
 			super.state(existing == null || existing.equals(object), "code", "lecturer.course.form.error.duplicated");
 		}
+		//Money positive
+		if (!super.getBuffer().getErrors().hasErrors("retailPrice")) {
+			
+			super.state(object.getRetailPrice().getAmount() >= 0. 
+				|| object.getRetailPrice().getAmount() <1000000, "retailPrice", "lecturer.course.form.error.money-bounds");
+		}
+		//must be in draft mode at creation
+		super.state(object.isDraftMode(), "*", "lecturer.course.form.error.not-draft-mode");
 	}
 
 	@Override
@@ -101,17 +110,24 @@ public class LecturerCourseUpdateService extends AbstractService<Lecturer, Cours
 
 		Tuple tuple;
 		Collection<Lecture> lectures;
-		Double estimatedTotalTime;
-
 		lectures = this.repository.findManyLecturesByCourseId(object.getId());
-		estimatedTotalTime = 0.;
 
-		for (final Lecture ts : lectures)
-			estimatedTotalTime += ts.getEstimatedLearningTime();
-
-		tuple = super.unbind(object, "code", "title", "abstract$", "draftMode");
-	
-		tuple.put("estimatedTotalTime", estimatedTotalTime);
+		int theoreticalCount = 0;
+		int handsOnCount = 0;
+		for (final Lecture lecture : lectures) {
+			if(lecture.getNature().equals(Nature.HANDS_ON)) {
+				handsOnCount ++;
+			}else {
+				theoreticalCount ++;
+			}
+		}
+		Nature nature = theoreticalCount == handsOnCount? Nature.BALANCED : theoreticalCount > handsOnCount ? Nature.THEORETICAL : Nature.HANDS_ON;
+		
+		boolean publishable = object.isDraftMode() && lectures != null && !lectures.isEmpty();
+		tuple = super.unbind(object, "code", "title", "abstract$", "retailPrice","draftMode","link");
+		
+		tuple.put("nature", nature);
+		tuple.put("publishable", publishable);
 
 		super.getResponse().setData(tuple);
 	}

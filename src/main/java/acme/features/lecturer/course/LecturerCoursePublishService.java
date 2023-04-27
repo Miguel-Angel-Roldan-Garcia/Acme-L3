@@ -17,6 +17,7 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.datatypes.Nature;
 import acme.entities.individual.lectures.Course;
 import acme.entities.individual.lectures.Lecture;
 import acme.framework.components.models.Tuple;
@@ -48,12 +49,26 @@ public class LecturerCoursePublishService extends AbstractService<Lecturer, Cour
 		boolean status;
 		int courseId;
 		Course course;
+		Collection<Lecture> lecturesInCourse;
 		Lecturer lecturer;
 
 		courseId = super.getRequest().getData("id", int.class);
 		course = this.repository.findOneCourseById(courseId);
-		lecturer = course == null ? null : course.getLecturer();
-		status = course != null && course.isDraftMode() && super.getRequest().getPrincipal().hasRole(lecturer);
+		if(course != null) {
+			lecturesInCourse = this.repository.findManyLecturesByCourseId(course.getId());
+			lecturer = course.getLecturer();
+			status = lecturer.getId() == super.getRequest().getPrincipal().getActiveRoleId()
+				&& course.isDraftMode()
+				//pure theroetical courses must be rejected by the sistem
+				&& lecturesInCourse.stream()
+					.map(lecture-> lecture.getNature())
+					.anyMatch(n -> n.equals(Nature.HANDS_ON)) //if no lectures return false
+				//lectures in a course must be published
+				&& lecturesInCourse.stream()
+					.anyMatch(lec -> !lec.isDraftMode());
+		}else {
+			status = false;
+		}
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -73,18 +88,26 @@ public class LecturerCoursePublishService extends AbstractService<Lecturer, Cour
 	public void bind(final Course object) {
 		assert object != null;
 
-		super.bind(object, "code", "title", "abstract$", "retailPrice");
+		super.bind(object, "code", "title", "abstract$", "retailPrice","link");
 	}
 
 	@Override
 	public void validate(final Course object) {
 		assert object != null;
-
+		//Unique code
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			Course existing;
 			existing = this.repository.findOneCourseByCode(object.getCode());
 			super.state(existing == null || existing.equals(object), "code", "lecturer.course.form.error.duplicated");
 		}
+		//Money positive
+		if (!super.getBuffer().getErrors().hasErrors("retailPrice")) {
+			
+			super.state(object.getRetailPrice().getAmount() >= 0. 
+				|| object.getRetailPrice().getAmount() <1000000, "retailPrice", "lecturer.course.form.error.money-bounds");
+		}
+		//must be in draft mode at creation
+		super.state(object.isDraftMode(), "*", "lecturer.course.form.error.not-draft-mode");
 	}
 
 	@Override
@@ -101,16 +124,24 @@ public class LecturerCoursePublishService extends AbstractService<Lecturer, Cour
 
 		Tuple tuple;
 		Collection<Lecture> lectures;
-		Double estimatedTotalTime;
-
 		lectures = this.repository.findManyLecturesByCourseId(object.getId());
-		estimatedTotalTime = 0.;
 
-		for (final Lecture ts : lectures)
-			estimatedTotalTime += ts.getEstimatedLearningTime();
-
-		tuple = super.unbind(object, "code", "title", "abstract$", "goals", "draftMode");
-		tuple.put("estimatedTotalTime", estimatedTotalTime);
+		int theoreticalCount = 0;
+		int handsOnCount = 0;
+		for (final Lecture lecture : lectures) {
+			if(lecture.getNature().equals(Nature.HANDS_ON)) {
+				handsOnCount ++;
+			}else {
+				theoreticalCount ++;
+			}
+		}
+		Nature nature = theoreticalCount == handsOnCount? Nature.BALANCED : theoreticalCount > handsOnCount ? Nature.THEORETICAL : Nature.HANDS_ON;
+		
+		boolean publishable = object.isDraftMode() && lectures != null && !lectures.isEmpty();
+		tuple = super.unbind(object, "code", "title", "abstract$", "retailPrice","draftMode","link");
+		
+		tuple.put("nature", nature);
+		tuple.put("publishable", publishable);
 
 		super.getResponse().setData(tuple);
 	}

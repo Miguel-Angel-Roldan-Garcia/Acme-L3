@@ -97,5 +97,5 @@ master.menu.user-account.become-auditor = Become an auditor
 master.menu.lecturer = Lecturer
 master.menu.lecturer.my-courses = List my courses
 master.menu.lecturer.my-lectures = List my lectures
-
+master.menu.lecturer.show-dashboard = Show lecturer dashboard
 

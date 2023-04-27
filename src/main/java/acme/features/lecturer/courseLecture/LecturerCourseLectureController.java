@@ -10,39 +10,37 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.lecturer.lecture;
+package acme.features.lecturer.courseLecture;
 
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
-import acme.entities.individual.lectures.Lecture;
+import acme.entities.individual.lectures.CourseLecture;
 import acme.framework.controllers.AbstractController;
 import acme.roles.Lecturer;
 
 @Controller
-public class LecturerLectureController extends AbstractController<Lecturer, Lecture> {
+public class LecturerCourseLectureController extends AbstractController<Lecturer, CourseLecture> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected LecturerLectureListService	listMineService;
+	protected LecturerCourseLectureListService	listMineService;
 
 	@Autowired
-	protected LecturerLectureShowService	showService;
+	protected LecturerCourseLectureShowService	showService;
 
 	@Autowired
-	protected LecturerLectureCreateService	createService;
+	protected LecturerCourseLectureCreateService	createService;
 
 	@Autowired
-	protected LecturerLectureUpdateService	updateService;
+	protected LecturerCourseLectureUpdateService	updateService;
 
 	@Autowired
-	protected LecturerLectureDeleteService	deleteService;
+	protected LecturerCourseLectureDeleteService	deleteService;
 
-	@Autowired
-	protected LecturerLecturePublishService	publishService;
 	// Constructors -----------------------------------------------------------
 
 
@@ -54,7 +52,6 @@ public class LecturerLectureController extends AbstractController<Lecturer, Lect
 		super.addBasicCommand("delete", this.deleteService);
 
 		super.addCustomCommand("list-mine", "list", this.listMineService);
-		super.addCustomCommand("publish", "update", this.publishService);
 	}
 
 }
