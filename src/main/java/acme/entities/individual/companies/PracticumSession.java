@@ -27,32 +27,31 @@ public class PracticumSession extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------------------------
 
-	protected static final long serialVersionUID = 1L;
+	protected static final long	serialVersionUID	= 1L;
 
 	// Attributes -------------------------------------------------------------
 
 	@NotBlank
 	@Length(max = 75)
-	protected String title;
+	protected String			title;
 
 	@NotBlank
 	@Length(max = 100)
-	protected String abstract$;
+	protected String			abstract$;
 
-	/* TODO Custom restriction label D02-S4-6 */
 	@NotNull
-	@Temporal(TemporalType.DATE)
-	protected Date startDate;
+	@Temporal(TemporalType.TIMESTAMP)
+	protected Date				startDate;
 
-	/* TODO Custom restriction label D02-S4-6 */
 	@NotNull
-	@Temporal(TemporalType.DATE)
-	protected Date endDate;
+	@Temporal(TemporalType.TIMESTAMP)
+	protected Date				endDate;
 
 	@URL
-	protected String link;
+	protected String			link;
 
 	// Derived attributes -----------------------------------------------------
+
 
 	@Transient
 	public Double getDurationInHours() {
@@ -63,7 +62,13 @@ public class PracticumSession extends AbstractEntity {
 		return duration;
 	}
 
+	@Transient
+	public Boolean isDraftMode() {
+		return this.practicum.isDraftMode();
+	}
+
 	// Relationships ----------------------------------------------------------
+
 
 	@NotNull
 	@Valid

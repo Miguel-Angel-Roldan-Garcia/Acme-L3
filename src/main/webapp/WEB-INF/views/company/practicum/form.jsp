@@ -28,7 +28,7 @@
 			<acme:button code="company.practicum.form.button.practicum-sessions" action="/company/practicum-session/list?masterId=${id}"/>			
 		</jstl:when>
 		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && draftMode == true}">
-			<acme:button code="company.practicum.form.button.practicum-sessions" action="/assistant/practicum-session/list?masterId=${id}"/>			
+			<acme:button code="company.practicum.form.button.practicum-sessions" action="/company/practicum-session/list?masterId=${id}"/>			
 			<acme:submit code="company.practicum.form.button.update" action="/company/practicum/update"/>
 			<acme:submit code="company.practicum.form.button.delete" action="/company/practicum/delete"/>
 			<acme:submit code="company.practicum.form.button.publish" action="/company/practicum/publish"/>

@@ -12,12 +12,15 @@
 
 package acme.features.administrator.offer;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.group.Offer;
 import acme.framework.components.accounts.Administrator;
 import acme.framework.components.models.Tuple;
+import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
 
 @Service
@@ -29,6 +32,7 @@ public class AdministratorOfferDeleteService extends AbstractService<Administrat
 	protected AdministratorOfferRepository repository;
 
 	// AbstractService interface ----------------------------------------------
+
 
 	@Override
 	public void check() {
@@ -59,8 +63,7 @@ public class AdministratorOfferDeleteService extends AbstractService<Administrat
 	public void bind(final Offer object) {
 		assert object != null;
 
-		super.bind(object, "instantiationMoment", "heading", "summary", "availabilityPeriodStartDate",
-				"availabilityPeriodEndDate", "price", "link");
+		super.bind(object, "instantiationMoment", "heading", "summary", "availabilityPeriodStartDate", "availabilityPeriodEndDate", "price", "link");
 	}
 
 	@Override
@@ -82,8 +85,16 @@ public class AdministratorOfferDeleteService extends AbstractService<Administrat
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "instantiationMoment", "heading", "summary", "availabilityPeriodStartDate",
-				"availabilityPeriodEndDate", "price", "link");
+		boolean updateOrDelete;
+		Offer offer;
+		Date moment;
+		moment = MomentHelper.getCurrentMoment();
+
+		offer = this.repository.findActiveOfferById(moment, object.getId());
+		updateOrDelete = offer != null ? false : true;
+
+		tuple = super.unbind(object, "instantiationMoment", "heading", "summary", "availabilityPeriodStartDate", "availabilityPeriodEndDate", "price", "link");
+		tuple.put("updateOrDelete", updateOrDelete);
 
 		super.getResponse().setData(tuple);
 	}
