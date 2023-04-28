@@ -35,6 +35,7 @@ public class AdministratorOfferUpdateService extends AbstractService<Administrat
 
 	// AbstractService interface ----------------------------------------------
 
+
 	@Override
 	public void check() {
 		boolean status;
@@ -62,8 +63,7 @@ public class AdministratorOfferUpdateService extends AbstractService<Administrat
 	public void bind(final Offer object) {
 		assert object != null;
 
-		super.bind(object, "instantiationMoment", "heading", "summary", "availabilityPeriodStartDate",
-				"availabilityPeriodEndDate", "price", "link");
+		super.bind(object, "instantiationMoment", "heading", "summary", "availabilityPeriodStartDate", "availabilityPeriodEndDate", "price", "link");
 	}
 
 	@Override
@@ -99,21 +99,17 @@ public class AdministratorOfferUpdateService extends AbstractService<Administrat
 		if (!super.getBuffer().getErrors().hasErrors("availabilityPeriodStartDate")) {
 			boolean startDateStatus;
 
-			startDateStatus = MomentHelper.isAfter(object.getAvailabilityPeriodStartDate(),
-					object.getInstantiationMoment());
+			startDateStatus = MomentHelper.isAfter(object.getAvailabilityPeriodStartDate(), object.getInstantiationMoment());
 
-			super.state(startDateStatus, "availabilityPeriodStartDate",
-					"administrator.offer.form.error.start-after-instantiation");
+			super.state(startDateStatus, "availabilityPeriodStartDate", "administrator.offer.form.error.start-after-instantiation");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("availabilityPeriodStartDate")) {
 			boolean startDateStatus;
 
-			startDateStatus = MomentHelper.isLongEnough(object.getInstantiationMoment(),
-					object.getAvailabilityPeriodStartDate(), 1l, ChronoUnit.DAYS);
+			startDateStatus = MomentHelper.isLongEnough(object.getInstantiationMoment(), object.getAvailabilityPeriodStartDate(), 1l, ChronoUnit.DAYS);
 
-			super.state(startDateStatus, "availabilityPeriodStartDate",
-					"administrator.offer.form.error.start-after-one-day-of-instantiation");
+			super.state(startDateStatus, "availabilityPeriodStartDate", "administrator.offer.form.error.start-after-one-day-of-instantiation");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("availabilityPeriodStartDate")) {
@@ -127,15 +123,13 @@ public class AdministratorOfferUpdateService extends AbstractService<Administrat
 			startDateStatus = MomentHelper.isAfterOrEqual(object.getAvailabilityPeriodStartDate(), inferiorLimitDate);
 			startDateStatus &= MomentHelper.isBeforeOrEqual(object.getAvailabilityPeriodStartDate(), upperLimitDate);
 
-			super.state(startDateStatus, "availabilityPeriodStartDate",
-					"administrator.offer.form.error.date-out-of-bounds");
+			super.state(startDateStatus, "availabilityPeriodStartDate", "administrator.offer.form.error.date-out-of-bounds");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("availabilityPeriodEndDate")) {
 			boolean endDateStatus;
 
-			endDateStatus = MomentHelper.isAfter(object.getAvailabilityPeriodEndDate(),
-					object.getAvailabilityPeriodStartDate());
+			endDateStatus = MomentHelper.isAfter(object.getAvailabilityPeriodEndDate(), object.getAvailabilityPeriodStartDate());
 
 			super.state(endDateStatus, "availabilityPeriodEndDate", "administrator.offer.form.error.end-before-start");
 		}
@@ -143,11 +137,9 @@ public class AdministratorOfferUpdateService extends AbstractService<Administrat
 		if (!super.getBuffer().getErrors().hasErrors("availabilityPeriodEndDate")) {
 			boolean endDateStatus;
 
-			endDateStatus = MomentHelper.isLongEnough(object.getAvailabilityPeriodStartDate(),
-					object.getAvailabilityPeriodEndDate(), 1l, ChronoUnit.WEEKS);
+			endDateStatus = MomentHelper.isLongEnough(object.getAvailabilityPeriodStartDate(), object.getAvailabilityPeriodEndDate(), 1l, ChronoUnit.WEEKS);
 
-			super.state(endDateStatus, "availabilityPeriodEndDate",
-					"administrator.offer.form.error.at-least-one-week-long");
+			super.state(endDateStatus, "availabilityPeriodEndDate", "administrator.offer.form.error.at-least-one-week-long");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("availabilityPeriodEndDate")) {
@@ -161,8 +153,7 @@ public class AdministratorOfferUpdateService extends AbstractService<Administrat
 			endDateStatus = MomentHelper.isAfterOrEqual(object.getAvailabilityPeriodEndDate(), inferiorLimitDate);
 			endDateStatus &= MomentHelper.isBeforeOrEqual(object.getAvailabilityPeriodEndDate(), upperLimitDate);
 
-			super.state(endDateStatus, "availabilityPeriodEndDate",
-					"administrator.offer.form.error.date-out-of-bounds");
+			super.state(endDateStatus, "availabilityPeriodEndDate", "administrator.offer.form.error.date-out-of-bounds");
 		}
 
 	}
@@ -178,8 +169,16 @@ public class AdministratorOfferUpdateService extends AbstractService<Administrat
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "instantiationMoment", "heading", "summary", "availabilityPeriodStartDate",
-				"availabilityPeriodEndDate", "price", "link");
+		boolean updateOrDelete;
+		Offer offer;
+		Date moment;
+		moment = MomentHelper.getCurrentMoment();
+
+		offer = this.repository.findActiveOfferById(moment, object.getId());
+		updateOrDelete = offer != null ? false : true;
+
+		tuple = super.unbind(object, "instantiationMoment", "heading", "summary", "availabilityPeriodStartDate", "availabilityPeriodEndDate", "price", "link");
+		tuple.put("updateOrDelete", updateOrDelete);
 
 		super.getResponse().setData(tuple);
 	}
