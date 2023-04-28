@@ -19,6 +19,8 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.individual.companies.Practicum;
 import acme.entities.individual.companies.PracticumSession;
+import acme.entities.individual.lectures.Course;
+import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Company;
@@ -32,6 +34,7 @@ public class CompanyPracticumDeleteService extends AbstractService<Company, Prac
 	protected CompanyPracticumRepository repository;
 
 	// AbstractService interface ----------------------------------------------
+
 
 	@Override
 	public void check() {
@@ -101,6 +104,11 @@ public class CompanyPracticumDeleteService extends AbstractService<Company, Prac
 		Tuple tuple;
 		Collection<PracticumSession> practicumSessions;
 		Double estimatedTotalTime;
+		SelectChoices choices;
+		Collection<Course> courses;
+
+		courses = this.repository.findManyPublishedCourses();
+		choices = SelectChoices.from(courses, "code", object.getCourse());
 
 		practicumSessions = this.repository.findManyPracticumSessionsByPracticumId(object.getId());
 		estimatedTotalTime = 0.;
@@ -111,6 +119,8 @@ public class CompanyPracticumDeleteService extends AbstractService<Company, Prac
 		tuple = super.unbind(object, "code", "title", "abstract$", "goals", "draftMode");
 		tuple.put("courseCode", this.repository.findCourseCodeByPracticumId(object.getId()));
 		tuple.put("estimatedTotalTime", estimatedTotalTime);
+		tuple.put("course", choices.getSelected().getKey());
+		tuple.put("courses", choices);
 
 		super.getResponse().setData(tuple);
 	}

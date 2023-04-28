@@ -16,10 +16,10 @@
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 
 <acme:form>
-	<acme:input-moment code="authenticated.bulletin.label.instantiationMoment" path="instantiationMoment"/>
-	<acme:input-textbox code="authenticated.bulletin.label.title" path="title"/>
-	<acme:input-textarea code="authenticated.bulletin.label.message" path="message"/>
-	<acme:input-textbox code="authenticated.bulletin.label.critical" path="critical"/>
-	<acme:input-textbox code="authenticated.bulletin.label.link" path="link"/>
+	<acme:input-moment code="authenticated.bulletin.form.label.instantiationMoment" path="instantiationMoment"/>
+	<acme:input-textbox code="authenticated.bulletin.form.label.title" path="title"/>
+	<acme:input-textarea code="authenticated.bulletin.form.label.message" path="message"/>
+	<acme:input-textbox code="authenticated.bulletin.form.label.critical" path="critical"/>
+	<acme:input-textbox code="authenticated.bulletin.form.label.link" path="link"/>
 	
 </acme:form>

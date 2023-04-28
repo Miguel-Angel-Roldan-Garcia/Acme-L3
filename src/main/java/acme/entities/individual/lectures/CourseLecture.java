@@ -31,4 +31,5 @@ public class CourseLecture extends AbstractEntity {
     protected Lecture lecture;
 
     // TODO check same Lecturer for all lectures and Course
+
 }

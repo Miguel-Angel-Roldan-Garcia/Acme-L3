@@ -1,0 +1,31 @@
+# messages-en.i18n
+#
+# Copyright (C) 2012-2023 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+company.practicum-session.form.label.title = Title:
+company.practicum-session.form.label.abstract = Abstract:
+company.practicum-session.form.label.start-date = Start date: 
+company.practicum-session.form.label.end-date = End date: 
+company.practicum-session.form.label.link = More info: (Optional)
+
+company.practicum-session.form.button.create = Create		
+company.practicum-session.form.button.update = Update
+company.practicum-session.form.button.delete = Delete
+company.practicum-session.form.button.publish = Publish
+
+company.practicum-session.form.error.at-least-one-week-ahead = A session must start one week after the creation date (actual date)
+company.practicum-session.form.error.end-before-start = The end of the session must be after the start of the session
+company.practicum-session.form.error.duration = A session must last a maximum of 1 week
+company.practicum-session.form.error.date-out-of-bounds = Introduced dates must be between Jan 1 2000 at 00:00 and Dec 31 2100 at 23:59
+
+company.practicum-session.list.label.title = Title
+company.practicum-session.list.label.start-date = Start date 
+company.practicum-session.list.label.end-date = End date 
+
+company.practicum-session.list.button.create = Create

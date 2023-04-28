@@ -22,5 +22,5 @@
 </acme:list>
 
 <jstl:if test="${_command == 'list-mine'}">
-	<acme:button code="company.practicum.list.button.create" action="/company/practicum/create?courseId=G139"/>
+	<acme:button code="company.practicum.list.button.create" action="/company/practicum/create"/>
 </jstl:if>		
