@@ -10,13 +10,22 @@
 - they accept any liabilities with respect to them.
 --%>
 
-<%@page language="java"%>
+<%@page language="java"%>5
 
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 
 <acme:list>
-	<acme:list-column code="student.course.list.label.code" path="code" width="10%"/>
-	<acme:list-column code="student.course.list.label.title" path="title" width="10%"/>
-	<acme:list-column code="student.course.list.label.retail-price" path="retailPrice" width="80%"/>		
+	<acme:list-column code="any.peep.list.label.moment"
+		path="instantiationMoment" width="20%" />
+	<acme:list-column code="any.peep.list.label.nick"
+		path="nick" width="40%" />
+	<acme:list-column code="any.peep.list.label.title"
+		path="title" width="40%" />
 </acme:list>
+
+
+<acme:button
+	code="any.peep.list.button.create"
+	action="/any/peep/create" />
+

@@ -23,12 +23,15 @@ lecturer.course.form.label.abstract$ = Abstract
 lecturer.course.form.label.retail-price = Retail price
 lecturer.course.form.label.link = Link
 
-lecturer.form.button.publish = Publish Course
-lecturer.form.button.update = Update Course
-lecturer.form.button.delete = Delete Course
-lecturer.form.button.lectures-in-course = Lectures in this Course
+lecturer.course.form.button.publish = Publish Course
+lecturer.course.form.button.update = Update Course
+lecturer.course.form.button.delete = Delete Course
+lecturer.course.form.button.lectures-in-course = Lectures in this Course
+lecturer.course.form.button.change-lectures = Change lectures
+lecturer.course.form.button.add-lectures-to-course = Attach lectures
 
 
 
 lecturer.course.form.error.duplicated = This code is unavailable
 lecturer.course.form.error.not-draft-mode = This course can not be deleted since it is published
+lecturer.course.form.error.not-publishable = This course can not be published (no lectures or all of them theoretical)

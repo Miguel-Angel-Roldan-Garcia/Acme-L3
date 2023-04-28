@@ -63,6 +63,7 @@ master.menu.company.list-mine-practicum = Listar mis prácticas
 
 master.menu.any = Cualquiera
 master.menu.any.published-courses = Listar cursos publicados
+master.menu.any.published-peeps = Listar peeps publicados
 
 # master.menu.student ########################################################
 
@@ -100,4 +101,4 @@ master.menu.user-account.become-auditor = Hazte auditor
 master.menu.lecturer = Profesor
 master.menu.lecturer.my-courses = Listar mis cursos
 master.menu.lecturer.my-lectures = Listar mis clases
-
+master.menu.lecturer.show-dashboard = Listar tablero de profesor

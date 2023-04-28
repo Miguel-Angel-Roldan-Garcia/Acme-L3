@@ -58,4 +58,11 @@ public class Course extends AbstractEntity {
     @Valid
     @ManyToOne(optional = false)
     protected Lecturer lecturer;
+
+	@Override
+	public String toString() {
+		return "Course [code=" + code + "]";
+	}
+    
+    
 }
