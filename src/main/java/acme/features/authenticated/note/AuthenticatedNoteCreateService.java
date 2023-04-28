@@ -45,7 +45,9 @@ public class AuthenticatedNoteCreateService extends AbstractService<Authenticate
 	object.setInstantiationMoment(date);
 	principal = super.getRequest().getPrincipal();
 	userAccount = this.repository.findOneUserAccountById(principal.getAccountId());
-	final String author = "" + principal.getUsername() + " - " + userAccount.getIdentity().getFullName();
+	String author = "" + principal.getUsername() + " - " + userAccount.getIdentity().getFullName();
+	if (author.length() > 75)
+	    author = author.substring(0, 75);
 	object.setAuthor(author);
 	object.setEmail(userAccount.getIdentity().getEmail());
 	super.getBuffer().setData(object);
