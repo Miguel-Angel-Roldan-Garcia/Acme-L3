@@ -63,6 +63,7 @@ master.menu.company.list-mine-practicum = Listar mis prácticas
 
 master.menu.any = Cualquiera
 master.menu.any.published-courses = Listar cursos publicados
+master.menu.any.published-peeps = Listar peeps publicados
 
 # master.menu.student ########################################################
 

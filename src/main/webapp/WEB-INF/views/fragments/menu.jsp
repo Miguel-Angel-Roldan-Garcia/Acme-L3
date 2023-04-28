@@ -43,13 +43,11 @@
 			<acme:menu-suboption code="master.menu.administrator.shut-down" action="/administrator/shut-down"/>
 		</acme:menu-option>
 		
-		<acme:menu-option code="master.menu.any" access="isAnonymous()">
+		<acme:menu-option code="master.menu.any" access="true">
 			<acme:menu-suboption code="master.menu.any.published-courses" action="/any/course/list"/>
+			<acme:menu-suboption code="master.menu.any.published-peeps" action="/any/peep/list"/>
 		</acme:menu-option>
-		
-		<acme:menu-option code="master.menu.any" access="isAuthenticated()">
-			<acme:menu-suboption code="master.menu.any.published-courses" action="/any/course/list"/>	
-		</acme:menu-option>
+	
 		
 		<acme:menu-option code="master.menu.authenticated" access="isAuthenticated()">
 			<acme:menu-suboption code="master.menu.authenticated.student.offers.list" action="/authenticated/offer/list"/>

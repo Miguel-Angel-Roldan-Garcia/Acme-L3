@@ -61,6 +61,7 @@ master.menu.company.list-mine-practicum = List my practica
 
 master.menu.any = Any
 master.menu.any.published-courses = List published courses
+master.menu.any.published-peeps = List published peeps
 
 # master.menu.student ########################################################
 master.menu.student = Student
