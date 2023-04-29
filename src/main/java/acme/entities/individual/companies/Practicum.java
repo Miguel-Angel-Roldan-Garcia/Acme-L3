@@ -49,8 +49,6 @@ public class Practicum extends AbstractEntity {
 
 	// Derived attributes -----------------------------------------------------
 
-	/* TODO Derived attribute estimatedTotalTime D02-S4-5 */
-
 	// Relationships ----------------------------------------------------------
 
 	@NotNull
