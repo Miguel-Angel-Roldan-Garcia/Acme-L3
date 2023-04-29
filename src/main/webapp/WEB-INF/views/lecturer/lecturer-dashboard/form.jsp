@@ -10,94 +10,88 @@
 - they accept any liabilities with respect to them.
 --%>
 
-<%@page language="java" import="acme.datatypes.Nature"%>
+<%@page language="java"%>
 
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
-
+<h2>${x.maxValue}</h2>
 <h2>
-	<acme:message code="assistant.dashboard.form.title.general-indicators"/>
+	<acme:message code="lecturer.dashboard.form.title.courses-indicators"/>
 </h2>
-
 <table class="table table-sm">
 	<tr>
 		<th scope="row">
-			<acme:message code="assistant.dashboard.form.tittle.session-indicators"/>
-		</th>
-	</tr>
-	<tr>
-		<th scope="row">
-			<acme:message code="assistant.dashboard.form.label.average-time-sessions"/>
+			<acme:message code="lecturer.dashboard.form.label.average-elt-courses"/>
 		</th>
 		<td>
-			<acme:print value="${sessionTimeStatistics.getAverageValue()}"/>
+			<acme:print value="${learningTimeInCourses.averageValue}"/>
 		</td>
 	</tr>
 	<tr>
 		<th scope="row">
-			<acme:message code="assistant.dashboard.form.label.deviation-time-sessions"/>
+			<acme:message code="lecturer.dashboard.form.label.deviation-elt-courses"/>
 		</th>
 		<td>
-			<acme:print value="${sessionTimeStatistics.getDeviationValue()}"/>
+			<acme:print value="${learningTimeInCourses.deviationValue}"/>
 		</td>
 	</tr>
 	<tr>
 		<th scope="row">
-			<acme:message code="assistant.dashboard.form.label.min-time-sessions"/>
+			<acme:message code="lecturer.dashboard.form.label.min-elt-courses"/>
 		</th>
 		<td>
-			<acme:print value="${sessionTimeStatistics.getMinValue()}"/>
-		</td>
-	</tr>
-	<tr>
-		<th scope="row">
-			<acme:message code="assistant.dashboard.form.label.max-time-sessions"/>
-		</th>
-		<td>
-			<acme:print value="${sessionTimeStatistics.getMaxValue()}"/>
+			<acme:print value="${learningTimeInCourses.minValue}"/>
 		</td>
 	</tr>	
 	<tr>
 		<th scope="row">
-			<acme:message code="assistant.dashboard.form.tittle.course-indicators"/>
+			<acme:message code="lecturer.dashboard.form.label.max-elt-courses"/>
 		</th>
+		<td>
+			<acme:print value="${learningTimeInCourses.maxValue}"/>
+		</td>
+	</tr>	
+</table>
+<h2>
+	<acme:message code="lecturer.dashboard.form.title.lectures-indicators"/>
+</h2>
+<table class="table table-sm">
+	<tr>
+		<th scope="row">
+			<acme:message code="lecturer.dashboard.form.label.average-elt-lectures"/>
+		</th>
+		<td>
+			<acme:print value="${learningTimeInLectures.averageValue}"/>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<acme:message code="lecturer.dashboard.form.label.deviation-elt-lectures"/>
+		</th>
+		<td>
+			<acme:print value="${learningTimeInLectures.deviationValue}"/>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<acme:message code="lecturer.dashboard.form.label.min-elt-lectures"/>
+		</th>
+		<td>
+			<acme:print value="${learningTimeInLectures.minValue}"/>
+		</td>
 	</tr>	
 	<tr>
 		<th scope="row">
-			<acme:message code="assistant.dashboard.form.label.average-time-courses"/>
+			<acme:message code="lecturer.dashboard.form.label.max-elt-lectures"/>
 		</th>
 		<td>
-			<acme:print value="${courseTimeStatistics.getAverageValue()}"/>
+			<acme:print value="${learningTimeInLectures.maxValue}"/>
 		</td>
-	</tr>
-	<tr>
-		<th scope="row">
-			<acme:message code="assistant.dashboard.form.label.deviation-time-courses"/>
-		</th>
-		<td>
-			<acme:print value="${courseTimeStatistics.getDeviationValue()}"/>
-		</td>
-	</tr>
-	<tr>
-		<th scope="row">
-			<acme:message code="assistant.dashboard.form.label.min-time-courses"/>
-		</th>
-		<td>
-			<acme:print value="${courseTimeStatistics.getMinValue()}"/>
-		</td>
-	</tr>
-	<tr>
-		<th scope="row">
-			<acme:message code="assistant.dashboard.form.label.max-time-courses"/>
-		</th>
-		<td>
-			<acme:print value="${courseTimeStatistics.getMaxValue()}"/>
-		</td>
-	</tr>
+	</tr>	
 </table>
 
 <h2>
-	<acme:message code="assistant.dashboard.form.title.number-of-courses-by-nature"/>
+	<acme:message code="lecturer.dashboard.form.title.lectures-nature"/>
 </h2>
 
 <div>
@@ -108,14 +102,13 @@
 	$(document).ready(function() {
 		var data = {
 			labels : [
-					"THEORETICAL", "HANDS_ON", "BALANCED"
+					"THEORETICAL", "HANDS ON"
 			],
 			datasets : [
 				{
 					data : [
-						<jstl:out value="${courseCount[Nature.THEORETICAL]}"/>,
-						<jstl:out value="${courseCount[Nature.HANDS_ON]}"/>,
-						<jstl:out value="${courseCount[Nature.BALANCED]}"/>
+						<jstl:out value="${theoreticalLecturesCount}"/>, 
+						<jstl:out value="${handsonLecturesCount}"/>, 
 					]
 				}
 			]
@@ -126,7 +119,7 @@
 					{
 						ticks : {
 							suggestedMin : 0.0,
-							// suggestedMax : 1.0
+							suggestedMax : 1.0
 						}
 					}
 				]

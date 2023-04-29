@@ -26,3 +26,6 @@ lecturer.lecture.list.label.title = Título
 lecturer.lecture.list.label.nature = Naturaleza 
 lecturer.lecture.list.label.estimated-learning-time = Tiempo estimado de aprendizaje
 lecturer.lecture.list.button.create = Crear
+
+lecturer.lecture.form.error.nature-balanced= Las clases deben ser teóricas o practicas no balanceadas
+lecturer.lecture.form.error.not-draft-mode = Las clases publicadas no pueden ser editadas o borradas

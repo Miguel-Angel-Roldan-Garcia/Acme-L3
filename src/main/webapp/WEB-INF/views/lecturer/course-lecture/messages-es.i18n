@@ -23,3 +23,5 @@ lecturer.course-lecture.list.label.lecture-title = Clase asignada
 
 
 lecturer.course-lecture.list.button.create = Crear
+
+lecturer.course-lecture.form.error.not-same-lecturer = El curso y la clase deben tener el mismo profesor

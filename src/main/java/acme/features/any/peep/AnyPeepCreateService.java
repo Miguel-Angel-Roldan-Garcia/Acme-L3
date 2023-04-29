@@ -54,6 +54,9 @@ public class AnyPeepCreateService extends AbstractService<Any, Peep> {
 			nick= "";
 		}else {
 			nick= this.repository.findUserAccountFromUsename(super.getRequest().getPrincipal().getUsername()).getIdentity().getFullName();
+			if(nick.length()> 75) {
+				nick = nick.substring(0,75);
+			}
 		}
 		object = new Peep();
 		object.setTitle("");
