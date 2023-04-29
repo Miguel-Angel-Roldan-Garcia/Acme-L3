@@ -26,3 +26,6 @@ lecturer.lecture.list.label.title = Title
 lecturer.lecture.list.label.nature = Nature 
 lecturer.lecture.list.label.estimated-learning-time = Estimated learning time
 lecturer.lecture.list.button.create = Create
+
+lecturer.lecture.form.error.nature-balanced = Lectures must be theoretical or hands on not balanced
+lecturer.lecture.form.error.not-draft-mode = Published lectures can not be edited or deleted

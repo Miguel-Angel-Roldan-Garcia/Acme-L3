@@ -8,10 +8,18 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-administrator.dashboard.form.title.general-indicators = Indicadores generales
-administrator.dashboard.form.title.application-statuses = Estados de solicitud
+lecturer.dashboard.form.title.courses-indicators = Indicadores de curso
+lecturer.dashboard.form.title.lectures-indicators = Indicadores de clase
+lecturer.dashboard.form.title.lectures-nature = Clases por naturaleza
 
-administrator.dashboard.form.label.average-number-jobs-employer =  Número medio de trabajos por empleador
-administrator.dashboard.form.label.average-number-applications-worker =  Número medio de solicitudes por trabajador
-administrator.dashboard.form.label.average-number-applications-employer = Número medio de solicitudes por empleador
+lecturer.dashboard.form.label.average-elt-courses = Media del tiempo estimado de aprendizaje de un curso
+lecturer.dashboard.form.label.deviation-elt-courses = Desviación típica del tiempo estimado de aprendizaje de un curso
+lecturer.dashboard.form.label.min-elt-courses = Mínimo del tiempo estimado de aprendizaje de un curso
+lecturer.dashboard.form.label.max-elt-courses = Máximo del tiempo estimado de aprendizaje de un curso
+
+
+lecturer.dashboard.form.label.average-elt-lectures = Media del tiempo estimado de aprendizaje de una clase
+lecturer.dashboard.form.label.deviation-elt-lectures = Desviación típica del tiempo estimado de aprendizaje de una clase
+lecturer.dashboard.form.label.min-elt-lectures = Mínimo del tiempo estimado de aprendizaje de una clase
+lecturer.dashboard.form.label.max-elt-lectures = Máximo del tiempo estimado de aprendizaje de una clase
 

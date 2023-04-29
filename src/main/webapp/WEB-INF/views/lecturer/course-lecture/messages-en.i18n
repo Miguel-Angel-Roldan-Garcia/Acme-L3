@@ -24,3 +24,5 @@ lecturer.course-lecture.list.label.lecture-title = Attached lecture
 
 
 lecturer.course-lecture.list.button.create = Create
+
+lecturer.course-lecture.form.error.not-same-lecturer = Course and lecture must have the same lecturer
