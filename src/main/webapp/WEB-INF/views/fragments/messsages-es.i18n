@@ -31,3 +31,11 @@ master.panic.label.status = Estado:
 master.panic.label.exceptions = Excepciones:
 master.panic.text.consult-log = Por favor, consulte el log para ver más detalles.
 
+# money-exchange ##############################################################
+
+money-exchange.list.source = Fuente
+money-exchange.list.targetCurrency = Divisa del sistema
+money-exchange.list.target = Resultado
+money-exchange.list.date = Última fecha de actualización de tasas
+money-exchange.error.failed = Fallo en el cambio de divisa
+
