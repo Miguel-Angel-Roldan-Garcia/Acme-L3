@@ -32,6 +32,7 @@ public class CompanyPracticumListMineService extends AbstractService<Company, Pr
 
 	// AbstractService interface ----------------------------------------------
 
+
 	@Override
 	public void check() {
 		super.getResponse().setChecked(true);
@@ -48,7 +49,7 @@ public class CompanyPracticumListMineService extends AbstractService<Company, Pr
 		int companyId;
 
 		companyId = super.getRequest().getPrincipal().getActiveRoleId();
-		object = this.repository.findManyTutorialsByAssistantId(companyId);
+		object = this.repository.findManyPracticumByCompanyId(companyId);
 
 		super.getBuffer().setData(object);
 	}

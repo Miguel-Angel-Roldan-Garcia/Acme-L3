@@ -20,4 +20,7 @@ public interface AuthenticatedCompanyRepository extends AbstractRepository {
 	@Query("select company from Company company where company.vatNumber = :vatNumber")
 	Company findOneCompanyByVatNumber(String vatNumber);
 
+	@Query("select c from Company c where c.userAccount.username = :username")
+	Company findOneCompanyByUsername(String username);
+
 }

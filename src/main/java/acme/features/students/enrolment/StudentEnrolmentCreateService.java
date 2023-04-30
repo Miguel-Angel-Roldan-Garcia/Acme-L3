@@ -88,7 +88,7 @@ public class StudentEnrolmentCreateService extends AbstractService<Student, Enro
 	Tuple tuple;
 
 	courses = this.repository.findManyPublishedCourses();
-	choices = SelectChoices.from(courses, "title", object.getCourse());
+	choices = SelectChoices.from(courses, "code", object.getCourse());
 
 	tuple = super.unbind(object, "code", "motivation", "goals", "draftMode", "lowerNibble", "holderName");
 	tuple.put("course", choices.getSelected().getKey());

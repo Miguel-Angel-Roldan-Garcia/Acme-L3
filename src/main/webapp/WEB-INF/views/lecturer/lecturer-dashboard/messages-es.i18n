@@ -1,0 +1,25 @@
+# messages-es.i18n
+#
+# Copyright (C) 2012-2023 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+lecturer.dashboard.form.title.courses-indicators = Indicadores de curso
+lecturer.dashboard.form.title.lectures-indicators = Indicadores de clase
+lecturer.dashboard.form.title.lectures-nature = Clases por naturaleza
+
+lecturer.dashboard.form.label.average-elt-courses = Media del tiempo estimado de aprendizaje de un curso
+lecturer.dashboard.form.label.deviation-elt-courses = Desviación típica del tiempo estimado de aprendizaje de un curso
+lecturer.dashboard.form.label.min-elt-courses = Mínimo del tiempo estimado de aprendizaje de un curso
+lecturer.dashboard.form.label.max-elt-courses = Máximo del tiempo estimado de aprendizaje de un curso
+
+
+lecturer.dashboard.form.label.average-elt-lectures = Media del tiempo estimado de aprendizaje de una clase
+lecturer.dashboard.form.label.deviation-elt-lectures = Desviación típica del tiempo estimado de aprendizaje de una clase
+lecturer.dashboard.form.label.min-elt-lectures = Mínimo del tiempo estimado de aprendizaje de una clase
+lecturer.dashboard.form.label.max-elt-lectures = Máximo del tiempo estimado de aprendizaje de una clase
+

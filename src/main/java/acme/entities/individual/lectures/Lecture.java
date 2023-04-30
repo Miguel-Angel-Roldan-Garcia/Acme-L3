@@ -3,6 +3,7 @@ package acme.entities.individual.lectures;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.validation.Valid;
+import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -37,6 +38,7 @@ public class Lecture extends AbstractEntity {
 
     @NotNull
     @Min(1)
+    @Max(1000000)
     // hours with decimal values: 1.5 means 1h30min
     protected Double estimatedLearningTime;
 
@@ -46,6 +48,9 @@ public class Lecture extends AbstractEntity {
 
     @NotNull
     protected Nature nature;
+    
+
+    protected boolean draftMode;
 
     @URL
     protected String link;

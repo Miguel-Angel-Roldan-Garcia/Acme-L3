@@ -25,6 +25,7 @@ company.practicum.form.button.publish = Publish
 
 company.practicum.form.error.duplicated = This code is taken
 company.practicum.form.error.not-draft-mode = This practicum is already published, can't be edited or deleted
+company.practicum.form.error.no-sessions = This practicum can't be published yet because it doesn't have any sessions
 
 # company.practicum.list #################################################################
 

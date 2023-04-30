@@ -25,5 +25,8 @@ student.activity.form.button.update = Update
 student.activity.form.button.delete = Delete
 student.activity.form.button.create = Create
 
+student.activity.form.error.not-valid-initial-date = Initial date must be between 2000/01/01 00:01 and 2100/12/31 23:59
+student.activity.form.error.not-valid-finish-date = Finish date must be between 2000/01/01 00:01 and 2100/12/31 23:59
+student.activity.form.error.not-valid-dates = Initial date must be before than finish date, and finish date must be after than initial date
 
 

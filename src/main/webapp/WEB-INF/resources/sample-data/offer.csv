@@ -24,17 +24,22 @@ offer-22,Cabecera de la oferta,resumen de la oferta,2019/12/24 23:59,2019/12/25 
 offer-23,Cabecera de la oferta,resumen de la oferta,2019/12/24 23:59,2019/12/25 23:59,2020/01/01 23:59,1000.24 EUR,https://www.amazon.es
 offer-24,Cabecera de la oferta,resumen de la oferta,2020/05/20 12:00,2020/05/31 12:00,2020/06/25 12:00,1000.24 EUR,https://www.amazon.es
 offer-25,Cabecera de la oferta,resumen de la oferta,2021/01/20 12:00,2021/01/29 12:00,2021/02/25 12:00,1000.24 EUR,https://www.amazon.es
-offer-26,Cabecera de la oferta,resumen de la oferta,2021/08/08 15:00,2021/08/10 15:00,2021/08/20 17:00,0.01 EUR,https://www.amazon.es
-offer-27,Cabecera de la oferta,resumen de la oferta,2021/08/08 15:00,2021/08/10 15:00,2021/08/20 17:00,0.02 EUR,https://www.amazon.es
-offer-28,Cabecera de la oferta,resumen de la oferta,2021/08/08 15:00,2021/08/10 15:00,2021/08/20 17:00,9999999999.35 EUR,https://www.amazon.es
-offer-29,Cabecera de la oferta,resumen de la oferta,2021/08/08 15:00,2021/08/10 15:00,2021/08/20 17:00,99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999 EUR,https://www.amazon.es
-offer-30,Cabecera de la oferta,resumen de la oferta,2021/08/08 15:00,2021/08/10 15:00,2021/08/20 17:00,20 GBP,https://www.amazon.es
-offer-31,Cabecera de la oferta,resumen de la oferta,2021/08/08 15:00,2021/08/10 15:00,2021/08/20 17:00,20 USD,https://www.amazon.es
-offer-32,Cabecera de la oferta,resumen de la oferta,2021/08/08 15:00,2021/08/10 15:00,2021/08/20 17:00,1000.24 EUR,http://Acme-L3.es/practicum-sessions
-offer-33,Cabecera de la oferta,resumen de la oferta,2021/08/08 15:00,2021/08/10 15:00,2021/08/20 17:00,1000.24 EUR,https://example.com/path?query#fragment
-offer-34,Cabecera de la oferta,resumen de la oferta,2021/08/08 15:00,2021/08/10 15:00,2021/08/20 17:00,1000.24 EUR,https://xn--e1afmkfd.xn--80akhbyknj4f
-offer-35,Cabecera de la oferta,resumen de la oferta,2021/08/08 15:00,2021/08/10 15:00,2021/08/20 17:00,1000.24 EUR,https://https://www.example.com/~user
-offer-36,Cabecera de la oferta,resumen de la oferta,2021/08/08 15:00,2021/08/10 15:00,2021/08/20 17:00,1000.24 EUR,ftp://ftp.example.com/pub/file.tar.gz
-offer-37,Cabecera de la oferta,resumen de la oferta,2021/08/08 15:00,2021/08/10 15:00,2021/08/20 17:00,1000.24 EUR,https://example.com/path with spaces
-offer-38,Cabecera de la oferta,resumen de la oferta,2021/08/08 15:00,2021/08/10 15:00,2021/08/20 17:00,1000.24 EUR,https://Acme-L3.es/practicum-sessions?sample-query=1
-offer-39,Cabecera de la oferta,resumen de la oferta,2021/08/08 15:00,2021/08/10 15:00,2021/08/20 17:00,1000.24 EUR,null
+offer-26,Cabecera de la oferta,resumen de la oferta,2000/01/01 00:00,2000/01/02 00:00,2000/01/09 00:00,1000.24 EUR,https://www.amazon.es
+offer-27,Cabecera de la oferta,resumen de la oferta,2000/01/01 00:01,2000/01/02 00:01,2000/01/09 00:01,1000.24 EUR,https://www.amazon.es
+offer-28,Cabecera de la oferta,resumen de la oferta,2020/12/23 23:58,2100/12/24 23:58,2100/12/31 23:58,1000.24 EUR,https://www.amazon.es
+offer-29,Cabecera de la oferta,resumen de la oferta,2020/12/23 23:59,2100/12/24 23:59,2100/12/31 23:59,1000.24 EUR,https://www.amazon.es
+offer-30,Cabecera de la oferta,resumen de la oferta,2021/08/08 15:00,2021/08/10 15:00,2021/08/20 17:00,0.01 EUR,https://www.amazon.es
+offer-31,Cabecera de la oferta,resumen de la oferta,2021/08/08 15:00,2021/08/10 15:00,2021/08/20 17:00,0.02 EUR,https://www.amazon.es
+offer-32,Cabecera de la oferta,resumen de la oferta,2021/08/08 15:00,2021/08/10 15:00,2021/08/20 17:00,999999.98 EUR,https://www.amazon.es
+offer-33,Cabecera de la oferta,resumen de la oferta,2021/08/08 15:00,2021/08/10 15:00,2021/08/20 17:00,999999.99 EUR,https://www.amazon.es
+offer-34,Cabecera de la oferta,resumen de la oferta,2021/08/08 15:00,2021/08/10 15:00,2021/08/20 17:00,20 GBP,https://www.amazon.es
+offer-35,Cabecera de la oferta,resumen de la oferta,2021/08/08 15:00,2021/08/10 15:00,2021/08/20 17:00,20 USD,https://www.amazon.es
+offer-36,Cabecera de la oferta,resumen de la oferta,2021/08/08 15:00,2021/08/10 15:00,2021/08/20 17:00,1000.24 EUR,http://Acme-L3.es/practicum-sessions
+offer-37,Cabecera de la oferta,resumen de la oferta,2021/08/08 15:00,2021/08/10 15:00,2021/08/20 17:00,1000.24 EUR,https://example.com/path?query#fragment
+offer-38,Cabecera de la oferta,resumen de la oferta,2021/08/08 15:00,2021/08/10 15:00,2021/08/20 17:00,1000.24 EUR,https://xn--e1afmkfd.xn--80akhbyknj4f
+offer-39,Cabecera de la oferta,resumen de la oferta,2021/08/08 15:00,2021/08/10 15:00,2021/08/20 17:00,1000.24 EUR,https://https://www.example.com/~user
+offer-40,Cabecera de la oferta,resumen de la oferta,2021/08/08 15:00,2021/08/10 15:00,2021/08/20 17:00,1000.24 EUR,ftp://ftp.example.com/pub/file.tar.gz
+offer-41,Cabecera de la oferta,resumen de la oferta,2021/08/08 15:00,2021/08/10 15:00,2021/08/20 17:00,1000.24 EUR,https://example.com/path with spaces
+offer-42,Cabecera de la oferta,resumen de la oferta,2021/08/08 15:00,2021/08/10 15:00,2021/08/20 17:00,1000.24 EUR,https://Acme-L3.es/practicum-sessions?sample-query=1
+offer-43,Cabecera no editable,resumen de la oferta,2022/07/08 15:00,2022/07/28 15:00,2022/08/10 15:00,1000.24 EUR,null
+offer-44,Cabecera no editable,resumen de la oferta,2022/07/14 13:00,2022/07/23 13:00,2022/08/17 13:00,5000 EUR,https://www.amazon.es
