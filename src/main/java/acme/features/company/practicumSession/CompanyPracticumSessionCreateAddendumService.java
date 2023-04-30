@@ -26,7 +26,7 @@ import acme.framework.services.AbstractService;
 import acme.roles.Company;
 
 @Service
-public class CompanyPracticumSessionCreateService extends AbstractService<Company, PracticumSession> {
+public class CompanyPracticumSessionCreateAddendumService extends AbstractService<Company, PracticumSession> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -49,11 +49,13 @@ public class CompanyPracticumSessionCreateService extends AbstractService<Compan
 	public void authorise() {
 		boolean status;
 		int masterId;
+		PracticumSession addendumSession;
 		Practicum practicum;
 
 		masterId = super.getRequest().getData("masterId", int.class);
+		addendumSession = this.repository.findOneAddendumSessionByPracticumId(masterId);
 		practicum = this.repository.findOnePracticumById(masterId);
-		status = practicum != null && practicum.isDraftMode() && super.getRequest().getPrincipal().hasRole(practicum.getCompany());
+		status = addendumSession == null && practicum != null && !practicum.isDraftMode() && super.getRequest().getPrincipal().hasRole(practicum.getCompany());
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -73,8 +75,7 @@ public class CompanyPracticumSessionCreateService extends AbstractService<Compan
 		object.setStartDate(MomentHelper.getCurrentMoment());
 		object.setEndDate(MomentHelper.getCurrentMoment());
 		object.setLink("");
-		object.setAddendum(false);
-
+		object.setAddendum(true);
 		object.setPracticum(practicum);
 
 		super.getBuffer().setData(object);
@@ -90,6 +91,11 @@ public class CompanyPracticumSessionCreateService extends AbstractService<Compan
 	@Override
 	public void validate(final PracticumSession object) {
 		assert object != null;
+
+		boolean isAccepted;
+
+		isAccepted = this.getRequest().getData("accept", boolean.class);
+		super.state(isAccepted, "accept", "company.addendum-session.form.error.must-accept");
 
 		if (!super.getBuffer().getErrors().hasErrors("startDate")) {
 			boolean startDateError;
@@ -161,7 +167,7 @@ public class CompanyPracticumSessionCreateService extends AbstractService<Compan
 
 		tuple = super.unbind(object, "title", "abstract$", "startDate", "endDate", "link");
 		tuple.put("masterId", masterId);
-		tuple.put("confirmation", "false");
+		tuple.put("confirmation", "true");
 
 		super.getResponse().setData(tuple);
 	}

@@ -95,6 +95,7 @@ public class CompanyPracticumSessionDeleteService extends AbstractService<Compan
 		tuple = super.unbind(object, "title", "abstract$", "startDate", "endDate", "link");
 		tuple.put("masterId", object.getPracticum().getId());
 		tuple.put("draftMode", object.isDraftMode());
+		tuple.put("confirmation", "false");
 
 		super.getResponse().setData(tuple);
 	}

@@ -85,7 +85,7 @@ public class CompanyPracticumSessionUpdateService extends AbstractService<Compan
 		if (!super.getBuffer().getErrors().hasErrors("startDate")) {
 			boolean startDateError;
 
-			startDateError = MomentHelper.isAfter(object.getStartDate(), MomentHelper.deltaFromCurrentMoment(1l, ChronoUnit.WEEKS));
+			startDateError = MomentHelper.isAfter(object.getStartDate(), MomentHelper.deltaFromCurrentMoment((long) 1000 * 60 * 60 * 24 * 7 - 1, ChronoUnit.MILLIS));
 
 			super.state(startDateError, "startDate", "company.practicum-session.form.error.at-least-one-week-ahead");
 		}
@@ -115,7 +115,7 @@ public class CompanyPracticumSessionUpdateService extends AbstractService<Compan
 		if (!super.getBuffer().getErrors().hasErrors("endDate")) {
 			boolean endDateErrorDuration;
 
-			endDateErrorDuration = !MomentHelper.isLongEnough(object.getStartDate(), object.getEndDate(), 1l, ChronoUnit.WEEKS);
+			endDateErrorDuration = !MomentHelper.isLongEnough(object.getStartDate(), object.getEndDate(), (long) 1000 * 60 * 60 * 24 * 7 + 1, ChronoUnit.MILLIS);
 
 			super.state(endDateErrorDuration, "endDate", "company.practicum-session.form.error.duration");
 		}
@@ -151,6 +151,7 @@ public class CompanyPracticumSessionUpdateService extends AbstractService<Compan
 		tuple = super.unbind(object, "title", "abstract$", "startDate", "endDate", "link");
 		tuple.put("masterId", object.getPracticum().getId());
 		tuple.put("draftMode", object.isDraftMode());
+		tuple.put("confirmation", "false");
 
 		super.getResponse().setData(tuple);
 	}

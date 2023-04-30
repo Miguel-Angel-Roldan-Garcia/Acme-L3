@@ -17,8 +17,10 @@
 
 <acme:list>
 	<acme:list-column code="company.practicum-session.list.label.title" path="title" width="60%"/>	
-	<acme:list-column code="company.practicum-session.list.label.start-date" path="startDate" width="20%"/>
-	<acme:list-column code="company.practicum-session.list.label.end-date" path="endDate" width="20%"/>
+	<acme:list-column code="company.practicum-session.list.label.start-date" path="startDate" width="15%"/>
+	<acme:list-column code="company.practicum-session.list.label.end-date" path="endDate" width="15%"/>
+	<acme:list-column code="company.practicum-session.list.label.addendum" path="addendumState" width="10%"/>
 </acme:list>
 
+<acme:button test="${showAddendumCreate}" code="company.addendum-session.list.button.create" action="/company/practicum-session/create-addendum?masterId=${masterId}"/>
 <acme:button test="${showCreate}" code="company.practicum-session.list.button.create" action="/company/practicum-session/create?masterId=${masterId}"/>
