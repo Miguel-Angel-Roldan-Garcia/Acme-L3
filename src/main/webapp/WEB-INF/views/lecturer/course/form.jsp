@@ -15,7 +15,7 @@
 
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
-			<jstl:if test="${!publishable && draftMode}">
+			<jstl:if test="${!publishable && draftMode && _command != 'create'}">
 			<b style="color:#f95"><acme:message code="lecturer.course.form.error.not-publishable"/></b>
 			</jstl:if>
 <acme:form readonly="${!draftMode}"> 

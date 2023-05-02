@@ -8,10 +8,17 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-administrator.dashboard.form.title.general-indicators = General indicators
-administrator.dashboard.form.title.application-statuses = Application statuses  
+lecturer.dashboard.form.title.courses-indicators = Courses indicators
+lecturer.dashboard.form.title.lectures-indicators = Lectures indicators 
+lecturer.dashboard.form.title.lectures-nature = Lectures by nature
 
-administrator.dashboard.form.label.average-number-jobs-employer =  Average number of jobs per employer
-administrator.dashboard.form.label.average-number-applications-worker =  Average number of applications per worker
-administrator.dashboard.form.label.average-number-applications-employer = Average number of applications per employer
+lecturer.dashboard.form.label.average-elt-courses = Average estimated learning time for courses
+lecturer.dashboard.form.label.deviation-elt-courses = Deviation estimated learning time for courses
+lecturer.dashboard.form.label.min-elt-courses = Minimum estimated learning time for courses
+lecturer.dashboard.form.label.max-elt-courses = Maximum estimated learning time for courses
 
+
+lecturer.dashboard.form.label.average-elt-lectures = Average estimated learning time for lectures
+lecturer.dashboard.form.label.deviation-elt-lectures = Deviation estimated learning time for lectures
+lecturer.dashboard.form.label.min-elt-lectures = Minimum estimated learning time for lectures
+lecturer.dashboard.form.label.max-elt-lectures = Maximum estimated learning time for lectures

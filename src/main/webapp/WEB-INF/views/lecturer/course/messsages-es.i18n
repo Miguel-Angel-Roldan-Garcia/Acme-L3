@@ -23,6 +23,7 @@ lecturer.course.form.label.abstract$ = Resumen
 lecturer.course.form.label.retail-price = Precio
 lecturer.course.form.label.link = Enlace
 
+lecturer.course.form.button.create = Crear Curso
 lecturer.course.form.button.publish = Publicar Curso
 lecturer.course.form.button.update = Actualizar Curso
 lecturer.course.form.button.delete = Borrar Curso
@@ -33,4 +34,5 @@ lecturer.course.form.button.add-lectures-to-course = Añadir clases
 
 lecturer.course.form.error.duplicated = Este código no está disponible
 lecturer.course.form.error.not-draft-mode = Este curso no se puede borrar ya que está publicado
-lecturer.course.form.error.not-publishable = Este curso no puede ser publicado (sin clases o todas teóricas)
+lecturer.course.form.error.not-publishable = Este curso no puede ser publicado (sin clases practicas o alguna clase sin publicar)
+lecturer.course.form.error.money-bounds = Valor fuera del rango permitido
