@@ -85,7 +85,7 @@ public class CompanyPracticumSessionCreateAddendumService extends AbstractServic
 	public void bind(final PracticumSession object) {
 		assert object != null;
 
-		super.bind(object, "title", "abstract$", "startDate", "endDate", "link");
+		super.bind(object, "title", "abstract$", "startDate", "endDate", "link", "isAddendum");
 	}
 
 	@Override
@@ -165,7 +165,7 @@ public class CompanyPracticumSessionCreateAddendumService extends AbstractServic
 
 		masterId = super.getRequest().getData("masterId", int.class);
 
-		tuple = super.unbind(object, "title", "abstract$", "startDate", "endDate", "link");
+		tuple = super.unbind(object, "title", "abstract$", "startDate", "endDate", "link", "isAddendum");
 		tuple.put("masterId", masterId);
 		tuple.put("confirmation", "true");
 

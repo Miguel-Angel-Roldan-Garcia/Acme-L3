@@ -20,6 +20,7 @@
 	<acme:input-textarea code="company.practicum-session.form.label.abstract" path="abstract$"/>
 	<acme:input-moment code="company.practicum-session.form.label.start-date" path="startDate"/>
 	<acme:input-moment code="company.practicum-session.form.label.end-date" path="endDate"/>
+	<acme:input-checkbox code="company.addendum-session.form.label.isAddendum" path="isAddendum" readonly="true"/>
 	<acme:input-url code="company.practicum-session.form.label.link" path="link"/>
 	
 	<jstl:if test="${confirmation}">

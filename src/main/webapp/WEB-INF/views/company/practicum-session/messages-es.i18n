@@ -12,6 +12,7 @@ company.practicum-session.form.label.title = Título:
 company.practicum-session.form.label.abstract = Resumen:
 company.practicum-session.form.label.start-date = Fecha de inicio: 
 company.practicum-session.form.label.end-date = Fecha final: 
+company.addendum-session.form.label.isAddendum = ¿Es esta sesión de prácticas una sesión extra? (Inmodificable)
 company.practicum-session.form.label.moreInfo = Más información: (Opcional)
 
 company.practicum-session.form.button.create = Crear	

@@ -11,7 +11,8 @@
 company.practicum-session.form.label.title = Title:
 company.practicum-session.form.label.abstract = Abstract:
 company.practicum-session.form.label.start-date = Start date: 
-company.practicum-session.form.label.end-date = End date: 
+company.practicum-session.form.label.end-date = End date:
+company.addendum-session.form.label.isAddendum = ¿Is this practicum session an addendum session? (unchangeable)
 company.practicum-session.form.label.link = More info: (Optional)
 
 company.practicum-session.form.button.create = Create		
