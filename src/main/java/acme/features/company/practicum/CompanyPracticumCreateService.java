@@ -22,6 +22,7 @@ import acme.entities.individual.companies.PracticumSession;
 import acme.entities.individual.lectures.Course;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
+import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
 import acme.roles.Company;
 
@@ -60,6 +61,7 @@ public class CompanyPracticumCreateService extends AbstractService<Company, Prac
 		object.setCode("");
 		object.setDraftMode(true);
 		object.setCompany(company);
+		object.setCreationDate(MomentHelper.getCurrentMoment());
 
 		super.getBuffer().setData(object);
 	}
@@ -115,9 +117,13 @@ public class CompanyPracticumCreateService extends AbstractService<Company, Prac
 
 		for (final PracticumSession ps : practicumSessions)
 			estimatedTotalTime += ps.getDurationInHours();
+		
+		Double tenPercentEstimatedTotalTime = Math.round(estimatedTotalTime* 0.1 * 100.0) / 100.0;
+		
+		String estimatedTotalTimePercent = (Math.round(estimatedTotalTime * 100.0) / 100.0) + " (+/- "+ tenPercentEstimatedTotalTime + ")";
 
 		tuple = super.unbind(object, "code", "title", "abstract$", "goals", "draftMode");
-		tuple.put("estimatedTotalTime", estimatedTotalTime);
+		tuple.put("estimatedTotalTime", estimatedTotalTimePercent);
 		tuple.put("course", choices.getSelected().getKey());
 		tuple.put("courses", choices);
 

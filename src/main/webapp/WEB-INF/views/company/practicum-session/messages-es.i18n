@@ -12,6 +12,7 @@ company.practicum-session.form.label.title = Título:
 company.practicum-session.form.label.abstract = Resumen:
 company.practicum-session.form.label.start-date = Fecha de inicio: 
 company.practicum-session.form.label.end-date = Fecha final: 
+company.addendum-session.form.label.isAddendum = ¿Es esta sesión de prácticas una sesión extra? (Inmodificable)
 company.practicum-session.form.label.moreInfo = Más información: (Opcional)
 
 company.practicum-session.form.button.create = Crear	
@@ -24,8 +25,14 @@ company.practicum-session.form.error.end-before-start = El final de la sesión d
 company.practicum-session.form.error.duration = Una sesión debe durar como máximo 1 semana
 company.practicum-session.form.error.date-out-of-bounds = Las fechas introducidas deben estar entre el 1 Enero 2000 a las 00:00 y el 31 Diciembre 2100 a las 23:59
 
+company.addendum-session.form.label.accept = Acepto la creación excepcional del la sesión extra
+
+company.addendum-session.form.error.must-accept = Debes aceptar la creación excepcional de la sesión extra
+
 company.practicum-session.list.label.title = Título
 company.practicum-session.list.label.start-date = Fecha de inicio 
-company.practicum-session.list.label.end-date = Fecha de finalización 
+company.practicum-session.list.label.end-date = Fecha de finalización
+company.practicum-session.list.label.addendum = Addendum  
 
 company.practicum-session.list.button.create = Crear
+company.addendum-session.list.button.create = Crear sesión extra

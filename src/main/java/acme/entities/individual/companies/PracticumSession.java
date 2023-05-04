@@ -50,6 +50,8 @@ public class PracticumSession extends AbstractEntity {
 	@URL
 	protected String			link;
 
+	protected boolean			isAddendum;
+
 	// Derived attributes -----------------------------------------------------
 
 

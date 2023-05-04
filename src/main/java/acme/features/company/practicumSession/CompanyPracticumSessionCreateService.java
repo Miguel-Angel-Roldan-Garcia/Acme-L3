@@ -73,6 +73,8 @@ public class CompanyPracticumSessionCreateService extends AbstractService<Compan
 		object.setStartDate(MomentHelper.getCurrentMoment());
 		object.setEndDate(MomentHelper.getCurrentMoment());
 		object.setLink("");
+		object.setAddendum(false);
+
 		object.setPracticum(practicum);
 
 		super.getBuffer().setData(object);
@@ -82,7 +84,7 @@ public class CompanyPracticumSessionCreateService extends AbstractService<Compan
 	public void bind(final PracticumSession object) {
 		assert object != null;
 
-		super.bind(object, "title", "abstract$", "startDate", "endDate", "link");
+		super.bind(object, "title", "abstract$", "startDate", "endDate", "link", "isAddendum");
 	}
 
 	@Override
@@ -92,7 +94,7 @@ public class CompanyPracticumSessionCreateService extends AbstractService<Compan
 		if (!super.getBuffer().getErrors().hasErrors("startDate")) {
 			boolean startDateError;
 
-			startDateError = MomentHelper.isAfter(object.getStartDate(), MomentHelper.deltaFromCurrentMoment(1l, ChronoUnit.WEEKS));
+			startDateError = MomentHelper.isAfter(object.getStartDate(), MomentHelper.deltaFromCurrentMoment((long) 1000 * 60 * 60 * 24 * 7 - 1, ChronoUnit.MILLIS));
 
 			super.state(startDateError, "startDate", "company.practicum-session.form.error.at-least-one-week-ahead");
 		}
@@ -122,7 +124,7 @@ public class CompanyPracticumSessionCreateService extends AbstractService<Compan
 		if (!super.getBuffer().getErrors().hasErrors("endDate")) {
 			boolean endDateErrorDuration;
 
-			endDateErrorDuration = !MomentHelper.isLongEnough(object.getStartDate(), object.getEndDate(), 1l, ChronoUnit.WEEKS);
+			endDateErrorDuration = !MomentHelper.isLongEnough(object.getStartDate(), object.getEndDate(), (long) 1000 * 60 * 60 * 24 * 7 + 1, ChronoUnit.MILLIS);
 
 			super.state(endDateErrorDuration, "endDate", "company.practicum-session.form.error.duration");
 		}
@@ -157,8 +159,9 @@ public class CompanyPracticumSessionCreateService extends AbstractService<Compan
 
 		masterId = super.getRequest().getData("masterId", int.class);
 
-		tuple = super.unbind(object, "title", "abstract$", "startDate", "endDate", "link");
+		tuple = super.unbind(object, "title", "abstract$", "startDate", "endDate", "link", "isAddendum");
 		tuple.put("masterId", masterId);
+		tuple.put("confirmation", "false");
 
 		super.getResponse().setData(tuple);
 	}

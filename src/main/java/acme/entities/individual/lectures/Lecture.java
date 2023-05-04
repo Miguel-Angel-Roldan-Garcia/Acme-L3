@@ -37,8 +37,8 @@ public class Lecture extends AbstractEntity {
     protected String abstract$; // abstract can not be used
 
     @NotNull
-    @Min(1)
-    @Max(1000000)
+    //@Min(1)
+    //@Max(1000000)
     // hours with decimal values: 1.5 means 1h30min
     protected Double estimatedLearningTime;
 
