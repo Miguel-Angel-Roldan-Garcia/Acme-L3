@@ -14,7 +14,7 @@ company.practicum.form.label.code = Code
 company.practicum.form.label.title = Title
 company.practicum.form.label.abstract = Abstract
 company.practicum.form.label.goals = Goals
-company.practicum.form.label.estimated-total-time = Estimated total time
+company.practicum.form.label.estimated-total-time = Estimated total time (in hours)
 company.practicum.form.label.course-code = Course code
 
 company.practicum.form.button.practicum-sessions = Practicum sessions

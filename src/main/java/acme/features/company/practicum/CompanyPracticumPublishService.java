@@ -120,10 +120,14 @@ public class CompanyPracticumPublishService extends AbstractService<Company, Pra
 
 		for (final PracticumSession ps : practicumSessions)
 			estimatedTotalTime += ps.getDurationInHours();
+		
+		Double tenPercentEstimatedTotalTime = Math.round(estimatedTotalTime* 0.1 * 100.0) / 100.0;
+		
+		String estimatedTotalTimePercent = (Math.round(estimatedTotalTime * 100.0) / 100.0) + " (+/- "+ tenPercentEstimatedTotalTime + ")";
 
 		tuple = super.unbind(object, "code", "title", "abstract$", "goals", "draftMode");
 		tuple.put("courseCode", this.repository.findCourseCodeByPracticumId(object.getId()));
-		tuple.put("estimatedTotalTime", estimatedTotalTime);
+		tuple.put("estimatedTotalTime", estimatedTotalTimePercent);
 		tuple.put("course", choices.getSelected().getKey());
 		tuple.put("courses", choices);
 

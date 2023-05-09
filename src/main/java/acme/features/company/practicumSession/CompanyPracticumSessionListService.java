@@ -72,8 +72,15 @@ public class CompanyPracticumSessionListService extends AbstractService<Company,
 		assert object != null;
 
 		Tuple tuple;
+		String addendumState;
+
+		if (object.isAddendum())
+			addendumState = "x";
+		else
+			addendumState = "";
 
 		tuple = super.unbind(object, "title", "abstract$", "startDate", "endDate", "link");
+		tuple.put("addendumState", addendumState);
 
 		super.getResponse().setData(tuple);
 	}
@@ -84,14 +91,21 @@ public class CompanyPracticumSessionListService extends AbstractService<Company,
 
 		int masterId;
 		Practicum practicum;
-		final boolean showCreate;
+		boolean existingAddendum;
+		boolean showCreate;
+		boolean showAddendumCreate;
 
 		masterId = super.getRequest().getData("masterId", int.class);
 		practicum = this.repository.findOnePracticumById(masterId);
 		showCreate = practicum.isDraftMode() && super.getRequest().getPrincipal().hasRole(practicum.getCompany());
 
+		existingAddendum = this.repository.findOneAddendumSessionByPracticumId(masterId) != null ? false : true;
+		showAddendumCreate = !practicum.isDraftMode() && super.getRequest().getPrincipal().hasRole(practicum.getCompany()) && existingAddendum;
+
 		super.getResponse().setGlobal("masterId", masterId);
 		super.getResponse().setGlobal("showCreate", showCreate);
+		super.getResponse().setGlobal("showAddendumCreate", showAddendumCreate);
+
 	}
 
 }
