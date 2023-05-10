@@ -1,0 +1,33 @@
+# messages-es.i18n
+#
+# Copyright (C) 2012-2023 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+company.dashboard.form.title.practicum-session = Sesiones de práctica
+company.dashboard.form.title.practicum-by-month-in-last-year = Prácticas por mes en el último año
+company.dashboard.form.title.practicum = Prácticas
+
+company.dashboard.form.label.practicum-session.count = Número de sesiones de práctica
+company.dashboard.form.label.practicum-session.average = Media de la duración de las sesiones
+company.dashboard.form.label.practicum-session.deviation = Desviación de la duración de las sesiones
+company.dashboard.form.label.practicum-session.min = Mínima duración de las sesiones
+company.dashboard.form.label.practicum-session.max = Máxima duración de las sesiones
+
+company.dashboard.form.label.practicum.count = Número de prácticas
+company.dashboard.form.label.practicum.average = Media de la duración de las prácticas
+company.dashboard.form.label.practicum.deviation = Desviación de la duración de las prácticas
+company.dashboard.form.label.practicum.min = Mínima duración de las prácticas
+company.dashboard.form.label.practicum.max = Máxima duración de las prácticas
+
+
+
+
+
+
+
+

@@ -1,35 +1,35 @@
-key,key:company,key:course,code,title,abstract$,goals,draftMode,creationDate
-practicum-01,company-01,course-39,AB112,Una práctica para aprender sobre programación,abstracto,Aprende a programar,true,2022/06/09 15:55
-practicum-02,company-01,course-39,AAZ999,Una práctica para aprender sobre programación,abstracto,Aprende a programar,true,2022/04/09 15:55
-practicum-03,company-02,course-39,AZ019,Una práctica para aprender sobre programación,abstracto,Aprende a programar,true,2022/03/09 15:55
-practicum-04,company-01,course-39,Z876,Una práctica para aprender sobre programación,abstracto,Aprende a programar,true,2022/02/09 19:00
-practicum-05,company-01,course-39,ACA998,.,abstracto,Aprende a programar,true,2022/06/09 16:55
-practicum-06,company-01,course-39,ACD998,HO,abstracto,Aprende a programar,true,2022/05/19 16:00
-practicum-07,company-02,course-39,ABC998,74 caracteres: Una práctica genial para aprender de programación muy buena,abstracto,Aprende a programar,true,2022/05/19 16:00
-practicum-08,company-02,course-39,ABA998,75 caracteres: Una práctica genial para aprender de programación muy buena!,abstracto,Aprende a programar,true,2022/05/19 16:00
-practicum-09,company-01,course-39,AEF918,<h1>Hello</h1>,abstracto,Aprende a programar,true,2022/05/19 16:00
-practicum-10,company-01,course-39,AEA998,"<script>alert(""hi"")</script>",abstracto,Aprende a programar,true,2022/01/09 15:55
-practicum-11,company-02,course-39,AFA998,@#?¿><&¬!|¡'`+*-_{}[]^ªº\/=()%$·,abstracto,Aprende a programar,true,2022/01/09 15:55
-practicum-12,company-02,course-39,ADA998,你好,abstracto,Aprende a programar,true,2021/12/09 15:55
-practicum-13,company-02,course-39,ADA918,Всем привет,abstracto,Aprende a programar,true,2021/11/09 15:55
-practicum-14,company-02,course-39,AHA998,Una práctica para aprender sobre programación,.,Aprende a programar,true,2021/10/09 15:55
-practicum-15,company-02,course-39,AHA918,Una práctica para aprender sobre programación,LO,Aprende a programar,true,2021/12/09 15:55
-practicum-16,company-01,course-39,AGA998,Una práctica para aprender sobre programación,99 caracteres: Una práctica genial para aprender de programación muy buena!!!!!!!!!!!!!!!!!!!!!!!!!,Aprende a programar,true,2021/12/09 15:55
-practicum-17,company-01,course-3,AGA908,Una práctica para aprender sobre programación,100 caracteres: Una práctica genial para aprender de programación muy buena!!!!!!!!!!!!!!!!!!!!!!!!!,Aprende a programar,true,2021/12/09 15:55
-practicum-18,company-01,course-3,AKA998,Una práctica para aprender sobre programación,<h1>Hello</h1>,Aprende a programar,true,2021/07/09 15:55
-practicum-19,company-02,course-3,AJA998,Una práctica para aprender sobre programación,"<script>alert(""hi"")</script>",Aprende a programar,true,2021/07/09 15:55
-practicum-20,company-01,course-3,AKA198,Una práctica para aprender sobre programación,@#?¿><&¬!|¡'`+*-_{}[]^ªº\/=()%$·,Aprende a programar,true,2021/07/09 15:55
-practicum-21,company-01,course-3,AIA298,Una práctica para aprender sobre programación,你好,Aprende a programar,true,2021/07/09 15:55
-practicum-22,company-01,course-3,AIA398,Una práctica para aprender sobre programación,Всем привет,Aprende a programar,true,2021/07/09 15:55
-practicum-23,company-01,course-3,AMA498,Una práctica para aprender sobre programación,abstracto,.,true,2021/08/09 15:55
-practicum-24,company-01,course-3,AMA598,Una práctica para aprender sobre programación,abstracto,pa,true,2021/08/09 15:55
-practicum-25,company-02,course-3,ALA698,Una práctica para aprender sobre programación,abstracto,99 caracteres: Una práctica genial para aprender de programación muy buena!!!!!!!!!!!!!!!!!!!!!!!!!,true,2021/08/09 15:55
-practicum-26,company-02,course-3,ALA798,Una práctica para aprender sobre programación,abstracto,100 caracteres: Una práctica genial para aprender de programación muy buena!!!!!!!!!!!!!!!!!!!!!!!!!,true,2021/08/09 15:55
-practicum-27,company-01,course-3,AOA898,Una práctica para aprender sobre programación,abstracto,<h1>Hello</h1>,true,2021/08/09 15:55
-practicum-28,company-01,course-3,AOA998,Una práctica para aprender sobre programación,abstracto,"<script>alert(""hi"")</script>",true,2022/02/09 19:00
-practicum-29,company-02,course-3,APG998,Una práctica para aprender sobre programación,abstracto,@#?¿><&¬!|¡'`+*-_{}[]^ªº\/=()%$·,true,2022/02/09 19:00
-practicum-30,company-02,course-3,ANH998,Una práctica para aprender sobre programación,abstracto,你好,true,2022/02/09 19:00
-practicum-31,company-02,course-3,ANE998,Una práctica para aprender sobre programación,abstracto,Всем привет,true,2022/02/09 19:00
-practicum-32,company-02,course-3,ANW998,Una práctica para aprender sobre programación,abstracto,Всем привет,false,2022/06/09 15:55
-practicum-33,company-01,course-3,ANW938,Una práctica para aprender sobre programación,abstracto,Всем привет,TRUE,2022/06/09 15:55
-practicum-34,company-01,course-3,ANW918,Una práctica para aprender sobre programación,abstracto,Всем привет,FALSE,2022/06/09 15:55
+key,key:company,key:course,code,title,abstract$,goals,draftMode
+practicum-01,company-01,course-39,AB112,Una práctica para aprender sobre programación,abstracto,Aprende a programar,true
+practicum-02,company-01,course-39,AAZ999,Una práctica para aprender sobre programación,abstracto,Aprende a programar,true
+practicum-03,company-02,course-39,AZ019,Una práctica para aprender sobre programación,abstracto,Aprende a programar,true
+practicum-04,company-01,course-39,Z876,Una práctica para aprender sobre programación,abstracto,Aprende a programar,true
+practicum-05,company-01,course-39,ACA998,.,abstracto,Aprende a programar,true
+practicum-06,company-01,course-39,ACD998,HO,abstracto,Aprende a programar,true
+practicum-07,company-02,course-39,ABC998,74 caracteres: Una práctica genial para aprender de programación muy buena,abstracto,Aprende a programar,true
+practicum-08,company-02,course-39,ABA998,75 caracteres: Una práctica genial para aprender de programación muy buena!,abstracto,Aprende a programar,true
+practicum-09,company-01,course-39,AEF918,<h1>Hello</h1>,abstracto,Aprende a programar,true
+practicum-10,company-01,course-39,AEA998,"<script>alert(""hi"")</script>",abstracto,Aprende a programar,true
+practicum-11,company-02,course-39,AFA998,@#?¿><&¬!|¡'`+*-_{}[]^ªº\/=()%$·,abstracto,Aprende a programar,true
+practicum-12,company-02,course-39,ABC123,你好,abstracto,Aprende a programar,true
+practicum-13,company-02,course-39,ADA918,Всем привет,abstracto,Aprende a programar,true
+practicum-14,company-02,course-39,AHA998,Una práctica para aprender sobre programación,.,Aprende a programar,true
+practicum-15,company-02,course-39,AHA918,Una práctica para aprender sobre programación,LO,Aprende a programar,true
+practicum-16,company-01,course-39,AGA998,Una práctica para aprender sobre programación,99 caracteres: Una práctica genial para aprender de programación muy buena!!!!!!!!!!!!!!!!!!!!!!!!!,Aprende a programar,true
+practicum-17,company-01,course-3,AGA908,Una práctica para aprender sobre programación,100 caracteres: Una práctica genial para aprender de programación muy buena!!!!!!!!!!!!!!!!!!!!!!!!!,Aprende a programar,true
+practicum-18,company-01,course-3,AKA998,Una práctica para aprender sobre programación,<h1>Hello</h1>,Aprende a programar,true
+practicum-19,company-02,course-3,AJA998,Una práctica para aprender sobre programación,"<script>alert(""hi"")</script>",Aprende a programar,true
+practicum-20,company-01,course-3,AKA198,Una práctica para aprender sobre programación,@#?¿><&¬!|¡'`+*-_{}[]^ªº\/=()%$·,Aprende a programar,true
+practicum-21,company-01,course-3,AIA298,Una práctica para aprender sobre programación,你好,Aprende a programar,true
+practicum-22,company-01,course-3,AIA398,Una práctica para aprender sobre programación,Всем привет,Aprende a programar,true
+practicum-23,company-01,course-3,AMA498,Una práctica para aprender sobre programación,abstracto,.,true
+practicum-24,company-01,course-3,AMA598,Una práctica para aprender sobre programación,abstracto,pa,true
+practicum-25,company-02,course-3,ALA698,Una práctica para aprender sobre programación,abstracto,99 caracteres: Una práctica genial para aprender de programación muy buena!!!!!!!!!!!!!!!!!!!!!!!!!,true
+practicum-26,company-02,course-3,ALA798,Una práctica para aprender sobre programación,abstracto,100 caracteres: Una práctica genial para aprender de programación muy buena!!!!!!!!!!!!!!!!!!!!!!!!!,true
+practicum-27,company-01,course-3,AOA898,Una práctica para aprender sobre programación,abstracto,<h1>Hello</h1>,true
+practicum-28,company-01,course-3,AOA998,Una práctica para aprender sobre programación,abstracto,"<script>alert(""hi"")</script>",true
+practicum-29,company-01,course-3,APG998,Una práctica para aprender sobre programación,abstracto,@#?¿><&¬!|¡'`+*-_{}[]^ªº\/=()%$·,true
+practicum-30,company-01,course-3,ANH998,Una práctica para aprender sobre programación,abstracto,你好,true
+practicum-31,company-01,course-3,ANE998,Una práctica para aprender sobre programación,abstracto,Всем привет,true
+practicum-32,company-01,course-3,ANW998,Una práctica para aprender sobre programación,abstracto,Всем привет,false
+practicum-33,company-01,course-3,ANW938,Una práctica para aprender sobre programación,abstracto,Всем привет,TRUE
+practicum-34,company-01,course-3,ANW918,Una práctica para aprender sobre programación,abstracto,Всем привет,FALSE

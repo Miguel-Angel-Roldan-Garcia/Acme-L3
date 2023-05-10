@@ -51,10 +51,6 @@ public class Practicum extends AbstractEntity {
 	protected String goals;
 
 	protected boolean draftMode;
-	
-	@Temporal(TemporalType.TIMESTAMP)
-	@PastOrPresent
-	protected Date creationDate;
 
 	// Derived attributes -----------------------------------------------------
 
