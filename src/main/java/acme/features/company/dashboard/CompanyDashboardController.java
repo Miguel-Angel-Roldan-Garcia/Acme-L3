@@ -22,7 +22,7 @@ public class CompanyDashboardController extends AbstractController<Company, Comp
 
 	@PostConstruct
 	protected void initialise() {
-		//super.addBasicCommand("show", this.showService);
+		super.addBasicCommand("show", this.showService);
 	}
 
 }
