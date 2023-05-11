@@ -13,18 +13,24 @@ auditor.auditing-record.form.label.assessment = Assessment
 auditor.auditing-record.form.label.startDate = Start Date
 auditor.auditing-record.form.label.finishDate = Finish Date
 auditor.auditing-record.form.label.mark = Mark
-student.activity.form.label.link = Link
+auditor.auditing-record.form.label.link = Link
 
 auditor.auditing-record.form.button.update = Update
 auditor.auditing-record.form.button.delete = Delete
 auditor.auditing-record.form.button.create = Create
 auditor.auditing-record.form.button.publish = Publish
+auditor.auditing-record.form.button.correct = Create Correction
 
 auditor.auditing-record.form.error.duration = The record must be longer than one hour
 auditor.auditing-record.form.error.end-before-start = The record cannot end before it starts
+auditor.auditing-record.correction.confirmation = You must confirm the creation of the Correction Record
 
 auditor.auditing-record.list.label.subject = Subject
 auditor.auditing-record.list.label.assessment = Assessment
 auditor.auditing-record.list.label.mark = Mark
 
+auditor.auditingrecord.message.correction = Correction Record
+auditor.auditingrecord.message.correction.disclaimer = DISCLAIMER: This record will be published automatically the way it is
+
 auditor.auditing-record.list.button.create = Create
+
