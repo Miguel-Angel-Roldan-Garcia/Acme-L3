@@ -15,8 +15,10 @@ package acme.features.auditor.auditingRecord;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.datatypes.Mark;
 import acme.entities.individual.auditors.Audit;
 import acme.entities.individual.auditors.AuditingRecord;
+import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Auditor;
@@ -69,7 +71,11 @@ public class AuditorAuditingRecordDeleteService extends AbstractService<Auditor,
 	public void bind(final AuditingRecord object) {
 		assert object != null;
 
-		super.bind(object, "subject", "assessment", "startDate", "finishDate", "link", "mark");
+		final String mark = super.getRequest().getData("mark", String.class);
+		super.bind(object, "subject", "assessment", "startDate", "finishDate", "link");
+		object.setMark(Mark.transform(mark));
+		object.setDraftMode(true);
+		object.setCorrection(false);
 	}
 
 	@Override
@@ -89,8 +95,12 @@ public class AuditorAuditingRecordDeleteService extends AbstractService<Auditor,
 		assert object != null;
 
 		Tuple tuple;
+		SelectChoices marks;
+		marks = SelectChoices.from(Mark.class, object.getMark());
 
 		tuple = super.unbind(object, "subject", "assessment", "startDate", "finishDate", "link", "mark");
+		tuple.put("mark", marks.getSelected().getKey());
+		tuple.put("marks", marks);
 		tuple.put("masterId", object.getAudit().getId());
 
 		super.getResponse().setData(tuple);
