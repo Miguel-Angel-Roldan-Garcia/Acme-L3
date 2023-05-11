@@ -56,6 +56,7 @@ master.menu.assistant.show-dashboard = Show assistant dashboard
 
 master.menu.company = Company
 master.menu.company.list-mine-practicum = List my practica
+master.menu.company.show-dashboard = Show company dashboard
 
 # master.menu.any #########################################################
 

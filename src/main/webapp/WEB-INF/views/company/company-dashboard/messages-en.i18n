@@ -1,0 +1,28 @@
+# messages-en.i18n
+#
+# Copyright (C) 2012-2023 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+company.dashboard.form.title.practicum-session = Practicum sessions
+company.dashboard.form.title.practicum-by-month-in-last-year = Practica by month in last year
+company.dashboard.form.title.practicum = Practica
+
+company.dashboard.form.label.practicum-session.count = Practicum sessions number
+company.dashboard.form.label.practicum-session.average = Average of the sessions duration
+company.dashboard.form.label.practicum-session.deviation = Deviation of the sessions duration
+company.dashboard.form.label.practicum-session.min = Minimum of the sessions duration
+company.dashboard.form.label.practicum-session.max = Maximum of the sessions duration
+
+company.dashboard.form.label.practicum.count = Practica number
+company.dashboard.form.label.practicum.average = Average of the practica duration
+company.dashboard.form.label.practicum.deviation = Deviation of the practica duration
+company.dashboard.form.label.practicum.min = Minimum of the practica duration
+company.dashboard.form.label.practicum.max = Maximum of the practica duration
+
+
+
