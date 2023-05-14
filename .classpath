@@ -58,9 +58,9 @@
 			<attribute name="m2e-apt" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry combineaccessrules="false" kind="src" path="/Acme-Framework-23.4.0">
+	<classpathentry combineaccessrules="false" kind="src" path="/Acme-Framework-23.4.1">
 		<attributes>
-			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="output" path="target/classes"/>
