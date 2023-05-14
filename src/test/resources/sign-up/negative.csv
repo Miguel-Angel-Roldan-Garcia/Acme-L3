@@ -1,0 +1,13 @@
+username,password,name,surname,email,confirmation,accept
+,,,,,,false
+,contraseña,Lorem ipsum,Lorem ipsum, ejemplo@gmail.com,contraseña,true
+aaaa,contraseña,Lorem ipsum,Lorem ipsum, ejemplo@gmail.com,contraseña,true
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,contraseña,Lorem ipsum,Lorem ipsum, ejemplo@gmail.com,contraseña,true
+Lorem ipsum,,Lorem ipsum,Lorem ipsum, ejemplo@gmail.com,contraseña,true
+Lorem ipsum,aaaa,Lorem ipsum,Lorem ipsum, ejemplo@gmail.com,contraseña,true
+Lorem ipsum,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,Lorem ipsum,Lorem ipsum, ejemplo@gmail.com,contraseña,true
+Lorem ipsum,contraseña,,Lorem ipsum, ejemplo@gmail.com,contraseña,true
+Lorem ipsum,contraseña,Lorem ipsum,, ejemplo@gmail.com,contraseña,true
+Lorem ipsum,contraseña,Lorem ipsum,Lorem ipsum,not-a-email,contraseña,true
+Lorem ipsum,contraseña,Lorem ipsum,Lorem ipsum,ejemplo@gmail.com,Lorem ipsum,true
+Lorem ipsum,contraseña,Lorem ipsum,Lorem ipsum,ejemplo@gmail.com,contraseña,false

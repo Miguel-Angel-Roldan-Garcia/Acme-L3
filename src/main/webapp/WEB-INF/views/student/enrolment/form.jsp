@@ -25,6 +25,7 @@
 		<acme:input-textbox code="student.enrolment.form.label.expiry-date" path="expiryDate"/>
 		<acme:input-textbox code="student.enrolment.form.label.cvc" path="cvc"/>
 		<acme:input-textbox code="student.enrolment.form.label.finish-holder-name" path="holderName"/>
+		<acme:input-checkbox code="student.enrolment.form.label.confirm" path="confirmed"/>
 	</jstl:if>
 	<jstl:if test="${_command != 'create' && draftMode == false }">
 		<acme:input-textbox code="student.enrolment.form.label.holder-name" path="holderName"/>
