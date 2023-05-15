@@ -36,16 +36,31 @@ public class StudentEnrolmentListMineTest extends TestHarness {
     @Test
     public void test300Hacking() {
 	super.checkLinkExists("Sign in");
-	super.request("/employer/job/list-mine");
+	super.request("/student/enrolment/list-mine");
 	super.checkPanicExists();
 
 	super.signIn("administrator", "administrator");
-	super.request("/employer/job/list-mine");
+	super.request("/student/enrolment/list-mine");
 	super.checkPanicExists();
 	super.signOut();
 
-	super.signIn("worker1", "worker1");
-	super.request("/employer/job/list-mine");
+	super.signIn("lecturer1", "lecturer1");
+	super.request("/student/enrolment/list-mine");
+	super.checkPanicExists();
+	super.signOut();
+
+	super.signIn("company1", "company1");
+	super.request("/student/enrolment/list-mine");
+	super.checkPanicExists();
+	super.signOut();
+
+	super.signIn("assistant1", "assistant1");
+	super.request("/student/enrolment/list-mine");
+	super.checkPanicExists();
+	super.signOut();
+
+	super.signIn("auditor1", "auditor1");
+	super.request("/student/enrolment/list-mine");
 	super.checkPanicExists();
 	super.signOut();
     }
