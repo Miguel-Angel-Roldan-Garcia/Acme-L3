@@ -23,14 +23,14 @@ auditor.auditing-record.form.button.correct = Create Correction
 
 auditor.auditing-record.form.error.duration = The record must be longer than one hour
 auditor.auditing-record.form.error.end-before-start = The record cannot end before it starts
-auditor.auditing-record.correction.confirmation = You must confirm the creation of the Correction Record
+auditor.auditing-record.correction.not-confirmed = You must confirm the creation of the Correction Record
 
 auditor.auditing-record.list.label.subject = Subject
 auditor.auditing-record.list.label.assessment = Assessment
 auditor.auditing-record.list.label.mark = Mark
+auditor.auditing-record.list.label.correction = Is Correction
 
-auditor.auditingrecord.message.correction = Correction Record
-auditor.auditingrecord.message.correction.disclaimer = DISCLAIMER: This record will be published automatically the way it is
-
-auditor.auditing-record.list.button.create = Create
+auditor.auditing-record.list.button.create = Create Record
+auditor.auditing-record.list.button.correction = Create Correction
+auditor.auditing-record.label.confirm = Confirm Correction
 

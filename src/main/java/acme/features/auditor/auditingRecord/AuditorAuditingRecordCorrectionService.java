@@ -1,8 +1,6 @@
 
 package acme.features.auditor.auditingRecord;
 
-import java.time.temporal.ChronoUnit;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,25 +25,38 @@ public class AuditorAuditingRecordCorrectionService extends AbstractService<Audi
 
 	@Override
 	public void check() {
-		final boolean status = super.getRequest().hasData("auditId", int.class);
+		final boolean status = super.getRequest().hasData("masterId", int.class);
 		super.getResponse().setChecked(status);
 	}
 
 	@Override
 	public void authorise() {
-
 		boolean status;
-		final Audit audit = this.repository.findOneAuditById(super.getRequest().getData("auditId", int.class));
+		int masterId;
+		Audit audit;
+
+		masterId = super.getRequest().getData("masterId", int.class);
+		audit = this.repository.findOneAuditById(masterId);
 		status = super.getRequest().getPrincipal().hasRole(audit.getAuditor()) && !audit.isDraftMode();
 
 		super.getResponse().setAuthorised(status);
+
 	}
 
 	@Override
 	public void load() {
 		AuditingRecord object;
+		int masterId;
+		Audit Audit;
+
+		masterId = super.getRequest().getData("masterId", int.class);
+		Audit = this.repository.findOneAuditById(masterId);
 
 		object = new AuditingRecord();
+		object.setStartDate(MomentHelper.getCurrentMoment());
+		object.setFinishDate(MomentHelper.getCurrentMoment());
+		object.setAudit(Audit);
+
 		super.getBuffer().setData(object);
 	}
 
@@ -53,7 +64,7 @@ public class AuditorAuditingRecordCorrectionService extends AbstractService<Audi
 	public void bind(final AuditingRecord object) {
 		assert object != null;
 
-		final int auditId = super.getRequest().getData("auditId", int.class);
+		final int auditId = super.getRequest().getData("masterId", int.class);
 		final Audit audit = this.repository.findOneAuditById(auditId);
 		final String mark = super.getRequest().getData("mark", String.class);
 		super.bind(object, "subject", "assessment", "link", "startDate", "finishDate");
@@ -67,16 +78,8 @@ public class AuditorAuditingRecordCorrectionService extends AbstractService<Audi
 	public void validate(final AuditingRecord object) {
 		assert object != null;
 
-		if (!super.getBuffer().getErrors().hasErrors("finishDate")) {
-			boolean endDateErrorDuration;
-
-			endDateErrorDuration = MomentHelper.isLongEnough(object.getStartDate(), object.getFinishDate(), 1l, ChronoUnit.HOURS);
-
-			if (endDateErrorDuration)
-				endDateErrorDuration = !MomentHelper.isLongEnough(object.getStartDate(), object.getFinishDate(), (long) 3600 + 1, ChronoUnit.SECONDS);
-
-			super.state(endDateErrorDuration, "finishDate", "auditor.auditing-record.form.error.duration");
-		}
+		final Boolean confirm = super.getRequest().getData("confirm", boolean.class);
+		super.state(confirm, "*", "auditor.auditing-record.correction.not-confirmed");
 
 		if (!super.getBuffer().getErrors().hasErrors("finishDate")) {
 			boolean endDateError;
@@ -85,6 +88,9 @@ public class AuditorAuditingRecordCorrectionService extends AbstractService<Audi
 
 			super.state(endDateError, "finishDate", "auditor.auditing-record.form.error.end-before-start");
 		}
+
+		if (!super.getBuffer().getErrors().hasErrors("finishDate"))
+			super.state(!(object.getDurationInHours() <= 1), "finishDate", "auditor.auditing-record.form.error.duration");
 	}
 
 	@Override
@@ -102,7 +108,7 @@ public class AuditorAuditingRecordCorrectionService extends AbstractService<Audi
 
 		tuple = super.unbind(object, "subject", "assessment", "link", "mark", "startDate", "finishDate");
 		tuple.put("marks", marks);
-		tuple.put("auditId", super.getRequest().getData("auditId", int.class));
+		tuple.put("masterId", super.getRequest().getData("masterId", int.class));
 
 		super.getResponse().setData(tuple);
 	}
