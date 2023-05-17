@@ -1,7 +1,7 @@
 /*
  * AssistantTutorialUpdateTest.java
  *
- * Copyright (C) 2012-2023 Rafael Corchuelo.
+ * Copyright (C) 2022-2023 Miguel Ángel Roldán.
  *
  * In keeping with the traditional purpose of furthering education and research, it is
  * the policy of the copyright owner to permit non-commercial use and redistribution of
@@ -33,7 +33,6 @@ public class AssistantTutorialUpdateTest extends TestHarness {
 
 
 	@ParameterizedTest
-
 	@CsvFileSource(resources = "/assistant/tutorial/update-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test100Positive(final int recordIndex, final String code, final String title, final String abstract$, final String goals, final String course) {
 		// HINT: this test logs in as an assistant, lists his or her tutorials,
@@ -74,8 +73,7 @@ public class AssistantTutorialUpdateTest extends TestHarness {
 	}
 
 	@ParameterizedTest
-
-	@CsvFileSource(resources = "/assistant/tutorial/update-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@CsvFileSource(resources = "/assistant/tutorial/update-negative00.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test200Negative(final int recordIndex, final String code, final String title, final String abstract$, final String goals, final String course) {
 		// HINT: this test attempts to update a tutorial with wrong data.
 
@@ -96,6 +94,27 @@ public class AssistantTutorialUpdateTest extends TestHarness {
 		super.clickOnSubmit("Update");
 
 		super.checkErrorsExist();
+
+		super.signOut();
+	}
+
+	@ParameterizedTest
+	@CsvFileSource(resources = "/assistant/tutorial/update-negative01.csv", encoding = "utf-8", numLinesToSkip = 1)
+	public void test201Negative(final int recordIndex, final String code, final String title) {
+		// HINT: this test attempts to update a tutorial that has been published.
+
+		super.signIn("assistant1", "assistant1");
+
+		super.clickOnMenu("Assistant", "List my tutorials");
+		super.checkListingExists();
+		super.sortListing(0, "asc");
+
+		super.checkColumnHasValue(recordIndex, 0, code);
+		super.checkColumnHasValue(recordIndex, 1, title);
+		super.clickOnListingRecord(recordIndex);
+		super.checkFormExists();
+
+		super.checkNotButtonExists("Update");
 
 		super.signOut();
 	}
@@ -131,6 +150,25 @@ public class AssistantTutorialUpdateTest extends TestHarness {
 			super.checkPanicExists();
 			super.signOut();
 		}
+	}
+
+	@Test
+	public void test301Hacking() {
+		// HINT: this test attempts to update a tutorial that has been published.
+
+		Collection<Tutorial> tutorials;
+		String param;
+
+		tutorials = this.repository.findManyTutorialsByAssistantUsername("assistant1");
+		for (final Tutorial tutorial : tutorials)
+			if (!tutorial.isDraftMode()) {
+				param = String.format("id=%d", tutorial.getId());
+
+				super.signIn("assistant1", "assistant1");
+				super.request("/assistant/tutorial/update", param);
+				super.checkPanicExists();
+				super.signOut();
+			}
 	}
 
 }
