@@ -22,6 +22,6 @@
 </acme:list>
 
 <acme:check-access test="hasRole('Assistant')">
-	<acme:button code="any.course.form.button.tutorials-create" action="/assistant/tutorial/create"/>
+	<acme:button code="assistant.tutorial.list.button.create" action="/assistant/tutorial/create"/>
 </acme:check-access>
 
