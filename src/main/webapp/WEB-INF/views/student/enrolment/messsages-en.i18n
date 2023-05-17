@@ -21,6 +21,7 @@ student.enrolment.form.label.goals = Goals
 student.enrolment.form.label.credit-card-number = Credit Card Number (Only to finish)
 student.enrolment.form.label.expiry-date = Expiry Date (Only to finish)
 student.enrolment.form.label.cvc = CVC (Only to finish)
+student.enrolment.form.label.confirm = Do you want to finalise? Click in the checkbox if you want it
 student.enrolment.form.label.lower-nibble = Lower Nibble
 student.enrolment.form.label.finish-holder-name = Holder Name (Only to finish)
 student.enrolment.form.label.holder-name = Holder Name
@@ -34,9 +35,8 @@ student.enrolment.form.button.activities = Their activities
 student.enrolment.form.error.duplicated = You cant use a duplicated code
 student.enrolment.form.error.not-published = You cant use a not published course
 student.enrolment.form.error.past-expiry-date = You cant use a past or present date
-student.enrolment.form.error.not-valid-date-format = The pattern of the expiry date must be ^\d{2}/\d{2}$
-student.enrolment.form.error.not-valid-cvc-pattern = The pattern of the cvc must be ^[0-9]{3}$
+student.enrolment.form.error.not-valid-date-format = The pattern of the expiry date must be MM/yy
 student.enrolment.form.error.not-valid-holderName = The holder name cant be empty or higher than 25 characters
-student.enrolment.form.error.not-valid-creditCard = The pattern of the credit card number must be ^[0-9]{16}$
-student.enrolment.form.error.not-valid-creditCard-checksum = Checksum of card must be valid
+student.enrolment.form.error.not-valid-credit-number-size = You must introduce a valid credit card number with 14 digits
+
 

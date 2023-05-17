@@ -1,14 +1,3 @@
-/*
- * EmployerAuditingRecordCreateService.java
- *
- * Copyright (C) 2012-2023 Rafael Corchuelo.
- *
- * In keeping with the traditional purpose of furthering education and research, it is
- * the policy of the copyright owner to permit non-commercial use and redistribution of
- * this software. It has been tested carefully, but it is not guaranteed for any particular
- * purposes. The copyright owner does not offer any warranties or representations, nor do
- * they accept any liabilities with respect to them.
- */
 
 package acme.features.auditor.auditingRecord;
 
@@ -18,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.datatypes.Mark;
-import acme.entities.individual.auditors.Audit;
 import acme.entities.individual.auditors.AuditingRecord;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
@@ -27,8 +15,7 @@ import acme.framework.services.AbstractService;
 import acme.roles.Auditor;
 
 @Service
-public class AuditorAuditingRecordCreateService extends AbstractService<Auditor, AuditingRecord> {
-
+public class AuditorAuditingRecordPublishService extends AbstractService<Auditor, AuditingRecord> {
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
@@ -39,22 +26,16 @@ public class AuditorAuditingRecordCreateService extends AbstractService<Auditor,
 
 	@Override
 	public void check() {
-		boolean status;
-
-		status = super.getRequest().hasData("masterId", int.class);
-
+		final boolean status = super.getRequest().hasData("id", int.class);
 		super.getResponse().setChecked(status);
 	}
 
 	@Override
 	public void authorise() {
-		boolean status;
-		int masterId;
-		Audit audit;
 
-		masterId = super.getRequest().getData("masterId", int.class);
-		audit = this.repository.findOneAuditById(masterId);
-		status = super.getRequest().getPrincipal().hasRole(audit.getAuditor()) && audit.isDraftMode();
+		boolean status;
+		final AuditingRecord ar = this.repository.findOneAuditingRecordById(super.getRequest().getData("id", int.class));
+		status = super.getRequest().getPrincipal().hasRole(ar.getAudit().getAuditor()) && ar.isDraftMode();
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -62,17 +43,8 @@ public class AuditorAuditingRecordCreateService extends AbstractService<Auditor,
 	@Override
 	public void load() {
 		AuditingRecord object;
-		int masterId;
-		Audit Audit;
 
-		masterId = super.getRequest().getData("masterId", int.class);
-		Audit = this.repository.findOneAuditById(masterId);
-
-		object = new AuditingRecord();
-		object.setStartDate(MomentHelper.getCurrentMoment());
-		object.setFinishDate(MomentHelper.getCurrentMoment());
-		object.setAudit(Audit);
-
+		object = this.repository.findOneAuditingRecordById(super.getRequest().getData("id", int.class));
 		super.getBuffer().setData(object);
 	}
 
@@ -81,10 +53,8 @@ public class AuditorAuditingRecordCreateService extends AbstractService<Auditor,
 		assert object != null;
 
 		final String mark = super.getRequest().getData("mark", String.class);
-		super.bind(object, "subject", "assessment", "startDate", "finishDate", "link");
+		super.bind(object, "subject", "assessment", "link", "startDate", "finishDate", "draftMode");
 		object.setMark(Mark.transform(mark));
-		object.setDraftMode(true);
-		object.setCorrection(false);
 	}
 
 	@Override
@@ -96,7 +66,7 @@ public class AuditorAuditingRecordCreateService extends AbstractService<Auditor,
 
 			endDateErrorDuration = MomentHelper.isLongEnough(object.getStartDate(), object.getFinishDate(), 1l, ChronoUnit.HOURS);
 
-			if (!endDateErrorDuration)
+			if (endDateErrorDuration)
 				endDateErrorDuration = !MomentHelper.isLongEnough(object.getStartDate(), object.getFinishDate(), (long) 3600 + 1, ChronoUnit.SECONDS);
 
 			super.state(endDateErrorDuration, "finishDate", "auditor.auditing-record.form.error.duration");
@@ -109,12 +79,12 @@ public class AuditorAuditingRecordCreateService extends AbstractService<Auditor,
 
 			super.state(endDateError, "finishDate", "auditor.auditing-record.form.error.end-before-start");
 		}
-
 	}
 
 	@Override
 	public void perform(final AuditingRecord object) {
 		assert object != null;
+		object.setDraftMode(false);
 		this.repository.save(object);
 	}
 
@@ -122,19 +92,12 @@ public class AuditorAuditingRecordCreateService extends AbstractService<Auditor,
 	public void unbind(final AuditingRecord object) {
 		assert object != null;
 
-		int masterId;
-		Tuple tuple;
-		SelectChoices marks;
+		final Tuple tuple;
+		final SelectChoices marks = SelectChoices.from(Mark.class, object.getMark());
 
-		masterId = super.getRequest().getData("masterId", int.class);
-		marks = SelectChoices.from(Mark.class, object.getMark());
-
-		tuple = super.unbind(object, "subject", "assessment", "startDate", "finishDate", "link", "mark");
-		tuple.put("mark", marks.getSelected().getKey());
+		tuple = super.unbind(object, "subject", "assessment", "link", "mark", "startDate", "finishDate", "draftMode");
 		tuple.put("marks", marks);
-		tuple.put("masterId", masterId);
 
 		super.getResponse().setData(tuple);
 	}
-
 }

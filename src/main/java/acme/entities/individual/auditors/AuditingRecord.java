@@ -16,6 +16,7 @@ import javax.validation.constraints.Past;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
+import acme.datatypes.Mark;
 import acme.framework.data.AbstractEntity;
 import acme.framework.helpers.MomentHelper;
 import lombok.Getter;
@@ -53,7 +54,13 @@ public class AuditingRecord extends AbstractEntity {
 	protected String			link;
 
 	@NotNull
-	protected String			mark;
+	protected Mark				mark;
+
+	@NotNull
+	protected boolean			draftMode;
+
+	@NotNull
+	protected boolean			correction;
 
 	// Derived attributes -----------------------------------------------------
 
