@@ -1,0 +1,12 @@
+recordIndex,code,course,motivation,goals,credit_card_number,expiry_date,cvc,holder_name
+0,A111,G139,motivacion,objetivo,,,,
+0,A111,G139,motivacion,objetivo,,12/24,123,Lorem ipsum
+0,A111,G139,motivacion,objetivo,0000000000000000,12/24,123,Lorem ipsum
+0,A111,G139,motivacion,objetivo,11111111111111,12/24,123,Lorem ipsum
+0,A111,G139,motivacion,objetivo,26000000000000,,123,Lorem ipsum
+0,A111,G139,motivacion,objetivo,26000000000000,08-24,123,Lorem ipsum
+0,A111,G139,motivacion,objetivo,26000000000000,06/22,123,Lorem ipsum
+0,A111,G139,motivacion,objetivo,26000000000000,12/24,,Lorem ipsum
+0,A111,G139,motivacion,objetivo,26000000000000,12/24,1111,Lorem ipsum
+0,A111,G139,motivacion,objetivo,26000000000000,12/24,123,
+0,A111,G139,motivacion,objetivo,26000000000000,12/24,,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
