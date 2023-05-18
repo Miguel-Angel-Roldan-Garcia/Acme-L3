@@ -5,6 +5,7 @@ user-account-administrator-02,true,"UserIdentity{name: 'Administrator', surname:
 user-account-administrator-03,true,"UserIdentity{name: 'Administrator', surname: '2', email: 'administrator2@acme.com'}",administrator2,administrator2
 user-account-student-01,true,"UserIdentity{name: 'Andres', surname: 'Dominguez', email: 'student01@gmail.com'}",student1,student1
 user-account-student-02,true,"UserIdentity{name: 'Javier', surname: 'Gonzalez', email: 'student02@gmail.com'}",student2,student2
+user-account-student-03,true,"UserIdentity{name: 'Antonio', surname: 'Dominguez', email: 'student03@gmail.com'}",student3,student3
 user-account-company-01,true,"UserIdentity{name: 'Javier', surname: 'Fernández', email: 'company01@gmail.com'}",company1,company1
 user-account-company-02,true,"UserIdentity{name: 'Manuel', surname: 'Barrera', email: 'company02@gmail.com'}",company2,company2
 user-account-lecturer-01,true,"UserIdentity{name: 'Manuel', surname: 'Otero', email: 'lecturer01@gmail.com'}",lecturer1,lecturer1
