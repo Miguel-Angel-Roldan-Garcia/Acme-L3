@@ -48,3 +48,4 @@ user-account-30,true,"UserIdentity{name: 'User', surname: '30', email: 'user31@a
 user-account-31,true,"UserIdentity{name: 'User', surname: '31', email: 'user32@acme.com'}",user31,user31
 user-account-32,true,"UserIdentity{name: 'User', surname: '32', email: 'user33@acme.com'}",user32,user32
 user-account-33,true,"UserIdentity{name: 'User', surname: '33', email: 'user34@acme.com'}",user33,user33
+user-account-100,true,"UserIdentity{name: 'User', surname: '100', email: 'user100@acme.com'}",lecturerTest,lecturerTest
