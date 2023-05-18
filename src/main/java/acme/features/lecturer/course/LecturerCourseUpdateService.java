@@ -1,14 +1,3 @@
-/*
- * EmployerJobUpdateService.java
- *
- * Copyright (C) 2012-2023 Rafael Corchuelo.
- *
- * In keeping with the traditional purpose of furthering education and research, it is
- * the policy of the copyright owner to permit non-commercial use and redistribution of
- * this software. It has been tested carefully, but it is not guaranteed for any particular
- * purposes. The copyright owner does not offer any warranties or representations, nor do
- * they accept any liabilities with respect to them.
- */
 
 package acme.features.lecturer.course;
 
@@ -75,7 +64,7 @@ public class LecturerCourseUpdateService extends AbstractService<Lecturer, Cours
 	public void bind(final Course object) {
 		assert object != null;
 
-		super.bind(object, "code", "title", "abstract$", "retailPrice","link");
+		super.bind(object, "code", "title", "abstract$", "retailPrice", "link");
 	}
 
 	@Override
@@ -89,12 +78,33 @@ public class LecturerCourseUpdateService extends AbstractService<Lecturer, Cours
 		}
 		//Money positive
 		if (!super.getBuffer().getErrors().hasErrors("retailPrice")) {
-			
-			super.state(object.getRetailPrice().getAmount() >= 0. 
-				|| object.getRetailPrice().getAmount() <1000000, "retailPrice", "lecturer.course.form.error.money-bounds");
+			boolean moneyAmountStatus;
+
+			moneyAmountStatus = object.getRetailPrice().getAmount() > 0;
+
+			super.state(moneyAmountStatus, "retailPrice", "administrator.offer.form.error.price.negative-or-zero");
 		}
+
+		if (!super.getBuffer().getErrors().hasErrors("retailPrice")) {
+			boolean moneyAmountStatus;
+
+			moneyAmountStatus = object.getRetailPrice().getAmount() < 1000000;
+
+			super.state(moneyAmountStatus, "retailPrice", "administrator.offer.form.error.price.too-big");
+		}
+		if (!super.getBuffer().getErrors().hasErrors("retailPrice")) {
+			boolean moneyCurrencyStatus;
+			Collection<String> currencySystemConfiguration;
+
+			currencySystemConfiguration = this.repository.findAllCurrencySystemConfiguration();
+			moneyCurrencyStatus = currencySystemConfiguration.contains(object.getRetailPrice().getCurrency());
+
+			super.state(moneyCurrencyStatus, "retailPrice", "administrator.offer.form.error.price.non-existent-currency");
+		}
+
 		//must be in draft mode at creation
 		super.state(object.isDraftMode(), "*", "lecturer.course.form.error.not-draft-mode");
+
 	}
 
 	@Override
@@ -115,17 +125,17 @@ public class LecturerCourseUpdateService extends AbstractService<Lecturer, Cours
 		int theoreticalCount = 0;
 		int handsOnCount = 0;
 		for (final Lecture lecture : lectures) {
-			if(lecture.getNature().equals(Nature.HANDS_ON)) {
-				handsOnCount ++;
-			}else {
-				theoreticalCount ++;
+			if (lecture.getNature().equals(Nature.HANDS_ON)) {
+				handsOnCount++;
+			} else {
+				theoreticalCount++;
 			}
 		}
-		Nature nature = theoreticalCount == handsOnCount? Nature.BALANCED : theoreticalCount > handsOnCount ? Nature.THEORETICAL : Nature.HANDS_ON;
-		
+		Nature nature = theoreticalCount == handsOnCount ? Nature.BALANCED : theoreticalCount > handsOnCount ? Nature.THEORETICAL : Nature.HANDS_ON;
+
 		boolean publishable = object.isDraftMode() && lectures != null && !lectures.isEmpty();
-		tuple = super.unbind(object, "code", "title", "abstract$", "retailPrice","draftMode","link");
-		
+		tuple = super.unbind(object, "code", "title", "abstract$", "retailPrice", "draftMode", "link");
+
 		tuple.put("nature", nature);
 		tuple.put("publishable", publishable);
 

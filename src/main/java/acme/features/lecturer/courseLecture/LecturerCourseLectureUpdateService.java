@@ -1,14 +1,3 @@
-/*
- * WorkerApplicationCreateService.java
- *
- * Copyright (C) 2012-2023 Rafael Corchuelo.
- *
- * In keeping with the traditional purpose of furthering education and research, it is
- * the policy of the copyright owner to permit non-commercial use and redistribution of
- * this software. It has been tested carefully, but it is not guaranteed for any particular
- * purposes. The copyright owner does not offer any warranties or representations, nor do
- * they accept any liabilities with respect to them.
- */
 
 package acme.features.lecturer.courseLecture;
 
@@ -47,7 +36,18 @@ public class LecturerCourseLectureUpdateService extends AbstractService<Lecturer
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status;
+		int courseLectureId;
+		CourseLecture courseLecture;
+
+		courseLectureId = super.getRequest().getData("id", int.class);
+		courseLecture = this.repository.findOneCourseLectureById(courseLectureId);
+		status = courseLecture != null ?
+			super.getRequest().getPrincipal().getActiveRoleId() == courseLecture.getCourse().getLecturer().getId() 
+			: 
+			false;
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
@@ -64,19 +64,25 @@ public class LecturerCourseLectureUpdateService extends AbstractService<Lecturer
 	@Override
 	public void bind(final CourseLecture object) {
 		assert object != null;
-		int courseId = super.getRequest().getData("course", int.class);
-		Course course = this.repository.findOneCourseById(courseId);
-		object.setCourse(course);
-		int lectureId = super.getRequest().getData("lecture", int.class);
-		Lecture lecture = this.repository.findOneLectureById(lectureId);
-		object.setLecture(lecture);
+		CourseLecture stored = this.repository.findOneCourseLectureById(object.getId());
+		object.setCourse(stored.getCourse());
+		object.setLecture(stored.getLecture());
 	}
 
 	@Override
-	public void validate(final CourseLecture object) { //custom restrictions
+	public void validate(final CourseLecture object) {
 		assert object != null;
-		if(!super.getBuffer().getErrors().hasErrors("lecture"))
+		if(!super.getBuffer().getErrors().hasErrors("course")) {
+			super.state(object.getCourse().isDraftMode(), "*", "lecturer.course-lecture.form.error.course-not-draft-mode");	
+		}
+		if(!super.getBuffer().getErrors().hasErrors("lecture") && !super.getBuffer().getErrors().hasErrors("course")) {
+			//same lecturer in course and lecture
 			super.state(object.getCourse().getLecturer() == object.getLecture().getLecturer(), "*", "lecturer.course-lecture.form.error.not-same-lecturer");
+			// Just for update and create
+			Collection<Lecture> lecturesInCourse= this.repository.findLecturesByCourseId(object.getCourse().getId());
+			super.state(!lecturesInCourse.contains(object.getLecture()),"lecture","lecturer.course-lecture.form.error.duplicated-course-lecture");
+		}
+		
 	}
 
 	@Override
@@ -95,10 +101,11 @@ public class LecturerCourseLectureUpdateService extends AbstractService<Lecturer
 		Collection<Lecture> lectures = this.repository.findManyLecturesByLecturerId(lecturerId);
 		tuple.put("editable", object.getCourse().isDraftMode());
 		tuple.put("courses", SelectChoices.from(courses, "code", object.getCourse()));
-		tuple.put("lectures", SelectChoices.from(lectures, "title", object.getLecture()));
+		tuple.put("lectures", SelectChoices.from(lectures, "code", object.getLecture()));
 		super.getResponse().setData(tuple);
 		super.getResponse().setGlobal("editable", object.getCourse().isDraftMode());
 		super.getResponse().setGlobal("courseId", object.getCourse().getId());
+		super.getResponse().setGlobal("lectureId", object.getLecture().getId());
 	}
 
 }

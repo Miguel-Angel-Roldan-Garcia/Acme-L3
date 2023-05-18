@@ -1,14 +1,3 @@
-/*
- * WorkerApplicationListService.java
- *
- * Copyright (C) 2012-2023 Rafael Corchuelo.
- *
- * In keeping with the traditional purpose of furthering education and research, it is
- * the policy of the copyright owner to permit non-commercial use and redistribution of
- * this software. It has been tested carefully, but it is not guaranteed for any particular
- * purposes. The copyright owner does not offer any warranties or representations, nor do
- * they accept any liabilities with respect to them.
- */
 
 package acme.features.lecturer.courseLecture;
 
@@ -35,7 +24,10 @@ public class LecturerCourseLectureListService extends AbstractService<Lecturer, 
 
 	@Override
 	public void check() {
-		super.getResponse().setChecked(true);
+		boolean status;
+		status = super.getRequest().hasData("courseId", int.class);
+		
+		super.getResponse().setChecked(status);
 	}
 
 	@Override
@@ -69,7 +61,11 @@ public class LecturerCourseLectureListService extends AbstractService<Lecturer, 
 		tuple.put("editable",object.getCourse().isDraftMode());
 		tuple.put("courseCode", object.getCourse().getCode());
 		tuple.put("courseTitle", object.getCourse().getTitle());
+		tuple.put("lectureCode", object.getLecture().getCode());
 		tuple.put("lectureTitle", object.getLecture().getTitle());
+		tuple.put("lectureNature", object.getLecture().getNature());
+		tuple.put("lecturePublished", object.getLecture().isDraftMode()?"":"x");
+		
 		super.getResponse().setData(tuple);
 	}
 
