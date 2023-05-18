@@ -1,7 +1,7 @@
 <%--
 - list.jsp
 -
-- Copyright (C) 2012-2023 Rafael Corchuelo.
+- Copyright (C) 2022-2023 Miguel Ángel Roldán.
 -
 - In keeping with the traditional purpose of furthering education and research, it is
 - the policy of the copyright owner to permit non-commercial use and redistribution of
@@ -22,6 +22,6 @@
 </acme:list>
 
 <acme:check-access test="hasRole('Assistant')">
-	<acme:button code="any.course.form.button.tutorials-create" action="/assistant/tutorial/create"/>
+	<acme:button code="assistant.tutorial.list.button.create" action="/assistant/tutorial/create"/>
 </acme:check-access>
 
