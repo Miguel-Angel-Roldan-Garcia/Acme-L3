@@ -10,34 +10,34 @@ tutorial-session-08,1,This session will act as part of the tutorial 1 sample,THE
 tutorial-session-09,2c,This session will act as part of the tutorial 1 sample,THEORETICAL,2022/08/10 15:00,2022/08/10 17:00,http://Acme-L3.es/tutorial-sessions,tutorial-05
 tutorial-session-10,74 Characters -.-.-.-.-.-.-.-.-.-.-.-.-.--.-.-.-.-.-.-.-.-.-.-.-.-.-.-.74,This session will act as part of the tutorial 1 sample,THEORETICAL,2022/08/10 15:00,2022/08/10 17:00,http://Acme-L3.es/tutorial-sessions,tutorial-05
 tutorial-session-11,75 Characters -.-.-.-.-.-.-.-.-.-.-.-.-.--.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-75,This session will act as part of the tutorial 1 sample,THEORETICAL,2022/08/10 15:00,2022/08/10 17:00,http://Acme-L3.es/tutorial-sessions,tutorial-06
-tutorial-session-12,First session,Esta sesión actuará como parte de ejemplo del tutorial 1,THEORETICAL,2022/08/10 15:00,2022/08/10 17:00,http://Acme-L3.es/tutorial-sessions,tutorial-06
-tutorial-session-13,First session,Aquesta sessió actuarà com a part d'exemple del tutorial 1,THEORETICAL,2022/08/10 15:00,2022/08/10 17:00,http://Acme-L3.es/tutorial-sessions,tutorial-07
-tutorial-session-14,First session,Тази сесия ще действа като част от пробата на урок 1,THEORETICAL,2022/08/10 15:00,2022/08/10 17:00,http://Acme-L3.es/tutorial-sessions,tutorial-07
-tutorial-session-15,First session,<h1>Lorem Ipsum</h1>,THEORETICAL,2022/08/10 15:00,2022/08/10 17:00,http://Acme-L3.es/tutorial-sessions,tutorial-08
-tutorial-session-16,First session,"<script>alert(""hi!"")</script>",THEORETICAL,2022/08/10 15:00,2022/08/10 17:00,http://Acme-L3.es/tutorial-sessions,tutorial-08
-tutorial-session-17,First session,1,THEORETICAL,2022/08/10 15:00,2022/08/10 17:00,http://Acme-L3.es/tutorial-sessions,tutorial-09
-tutorial-session-18,First session,2c,THEORETICAL,2022/08/10 15:00,2022/08/10 17:00,http://Acme-L3.es/tutorial-sessions,tutorial-09
-tutorial-session-19,First session,99 Characters -.-.-.-.-.-.-.-.-.-.-.-.-.--.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-99,THEORETICAL,2022/08/10 15:00,2022/08/10 17:00,http://Acme-L3.es/tutorial-sessions,tutorial-03
-tutorial-session-20,First session,100 Characters -.-.-.-.-.-.-.-.-.-.-.-.-.--.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-100,THEORETICAL,2022/08/10 15:00,2022/08/10 17:00,http://Acme-L3.es/tutorial-sessions,tutorial-03
-tutorial-session-21,First session,This session will act as part of the tutorial 1 sample,HANDS_ON,2022/08/10 15:00,2022/08/10 17:00,http://Acme-L3.es/tutorial-sessions,tutorial-05
-tutorial-session-22,First session,This session will act as part of the tutorial 1 sample,THEORETICAL,2000/01/01 00:00,2000/01/01 02:00,http://Acme-L3.es/tutorial-sessions,tutorial-01
-tutorial-session-23,First session,This session will act as part of the tutorial 1 sample,THEORETICAL,2000/01/01 00:01,2000/01/01 02:00,http://Acme-L3.es/tutorial-sessions,tutorial-01
-tutorial-session-24,First session,This session will act as part of the tutorial 1 sample,THEORETICAL,2100/12/31 21:59,2100/12/31 23:59,http://Acme-L3.es/tutorial-sessions,tutorial-01
-tutorial-session-25,First session,This session will act as part of the tutorial 1 sample,THEORETICAL,2100/12/31 21:58,2100/12/31 23:58,http://Acme-L3.es/tutorial-sessions,tutorial-01
-tutorial-session-26,First session,This session will act as part of the tutorial 1 sample,THEORETICAL,2021/08/10 15:00,2021/08/10 17:00,http://Acme-L3.es/tutorial-sessions,tutorial-05
-tutorial-session-27,First session,This session will act as part of the tutorial 1 sample,THEORETICAL,2022/07/29 23:59,2022/07/30 01:00,http://Acme-L3.es/tutorial-sessions,tutorial-07
-tutorial-session-28,First session,This session will act as part of the tutorial 1 sample,THEORETICAL,2022/07/30 00:15,2022/07/30 05:15,http://Acme-L3.es/tutorial-sessions,tutorial-07
-tutorial-session-29,First session,This session will act as part of the tutorial 1 sample,THEORETICAL,2023/08/10 15:00,2023/08/10 17:00,http://Acme-L3.es/tutorial-sessions,tutorial-01
-tutorial-session-30,First session,This session will act as part of the tutorial 1 sample,THEORETICAL,2022/08/01 20:00,2022/08/01 21:00,http://Acme-L3.es/tutorial-sessions?sample-query=1,tutorial-01
-tutorial-session-31,First session,This session will act as part of the tutorial 1 sample,THEORETICAL,2022/08/01 20:00,2022/08/01 21:00,https://Acme-L3.es/tutorial-sessions,tutorial-01
-tutorial-session-32,First session,This session will act as part of the tutorial 1 sample,THEORETICAL,2022/08/01 20:00,2022/08/01 21:00,ftp://Acme-L3:Acme@acme.org,tutorial-02
-tutorial-session-33,First session,This session will act as part of the tutorial 1 sample,THEORETICAL,2022/08/10 15:00,2022/08/10 17:00,null,tutorial-02
-tutorial-session-34,First session,This session will act as nature extra variation values for dashboard informal testing,HANDS_ON,2022/08/10 15:00,2022/08/10 17:00,http://Acme-L3.es/tutorial-sessions,tutorial-06
-tutorial-session-35,First session,This session will act as nature extra variation values for dashboard informal testing,HANDS_ON,2022/08/10 15:00,2022/08/10 17:00,http://Acme-L3.es/tutorial-sessions,tutorial-06
-tutorial-session-36,First session,This session will act as nature extra variation values for dashboard informal testing,HANDS_ON,2022/08/10 15:00,2022/08/10 17:00,http://Acme-L3.es/tutorial-sessions,tutorial-08
-tutorial-session-37,First session,This session will act as nature extra variation values for dashboard informal testing,HANDS_ON,2022/08/10 15:00,2022/08/10 17:00,http://Acme-L3.es/tutorial-sessions,tutorial-08
-tutorial-session-38,First session,This session will act as nature extra variation values for dashboard informal testing,THEORETICAL,2022/08/10 15:00,2022/08/10 17:00,http://Acme-L3.es/tutorial-sessions,tutorial-10
-tutorial-session-39,First session,This session will act as nature extra variation values for dashboard informal testing,HANDS_ON,2022/08/10 15:00,2022/08/10 17:00,http://Acme-L3.es/tutorial-sessions,tutorial-10
-tutorial-session-40,First session,This session will act as nature extra variation values for dashboard informal testing,HANDS_ON,2022/08/10 15:00,2022/08/10 17:00,http://Acme-L3.es/tutorial-sessions,tutorial-06
-tutorial-session-41,First session,This session will act as nature extra variation values for dashboard informal testing,HANDS_ON,2022/08/10 15:00,2022/08/10 17:00,http://Acme-L3.es/tutorial-sessions,tutorial-06
-tutorial-session-42,First session,This session will act as part of the tutorial 1 sample,THEORETICAL,2022/08/10 15:00,2022/08/10 17:00,http://Acme-L3.es/tutorial-sessions,tutorial-36
+tutorial-session-12,First session 12,Esta sesión actuará como parte de ejemplo del tutorial 1,THEORETICAL,2022/08/10 15:00,2022/08/10 17:00,http://Acme-L3.es/tutorial-sessions,tutorial-06
+tutorial-session-13,First session 13,Aquesta sessió actuarà com a part d'exemple del tutorial 1,THEORETICAL,2022/08/10 15:00,2022/08/10 17:00,http://Acme-L3.es/tutorial-sessions,tutorial-07
+tutorial-session-14,First session 14,Тази сесия ще действа като част от пробата на урок 1,THEORETICAL,2022/08/10 15:00,2022/08/10 17:00,http://Acme-L3.es/tutorial-sessions,tutorial-07
+tutorial-session-15,First session 15,<h1>Lorem Ipsum</h1>,THEORETICAL,2022/08/10 15:00,2022/08/10 17:00,http://Acme-L3.es/tutorial-sessions,tutorial-08
+tutorial-session-16,First session 16,"<script>alert(""hi!"")</script>",THEORETICAL,2022/08/10 15:00,2022/08/10 17:00,http://Acme-L3.es/tutorial-sessions,tutorial-08
+tutorial-session-17,First session 17,1,THEORETICAL,2022/08/10 15:00,2022/08/10 17:00,http://Acme-L3.es/tutorial-sessions,tutorial-09
+tutorial-session-18,First session 18,2c,THEORETICAL,2022/08/10 15:00,2022/08/10 17:00,http://Acme-L3.es/tutorial-sessions,tutorial-09
+tutorial-session-19,First session 19,99 Characters -.-.-.-.-.-.-.-.-.-.-.-.-.--.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-99,THEORETICAL,2022/08/10 15:00,2022/08/10 17:00,http://Acme-L3.es/tutorial-sessions,tutorial-03
+tutorial-session-20,First session 20,100 Characters -.-.-.-.-.-.-.-.-.-.-.-.-.--.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-100,THEORETICAL,2022/08/10 15:00,2022/08/10 17:00,http://Acme-L3.es/tutorial-sessions,tutorial-03
+tutorial-session-21,First session 21,This session will act as part of the tutorial 1 sample,HANDS_ON,2022/08/10 15:00,2022/08/10 17:00,http://Acme-L3.es/tutorial-sessions,tutorial-05
+tutorial-session-22,First session 22,This session will act as part of the tutorial 1 sample,THEORETICAL,2000/01/01 00:00,2000/01/01 02:00,http://Acme-L3.es/tutorial-sessions,tutorial-01
+tutorial-session-23,First session 23,This session will act as part of the tutorial 1 sample,THEORETICAL,2000/01/01 00:01,2000/01/01 02:00,http://Acme-L3.es/tutorial-sessions,tutorial-01
+tutorial-session-24,First session 24,This session will act as part of the tutorial 1 sample,THEORETICAL,2100/12/31 21:59,2100/12/31 23:59,http://Acme-L3.es/tutorial-sessions,tutorial-01
+tutorial-session-25,First session 25,This session will act as part of the tutorial 1 sample,THEORETICAL,2100/12/31 21:58,2100/12/31 23:58,http://Acme-L3.es/tutorial-sessions,tutorial-01
+tutorial-session-26,First session 26,This session will act as part of the tutorial 1 sample,THEORETICAL,2021/08/10 15:00,2021/08/10 17:00,http://Acme-L3.es/tutorial-sessions,tutorial-05
+tutorial-session-27,First session 27,This session will act as part of the tutorial 1 sample,THEORETICAL,2022/07/29 23:59,2022/07/30 01:00,http://Acme-L3.es/tutorial-sessions,tutorial-07
+tutorial-session-28,First session 28,This session will act as part of the tutorial 1 sample,THEORETICAL,2022/07/30 00:15,2022/07/30 05:15,http://Acme-L3.es/tutorial-sessions,tutorial-07
+tutorial-session-29,First session 29,This session will act as part of the tutorial 1 sample,THEORETICAL,2023/08/10 15:00,2023/08/10 17:00,http://Acme-L3.es/tutorial-sessions,tutorial-01
+tutorial-session-30,First session 30,This session will act as part of the tutorial 1 sample,THEORETICAL,2022/08/01 20:00,2022/08/01 21:00,http://Acme-L3.es/tutorial-sessions?sample-query=1,tutorial-01
+tutorial-session-31,First session 31,This session will act as part of the tutorial 1 sample,THEORETICAL,2022/08/01 20:00,2022/08/01 21:00,https://Acme-L3.es/tutorial-sessions,tutorial-01
+tutorial-session-32,First session 32,This session will act as part of the tutorial 1 sample,THEORETICAL,2022/08/01 20:00,2022/08/01 21:00,ftp://Acme-L3:Acme@acme.org,tutorial-02
+tutorial-session-33,First session 33,This session will act as part of the tutorial 1 sample,THEORETICAL,2022/08/10 15:00,2022/08/10 17:00,null,tutorial-02
+tutorial-session-34,First session 34,This session will act as nature extra variation values for dashboard informal testing,HANDS_ON,2022/08/10 15:00,2022/08/10 17:00,http://Acme-L3.es/tutorial-sessions,tutorial-06
+tutorial-session-35,First session 35,This session will act as nature extra variation values for dashboard informal testing,HANDS_ON,2022/08/10 15:00,2022/08/10 17:00,http://Acme-L3.es/tutorial-sessions,tutorial-06
+tutorial-session-36,First session 36,This session will act as nature extra variation values for dashboard informal testing,HANDS_ON,2022/08/10 15:00,2022/08/10 17:00,http://Acme-L3.es/tutorial-sessions,tutorial-08
+tutorial-session-37,First session 37,This session will act as nature extra variation values for dashboard informal testing,HANDS_ON,2022/08/10 15:00,2022/08/10 17:00,http://Acme-L3.es/tutorial-sessions,tutorial-08
+tutorial-session-38,First session 38,This session will act as nature extra variation values for dashboard informal testing,THEORETICAL,2022/08/10 15:00,2022/08/10 17:00,http://Acme-L3.es/tutorial-sessions,tutorial-10
+tutorial-session-39,First session 39,This session will act as nature extra variation values for dashboard informal testing,HANDS_ON,2022/08/10 15:00,2022/08/10 17:00,http://Acme-L3.es/tutorial-sessions,tutorial-10
+tutorial-session-40,First session 40,This session will act as nature extra variation values for dashboard informal testing,HANDS_ON,2022/08/10 15:00,2022/08/10 17:00,http://Acme-L3.es/tutorial-sessions,tutorial-06
+tutorial-session-41,First session 41,This session will act as nature extra variation values for dashboard informal testing,HANDS_ON,2022/08/10 15:00,2022/08/10 17:00,http://Acme-L3.es/tutorial-sessions,tutorial-06
+tutorial-session-42,First session 42,This session will act as part of the tutorial 1 sample,THEORETICAL,2022/08/10 15:00,2022/08/10 17:00,http://Acme-L3.es/tutorial-sessions,tutorial-36
