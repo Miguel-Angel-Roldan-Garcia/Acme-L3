@@ -1,14 +1,4 @@
-<%--
-- list.jsp
--
-- Copyright (C) 2012-2023 Rafael Corchuelo.
--
-- In keeping with the traditional purpose of furthering education and research, it is
-- the policy of the copyright owner to permit non-commercial use and redistribution of
-- this software. It has been tested carefully, but it is not guaranteed for any particular
-- purposes.  The copyright owner does not offer any warranties or representations, nor do
-- they accept any liabilities with respect to them.
---%>
+
 
 <%@page language="java"%>
 
@@ -18,16 +8,20 @@
 <acme:list>
 	
 	<acme:list-column code="lecturer.course-lecture.list.label.course-code"
-		path="courseCode" width="20%" />
-	<acme:list-column code="lecturer.course-lecture.list.label.course-title"
-		path="courseTitle" width="40%" />
-	<acme:list-column code="lecturer.course-lecture.list.label.lecture"
+		path="courseCode" width="10%" />
+	<acme:list-column code="lecturer.course-lecture.list.label.lecture-code"
+		path="lectureCode" width="10%" />
+	<acme:list-column code="lecturer.course-lecture.list.label.lecture-title"
 		path="lectureTitle" width="40%" />
+	<acme:list-column code="lecturer.course-lecture.list.label.lecture-nature"
+		path="lectureNature" width="30%" />
+	<acme:list-column code="lecturer.course-lecture.list.label.lecture-published"
+		path="lecturePublished" width="10%" />
 
 </acme:list>
 
 
-<acme:button
-	code="lecturer.course-lecture.list.button.create"
-	action="/lecturer/course-lecture/create/id=${id}" />
+			<acme:button
+	code="lecturer.course.form.button.add-lectures-to-course"
+	action="/lecturer/course-lecture/create?courseId=${param.courseId}" />
 

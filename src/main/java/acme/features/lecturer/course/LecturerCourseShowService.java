@@ -1,14 +1,3 @@
-/*
- * WorkerApplicationShowService.java
- *
- * Copyright (C) 2012-2023 Rafael Corchuelo.
- *
- * In keeping with the traditional purpose of furthering education and research, it is
- * the policy of the copyright owner to permit non-commercial use and redistribution of
- * this software. It has been tested carefully, but it is not guaranteed for any particular
- * purposes. The copyright owner does not offer any warranties or representations, nor do
- * they accept any liabilities with respect to them.
- */
 
 package acme.features.lecturer.course;
 
@@ -91,14 +80,6 @@ public class LecturerCourseShowService extends AbstractService<Lecturer, Course>
 		
 		tuple.put("nature", nature);
 		boolean publishable = object.isDraftMode() && lecturesInCourse != null && !lecturesInCourse.isEmpty();
-		publishable = object.isDraftMode()
-			//pure theroetical courses must be rejected by the system
-			&& lecturesInCourse.stream()
-				.map(lecture-> lecture.getNature())
-				.anyMatch(n -> n.equals(Nature.HANDS_ON)) //if no lectures return false
-			//lectures in a course must be published
-			&& lecturesInCourse.stream()
-				.anyMatch(lec -> !lec.isDraftMode());
 		tuple.put("publishable", publishable);
 
 		super.getResponse().setData(tuple);
