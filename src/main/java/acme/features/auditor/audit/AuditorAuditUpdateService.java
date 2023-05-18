@@ -74,8 +74,16 @@ public class AuditorAuditUpdateService extends AbstractService<Auditor, Audit> {
 	@Override
 	public void bind(final Audit object) {
 		assert object != null;
+		int courseId;
+		Course course;
+
+		courseId = super.getRequest().getData("course", int.class);
+		course = this.repository.findOneCourseById(courseId);
 
 		super.bind(object, "code", "conclusion", "strongPoints", "weakPoints");
+		final Auditor auditor = this.repository.findOneAuditorById(super.getRequest().getPrincipal().getActiveRoleId());
+		object.setAuditor(auditor);
+		object.setCourse(course);
 	}
 
 	@Override
@@ -85,7 +93,7 @@ public class AuditorAuditUpdateService extends AbstractService<Auditor, Audit> {
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			Audit existing;
 			existing = this.repository.findOneAuditByCode(object.getCode());
-			super.state(existing == null || existing.equals(object), "code", "Auditor.Audit.form.error.duplicated");
+			super.state(existing == null || existing.equals(object), "code", "auditor.audit.form.error.duplicated");
 		}
 	}
 

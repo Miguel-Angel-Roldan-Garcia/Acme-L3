@@ -23,13 +23,14 @@ auditor.auditing-record.form.button.correct = Crear Correción
 
 auditor.auditing-record.form.error.duration = El registro debe durar mas de una hora
 auditor.auditing-record.form.error.end-before-start = El registro no puede terminar antes de comenzar
-auditor.auditing-record.correction.confirmation = El registro de corrección no puede ser creado sin confirmación
+auditor.auditing-record.correction.not-confirmed = El registro de corrección no puede ser creado sin confirmación
 
 auditor.auditing-record.list.label.subject = Tema
 auditor.auditing-record.list.label.assessment = Evaluación
 auditor.auditing-record.list.label.mark = Nota
-
-auditor.auditingrecord.message.correction = Registro de Corrección
-auditor.auditingrecord.message.correction.disclaimer = AVISO: El registro se publicará tal como está automáticamente
+auditor.auditing-record.list.label.correction = Es Corrección
 
 auditor.auditing-record.list.button.create = Crear Registro
+auditor.auditing-record.list.button.correction = Crear Corrección
+
+auditor.auditing-record.label.confirm= Confirmar Corrección

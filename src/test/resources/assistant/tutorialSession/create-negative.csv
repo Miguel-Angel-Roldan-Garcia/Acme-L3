@@ -1,0 +1,5 @@
+jobRecordIndex,dutyIndex,title,description,workLoad,moreInfo
+3,3,,,,
+3,3,Duty 04.04,Lorem ipsum,-0.01,
+3,3,Duty 04.04,Lorem ipsum,100.01,
+3,3,Duty 04.04,Lorem ipsum,50,not-a-url
