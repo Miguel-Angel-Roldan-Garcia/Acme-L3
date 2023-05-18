@@ -1,12 +1,4 @@
-# messages-en.i18n
-#
-# Copyright (C) 2012-2023 Rafael Corchuelo.
-#
-# In keeping with the traditional purpose of furthering education and research, it is
-# the policy of the copyright owner to permit non-commercial use and redistribution of
-# this software. It has been tested carefully, but it is not guaranteed for any particular
-# purposes.  The copyright owner does not offer any warranties or representations, nor do
-# they accept any liabilities with respect to them.
+
 
 lecturer.lecture.form.label.title = Title:
 lecturer.lecture.form.label.abstract$ = Abstract:
@@ -21,11 +13,15 @@ lecturer.lecture.form.button.delete = Delete
 lecturer.lecture.form.button.publish = Publish
 
 
-
+lecturer.lecture.form.label.code = Code
 lecturer.lecture.list.label.title = Title
 lecturer.lecture.list.label.nature = Nature 
 lecturer.lecture.list.label.estimated-learning-time = Estimated learning time
 lecturer.lecture.list.button.create = Create
+lecturer.lecture.list.label.published = Published
+lecturer.lecture.list.label.code = Code
 
 lecturer.lecture.form.error.nature-balanced = Lectures must be theoretical or hands on not balanced
 lecturer.lecture.form.error.not-draft-mode = Published lectures can not be edited or deleted
+lecturer.lecture.form.error.duplicated = Duplicated
+cant-update-and-publish-simultaneous = Cant publish while updating

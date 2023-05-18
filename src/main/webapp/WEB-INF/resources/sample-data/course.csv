@@ -32,8 +32,8 @@ course-30,G130,INGENIERIA INDUSTRIAL,<script>alert('hi')</script>,1000.24 EUR,tr
 course-31,G131,INGENIERIA INDUSTRIAL,45,1000.24 EUR,true,https://www.amazon.es,lecturer-1
 course-32,G132,INGENIERIA INDUSTRIAL,Se dan muchas asignaturas de formacion basica,0.01 EUR,true,https://www.amazon.es,lecturer-1
 course-33,G133,INGENIERIA INDUSTRIAL,Se dan muchas asignaturas de formacion basica,0.02 EUR,true,https://www.amazon.es,lecturer-1
-course-34,G134,INGENIERIA INDUSTRIAL,Se dan muchas asignaturas de formacion basica,9999999999.35 EUR,true,https://www.amazon.es,lecturer-1
-course-35,G135,INGENIERIA INDUSTRIAL,Se dan muchas asignaturas de formacion basica,99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999 EUR,true,https://www.amazon.es,lecturer-1
+course-34,G134,INGENIERIA INDUSTRIAL,Se dan muchas asignaturas de formacion basica,5000.35 EUR,true,https://www.amazon.es,lecturer-1
+course-35,G135,INGENIERIA INDUSTRIAL,Se dan muchas asignaturas de formacion basica,999999.99 EUR,true,https://www.amazon.es,lecturer-1
 course-36,G136,INGENIERIA INDUSTRIAL,Se dan muchas asignaturas de formacion basica,20 GBP,true,https://www.amazon.es,lecturer-1
 course-37,G137,INGENIERIA INDUSTRIAL,Se dan muchas asignaturas de formacion basica,20 USD,true,https://www.amazon.es,lecturer-1
 course-38,G138,INGENIERIA INDUSTRIAL,Se dan muchas asignaturas de formacion basica,1000.24 EUR,TRUE,https://www.amazon.es,lecturer-1

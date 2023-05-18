@@ -1,14 +1,4 @@
-/*
- * LecturerCoursePublishService.java
- *
- * Copyright (C) 2012-2023 Rafael Corchuelo.
- *
- * In keeping with the traditional purpose of furthering education and research, it is
- * the policy of the copyright owner to permit non-commercial use and redistribution of
- * this software. It has been tested carefully, but it is not guaranteed for any particular
- * purposes. The copyright owner does not offer any warranties or representations, nor do
- * they accept any liabilities with respect to them.
- */
+
 
 package acme.features.lecturer.course;
 
@@ -47,25 +37,14 @@ public class LecturerCoursePublishService extends AbstractService<Lecturer, Cour
 	@Override
 	public void authorise() {
 		boolean status;
-		int courseId;
 		Course course;
-		Collection<Lecture> lecturesInCourse;
 		Lecturer lecturer;
 
-		courseId = super.getRequest().getData("id", int.class);
-		course = this.repository.findOneCourseById(courseId);
+		course = this.repository.findOneCourseById(super.getRequest().getData("id", int.class));
 		if(course != null) {
-			lecturesInCourse = this.repository.findManyLecturesByCourseId(course.getId());
 			lecturer = course.getLecturer();
-			status = lecturer.getId() == super.getRequest().getPrincipal().getActiveRoleId()
-				&& course.isDraftMode()
-				//pure theroetical courses must be rejected by the sistem
-				&& lecturesInCourse.stream()
-					.map(lecture-> lecture.getNature())
-					.anyMatch(n -> n.equals(Nature.HANDS_ON)) //if no lectures return false
-				//lectures in a course must be published
-				&& lecturesInCourse.stream()
-					.anyMatch(lec -> !lec.isDraftMode());
+			status = lecturer.getId() == super.getRequest().getPrincipal().getActiveRoleId();
+				
 		}else {
 			status = false;
 		}
@@ -102,11 +81,35 @@ public class LecturerCoursePublishService extends AbstractService<Lecturer, Cour
 		}
 		//Money positive
 		if (!super.getBuffer().getErrors().hasErrors("retailPrice")) {
-			
-			super.state(object.getRetailPrice().getAmount() >= 0. 
-				|| object.getRetailPrice().getAmount() <1000000, "retailPrice", "lecturer.course.form.error.money-bounds");
+			boolean moneyAmountStatus;
+
+			moneyAmountStatus = object.getRetailPrice().getAmount() > 0;
+
+			super.state(moneyAmountStatus, "retailPrice", "administrator.offer.form.error.price.negative-or-zero");
 		}
-		//must be in draft mode at creation
+
+		if (!super.getBuffer().getErrors().hasErrors("retailPrice")) {
+			boolean moneyAmountStatus;
+
+			moneyAmountStatus = object.getRetailPrice().getAmount() < 1000000;
+
+			super.state(moneyAmountStatus, "retailPrice", "administrator.offer.form.error.price.too-big");
+		}
+		if (!super.getBuffer().getErrors().hasErrors("retailPrice")) {
+			boolean moneyCurrencyStatus;
+			Collection<String> currencySystemConfiguration;
+
+			currencySystemConfiguration = this.repository.findAllCurrencySystemConfiguration();
+			moneyCurrencyStatus = currencySystemConfiguration.contains(object.getRetailPrice().getCurrency());
+
+			super.state(moneyCurrencyStatus, "retailPrice", "administrator.offer.form.error.price.non-existent-currency");
+		}
+		Collection<Lecture> lecturesInCourse = this.repository.findManyLecturesByCourseId(object.getId());
+		//at least one hands on
+		super.state(lecturesInCourse.stream().anyMatch(lec->lec.getNature() == Nature.HANDS_ON), "*", "lecturer.course.form.error.not-hands-on");
+		//all lectures published
+		super.state(lecturesInCourse.stream().allMatch(l->!l.isDraftMode()),"*","lecturer.course.form.error.not-all-lectures-published");
+		//must be in draft mode at moment of publish
 		super.state(object.isDraftMode(), "*", "lecturer.course.form.error.not-draft-mode");
 	}
 

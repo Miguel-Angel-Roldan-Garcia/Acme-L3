@@ -1,28 +1,31 @@
-# messages-en.i18n
-#
-# Copyright (C) 2012-2023 Rafael Corchuelo.
-#
-# In keeping with the traditional purpose of furthering education and research, it is
-# the policy of the copyright owner to permit non-commercial use and redistribution of
-# this software. It has been tested carefully, but it is not guaranteed for any particular
-# purposes.  The copyright owner does not offer any warranties or representations, nor do
-# they accept any liabilities with respect to them.
 
 
 
-lecturer.course-lecture.form.button.create = Create		
-lecturer.course-lecture.form.button.update = Update
-lecturer.course-lecture.form.button.delete = Delete
 
 lecturer.course-lecture.form.label.course-code = Course code
-lecturer.course-lecture.form.label.lecture-title = Attached lecture
+lecturer.course-lecture.form.label.lecture-title = Lecture title
+lecturer.course-lecture.form.label.lecture-code = Lecture code
+lecturer.course-lecture.form.cant-you-find-the-lecture = Cant you find the lecture? Create a new one:
+
+lecturer.course-lecture.form.button.update = Update
+lecturer.course-lecture.form.button.delete = UnAttach
+lecturer.course-lecture.form.button.create-new-lecture = Create new lecture
+lecturer.course-lecture.form.button.attach-to-course = Attach this lecture to the course
+lecturer.course-lecture.form.button.show-lecture-details = Show Lecture details
 
 lecturer.course-lecture.list.label.course-code = Course code
 lecturer.course-lecture.list.label.course-title = Course title
-lecturer.course-lecture.list.label.lecture-title = Attached lecture
-
-
+lecturer.course-lecture.list.label.lecture-code = Lecture code
+lecturer.course-lecture.list.label.lecture-title = Lecture title
+lecturer.course-lecture.list.label.lecture-nature = Lecture nature
+lecturer.course-lecture.list.label.lecture-published = Published
 
 lecturer.course-lecture.list.button.create = Create
 
+
+
 lecturer.course-lecture.form.error.not-same-lecturer = Course and lecture must have the same lecturer
+lecturer.course-lecture.form.error.course-not-draft-mode = Course must be in draft mode to add or remove lectures
+lecturer.course-lecture.form.error.duplicated-course-lecture = Lecture already in course
+lecturer.course-lecture.form.error.cant-delete-lecture-not-in-course = Can not remove a lecture not belonging to this course
+lecturer.course-lecture.form.error.cant-edit-and-delete-simultaneously = Can not edit and delete at the same time
