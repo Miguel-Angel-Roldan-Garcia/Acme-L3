@@ -17,8 +17,10 @@ import java.time.temporal.ChronoUnit;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.datatypes.Mark;
 import acme.entities.individual.auditors.Audit;
 import acme.entities.individual.auditors.AuditingRecord;
+import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
@@ -72,20 +74,14 @@ public class AuditorAuditingRecordUpdateService extends AbstractService<Auditor,
 	public void bind(final AuditingRecord object) {
 		assert object != null;
 
-		super.bind(object, "subject", "assessment", "startDate", "finishDate", "link", "mark");
+		final String mark = super.getRequest().getData("mark", String.class);
+		super.bind(object, "subject", "assessment", "startDate", "finishDate", "link");
+		object.setMark(Mark.transform(mark));
 	}
 
 	@Override
 	public void validate(final AuditingRecord object) {
 		assert object != null;
-
-		if (!super.getBuffer().getErrors().hasErrors("startDate")) {
-			boolean startDateError;
-
-			startDateError = MomentHelper.isBefore(object.getStartDate(), MomentHelper.deltaFromCurrentMoment(1l, ChronoUnit.DAYS));
-
-			super.state(startDateError, "startDate", "assistant.tutorial-session.form.error.at-least-one-day-ahead");
-		}
 
 		if (!super.getBuffer().getErrors().hasErrors("finishDate")) {
 			boolean endDateErrorDuration;
@@ -95,7 +91,7 @@ public class AuditorAuditingRecordUpdateService extends AbstractService<Auditor,
 			if (endDateErrorDuration)
 				endDateErrorDuration = !MomentHelper.isLongEnough(object.getStartDate(), object.getFinishDate(), (long) 3600 + 1, ChronoUnit.SECONDS);
 
-			super.state(endDateErrorDuration, "finishDate", "assistant.tutorial-session.form.error.duration");
+			super.state(endDateErrorDuration, "finishDate", "auditor.auditing-record.form.error.duration");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("finishDate")) {
@@ -103,7 +99,7 @@ public class AuditorAuditingRecordUpdateService extends AbstractService<Auditor,
 
 			endDateError = MomentHelper.isBefore(object.getStartDate(), object.getFinishDate());
 
-			super.state(endDateError, "finishDate", "assistant.tutorial-session.form.error.end-before-start");
+			super.state(endDateError, "finishDate", "auditor.auditing-record.form.error.end-before-start");
 		}
 	}
 
@@ -119,8 +115,13 @@ public class AuditorAuditingRecordUpdateService extends AbstractService<Auditor,
 		assert object != null;
 
 		Tuple tuple;
+		SelectChoices marks;
+
+		marks = SelectChoices.from(Mark.class, object.getMark());
 
 		tuple = super.unbind(object, "subject", "assessment", "startDate", "finishDate", "link", "mark");
+		tuple.put("mark", marks.getSelected().getKey());
+		tuple.put("marks", marks);
 		tuple.put("masterId", object.getAudit().getId());
 
 		super.getResponse().setData(tuple);

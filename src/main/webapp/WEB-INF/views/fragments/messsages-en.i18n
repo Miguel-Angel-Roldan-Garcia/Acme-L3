@@ -31,3 +31,11 @@ master.panic.label.request = Request:
 master.panic.label.status = Status:
 master.panic.label.exceptions = Exceptions:
 master.panic.text.consult-log = Please, consult the log to see them full stack trace.
+
+# money-exchange ##############################################################
+
+money-exchange.list.source = Source
+money-exchange.list.targetCurrency = System currency
+money-exchange.list.target = Result
+money-exchange.list.date = Last currency rates update date
+money-exchange.error.failed = Failed to get currency exchange

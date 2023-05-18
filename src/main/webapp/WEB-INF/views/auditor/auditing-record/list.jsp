@@ -21,7 +21,6 @@
 	<acme:list-column code="auditor.auditing-record.list.label.mark" path="mark" width="20%"/>
 </acme:list>
 
-<jstl:if test="${_command == 'list'}">
-	<acme:button code="auditor.auditing-record.list.button.create" action="/auditor/auditing-record/create"/>
-</jstl:if>
+	<acme:button code="auditor.auditing-record.list.button.create" action="/auditor/auditing-record/create?masterId=${masterId}"/>
+
 

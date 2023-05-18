@@ -18,48 +18,64 @@ import acme.framework.testing.AbstractTest;
 
 public abstract class TestHarness extends AbstractTest {
 
-	// Business methods -------------------------------------------------------
+    // Business methods -------------------------------------------------------
 
-	protected void signIn(final String username, final String password) {
-		assert !StringHelper.isBlank(username);
-		assert !StringHelper.isBlank(password);
+    protected void signIn(final String username, final String password) {
+	assert !StringHelper.isBlank(username);
+	assert !StringHelper.isBlank(password);
 
-		super.requestHome();
-		super.clickOnMenu("Sign in");
-		super.fillInputBoxIn("username", username);
-		super.fillInputBoxIn("password", password);
-		super.fillInputBoxIn("remember", "true");
-		super.clickOnSubmit("Sign in");
-		super.checkCurrentPath("/master/welcome");
-		super.checkLinkExists("Account");
-	}
+	super.requestHome();
+	super.clickOnMenu("Sign in");
+	super.fillInputBoxIn("username", username);
+	super.fillInputBoxIn("password", password);
+	super.fillInputBoxIn("remember", "true");
+	super.clickOnSubmit("Sign in");
+	super.checkCurrentPath("/master/welcome");
+	super.checkLinkExists("Account");
+    }
 
-	protected void signOut() {
-		super.requestHome();
-		super.clickOnMenu("Sign out");
-		super.checkCurrentPath("/master/welcome");
-		super.checkLinkExists("Sign in");
-	}
+    protected void signOut() {
+	super.requestHome();
+	super.clickOnMenu("Sign out");
+	super.checkCurrentPath("/master/welcome");
+	super.checkLinkExists("Sign in");
+    }
 
-	protected void signUp(final String username, final String password, final String name, final String surname, final String email) {
-		assert !StringHelper.isBlank(username);
-		assert !StringHelper.isBlank(password);
-		assert !StringHelper.isBlank(name);
-		assert !StringHelper.isBlank(surname);
-		assert !StringHelper.isBlank(email);
+    protected void signUp(final String username, final String password, final String name, final String surname,
+	    final String email) {
+	assert !StringHelper.isBlank(username);
+	assert !StringHelper.isBlank(password);
+	assert !StringHelper.isBlank(name);
+	assert !StringHelper.isBlank(surname);
+	assert !StringHelper.isBlank(email);
 
-		super.requestHome();
-		super.clickOnMenu("Sign up");
-		super.fillInputBoxIn("username", username);
-		super.fillInputBoxIn("password", password);
-		super.fillInputBoxIn("confirmation", password);
-		super.fillInputBoxIn("identity.name", name);
-		super.fillInputBoxIn("identity.surname", surname);
-		super.fillInputBoxIn("identity.email", email);
-		super.fillInputBoxIn("accept", "true");
-		super.clickOnSubmit("Sign up");
-		super.checkCurrentPath("/master/welcome");
-		super.checkLinkExists("Sign in");
-	}
+	super.requestHome();
+	super.clickOnMenu("Sign up");
+	super.fillInputBoxIn("username", username);
+	super.fillInputBoxIn("password", password);
+	super.fillInputBoxIn("confirmation", password);
+	super.fillInputBoxIn("identity.name", name);
+	super.fillInputBoxIn("identity.surname", surname);
+	super.fillInputBoxIn("identity.email", email);
+	super.fillInputBoxIn("accept", "true");
+	super.clickOnSubmit("Sign up");
+	super.checkCurrentPath("/master/welcome");
+	super.checkLinkExists("Sign in");
+    }
+
+    protected void signUpWithoutSubmit(final String username, final String password, final String name,
+	    final String surname, final String email, final String confirmation, final String accept) {
+	// AQUI NO SE PUEDE PONER EL ASSERT PORQUE YO QUIERO PROBAR COSAS QUE ESTAN
+	// VACIAS
+	super.requestHome();
+	super.clickOnMenu("Sign up");
+	super.fillInputBoxIn("username", username);
+	super.fillInputBoxIn("password", password);
+	super.fillInputBoxIn("confirmation", confirmation);
+	super.fillInputBoxIn("identity.name", name);
+	super.fillInputBoxIn("identity.surname", surname);
+	super.fillInputBoxIn("identity.email", email);
+	super.fillInputBoxIn("accept", accept);
+    }
 
 }

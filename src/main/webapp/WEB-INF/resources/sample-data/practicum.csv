@@ -10,7 +10,7 @@ practicum-08,company-02,course-39,ABA998,75 caracteres: Una práctica genial par
 practicum-09,company-01,course-39,AEF918,<h1>Hello</h1>,abstracto,Aprende a programar,true
 practicum-10,company-01,course-39,AEA998,"<script>alert(""hi"")</script>",abstracto,Aprende a programar,true
 practicum-11,company-02,course-39,AFA998,@#?¿><&¬!|¡'`+*-_{}[]^ªº\/=()%$·,abstracto,Aprende a programar,true
-practicum-12,company-02,course-39,ADA998,你好,abstracto,Aprende a programar,true
+practicum-12,company-02,course-39,ABC123,你好,abstracto,Aprende a programar,true
 practicum-13,company-02,course-39,ADA918,Всем привет,abstracto,Aprende a programar,true
 practicum-14,company-02,course-39,AHA998,Una práctica para aprender sobre programación,.,Aprende a programar,true
 practicum-15,company-02,course-39,AHA918,Una práctica para aprender sobre programación,LO,Aprende a programar,true
@@ -27,9 +27,9 @@ practicum-25,company-02,course-3,ALA698,Una práctica para aprender sobre progra
 practicum-26,company-02,course-3,ALA798,Una práctica para aprender sobre programación,abstracto,100 caracteres: Una práctica genial para aprender de programación muy buena!!!!!!!!!!!!!!!!!!!!!!!!!,true
 practicum-27,company-01,course-3,AOA898,Una práctica para aprender sobre programación,abstracto,<h1>Hello</h1>,true
 practicum-28,company-01,course-3,AOA998,Una práctica para aprender sobre programación,abstracto,"<script>alert(""hi"")</script>",true
-practicum-29,company-02,course-3,APG998,Una práctica para aprender sobre programación,abstracto,@#?¿><&¬!|¡'`+*-_{}[]^ªº\/=()%$·,true
-practicum-30,company-02,course-3,ANH998,Una práctica para aprender sobre programación,abstracto,你好,true
-practicum-31,company-02,course-3,ANE998,Una práctica para aprender sobre programación,abstracto,Всем привет,true
-practicum-32,company-02,course-3,ANW998,Una práctica para aprender sobre programación,abstracto,Всем привет,false
+practicum-29,company-01,course-3,APG998,Una práctica para aprender sobre programación,abstracto,@#?¿><&¬!|¡'`+*-_{}[]^ªº\/=()%$·,true
+practicum-30,company-01,course-3,ANH998,Una práctica para aprender sobre programación,abstracto,你好,true
+practicum-31,company-01,course-3,ANE998,Una práctica para aprender sobre programación,abstracto,Всем привет,true
+practicum-32,company-01,course-3,ANW998,Una práctica para aprender sobre programación,abstracto,Всем привет,false
 practicum-33,company-01,course-3,ANW938,Una práctica para aprender sobre programación,abstracto,Всем привет,TRUE
 practicum-34,company-01,course-3,ANW918,Una práctica para aprender sobre programación,abstracto,Всем привет,FALSE

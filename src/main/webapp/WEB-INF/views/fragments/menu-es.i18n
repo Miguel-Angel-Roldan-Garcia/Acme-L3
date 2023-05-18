@@ -58,6 +58,7 @@ master.menu.assistant.show-dashboard = Mostrar tablero de asistente
 
 master.menu.company = Compañía
 master.menu.company.list-mine-practicum = Listar mis prácticas
+master.menu.company.show-dashboard = Mostrar tablero de compañía
 
 # master.menu.any #########################################################
 

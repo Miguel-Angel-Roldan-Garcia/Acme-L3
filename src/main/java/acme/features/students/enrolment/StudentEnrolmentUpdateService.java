@@ -62,36 +62,32 @@ public class StudentEnrolmentUpdateService extends AbstractService<Student, Enro
 
 	int courseId;
 	Course course;
+	boolean toFinalise;
 
 	courseId = super.getRequest().getData("course", int.class);
 	course = this.repository.findOneCourseById(courseId);
-
-	super.bind(object, "code", "motivation", "goals", "lowerNibble", "holderName");
+	toFinalise = super.getRequest().getData("confirmed", boolean.class);
+	if (toFinalise)
+	    super.bind(object, "code", "motivation", "goals", "lowerNibble", "creditCardNumber", "cvc", "expiryDate",
+		    "holderName");
+	else
+	    super.bind(object, "code", "motivation", "goals");
 	object.setCourse(course);
     }
 
+    // VALID SPANISH NUMBER = 2600000000000000
+    // VALID ENGLISH NUMBER = 26000000000000
     @Override
     public void validate(final Enrolment object) {
 	assert object != null;
-	// Es necesario inicializar estas variables para la validación de sus
-	// condiciones
-	String creditNumber = "";
-	String cvc = "";
-	String holderName = "";
-	String expiryDate = "";
+
 	boolean finishable = false;
-	if (object.isDraftMode()) {
-	    creditNumber = super.getRequest().getData("creditCardNumber", String.class);
-	    cvc = super.getRequest().getData("cvc", String.class);
-	    holderName = super.getRequest().getData("holderName", String.class);
-	    expiryDate = super.getRequest().getData("expiryDate", String.class);
-	    finishable = !creditNumber.isEmpty() || !cvc.isEmpty() || !holderName.isEmpty() || !expiryDate.isEmpty();
-	}
+	if (object.isDraftMode())
+	    finishable = super.getRequest().getData("confirmed", boolean.class);
 
 	if (!super.getBuffer().getErrors().hasErrors("code")) {
 	    Enrolment existing;
 	    existing = this.repository.findOneEnrolmentByCode(object.getCode());
-	    // da error, de alguna forma
 	    super.state(existing == null || existing.equals(object), "code", "student.enrolment.form.error.duplicated");
 	}
 
@@ -100,28 +96,33 @@ public class StudentEnrolmentUpdateService extends AbstractService<Student, Enro
 	    super.state(!selectedCourse.isDraftMode(), "course", "student.enrolment.form.error.not-published");
 	}
 	if (finishable) {
-	    if (!super.getBuffer().getErrors().hasErrors("creditCardNumber"))
-		if (creditNumber.matches("^[0-9]{16}$"))
-		    super.state(this.isValidCheckSum(creditNumber), "creditCardNumber",
-			    "student.enrolment.form.error.not-valid-creditCard-checksum");
-		else
-		    super.state(false, "creditCardNumber", "student.enrolment.form.error.not-valid-creditCard");
+	    final String language = super.getRequest().getLocale().getDisplayLanguage();
 	    if (!super.getBuffer().getErrors().hasErrors("expiryDate")) {
-		final boolean validFormat = expiryDate.matches("^\\d{2}/\\d{2}$");
 
-		if (validFormat && Integer.parseInt(expiryDate.split("/")[1]) <= 12) {
-		    final Date date = MomentHelper.parse("yy/MM", expiryDate);
+		final String expiryDate = object.getExpiryDate();
+		String dateFormat = "";
+		if (language.equals("Spanish") && Integer.parseInt(expiryDate.split("/")[1]) <= 12)
+		    dateFormat = "yy/MM";
+		else if (language.equals("English") && Integer.parseInt(expiryDate.split("/")[0]) <= 12)
+		    dateFormat = "MM/yy";
+		else
+		    super.state(false, "expiryDate", "student.enrolment.form.error.not-valid-date-format");
+		if (!dateFormat.isEmpty()) {
+		    final Date date = MomentHelper.parse(dateFormat, expiryDate);
 		    final Date actualExpiryDate = new Date(date.getYear(), date.getMonth(),
 			    this.getLastDayOfMonth(date.getMonth()), 23, 59);
 		    super.state(date != null && MomentHelper.isAfter(actualExpiryDate, MomentHelper.getCurrentMoment()),
 			    "expiryDate", "student.enrolment.form.error.past-expiry-date");
-		} else
-		    super.state(false, "expiryDate", "student.enrolment.form.error.not-valid-date-format");
+		}
+
 	    }
-	    if (!super.getBuffer().getErrors().hasErrors("cvc"))
-		super.state(cvc.matches("^[0-9]{3}$"), "cvc", "student.enrolment.form.error.not-valid-cvc-pattern");
+	    if (!super.getBuffer().getErrors().hasErrors("creditCardNumber"))
+		super.state(
+			language.equals("Spanish") && object.getCreditCardNumber().length() == 16
+				|| language.equals("English") && object.getCreditCardNumber().length() == 14,
+			"creditCardNumber", "student.enrolment.form.error.not-valid-credit-number-size");
 	    if (!super.getBuffer().getErrors().hasErrors("holderName"))
-		super.state(!holderName.isEmpty() && holderName.length() < 25, "holderName",
+		super.state(!object.getHolderName().isEmpty(), "holderName",
 			"student.enrolment.form.error.not-valid-holderName");
 
 	}
@@ -130,22 +131,12 @@ public class StudentEnrolmentUpdateService extends AbstractService<Student, Enro
     @Override
     public void perform(final Enrolment object) {
 	assert object != null;
-	String creditNumber = "";
-	String cvc = "";
-	String holderName = "";
-	String expiryDate = "";
 	boolean finishable = false;
-	if (object.isDraftMode()) {
-	    creditNumber = super.getRequest().getData("creditCardNumber", String.class);
-	    cvc = super.getRequest().getData("cvc", String.class);
-	    holderName = super.getRequest().getData("holderName", String.class);
-	    expiryDate = super.getRequest().getData("expiryDate", String.class);
-	    finishable = !creditNumber.isEmpty() || !cvc.isEmpty() || !holderName.isEmpty() || !expiryDate.isEmpty();
-	}
+	if (object.isDraftMode())
+	    finishable = super.getRequest().getData("confirmed", boolean.class);
 	if (finishable) {
 	    object.setDraftMode(false);
-	    object.setHolderName(holderName);
-	    object.setLowerNibble(creditNumber.substring(creditNumber.length() - 4));
+	    object.setLowerNibble(object.getCreditCardNumber().substring(object.getCreditCardNumber().length() - 4));
 	}
 	this.repository.save(object);
     }
@@ -157,41 +148,19 @@ public class StudentEnrolmentUpdateService extends AbstractService<Student, Enro
 	Collection<Course> courses;
 	SelectChoices choices;
 	Tuple tuple;
-	String creditNumber = "";
-	String cvc = "";
-	String holderName = "";
-	String expiryDate = "";
-	boolean finishable = false;
-	if (object.isDraftMode()) {
-	    creditNumber = super.getRequest().getData("creditCardNumber", String.class);
-	    cvc = super.getRequest().getData("cvc", String.class);
-	    holderName = super.getRequest().getData("holderName", String.class);
-	    expiryDate = super.getRequest().getData("expiryDate", String.class);
-	    finishable = !creditNumber.isEmpty() || !cvc.isEmpty() || !holderName.isEmpty() || !expiryDate.isEmpty();
-	}
+	final boolean toFinalise = super.getRequest().getData("confirmed", boolean.class);
 
 	courses = this.repository.findManyPublishedCourses();
 	choices = SelectChoices.from(courses, "code", object.getCourse());
 
-	tuple = super.unbind(object, "code", "motivation", "goals", "draftMode", "lowerNibble", "holderName");
+	if (toFinalise)
+	    tuple = super.unbind(object, "code", "motivation", "goals", "lowerNibble", "creditCardNumber", "cvc",
+		    "expiryDate", "holderName", "draftMode");
+	else
+	    tuple = super.unbind(object, "code", "motivation", "goals", "draftMode");
+	tuple.put("confirmed", toFinalise);
 	tuple.put("course", choices.getSelected().getKey());
 	tuple.put("courses", choices);
-	if (finishable) {
-	    if (creditNumber.matches("^[0-9]{16}$") && this.isValidCheckSum(creditNumber))
-		tuple.put("creditCardNumber", creditNumber);
-	    if (cvc.matches("^[0-9]{3}$"))
-		tuple.put("cvc", cvc);
-	    if (expiryDate.matches("^\\d{2}/\\d{2}$") && Integer.parseInt(expiryDate.split("/")[1]) <= 12) {
-		final Date date = MomentHelper.parse("yy/MM", expiryDate);
-		final Date actualExpiryDate = new Date(date.getYear(), date.getMonth(),
-			this.getLastDayOfMonth(date.getMonth()), 23, 59);
-		if (date != null && MomentHelper.isAfter(actualExpiryDate, MomentHelper.getCurrentMoment()))
-		    tuple.put("expiryDate", expiryDate);
-	    }
-	    if (!holderName.isEmpty() && holderName.length() < 25)
-		tuple.put("holderName", holderName);
-
-	}
 
 	super.getResponse().setData(tuple);
     }
@@ -204,25 +173,6 @@ public class StudentEnrolmentUpdateService extends AbstractService<Student, Enro
 	    return 30;
 	else
 	    return 29;
-    }
-
-    // VALID NUMBER = 2600000000000000
-    private boolean isValidCheckSum(final String creditNumber) {
-	int sum = 0;
-	for (int i = 0; i < creditNumber.length() - 1; i++) {
-	    final char number = creditNumber.charAt(i);
-	    int value = 0;
-	    if ((i + 2) % 2 == 0)
-		value = Character.getNumericValue(number) * 2;
-	    else
-		value = Character.getNumericValue(number);
-	    if (value >= 10) {
-		final String newNumber = Integer.toString(value);
-		sum += Character.getNumericValue(newNumber.charAt(0)) + Character.getNumericValue(newNumber.charAt(1));
-	    } else
-		sum += value;
-	}
-	return sum % 10 == 0;
     }
 
 }

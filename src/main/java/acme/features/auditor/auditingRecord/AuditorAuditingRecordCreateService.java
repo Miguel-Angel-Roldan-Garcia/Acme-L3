@@ -17,8 +17,10 @@ import java.time.temporal.ChronoUnit;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.datatypes.Mark;
 import acme.entities.individual.auditors.Audit;
 import acme.entities.individual.auditors.AuditingRecord;
+import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
@@ -48,11 +50,11 @@ public class AuditorAuditingRecordCreateService extends AbstractService<Auditor,
 	public void authorise() {
 		boolean status;
 		int masterId;
-		Audit Audit;
+		Audit audit;
 
 		masterId = super.getRequest().getData("masterId", int.class);
-		Audit = this.repository.findOneAuditById(masterId);
-		status = Audit != null && !Audit.isDraftMode() && super.getRequest().getPrincipal().hasRole(Audit.getAuditor());
+		audit = this.repository.findOneAuditById(masterId);
+		status = super.getRequest().getPrincipal().hasRole(audit.getAuditor()) && audit.isDraftMode();
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -78,7 +80,11 @@ public class AuditorAuditingRecordCreateService extends AbstractService<Auditor,
 	public void bind(final AuditingRecord object) {
 		assert object != null;
 
-		super.bind(object, "subject", "assessment", "startDate", "finishDate", "link", "mark");
+		final String mark = super.getRequest().getData("mark", String.class);
+		super.bind(object, "subject", "assessment", "startDate", "finishDate", "link");
+		object.setMark(Mark.transform(mark));
+		object.setDraftMode(true);
+		object.setCorrection(false);
 	}
 
 	@Override
@@ -90,7 +96,7 @@ public class AuditorAuditingRecordCreateService extends AbstractService<Auditor,
 
 			endDateErrorDuration = MomentHelper.isLongEnough(object.getStartDate(), object.getFinishDate(), 1l, ChronoUnit.HOURS);
 
-			if (endDateErrorDuration)
+			if (!endDateErrorDuration)
 				endDateErrorDuration = !MomentHelper.isLongEnough(object.getStartDate(), object.getFinishDate(), (long) 3600 + 1, ChronoUnit.SECONDS);
 
 			super.state(endDateErrorDuration, "finishDate", "auditor.auditing-record.form.error.duration");
@@ -103,6 +109,7 @@ public class AuditorAuditingRecordCreateService extends AbstractService<Auditor,
 
 			super.state(endDateError, "finishDate", "auditor.auditing-record.form.error.end-before-start");
 		}
+
 	}
 
 	@Override
@@ -117,10 +124,14 @@ public class AuditorAuditingRecordCreateService extends AbstractService<Auditor,
 
 		int masterId;
 		Tuple tuple;
+		SelectChoices marks;
 
 		masterId = super.getRequest().getData("masterId", int.class);
+		marks = SelectChoices.from(Mark.class, object.getMark());
 
 		tuple = super.unbind(object, "subject", "assessment", "startDate", "finishDate", "link", "mark");
+		tuple.put("mark", marks.getSelected().getKey());
+		tuple.put("marks", marks);
 		tuple.put("masterId", masterId);
 
 		super.getResponse().setData(tuple);
