@@ -1,18 +1,11 @@
-# messages-en.i18n
-#
-# Copyright (C) 2012-2023 Rafael Corchuelo.
-#
-# In keeping with the traditional purpose of furthering education and research, it is
-# the policy of the copyright owner to permit non-commercial use and redistribution of
-# this software. It has been tested carefully, but it is not guaranteed for any particular
-# purposes.  The copyright owner does not offer any warranties or representations, nor do
-# they accept any liabilities with respect to them.
+
 
 lecturer.course.list.label.code = Code
 lecturer.course.list.label.title = Title
 lecturer.course.list.label.abstract$ = Abstract
 lecturer.course.list.label.retailPrice = Retail price
 lecturer.course.list.label.link = Link
+lecturer.course.list.label.published = Published
 
 lecturer.course.list.button.create = Create Course
 
@@ -22,6 +15,7 @@ lecturer.course.form.label.title = Title
 lecturer.course.form.label.abstract$ = Abstract
 lecturer.course.form.label.retail-price = Retail price
 lecturer.course.form.label.link = Link
+lecturer.course.form.label.nature = Nature
 
 lecturer.course.form.button.create = Create Course
 lecturer.course.form.button.publish = Publish Course
@@ -35,5 +29,6 @@ lecturer.course.form.button.add-lectures-to-course = Attach lectures
 
 lecturer.course.form.error.duplicated = This code is unavailable
 lecturer.course.form.error.not-draft-mode = This course can not be deleted since it is published
-lecturer.course.form.error.not-publishable = This course can not be published (no hands on lectures, or any lecture not published)
+lecturer.course.form.error.not-hands-on = This course can not be published (no hands on lectures)
 lecturer.course.form.error.money-bounds = Out of value bounds
+lecturer.course.form.error.not-all-lectures-published = All lectures must be published in order to publish the course

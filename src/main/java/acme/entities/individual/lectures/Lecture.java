@@ -1,5 +1,6 @@
 package acme.entities.individual.lectures;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.validation.Valid;
@@ -7,6 +8,7 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
@@ -27,7 +29,12 @@ public class Lecture extends AbstractEntity {
     protected static final long serialVersionUID = 1L;
 
     // Attributes -------------------------------------------------------------
-
+    
+    @NotBlank
+    @Column(unique = true)
+    @Pattern(regexp = "^[A-Z]{1,3}[0-9]{3}$")
+    protected String code;
+    
     @NotBlank
     @Length(max = 75)
     protected String title;
@@ -38,7 +45,7 @@ public class Lecture extends AbstractEntity {
 
     @NotNull
     @Min(1)
-    @Max(1000000)
+    @Max(1000)
     // hours with decimal values: 1.5 means 1h30min
     protected Double estimatedLearningTime;
 
