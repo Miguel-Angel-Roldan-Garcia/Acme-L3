@@ -68,8 +68,6 @@ public class LecturerLecturePublishService extends AbstractService<Lecturer, Lec
 		assert object != null;
 		if(!super.getBuffer().getErrors().hasErrors()) {
 			super.state(object.isDraftMode(), "*", "lecturer.lecture.form.error.not-draft-mode");
-			Lecture stored = this.repository.findOneLectureById(object.getId());
-			super.state(stored.equals(object),"*","lecturer.lecture.form.cant-update-and-publish-simultaneous"); 
 		}
 		//Unique code
 		if (!super.getBuffer().getErrors().hasErrors("code")) {

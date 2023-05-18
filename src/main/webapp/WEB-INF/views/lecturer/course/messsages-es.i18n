@@ -27,7 +27,7 @@ lecturer.course.form.button.add-lectures-to-course = Añadir clases
 
 
 lecturer.course.form.error.duplicated = Este código no está disponible
-lecturer.course.form.error.not-draft-mode = Este curso no se puede borrar ya que está publicado
+lecturer.course.form.error.not-draft-mode = Este curso está publicado
 lecturer.course.form.error.not-hands-on = Este curso no se puede publicar (no tiene clases practicas)
 lecturer.course.form.error.money-bounds = Valor fuera del rango permitido
 lecturer.course.form.error.not-all-lectures-published = Para publicar un curso deben estar sus clases publicadas

@@ -28,7 +28,7 @@ lecturer.course.form.button.add-lectures-to-course = Attach lectures
 
 
 lecturer.course.form.error.duplicated = This code is unavailable
-lecturer.course.form.error.not-draft-mode = This course can not be deleted since it is published
+lecturer.course.form.error.not-draft-mode = This course is published
 lecturer.course.form.error.not-hands-on = This course can not be published (no hands on lectures)
 lecturer.course.form.error.money-bounds = Out of value bounds
 lecturer.course.form.error.not-all-lectures-published = All lectures must be published in order to publish the course
