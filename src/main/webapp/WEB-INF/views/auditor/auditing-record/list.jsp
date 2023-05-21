@@ -19,8 +19,14 @@
 	<acme:list-column code="auditor.auditing-record.list.label.subject" path="subject" width="20%"/>
 	<acme:list-column code="auditor.auditing-record.list.label.assessment" path="assessment" width="60%"/>
 	<acme:list-column code="auditor.auditing-record.list.label.mark" path="mark" width="20%"/>
+	<acme:list-column code="auditor.auditing-record.list.label.correction" path="correctionState" width="20%"/>
 </acme:list>
 
-	<acme:button code="auditor.auditing-record.list.button.create" action="/auditor/auditing-record/create?masterId=${masterId}"/>
-
-
+<jstl:choose>
+	<jstl:when test="${showCreate==true}">
+		<acme:button code="auditor.auditing-record.list.button.create" action="/auditor/auditing-record/create?masterId=${masterId}"/>
+	</jstl:when>
+	<jstl:otherwise>
+		<acme:button code="auditor.auditing-record.list.button.correction" action="/auditor/auditing-record/correct?masterId=${masterId}"/>
+	</jstl:otherwise>
+</jstl:choose>

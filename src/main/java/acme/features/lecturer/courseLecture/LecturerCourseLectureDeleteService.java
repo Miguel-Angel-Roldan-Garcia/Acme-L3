@@ -1,14 +1,4 @@
-/*
- * EmployerJobDeleteService.java
- *
- * Copyright (C) 2012-2023 Rafael Corchuelo.
- *
- * In keeping with the traditional purpose of furthering education and research, it is
- * the policy of the copyright owner to permit non-commercial use and redistribution of
- * this software. It has been tested carefully, but it is not guaranteed for any particular
- * purposes. The copyright owner does not offer any warranties or representations, nor do
- * they accept any liabilities with respect to them.
- */
+
 
 package acme.features.lecturer.courseLecture;
 
@@ -49,23 +39,15 @@ public class LecturerCourseLectureDeleteService extends AbstractService<Lecturer
 	public void authorise() {
 		boolean status;
 		int courseLectureId;
-		Course course;
 		CourseLecture courseLecture;
-		Lecturer lecturer;
-		
+
 		courseLectureId = super.getRequest().getData("id", int.class);
 		courseLecture = this.repository.findOneCourseLectureById(courseLectureId);
-		
-		if(courseLecture != null) {
-			course = courseLecture.getCourse();
-			lecturer = course.getLecturer();
-			
-			status = course.isDraftMode()
-				&& super.getRequest().getPrincipal().getActiveRoleId() == lecturer.getId();
-		}else {
-			status = false;
-		}
-		
+		status = courseLecture != null ?
+			super.getRequest().getPrincipal().getActiveRoleId() == courseLecture.getCourse().getLecturer().getId() 
+			: 
+			false;
+
 		super.getResponse().setAuthorised(status);
 	}
 
@@ -81,14 +63,21 @@ public class LecturerCourseLectureDeleteService extends AbstractService<Lecturer
 	@Override
 	public void bind(final CourseLecture object) {
 		assert object != null;
-		super.bind(object, "course", "lecture");
+		CourseLecture stored = this.repository.findOneCourseLectureById(object.getId());
+		object.setCourse(stored.getCourse());
+		object.setLecture(stored.getLecture());
 	}
 
 	@Override
 	public void validate(final CourseLecture object) {
 		assert object != null;
+			super.state(object.getCourse().isDraftMode(), "*", "lecturer.course-lecture.form.error.course-not-draft-mode");
 
-		super.state(object.getCourse().isDraftMode(), "*", "lecturer.lecture.form.error.not-draft-mode");
+			// Opposite of update and create (without "!")
+			Collection<Lecture> lecturesInCourse = this.repository.findLecturesByCourseId(object.getCourse().getId());
+			super.state(lecturesInCourse.contains(object.getLecture()), "lecture", "lecturer.course-lecture.form.error.cant-delete-lecture-not-in-course");
+
+
 	}
 
 	@Override
@@ -100,18 +89,19 @@ public class LecturerCourseLectureDeleteService extends AbstractService<Lecturer
 	@Override
 	public void unbind(final CourseLecture object) {
 		assert object != null;
-		
-		Tuple tuple = new Tuple();	
+
+		Tuple tuple = new Tuple();
 		int lecturerId = super.getRequest().getPrincipal().getActiveRoleId();
 		tuple = super.unbind(object, "id");
-		Collection<Course> courses = this.repository.findManyCoursesByLecturerId(lecturerId );
+		Collection<Course> courses = this.repository.findManyCoursesByLecturerId(lecturerId);
 		Collection<Lecture> lectures = this.repository.findManyLecturesByLecturerId(lecturerId);
 		tuple.put("editable", object.getCourse().isDraftMode());
 		tuple.put("courses", SelectChoices.from(courses, "code", object.getCourse()));
-		tuple.put("lectures", SelectChoices.from(lectures, "title", object.getLecture()));
+		tuple.put("lectures", SelectChoices.from(lectures, "code", object.getLecture()));
 		super.getResponse().setData(tuple);
 		super.getResponse().setGlobal("editable", object.getCourse().isDraftMode());
 		super.getResponse().setGlobal("courseId", object.getCourse().getId());
+		super.getResponse().setGlobal("lectureId", object.getLecture().getId());
 	}
 
 }

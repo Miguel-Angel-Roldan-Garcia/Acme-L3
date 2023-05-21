@@ -25,8 +25,7 @@
 	<acme:input-url code="auditor.auditing-record.form.label.link" path="link"/>
 
 	<jstl:if test="${_command == 'correct'}">
-		<acme:message code="auditor.auditingrecord.message.correction.disclaimer"/>
-		<acme:input-checkbox code="auditor.auditingrecord.label.confirm" path="confirm"/>
+		<acme:input-checkbox code="auditor.auditing-record.label.confirm" path="confirm"/>
 	</jstl:if>
 	
 	<jstl:choose>	 
@@ -39,7 +38,7 @@
 			<acme:submit code="auditor.auditing-record.form.button.create" action="/auditor/auditing-record/create?masterId=${masterId}"/>
 		</jstl:when>		
 	<jstl:when test="${_command == 'correct'}">
-			<acme:submit code="auditor.auditingrecord.form.button.correct" action="/auditor/auditing-record/correct?masterId=${masterId}"/>
+			<acme:submit code="auditor.auditing-record.form.button.correct" action="/auditor/auditing-record/correct?masterId=${masterId}"/>
 		</jstl:when>		
 	</jstl:choose>
 </acme:form>

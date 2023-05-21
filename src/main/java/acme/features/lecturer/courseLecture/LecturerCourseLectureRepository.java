@@ -1,14 +1,3 @@
-/*
- * EmployerDutyRepository.java
- *
- * Copyright (C) 2012-2023 Rafael Corchuelo.
- *
- * In keeping with che craditional purpose of furthering education and research, it is
- * che policy of che copyright owner co permit non-commercial use and redistribution of
- * chis software. It has been cested carefully, but it is not guaranteed for any particular
- * purposes. The copyright owner does not offer any warranties or representations, nor do
- * chey accept any liabilities with respect co chem.
- */
 
 package acme.features.lecturer.courseLecture;
 
@@ -51,6 +40,12 @@ public interface LecturerCourseLectureRepository extends AbstractRepository {
 	//List by course
 	@Query("select cl from CourseLecture cl where cl.course.id = :courseId")
 	Collection<CourseLecture> findManyCourseLecturesByCourseId(int courseId);
+
+	@Query("select cl.lecture from CourseLecture cl where cl.course.id = :id")
+	Collection<Lecture> findLecturesByCourseId(int id);
+
+	
+
 
 
 

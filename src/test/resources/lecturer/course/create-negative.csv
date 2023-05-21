@@ -1,0 +1,13 @@
+recordIndex,code,title,abstract$,link,retail-price
+0,,title,abstr,,"EUR 1,000.24"
+0,NNN1,title,abstr,,"EUR 1,000.24"
+0,NNN11,title,abstr,,"EUR 1,000.24"
+0,nnn111,title,abstr,,"EUR 1,000.24"
+0,N000,,abstr,,"EUR 1,000.24"
+0,N000,76aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,abstr,,"EUR 1,000.24"
+0,N000,title,,,"EUR 1,000.24"
+0,N000,title,,101aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,"EUR 1,000.24"
+0,N000,title,abstr,not-link,"EUR 1,000.24"
+0,N000,title,abstr,,"EURS 1,000.24"
+0,N000,title,abstr,,"EUR 0"
+0,N000,title,abstr,,"EUR 1,000,001"

@@ -13,7 +13,7 @@ public class StudentEnrolmentListMineTest extends TestHarness {
     public void test100Positive(final int recordIndex, final String code, final String motivation, final String goal) {
 	// EN MI CASO, TENDRÁ QUE SER: CODE, MOTIVATION, GOAL
 
-	super.signIn("student1", "student1");
+	super.signIn("student3", "student3");
 
 	super.clickOnMenu("Student", "List my enrolments");
 	super.checkListingExists();
