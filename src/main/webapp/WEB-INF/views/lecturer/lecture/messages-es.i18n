@@ -1,12 +1,4 @@
-# messages-es.i18n
-#
-# Copyright (C) 2012-2023 Rafael Corchuelo.
-#
-# In keeping with the traditional purpose of furthering education and research, it is
-# the policy of the copyright owner to permit non-commercial use and redistribution of
-# this software. It has been tested carefully, but it is not guaranteed for any particular
-# purposes.  The copyright owner does not offer any warranties or representations, nor do
-# they accept any liabilities with respect to them.
+
 
 lecturer.lecture.form.label.title = Título:
 lecturer.lecture.form.label.abstract$ = Resumen:
@@ -21,11 +13,15 @@ lecturer.lecture.form.button.delete = Borrar
 lecturer.lecture.form.button.publish = Publicar
 
 
-
+lecturer.lecture.form.label.code = Código
 lecturer.lecture.list.label.title = Título
 lecturer.lecture.list.label.nature = Naturaleza 
 lecturer.lecture.list.label.estimated-learning-time = Tiempo estimado de aprendizaje
 lecturer.lecture.list.button.create = Crear
+lecturer.lecture.list.label.published = Publicada
+lecturer.lecture.list.label.code = Código
 
 lecturer.lecture.form.error.nature-balanced= Las clases deben ser teóricas o practicas no balanceadas
 lecturer.lecture.form.error.not-draft-mode = Las clases publicadas no pueden ser editadas o borradas
+lecturer.lecture.form.error.duplicated = Duplicada
+cant-update-and-publish-simultaneous = No se puede publicar mientras se edita
