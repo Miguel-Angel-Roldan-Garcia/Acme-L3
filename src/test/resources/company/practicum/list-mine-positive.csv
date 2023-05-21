@@ -3,7 +3,7 @@ recordIndex,code,title,courseCode
 1,AB112,Una práctica para aprender sobre programación,G139
 2,ACA998,.,G139
 3,ACD998,HO,G139
-4,AEA998,<script>alert(""hi"")</script>,G139
+4,AEA998,<script>alert("hi")</script>,G139
 5,AEF918,<h1>Hello</h1>,G139
 6,AGA908,Una práctica para aprender sobre programación,AB000
 7,AGA998,Una práctica para aprender sobre programación,G139

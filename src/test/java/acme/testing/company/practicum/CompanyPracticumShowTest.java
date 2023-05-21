@@ -1,7 +1,7 @@
 /*
- * EmployerJobShowTest.java
+ * AssistantTutorialShowTest.java
  *
- * Copyright (C) 2012-2023 Rafael Corchuelo.
+ * Copyright (C) 2022-2023 Miguel Ángel Roldán.
  *
  * In keeping with the traditional purpose of furthering education and research, it is
  * the policy of the copyright owner to permit non-commercial use and redistribution of
@@ -18,8 +18,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.batch.BatchProperties.Job;
 
+import acme.entities.individual.companies.Practicum;
 import acme.testing.TestHarness;
 
 public class CompanyPracticumShowTest extends TestHarness {
@@ -27,30 +27,27 @@ public class CompanyPracticumShowTest extends TestHarness {
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected CompanyPracticumRepository repository;
+	protected CompanyPracticumTestRepository repository;
 
 	// Test data --------------------------------------------------------------
 
 
 	@ParameterizedTest
-	@CsvFileSource(resources = "/employer/job/show-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test100Positive(final int recordIndex, final String code, final String title, final String abstract$, final String goals, final String estimatedTotalTime, final String courseCode, final String moreInfo, final String description) {
-		// HINT: this test signs in as an employer, lists all of the jobs, click on  
-		// HINT+ one of them, and checks that the form has the expected data.
+	@CsvFileSource(resources = "/company/practicum/show-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
+	public void test100Positive(final int recordIndex, final String code, final String title, final String abstract$, final String goals, final String course) {
 
 		super.signIn("company1", "company1");
 
-		super.clickOnMenu("Student", "List my enrolments");
+		super.clickOnMenu("Company", "List my practica");
 		super.sortListing(0, "asc");
 		super.clickOnListingRecord(recordIndex);
 		super.checkFormExists();
 
 		super.checkInputBoxHasValue("code", code);
 		super.checkInputBoxHasValue("title", title);
-		super.checkInputBoxHasValue("abstract", abstract$);
+		super.checkInputBoxHasValue("abstract$", abstract$);
 		super.checkInputBoxHasValue("goals", goals);
-		super.checkInputBoxHasValue("estimatedTotalTime", estimatedTotalTime);
-		super.checkInputBoxHasValue("courseCode", courseCode);
+		super.checkInputBoxHasValue("course", course);
 
 		super.signOut();
 	}
@@ -63,32 +60,47 @@ public class CompanyPracticumShowTest extends TestHarness {
 
 	@Test
 	public void test300Hacking() {
-		// HINT: this test tries to show an unpublished job by someone who is not the principal.
+		// HINT: this test tries to show an unpublished tutorial by someone who is not the principal.
 
-		Collection<Job> jobs;
+		Collection<Practicum> practica;
 		String param;
 
-		jobs = this.repository.findManyJobsByEmployerUsername("employer1");
-		for (final Job job : jobs)
-			if (job.isDraftMode()) {
-				param = String.format("id=%d", job.getId());
+		practica = this.repository.findManyPracticaByCompanyUsername("company2");
+		for (final Practicum practicum : practica)
+			if (practicum.isDraftMode()) {
+				param = String.format("id=%d", practicum.getId());
 
 				super.checkLinkExists("Sign in");
-				super.request("/employer/job/show", param);
+				super.request("/company/practicum/show", param);
 				super.checkPanicExists();
 
 				super.signIn("administrator", "administrator");
-				super.request("/employer/job/show", param);
+				super.request("/company/practicum/show", param);
 				super.checkPanicExists();
 				super.signOut();
 
-				super.signIn("employer2", "employer2");
-				super.request("/employer/job/show", param);
+				super.signIn("company1", "company1");
+				super.request("/company/practicum/show", param);
 				super.checkPanicExists();
 				super.signOut();
 
-				super.signIn("worker1", "worker1");
-				super.request("/employer/job/show", param);
+				super.signIn("lecturer1", "lecturer1");
+				super.request("/company/practicum/show", param);
+				super.checkPanicExists();
+				super.signOut();
+
+				super.signIn("student1", "student1");
+				super.request("/company/practicum/show", param);
+				super.checkPanicExists();
+				super.signOut();
+
+				super.signIn("assistant1", "assistant1");
+				super.request("/company/practicum/show", param);
+				super.checkPanicExists();
+				super.signOut();
+
+				super.signIn("auditor1", "auditor1");
+				super.request("/company/practicum/show", param);
 				super.checkPanicExists();
 				super.signOut();
 			}
