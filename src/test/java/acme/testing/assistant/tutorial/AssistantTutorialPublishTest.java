@@ -98,6 +98,22 @@ public class AssistantTutorialPublishTest extends TestHarness {
 				super.request("/assistant/tutorial/publish", params);
 				super.checkPanicExists();
 				super.signOut();
+
+				super.signIn("student1", "student1");
+				super.request("/assistant/tutorial/publish", params);
+				super.checkPanicExists();
+				super.signOut();
+
+				super.signIn("company1", "company1");
+				super.request("/assistant/tutorial/publish", params);
+				super.checkPanicExists();
+				super.signOut();
+
+				super.signIn("auditor1", "auditor1");
+				super.request("/assistant/tutorial/publish", params);
+				super.checkPanicExists();
+				super.signOut();
+
 			}
 	}
 

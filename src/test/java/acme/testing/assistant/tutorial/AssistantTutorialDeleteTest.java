@@ -65,7 +65,7 @@ public class AssistantTutorialDeleteTest extends TestHarness {
 	}
 
 	@Test
-	public void test200Negative(final int recordIndex, final String code, final String title) {
+	public void test200Negative() {
 		// HINT: there aren't any negative tests for this feature because it's a delete
 		// HINT+ that doesn't involve entering any data in any forms.
 	}
@@ -98,6 +98,21 @@ public class AssistantTutorialDeleteTest extends TestHarness {
 				super.signOut();
 
 				super.signIn("lecturer1", "lecturer1");
+				super.request("/assistant/tutorial/delete", param);
+				super.checkPanicExists();
+				super.signOut();
+
+				super.signIn("student1", "student1");
+				super.request("/assistant/tutorial/delete", param);
+				super.checkPanicExists();
+				super.signOut();
+
+				super.signIn("company1", "company1");
+				super.request("/assistant/tutorial/delete", param);
+				super.checkPanicExists();
+				super.signOut();
+
+				super.signIn("auditor1", "auditor1");
 				super.request("/assistant/tutorial/delete", param);
 				super.checkPanicExists();
 				super.signOut();
