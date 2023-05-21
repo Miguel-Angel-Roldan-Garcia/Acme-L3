@@ -1,8 +1,5 @@
-package acme.testing.student.enrolment;
 
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvFileSource;
+package acme.testing.student.enrolment;
 
 import acme.testing.TestHarness;
 

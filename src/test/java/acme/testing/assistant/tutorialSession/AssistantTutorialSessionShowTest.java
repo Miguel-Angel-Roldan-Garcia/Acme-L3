@@ -45,9 +45,14 @@ public class AssistantTutorialSessionShowTest extends TestHarness {
 		super.clickOnMenu("Assistant", "List my tutorials");
 		super.checkListingExists();
 		super.sortListing(0, "asc");
+		super.checkColumnHasValue(tutorialRecordIndex, 0, code);
+		super.checkColumnHasValue(tutorialRecordIndex, 1, tutorialTitle);
 		super.clickOnListingRecord(tutorialRecordIndex);
 		super.clickOnButton("Sessions");
 		super.checkListingExists();
+		super.checkColumnHasValue(tutorialSessionRecordIndex, 0, tutorialSessionTitle);
+		super.checkColumnHasValue(tutorialSessionRecordIndex, 1, nature);
+		super.checkColumnHasValue(tutorialSessionRecordIndex, 2, startDate);
 		super.clickOnListingRecord(tutorialSessionRecordIndex);
 		super.checkFormExists();
 
@@ -75,30 +80,45 @@ public class AssistantTutorialSessionShowTest extends TestHarness {
 		Collection<TutorialSession> duties;
 		String param;
 
-		super.signIn("assistant1", "assistant1");
-		duties = this.repository.findManyTutorialSessionsByAssistantUsername("assistant2");
+		duties = this.repository.findManyTutorialSessionsByAssistantUsername("assistant1");
 		for (final TutorialSession tutorialSession : duties)
 			if (tutorialSession.getTutorial().isDraftMode()) {
 				param = String.format("id=%d", tutorialSession.getTutorial().getId());
 
 				super.checkLinkExists("Sign in");
-				super.request("/assistant/tutorialSession/show", param);
+				super.request("/assistant/tutorial-session/show", param);
 				super.checkPanicExists();
 
 				super.signIn("administrator", "administrator");
-				super.request("/assistant/tutorialSession/show", param);
+				super.request("/assistant/tutorial-session/show", param);
 				super.checkPanicExists();
 				super.signOut();
 
 				super.signIn("assistant2", "assistant2");
-				super.request("/assistant/tutorialSession/show", param);
+				super.request("/assistant/tutorial-session/show", param);
 				super.checkPanicExists();
 				super.signOut();
 
 				super.signIn("lecturer1", "lecturer1");
-				super.request("/assistant/tutorialSession/show", param);
+				super.request("/assistant/tutorial-session/show", param);
 				super.checkPanicExists();
 				super.signOut();
+
+				super.signIn("student1", "student1");
+				super.request("/assistant/tutorial-session/show", param);
+				super.checkPanicExists();
+				super.signOut();
+
+				super.signIn("company1", "company1");
+				super.request("/assistant/tutorial-session/show", param);
+				super.checkPanicExists();
+				super.signOut();
+
+				super.signIn("auditor1", "auditor1");
+				super.request("/assistant/tutorial-session/show", param);
+				super.checkPanicExists();
+				super.signOut();
+
 			}
 	}
 
