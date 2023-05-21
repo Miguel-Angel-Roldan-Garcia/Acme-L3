@@ -8,11 +8,9 @@
 0,ABC12,Lorem ipsum,Lorem ipsum,Lorem ipsum,G139
 0,124,Lorem ipsum,Lorem ipsum,Lorem ipsum,G139
 0,ABC124,,Lorem ipsum,Lorem ipsum,G139
-0,ABC124,76 Characters -.-.-.-.-.-.-.-.-.-.-.-.-.--.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.76,Lorem ipsum,Lorem ipsum,G139
+0,ABC124,76 Characters -.-.-.-.-.-.-.-.-.-.-.-.-.--.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-76,Lorem ipsum,Lorem ipsum,G139
 0,ABC124,Lorem ipsum,,Lorem ipsum,G139
-0,ABC124,Lorem ipsum,101 Characters -.-.-.-.-.-.-.-.-.-.-.-.-.--.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.101,Lorem ipsum,G139
+0,ABC124,Lorem ipsum,101 Characters -.-.-.-.-.-.-.-.-.-.-.-.-.--.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.101,Lorem ipsum,G139
 0,ABC124,Lorem ipsum,Lorem ipsum,,G139
-0,ABC124,Lorem ipsum,Lorem ipsum,101 Characters -.-.-.-.-.-.-.-.-.-.-.-.-.--.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.101,G139
-0,ABC124,Lorem ipsum,Lorem ipsum,Lorem ipsum,G139
-0,ABC124,Lorem ipsum,Lorem ipsum,Lorem ipsum,G139
-0,ABC124,Lorem ipsum,Lorem ipsum,Lorem ipsum,G139
+0,ABC124,Lorem ipsum,Lorem ipsum,101 Characters -.-.-.-.-.-.-.-.-.-.-.-.-.--.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.101,G139
+0,ABC124,Lorem ipsum,Lorem ipsum,Lorem ipsum,---
