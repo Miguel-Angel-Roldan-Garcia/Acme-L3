@@ -1,3 +1,14 @@
+/*
+ * CompanyPracticumListMineTest.java
+ *
+ * Copyright (C) 2022-2023 Javier Fernández Castillo.
+ *
+ * In keeping with the traditional purpose of furthering education and research, it is
+ * the policy of the copyright owner to permit non-commercial use and redistribution of
+ * this software. It has been tested carefully, but it is not guaranteed for any particular
+ * purposes. The copyright owner does not offer any warranties or representations, nor do
+ * they accept any liabilities with respect to them.
+ */
 
 package acme.testing.company.practicum;
 
@@ -12,7 +23,6 @@ public class CompanyPracticumListMineTest extends TestHarness {
 	@ParameterizedTest
 	@CsvFileSource(resources = "/company/practicum/list-mine-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test100Positive(final int recordIndex, final String code, final String title, final String courseCode) {
-		// EN MI CASO, TENDRÁ QUE SER: CODE, MOTIVATION, GOAL
 
 		super.signIn("company1", "company1");
 
