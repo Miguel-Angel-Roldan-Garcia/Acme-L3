@@ -1,0 +1,9 @@
+﻿recordIndex,title,nick,message,email,http://www.example.com
+0,,nick,message,email@mail.com,http://www.example.com
+0,76 Characters -.-.-.-.-.-.-.-.-.-.-.-.-.--.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-76,nick,message,email@mail.com,http://www.example.com
+0,title,,message,email@mail.com,http://www.example.com
+0,title,76 Characters -.-.-.-.-.-.-.-.-.-.-.-.-.--.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-76,message,email@mail.com,http://www.example.com
+0,title,nick,,email@mail.com,http://www.example.com
+0,title,nick,101 Characters -.-.-.-.-.-.-.-.-.-.-.-.-.--.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.101,email@mail.com,http://www.example.com
+0,title,nick,message,not an email,http://www.example.com
+0,title,nick,message,email@mail.com,not a link
