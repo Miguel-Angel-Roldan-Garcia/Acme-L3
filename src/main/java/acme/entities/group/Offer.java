@@ -1,3 +1,14 @@
+/*
+ * Offer.java
+ *
+ * Copyright (C) 2022-2023 Javier Fernández Castillo.
+ *
+ * In keeping with the traditional purpose of furthering education and research, it is
+ * the policy of the copyright owner to permit non-commercial use and redistribution of
+ * this software. It has been tested carefully, but it is not guaranteed for any particular
+ * purposes. The copyright owner does not offer any warranties or representations, nor do
+ * they accept any liabilities with respect to them.
+ */
 
 package acme.entities.group;
 
@@ -25,37 +36,35 @@ public class Offer extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------------------------
 
-	private static final long serialVersionUID = 1L;
+	private static final long	serialVersionUID	= 1L;
 
 	// Attributes -------------------------------------------------------------
 
 	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
 	@PastOrPresent
-	protected Date instantiationMoment;
+	protected Date				instantiationMoment;
 
 	@NotBlank
 	@Length(max = 75)
-	protected String heading;
+	protected String			heading;
 
 	@NotBlank
 	@Length(max = 100)
-	protected String summary;
+	protected String			summary;
 
-	// TODO Custom restriction D02-G-010
 	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
-	protected Date availabilityPeriodStartDate;
+	protected Date				availabilityPeriodStartDate;
 
-	// TODO Custom restriction D02-G-010
 	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
-	protected Date availabilityPeriodEndDate;
+	protected Date				availabilityPeriodEndDate;
 
 	@NotNull
-	protected Money price;
+	protected Money				price;
 
 	@URL
-	protected String link;
+	protected String			link;
 
 }

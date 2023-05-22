@@ -1,7 +1,7 @@
 /*
- * WorkerApplicationController.java
+ * CompanyPracticumController.java
  *
- * Copyright (C) 2012-2023 Rafael Corchuelo.
+ * Copyright (C) 2022-2023 Javier Fernández Castillo.
  *
  * In keeping with the traditional purpose of furthering education and research, it is
  * the policy of the copyright owner to permit non-commercial use and redistribution of
@@ -27,24 +27,25 @@ public class CompanyPracticumController extends AbstractController<Company, Prac
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected CompanyPracticumListMineService listService;
+	protected CompanyPracticumListMineService	listService;
 
 	@Autowired
-	protected CompanyPracticumShowService showService;
+	protected CompanyPracticumShowService		showService;
 
 	@Autowired
-	protected CompanyPracticumCreateService createService;
+	protected CompanyPracticumCreateService		createService;
 
 	@Autowired
-	protected CompanyPracticumUpdateService updateService;
+	protected CompanyPracticumUpdateService		updateService;
 
 	@Autowired
-	protected CompanyPracticumDeleteService deleteService;
+	protected CompanyPracticumDeleteService		deleteService;
 
 	@Autowired
-	protected CompanyPracticumPublishService publishService;
+	protected CompanyPracticumPublishService	publishService;
 
 	// Constructors -----------------------------------------------------------
+
 
 	@PostConstruct
 	protected void initialise() {

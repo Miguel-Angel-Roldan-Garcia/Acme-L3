@@ -73,7 +73,7 @@ public class CompanyPracticumDeleteTest extends TestHarness {
 	@Test
 	public void test300Hacking() {
 		// HINT: this test tries to delete a practicum with a role other than "Company",
-		// HINT+ or using an company who is not the owner.
+		// HINT+ or using a company who is not the owner.
 
 		Collection<Practicum> practica;
 		String param;
