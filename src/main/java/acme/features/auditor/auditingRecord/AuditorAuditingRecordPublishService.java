@@ -1,8 +1,6 @@
 
 package acme.features.auditor.auditingRecord;
 
-import java.time.temporal.ChronoUnit;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,6 +25,7 @@ public class AuditorAuditingRecordPublishService extends AbstractService<Auditor
 	@Override
 	public void check() {
 		final boolean status = super.getRequest().hasData("id", int.class);
+
 		super.getResponse().setChecked(status);
 	}
 
@@ -43,8 +42,11 @@ public class AuditorAuditingRecordPublishService extends AbstractService<Auditor
 	@Override
 	public void load() {
 		AuditingRecord object;
+		int id;
 
-		object = this.repository.findOneAuditingRecordById(super.getRequest().getData("id", int.class));
+		id = super.getRequest().getData("id", int.class);
+		object = this.repository.findOneAuditingRecordById(id);
+
 		super.getBuffer().setData(object);
 	}
 
@@ -53,7 +55,7 @@ public class AuditorAuditingRecordPublishService extends AbstractService<Auditor
 		assert object != null;
 
 		final String mark = super.getRequest().getData("mark", String.class);
-		super.bind(object, "subject", "assessment", "link", "startDate", "finishDate", "draftMode");
+		super.bind(object, "subject", "assessment", "link", "startDate", "finishDate");
 		object.setMark(Mark.transform(mark));
 	}
 
@@ -62,23 +64,15 @@ public class AuditorAuditingRecordPublishService extends AbstractService<Auditor
 		assert object != null;
 
 		if (!super.getBuffer().getErrors().hasErrors("finishDate")) {
-			boolean endDateErrorDuration;
-
-			endDateErrorDuration = MomentHelper.isLongEnough(object.getStartDate(), object.getFinishDate(), 1l, ChronoUnit.HOURS);
-
-			if (endDateErrorDuration)
-				endDateErrorDuration = !MomentHelper.isLongEnough(object.getStartDate(), object.getFinishDate(), (long) 3600 + 1, ChronoUnit.SECONDS);
-
-			super.state(endDateErrorDuration, "finishDate", "auditor.auditing-record.form.error.duration");
-		}
-
-		if (!super.getBuffer().getErrors().hasErrors("finishDate")) {
 			boolean endDateError;
 
 			endDateError = MomentHelper.isBefore(object.getStartDate(), object.getFinishDate());
 
 			super.state(endDateError, "finishDate", "auditor.auditing-record.form.error.end-before-start");
 		}
+
+		if (!super.getBuffer().getErrors().hasErrors("finishDate"))
+			super.state(!(object.getDurationInHours() <= 1), "finishDate", "auditor.auditing-record.form.error.duration");
 	}
 
 	@Override

@@ -1,14 +1,3 @@
-/*
- * EmployerJobDeleteService.java
- *
- * Copyright (C) 2012-2023 Rafael Corchuelo.
- *
- * In keeping with the traditional purpose of furthering education and research, it is
- * the policy of the copyright owner to permit non-commercial use and redistribution of
- * this software. It has been tested carefully, but it is not guaranteed for any particular
- * purposes. The copyright owner does not offer any warranties or representations, nor do
- * they accept any liabilities with respect to them.
- */
 
 package acme.features.lecturer.course;
 
@@ -87,21 +76,10 @@ public class LecturerCourseDeleteService extends AbstractService<Lecturer, Cours
 
 	@Override
 	public void validate(final Course object) {
-		assert object != null;
-		//Unique code
-		if (!super.getBuffer().getErrors().hasErrors("code")) {
-			Course existing;
-			existing = this.repository.findOneCourseByCode(object.getCode());
-			super.state(existing == null || existing.equals(object), "code", "lecturer.course.form.error.duplicated");
-		}
-		//Money positive
-		if (!super.getBuffer().getErrors().hasErrors("retailPrice")) {
-			
-			super.state(object.getRetailPrice().getAmount() >= 0. 
-				|| object.getRetailPrice().getAmount() <1000000, "retailPrice", "lecturer.course.form.error.money-bounds");
-		}
-		//must be in draft mode at creation
+		assert object != null;	
+		//must be in draft mode to delete
 		super.state(object.isDraftMode(), "*", "lecturer.course.form.error.not-draft-mode");
+
 	}
 
 	@Override

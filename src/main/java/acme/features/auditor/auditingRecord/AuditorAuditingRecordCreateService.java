@@ -12,8 +12,6 @@
 
 package acme.features.auditor.auditingRecord;
 
-import java.time.temporal.ChronoUnit;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -54,7 +52,7 @@ public class AuditorAuditingRecordCreateService extends AbstractService<Auditor,
 
 		masterId = super.getRequest().getData("masterId", int.class);
 		audit = this.repository.findOneAuditById(masterId);
-		status = super.getRequest().getPrincipal().hasRole(audit.getAuditor()) && audit.isDraftMode();
+		status = super.getRequest().getPrincipal().hasRole(audit.getAuditor());
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -92,17 +90,6 @@ public class AuditorAuditingRecordCreateService extends AbstractService<Auditor,
 		assert object != null;
 
 		if (!super.getBuffer().getErrors().hasErrors("finishDate")) {
-			boolean endDateErrorDuration;
-
-			endDateErrorDuration = MomentHelper.isLongEnough(object.getStartDate(), object.getFinishDate(), 1l, ChronoUnit.HOURS);
-
-			if (!endDateErrorDuration)
-				endDateErrorDuration = !MomentHelper.isLongEnough(object.getStartDate(), object.getFinishDate(), (long) 3600 + 1, ChronoUnit.SECONDS);
-
-			super.state(endDateErrorDuration, "finishDate", "auditor.auditing-record.form.error.duration");
-		}
-
-		if (!super.getBuffer().getErrors().hasErrors("finishDate")) {
 			boolean endDateError;
 
 			endDateError = MomentHelper.isBefore(object.getStartDate(), object.getFinishDate());
@@ -110,11 +97,14 @@ public class AuditorAuditingRecordCreateService extends AbstractService<Auditor,
 			super.state(endDateError, "finishDate", "auditor.auditing-record.form.error.end-before-start");
 		}
 
+		if (!super.getBuffer().getErrors().hasErrors("finishDate"))
+			super.state(!(object.getDurationInHours() <= 1), "finishDate", "auditor.auditing-record.form.error.duration");
 	}
 
 	@Override
 	public void perform(final AuditingRecord object) {
 		assert object != null;
+		object.setDraftMode(true);
 		this.repository.save(object);
 	}
 

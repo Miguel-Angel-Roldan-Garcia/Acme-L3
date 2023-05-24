@@ -5,6 +5,7 @@ user-account-administrator-02,true,"UserIdentity{name: 'Administrator', surname:
 user-account-administrator-03,true,"UserIdentity{name: 'Administrator', surname: '2', email: 'administrator2@acme.com'}",administrator2,administrator2
 user-account-student-01,true,"UserIdentity{name: 'Andres', surname: 'Dominguez', email: 'student01@gmail.com'}",student1,student1
 user-account-student-02,true,"UserIdentity{name: 'Javier', surname: 'Gonzalez', email: 'student02@gmail.com'}",student2,student2
+user-account-student-03,true,"UserIdentity{name: 'Antonio', surname: 'Dominguez', email: 'student03@gmail.com'}",student3,student3
 user-account-company-01,true,"UserIdentity{name: 'Javier', surname: 'Fernández', email: 'company01@gmail.com'}",company1,company1
 user-account-company-02,true,"UserIdentity{name: 'Manuel', surname: 'Barrera', email: 'company02@gmail.com'}",company2,company2
 user-account-lecturer-01,true,"UserIdentity{name: 'Manuel', surname: 'Otero', email: 'lecturer01@gmail.com'}",lecturer1,lecturer1
@@ -48,3 +49,4 @@ user-account-30,true,"UserIdentity{name: 'User', surname: '30', email: 'user31@a
 user-account-31,true,"UserIdentity{name: 'User', surname: '31', email: 'user32@acme.com'}",user31,user31
 user-account-32,true,"UserIdentity{name: 'User', surname: '32', email: 'user33@acme.com'}",user32,user32
 user-account-33,true,"UserIdentity{name: 'User', surname: '33', email: 'user34@acme.com'}",user33,user33
+user-account-100,true,"UserIdentity{name: 'User', surname: '100', email: 'user100@acme.com'}",lecturerTest,lecturerTest

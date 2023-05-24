@@ -22,3 +22,8 @@ enrolment-20,student-01,AO987,motivacion,"<script>alert(""hi"")</script>",true,c
 enrolment-21,student-01,APP987,motivacion,こんにちは,false,course-1
 enrolment-22,student-01,AQ987,motivacion,Здравствуйте добрый день,false,course-1
 enrolment-23,student-01,AOO987,motivacion,$%&$/&%(/&&)(·=?,false,course-1
+enrolment-24,student-03,A111,motivacion,objetivo,true,course-39
+enrolment-25,student-03,A112,motivacion,objetivo,true,course-39
+enrolment-26,student-03,B112,motivacion,objetivo,true,course-39
+enrolment-27,student-03,A113,motivacion,objetivo,true,course-39
+enrolment-28,student-03,C113,motivacion,objetivo,true,course-39
