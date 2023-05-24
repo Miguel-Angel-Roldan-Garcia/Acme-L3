@@ -19,7 +19,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import acme.entities.individual.assistants.Tutorial;
+import acme.entities.individual.assistants.TutorialSession;
 import acme.testing.TestHarness;
 
 public class AssistantTutorialSessionUpdateTest extends TestHarness {
@@ -119,12 +119,12 @@ public class AssistantTutorialSessionUpdateTest extends TestHarness {
 		// HINT: this test tries to update a tutorialSession of a tutorial as a principal without
 		// HINT: the "Assistant" role.
 
-		Collection<Tutorial> tutorials;
+		Collection<TutorialSession> tutorialSessions;
 		String param;
 
-		tutorials = this.repository.findManyTutorialsByAssistantUsername("assistant1");
-		for (final Tutorial tutorial : tutorials) {
-			param = String.format("masterId=%d", tutorial.getId());
+		tutorialSessions = this.repository.findManyTutorialSessionsByAssistantUsername("assistant2");
+		for (final TutorialSession tutorialSession : tutorialSessions) {
+			param = String.format("masterId=%d", tutorialSession.getId());
 
 			super.checkLinkExists("Sign in");
 			super.request("/assistant/tutorial-session/update", param);
@@ -162,18 +162,19 @@ public class AssistantTutorialSessionUpdateTest extends TestHarness {
 		// HINT: this test tries to update a tutorialSession of a published tutorial created by
 		// HINT+ the principal.
 
-		Collection<Tutorial> tutorials;
+		Collection<TutorialSession> tutorialSessions;
 		String param;
 
 		super.checkLinkExists("Sign in");
-		super.signIn("assistant1", "assistant1");
-		tutorials = this.repository.findManyTutorialsByAssistantUsername("assistant1");
-		for (final Tutorial tutorial : tutorials)
-			if (!tutorial.isDraftMode()) {
-				param = String.format("masterId=%d", tutorial.getId());
+		super.signIn("assistant2", "assistant2");
+		tutorialSessions = this.repository.findManyTutorialSessionsByAssistantUsername("assistant2");
+		for (final TutorialSession tutorialSession : tutorialSessions)
+			if (!tutorialSession.getTutorial().isDraftMode()) {
+				param = String.format("masterId=%d", tutorialSession.getId());
 				super.request("/assistant/tutorial-session/update", param);
 				super.checkPanicExists();
 			}
+		super.signOut();
 	}
 
 	@Test
@@ -181,17 +182,18 @@ public class AssistantTutorialSessionUpdateTest extends TestHarness {
 		// HINT: this test tries to update tutorial sessions of tutorials that weren't created
 		// HINT+ by the principal.
 
-		Collection<Tutorial> tutorials;
+		Collection<TutorialSession> tutorialSessions;
 		String param;
 
 		super.checkLinkExists("Sign in");
-		super.signIn("assistant1", "assistant1");
-		tutorials = this.repository.findManyTutorialsByAssistantUsername("assistant2");
-		for (final Tutorial tutorial : tutorials) {
-			param = String.format("masterId=%d", tutorial.getId());
+		super.signIn("assistant2", "assistant2");
+		tutorialSessions = this.repository.findManyTutorialSessionsByAssistantUsername("assistant2");
+		for (final TutorialSession tutorialSession : tutorialSessions) {
+			param = String.format("masterId=%d", tutorialSession.getId());
 			super.request("/assistant/tutorial-session/update", param);
 			super.checkPanicExists();
 		}
+		super.signOut();
 	}
 
 }

@@ -21,7 +21,6 @@ import acme.testing.TestHarness;
 public class AssistantTutorialCreateTest extends TestHarness {
 
 	@ParameterizedTest
-
 	@CsvFileSource(resources = "/assistant/tutorial/create-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test100Positive(final int recordIndex, final String code, final String title, final String abstract$, final String goals, final String course) {
 		// HINT: this test authenticates as an assistant and then lists his or her

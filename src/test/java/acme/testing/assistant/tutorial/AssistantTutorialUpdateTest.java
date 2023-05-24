@@ -106,7 +106,7 @@ public class AssistantTutorialUpdateTest extends TestHarness {
 		Collection<Tutorial> tutorials;
 		String param;
 
-		tutorials = this.repository.findManyTutorialsByAssistantUsername("assistant1");
+		tutorials = this.repository.findManyTutorialsByAssistantUsername("assistant2");
 		for (final Tutorial tutorial : tutorials) {
 			param = String.format("id=%d", tutorial.getId());
 
@@ -119,7 +119,7 @@ public class AssistantTutorialUpdateTest extends TestHarness {
 			super.checkPanicExists();
 			super.signOut();
 
-			super.signIn("assistant2", "assistant2");
+			super.signIn("assistant1", "assistant1");
 			super.request("/assistant/tutorial/update", param);
 			super.checkPanicExists();
 			super.signOut();
@@ -154,16 +154,17 @@ public class AssistantTutorialUpdateTest extends TestHarness {
 		Collection<Tutorial> tutorials;
 		String param;
 
-		tutorials = this.repository.findManyTutorialsByAssistantUsername("assistant1");
+		super.signIn("assistant2", "assistant2");
+		tutorials = this.repository.findManyTutorialsByAssistantUsername("assistant2");
 		for (final Tutorial tutorial : tutorials)
 			if (!tutorial.isDraftMode()) {
 				param = String.format("id=%d", tutorial.getId());
-
-				super.signIn("assistant1", "assistant1");
 				super.request("/assistant/tutorial/update", param);
 				super.checkPanicExists();
-				super.signOut();
+
 			}
+
+		super.signOut();
 	}
 
 }
