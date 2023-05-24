@@ -1,7 +1,7 @@
 /*
- * AuthenticatedAnnouncementShowService.java
+ * AdministratorOfferShowService.java
  *
- * Copyright (C) 2012-2023 Rafael Corchuelo.
+ * Copyright (C) 2022-2023 Javier Fernández Castillo.
  *
  * In keeping with the traditional purpose of furthering education and research, it is
  * the policy of the copyright owner to permit non-commercial use and redistribution of
@@ -69,11 +69,12 @@ public class AdministratorOfferShowService extends AbstractService<Administrator
 		Offer offer;
 		Date moment;
 		moment = MomentHelper.getCurrentMoment();
-		Tuple tuple;
 		MoneyExchange exchange;
 
 		offer = this.repository.findActiveOfferById(moment, object.getId());
 		updateOrDelete = offer != null ? false : true;
+
+		Tuple tuple;
 
 		tuple = super.unbind(object, "instantiationMoment", "heading", "summary", "availabilityPeriodStartDate", "availabilityPeriodEndDate", "price", "link");
 		tuple.put("updateOrDelete", updateOrDelete);
