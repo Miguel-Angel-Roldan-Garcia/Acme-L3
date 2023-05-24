@@ -54,8 +54,8 @@ public class CompanyPracticumShowTest extends TestHarness {
 
 	@Test
 	public void test200Negative() {
-		// HINT: there aren't any negative tests for this feature because it's a listing
-		// HINT+ that doesn't involve entering any data in any forms.
+		// HINT: there's no negative test case for this show
+
 	}
 
 	@Test
