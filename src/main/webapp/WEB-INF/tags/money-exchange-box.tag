@@ -55,7 +55,7 @@
 			</tbody>
 		</table>
 	</jstl:when>
-	<jstl:when test="${moneyExchange == null && _command != 'create'}">
+	<jstl:when test="${moneyExchange == null && _command == 'show'}">
 		<acme:message code="money-exchange.error.failed"/>
 	</jstl:when>
 </jstl:choose>

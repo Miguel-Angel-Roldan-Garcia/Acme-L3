@@ -36,4 +36,6 @@ public interface AdministratorOfferRepository extends AbstractRepository {
 	@Query("select o from Offer o where o.availabilityPeriodStartDate < :moment and o.availabilityPeriodEndDate > :moment and o.id = :id")
 	Offer findActiveOfferById(Date moment, int id);
 
+	@Query("select sc.currency from SystemConfiguration sc")
+	String findSystemCurrency();
 }
