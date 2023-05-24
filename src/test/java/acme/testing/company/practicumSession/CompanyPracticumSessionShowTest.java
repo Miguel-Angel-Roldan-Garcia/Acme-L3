@@ -50,6 +50,7 @@ public class CompanyPracticumSessionShowTest extends TestHarness {
 		super.checkColumnHasValue(practicumRecordIndex, 1, practicumTitle);
 		super.clickOnListingRecord(practicumRecordIndex);
 		super.clickOnButton("Practicum sessions");
+		
 		super.checkListingExists();
 		super.checkColumnHasValue(practicumSessionRecordIndex, 0, practicumSessionTitle);
 		super.checkColumnHasValue(practicumSessionRecordIndex, 1, startDate);

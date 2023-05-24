@@ -87,7 +87,7 @@ public class CompanyPracticumSessionDeleteTest extends TestHarness {
 
 		practicumSessions = this.repository.findManyPracticumSessionsByCompanyUsername("company1");
 		for (final PracticumSession practicumSession : practicumSessions) {
-			param = String.format("masterId=%d", practicumSession.getId());
+			param = String.format("id=%d", practicumSession.getId());
 
 			super.checkLinkExists("Sign in");
 			super.request("/company/practicum-session/delete", param);
@@ -133,7 +133,7 @@ public class CompanyPracticumSessionDeleteTest extends TestHarness {
 		practicumSessions = this.repository.findManyPracticumSessionsByCompanyUsername("company1");
 		for (final PracticumSession practicumSession : practicumSessions)
 			if (!practicumSession.getPracticum().isDraftMode()) {
-				param = String.format("masterId=%d", practicumSession.getId());
+				param = String.format("id=%d", practicumSession.getId());
 				super.request("/company/practicum-session/delete", param);
 				super.checkPanicExists();
 			}
