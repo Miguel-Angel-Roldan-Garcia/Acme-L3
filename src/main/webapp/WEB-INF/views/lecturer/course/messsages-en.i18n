@@ -26,7 +26,7 @@ lecturer.course.form.button.change-lectures = Change lectures
 lecturer.course.form.button.add-lectures-to-course = Attach lectures
 
 
-
+lecturer.course.error.negative = Price can not be negative
 lecturer.course.form.error.duplicated = This code is unavailable
 lecturer.course.form.error.not-draft-mode = This course is published
 lecturer.course.form.error.not-hands-on = This course can not be published (no hands on lectures)

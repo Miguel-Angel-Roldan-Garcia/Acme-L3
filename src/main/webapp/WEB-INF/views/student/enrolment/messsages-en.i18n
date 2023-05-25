@@ -35,7 +35,7 @@ student.enrolment.form.button.activities = Their activities
 student.enrolment.form.error.duplicated = You cant use a duplicated code
 student.enrolment.form.error.not-published = You cant use a not published course
 student.enrolment.form.error.past-expiry-date = You cant use a past or present date
-student.enrolment.form.error.not-valid-date-format = The pattern of the expiry date must be MM/yy
+student.enrolment.form.error.not-valid-date-format = The pattern of the expiry date must be yy/MM
 student.enrolment.form.error.not-valid-holderName = The holder name cant be empty or higher than 25 characters
 student.enrolment.form.error.not-valid-credit-number-size = You must introduce a valid credit card number with 14 digits
 
