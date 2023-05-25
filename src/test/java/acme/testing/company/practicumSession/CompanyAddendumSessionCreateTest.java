@@ -32,10 +32,39 @@ public class CompanyAddendumSessionCreateTest extends TestHarness {
 
 	// Test methods -----------------------------------------------------------
 
+	@ParameterizedTest
+	@CsvFileSource(resources = "/company/practicumSession/create-addendum-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
+	public void test100Negative(final int practicumRecordIndex, final String code, final String practicumTitle, final int practicumSessionRecordIndex, final String practicumSessionTitle, final String abstract$, final String startDate, final String endDate,
+		final String link, final String accept) {
+		// HINT: this test attempts to create an addendum session for a published practicum without any addendum using wrong data.
+
+		super.signIn("company1", "company1");
+
+		super.clickOnMenu("Company", "List my practica");
+		super.checkListingExists();
+		super.sortListing(0, "asc");
+
+		super.checkColumnHasValue(practicumRecordIndex, 0, code);
+		super.checkColumnHasValue(practicumRecordIndex, 1, practicumTitle);
+		super.clickOnListingRecord(practicumRecordIndex);
+		super.clickOnButton("Practicum sessions");
+
+		super.clickOnButton("Create addendum session");
+		super.fillInputBoxIn("title", practicumSessionTitle);
+		super.fillInputBoxIn("abstract$", abstract$);
+		super.fillInputBoxIn("startDate", startDate);
+		super.fillInputBoxIn("endDate", endDate);
+		super.fillInputBoxIn("link", link);
+		super.fillInputBoxIn("accept", accept);
+		super.clickOnSubmit("Create");
+		super.checkErrorsExist();
+
+		super.signOut();
+	}
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/company/practicumSession/create-addendum-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test100Positive(final int practicumRecordIndex, final String code, final String practicumTitle, final int practicumSessionRecordIndex, final String practicumSessionTitle, final String abstract$, final String startDate, final String endDate,
+	public void test200Positive(final int practicumRecordIndex, final String code, final String practicumTitle, final int practicumSessionRecordIndex, final String practicumSessionTitle, final String abstract$, final String startDate, final String endDate,
 		final String link, final String accept) {
 		// HINT: this test authenticates as a company, list his or her practica, navigates
 		// HINT+ to a published practicum without any addendum and lists its sessions. Then creates a new one addendum session, and check that it's 
@@ -77,39 +106,9 @@ public class CompanyAddendumSessionCreateTest extends TestHarness {
 		super.signOut();
 	}
 
-	@ParameterizedTest
-	@CsvFileSource(resources = "/company/practicumSession/create-addendum-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test200Negative(final int practicumRecordIndex, final String code, final String practicumTitle, final int practicumSessionRecordIndex, final String practicumSessionTitle, final String abstract$, final String startDate, final String endDate,
-		final String link, final String accept) {
-		// HINT: this test attempts to create an addendum session for a published practicum without any addendum using wrong data.
-
-		super.signIn("company1", "company1");
-
-		super.clickOnMenu("Company", "List my practica");
-		super.checkListingExists();
-		super.sortListing(0, "asc");
-
-		super.checkColumnHasValue(practicumRecordIndex, 0, code);
-		super.checkColumnHasValue(practicumRecordIndex, 1, practicumTitle);
-		super.clickOnListingRecord(practicumRecordIndex);
-		super.clickOnButton("Practicum sessions");
-
-		super.clickOnButton("Create addendum session");
-		super.fillInputBoxIn("title", practicumSessionTitle);
-		super.fillInputBoxIn("abstract$", abstract$);
-		super.fillInputBoxIn("startDate", startDate);
-		super.fillInputBoxIn("endDate", endDate);
-		super.fillInputBoxIn("link", link);
-		super.fillInputBoxIn("accept", accept);
-		super.clickOnSubmit("Create");
-		super.checkErrorsExist();
-
-		super.signOut();
-	}
-
 	@Test
 	public void test300Hacking() {
-		// HINT: this test tries to create an addendum Session for a published practicum as a principal without
+		// HINT: this test tries to create an addendum Session for a practicum as a principal without
 		// HINT: the "Company" role.
 		// HINT+ or using a company who is not the owner.
 
