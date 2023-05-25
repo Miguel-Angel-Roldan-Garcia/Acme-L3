@@ -18,10 +18,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.group.Offer;
+import acme.forms.group.MoneyExchange;
 import acme.framework.components.accounts.Administrator;
 import acme.framework.components.models.Tuple;
 import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
+import acme.helpers.MoneyExchangeHelper;
 
 @Service
 public class AdministratorOfferShowService extends AbstractService<Administrator, Offer> {
@@ -67,6 +69,7 @@ public class AdministratorOfferShowService extends AbstractService<Administrator
 		Offer offer;
 		Date moment;
 		moment = MomentHelper.getCurrentMoment();
+		MoneyExchange exchange;
 
 		offer = this.repository.findActiveOfferById(moment, object.getId());
 		updateOrDelete = offer != null ? false : true;
@@ -75,6 +78,15 @@ public class AdministratorOfferShowService extends AbstractService<Administrator
 
 		tuple = super.unbind(object, "instantiationMoment", "heading", "summary", "availabilityPeriodStartDate", "availabilityPeriodEndDate", "price", "link");
 		tuple.put("updateOrDelete", updateOrDelete);
+
+		// HINT: Try catch so that if any errors occurred, the normal functionality is not 
+		// HINT+ stopped by this secondary feature.
+		try {
+			exchange = MoneyExchangeHelper.computeMoneyExchange(object.getPrice(), this.repository.findSystemCurrency());
+			tuple.put("moneyExchange", exchange);
+		} catch (final Exception e) {
+			tuple.put("moneyExchange", null);
+		}
 
 		super.getResponse().setData(tuple);
 	}

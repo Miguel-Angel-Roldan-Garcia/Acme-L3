@@ -14,6 +14,7 @@
 
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
+<%@taglib prefix="custom-acme" tagdir="/WEB-INF/tags"%>
 
 <acme:form>
 	<acme:input-moment code="administrator.offer.form.label.instantiation-moment" path="instantiationMoment" readonly="true"/>
@@ -22,6 +23,7 @@
 	<acme:input-textbox code="administrator.offer.form.label.heading" path="heading"/>
 	<acme:input-textbox code="administrator.offer.form.label.summary" path="summary"/>
 	<acme:input-money code="administrator.offer.form.label.price" path="price"/>
+	<custom-acme:money-exchange-box moneyExchange="${moneyExchange}"/>
 	<acme:input-url code="administrator.offer.form.label.link" path="link"/>
 	
 	<jstl:choose>	 

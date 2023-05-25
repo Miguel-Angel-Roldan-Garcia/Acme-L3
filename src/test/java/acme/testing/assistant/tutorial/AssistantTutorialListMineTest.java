@@ -46,6 +46,9 @@ public class AssistantTutorialListMineTest extends TestHarness {
 
 	@Test
 	public void test300Hacking() {
+		// HINT: this test tries to list tutorials using principals with
+		// HINT+ inappropriate roles.
+
 		super.checkLinkExists("Sign in");
 		super.request("/assistant/tutorial/list-mine");
 		super.checkPanicExists();

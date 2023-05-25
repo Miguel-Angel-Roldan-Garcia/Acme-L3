@@ -73,7 +73,7 @@ public class AssistantTutorialSessionListTest extends TestHarness {
 		Collection<Tutorial> tutorials;
 		String param;
 
-		tutorials = this.repository.findManyTutorialsByAssistantUsername("assistant1");
+		tutorials = this.repository.findManyTutorialsByAssistantUsername("assistant2");
 		for (final Tutorial tutorial : tutorials)
 			if (tutorial.isDraftMode()) {
 				param = String.format("masterId=%d", tutorial.getId());
@@ -87,7 +87,7 @@ public class AssistantTutorialSessionListTest extends TestHarness {
 				super.checkPanicExists();
 				super.signOut();
 
-				super.signIn("assistant2", "assistant2");
+				super.signIn("assistant1", "assistant1");
 				super.request("/assistant/tutorial-session/list", param);
 				super.checkPanicExists();
 				super.signOut();
