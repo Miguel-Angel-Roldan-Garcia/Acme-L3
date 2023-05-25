@@ -49,7 +49,7 @@ public class AuditorAuditListMineService extends AbstractService<Auditor, Audit>
 		Tuple tuple;
 
 		tuple = super.unbind(object, "code", "conclusion");
-
+		tuple.put("course", this.repository.findCourseCodeByAuditId(object.getId()));
 		super.getResponse().setData(tuple);
 	}
 }

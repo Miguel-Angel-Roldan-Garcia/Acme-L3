@@ -21,6 +21,9 @@
 	<acme:input-textarea code="auditor.audit.form.label.strongPoints" path="strongPoints"/>
 	<acme:input-textarea code="auditor.audit.form.label.weakPoints" path="weakPoints"/>
 	<acme:input-select code="auditor.audit.form.label.course" path="course" choices="${courses}"/>
+	<jstl:if test="${_command != 'create' && marks != null}">
+		<acme:input-textbox code="auditor.audit.label.marks" path="marks" readonly="true"/>
+	</jstl:if>
 
 	<jstl:choose>	 
 		<jstl:when test="${_command == 'show' && draftMode == false}">

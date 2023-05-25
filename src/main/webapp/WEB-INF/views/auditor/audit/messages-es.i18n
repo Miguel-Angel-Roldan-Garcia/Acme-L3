@@ -23,8 +23,10 @@ auditor.audit.form.button.publish = Publicar
 auditor.audit.form.error.duplicated = Este codigo está en uso
 auditor.audit.form.error.not-draft-mode = Esta auditoría ya está publicada, no puede ser editado ni borrado
 auditor.audit.form.error.no-records = Esta auditoría no puede ser publicada todavía porque no tiene registros
+auditor.audit.form.error.notPublished = Esta auditoría no puede ser publicada todavía porque contiene registros no publicados
 
 auditor.audit.list.label.code = Codigo
+auditor.audit.list.label.course = Curso
 auditor.audit.list.label.conclusion = Conclusión
 
 auditor.audit.list.button.create = Crear
