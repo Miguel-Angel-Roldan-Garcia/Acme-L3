@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.individual.auditors.Audit;
 import acme.entities.individual.auditors.AuditingRecord;
+import acme.entities.individual.lectures.Course;
+import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Auditor;
@@ -68,10 +70,21 @@ public class AuditorAuditPublishService extends AbstractService<Auditor, Audit> 
 	@Override
 	public void validate(final Audit object) {
 		assert object != null;
+		boolean publishedRecords;
+
+		if (!super.getBuffer().getErrors().hasErrors("code")) {
+			Audit existing;
+			existing = this.repository.findOneAuditByCode(object.getCode());
+			super.state(existing == null || existing.equals(object), "code", "auditor.audit.form.error.duplicated");
+		}
 
 		Collection<AuditingRecord> records;
 		records = this.repository.findManyRecordsByAuditId(object.getId());
 		super.state(!records.isEmpty(), "*", "auditor.audit.form.error.no-records");
+
+		publishedRecords = records.stream().noneMatch(AuditingRecord::isDraftMode);
+
+		super.state(publishedRecords, "*", "auditor.audit.form.error.notPublished");
 	}
 
 	@Override
@@ -86,10 +99,16 @@ public class AuditorAuditPublishService extends AbstractService<Auditor, Audit> 
 	public void unbind(final Audit object) {
 		assert object != null;
 
+		Collection<Course> courses;
+		SelectChoices choices;
 		Tuple tuple;
 
+		courses = this.repository.findManyPublishedCourses();
+		choices = SelectChoices.from(courses, "code", object.getCourse());
+
 		tuple = super.unbind(object, "code", "conclusion", "strongPoints", "weakPoints", "draftMode");
-		tuple.put("courseCode", this.repository.findCourseCodeByAuditId(object.getId()));
+		tuple.put("course", choices.getSelected().getKey());
+		tuple.put("courses", choices);
 
 		super.getResponse().setData(tuple);
 	}

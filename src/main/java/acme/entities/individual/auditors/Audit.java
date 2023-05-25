@@ -46,10 +46,6 @@ public class Audit extends AbstractEntity {
 
 	protected boolean			draftMode;
 
-	// Derived attributes --------------------------------------
-
-	//TODO implement complex derived attribute mark mode
-
 	// Relationships -------------------------------------------
 
 	@NotNull
