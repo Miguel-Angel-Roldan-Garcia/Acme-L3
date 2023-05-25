@@ -54,8 +54,6 @@ public class StudentActivityCreateService extends AbstractService<Student, Activ
 
 	object = new Activity();
 	object.setEnrolment(enrolment);
-	object.setInitialDate(MomentHelper.getCurrentMoment());
-	object.setFinishDate(MomentHelper.getCurrentMoment());
 
 	super.getBuffer().setData(object);
     }

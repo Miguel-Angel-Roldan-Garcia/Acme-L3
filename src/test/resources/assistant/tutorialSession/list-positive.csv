@@ -1,0 +1,43 @@
+tutorialRecordIndex,code,tutorialTitle,tutorialSessionRecordIndex,tutorialSessionTitle,nature,start-date
+3,AFK001,Sample tutorial,0,First session,THEORETICAL,2022/08/10 15:00
+3,AFK001,Sample tutorial,8,Primera sesión,THEORETICAL,2022/08/10 15:00
+0,A001,Sample tutorial,3,Πρώτο μάθημα,THEORETICAL,2022/08/10 15:00
+0,A001,Sample tutorial,2,Primera lliçó,THEORETICAL,2022/08/10 15:00
+1,AB001,Sample tutorial,1,1.1- First session,THEORETICAL,2022/08/10 15:00
+1,AB001,Sample tutorial,0,<h1>Lorem Ipsum</h1>,THEORETICAL,2022/08/10 15:00
+2,ABC123,Sample tutorial,0,"<script>alert(""hi!"")</script>",THEORETICAL,2022/08/10 15:00
+2,ABC123,Sample tutorial,1,1,THEORETICAL,2022/08/10 15:00
+34,AFK999,Sample tutorial,0,2c,THEORETICAL,2022/08/10 15:00
+34,AFK999,Sample tutorial,1,74 Characters -.-.-.-.-.-.-.-.-.-.-.-.-.--.-.-.-.-.-.-.-.-.-.-.-.-.-.-.74,THEORETICAL,2022/08/10 15:00
+4,AFK005,Tutorial de ejemplo,0,75 Characters -.-.-.-.-.-.-.-.-.-.-.-.-.--.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-75,THEORETICAL,2022/08/10 15:00
+4,AFK005,Tutorial de ejemplo,1,First session 12,THEORETICAL,2022/08/10 15:00
+5,AFK006,1.1-Sample tutorial,0,First session 13,THEORETICAL,2022/08/10 15:00
+5,AFK006,1.1-Sample tutorial,1,First session 14,THEORETICAL,2022/08/10 15:00
+6,AFK007,Първи урок,0,First session 15,THEORETICAL,2022/08/10 15:00
+6,AFK007,Първи урок,1,First session 16,THEORETICAL,2022/08/10 15:00
+7,AFK008,!#$%&/()=?¿,0,First session 17,THEORETICAL,2022/08/10 15:00
+7,AFK008,!#$%&/()=?¿,1,First session 18,THEORETICAL,2022/08/10 15:00
+1,AB001,Sample tutorial,2,First session 19,THEORETICAL,2022/08/10 15:00
+1,AB001,Sample tutorial,3,First session 20,THEORETICAL,2022/08/10 15:00
+34,AFK999,Sample tutorial,2,First session 21,HANDS_ON,2022/08/10 15:00
+3,AFK001,Sample tutorial,1,First session 22,THEORETICAL,2000/01/01 0:00
+3,AFK001,Sample tutorial,2,First session 23,THEORETICAL,2000/01/01 0:01
+3,AFK001,Sample tutorial,3,First session 24,THEORETICAL,2100/12/31 21:59
+3,AFK001,Sample tutorial,4,First session 25,THEORETICAL,2100/12/31 21:58
+34,AFK999,Sample tutorial,3,First session 26,THEORETICAL,2021/08/10 15:00
+5,AFK006,1.1-Sample tutorial,2,First session 27,THEORETICAL,2022/07/29 23:59
+5,AFK006,1.1-Sample tutorial,3,First session 28,THEORETICAL,2022/07/30 0:15
+3,AFK001,Sample tutorial,5,First session 29,THEORETICAL,2023/08/10 15:00
+3,AFK001,Sample tutorial,6,First session 30,THEORETICAL,2022/08/01 20:00
+3,AFK001,Sample tutorial,7,First session 31,THEORETICAL,2022/08/01 20:00
+0,A001,Sample tutorial,0,First session 32,THEORETICAL,2022/08/01 20:00
+0,A001,Sample tutorial,1,First session 33,THEORETICAL,2022/08/10 15:00
+4,AFK005,Tutorial de ejemplo,2,First session 34,HANDS_ON,2022/08/10 15:00
+4,AFK005,Tutorial de ejemplo,3,First session 35,HANDS_ON,2022/08/10 15:00
+6,AFK007,Първи урок,2,First session 36,HANDS_ON,2022/08/10 15:00
+6,AFK007,Първи урок,3,First session 37,HANDS_ON,2022/08/10 15:00
+8,AFK009,<h1>Lorem Ipsum</h1>,0,First session 38,THEORETICAL,2022/08/10 15:00
+8,AFK009,<h1>Lorem Ipsum</h1>,1,First session 39,HANDS_ON,2022/08/10 15:00
+4,AFK005,Tutorial de ejemplo,4,First session 40,HANDS_ON,2022/08/10 15:00
+4,AFK005,Tutorial de ejemplo,5,First session 41,HANDS_ON,2022/08/10 15:00
+33,AFK035,Sample tutorial,0,First session 42,THEORETICAL,2022/08/10 15:00

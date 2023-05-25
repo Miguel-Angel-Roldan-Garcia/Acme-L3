@@ -9,7 +9,7 @@
 # they accept any liabilities with respect to them.
 
 any.peep.form.label.title = Title:
-any.peep.form.label.instantiation-moment = Date:
+any.peep.form.label.instantiation-moment = Instantiation moment:
 any.peep.form.label.nick = Nick: 
 any.peep.form.label.message = Message: 
 any.peep.form.label.email = Email:
@@ -24,5 +24,5 @@ any.peep.form.button.delete = Delete
 
 any.peep.list.label.title = Title
 any.peep.list.label.nick = Nick 
-any.peep.list.label.moment = Date
+any.peep.list.label.moment = Instantiation moment:
 any.peep.list.button.create = Create

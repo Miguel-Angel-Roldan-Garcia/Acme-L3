@@ -1,0 +1,15 @@
+tutorialRecordindex,code,tutorialTitle,tutorialSessionRecordIndex,tutorialSessionTitle,abstract$,nature,start-date,end-date,link
+0,A001,Sample tutorial,0,,This session will act as part of the tutorial 1 sample,THEORETICAL,2022/08/10 15:00,2022/08/10 17:00,http://Acme-L3.es/tutorial-sessions
+0,A001,Sample tutorial,0,76 Characters -.-.-.-.-.-.-.-.-.-.-.-.-.--.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-76,This session will act as part of the tutorial 1 sample,THEORETICAL,2022/08/10 15:00,2022/08/10 17:00,http://Acme-L3.es/tutorial-sessions
+0,A001,Sample tutorial,0,First session,,THEORETICAL,2022/08/10 15:00,2022/08/10 17:00,http://Acme-L3.es/tutorial-sessions
+0,A001,Sample tutorial,0,First session,101 Characters -.-.-.-.-.-.-.-.-.-.-.-.-.--.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.101,THEORETICAL,2022/08/10 15:00,2022/08/10 17:00,http://Acme-L3.es/tutorial-sessions
+0,A001,Sample tutorial,0,First session,This session will act as part of the tutorial 1 sample,BALANCED,2022/08/10 15:00,2022/08/10 17:00,http://Acme-L3.es/tutorial-sessions
+0,A001,Sample tutorial,0,First session,This session will act as part of the tutorial 1 sample,THEORETICAL,2022/07/30 00:00,2022/07/30 01:00,http://Acme-L3.es/tutorial-sessions
+0,A001,Sample tutorial,1,First session,This session will act as part of the tutorial 1 sample,THEORETICAL,2022/07/30 23:59,2022/07/31 01:00,http://Acme-L3.es/tutorial-sessions
+0,A001,Sample tutorial,0,First session,This session will act as part of the tutorial 1 sample,THEORETICAL,2100/12/31 23:59,2101/01/01 01:00,http://Acme-L3.es/tutorial-sessions
+0,A001,Sample tutorial,0,First session,This session will act as part of the tutorial 1 sample,THEORETICAL,2101/01/01 00:00,2101/01/01 01:00,http://Acme-L3.es/tutorial-sessions
+0,A001,Sample tutorial,0,First session,This session will act as part of the tutorial 1 sample,THEORETICAL,2022/08/10 00:00,2022/08/10 00:59,http://Acme-L3.es/tutorial-sessions
+0,A001,Sample tutorial,0,First session,This session will act as part of the tutorial 1 sample,THEORETICAL,2022/08/10 00:00,2022/08/10 05:01,http://Acme-L3.es/tutorial-sessions
+0,A001,Sample tutorial,0,First session,This session will act as part of the tutorial 1 sample,THEORETICAL,2022/08/10 00:00,2022/08/10 00:59,http://Acme-L3.es/tutorial-sessions
+0,A001,Sample tutorial,0,First session,This session will act as part of the tutorial 1 sample,THEORETICAL,2022/08/10 00:00,2022/08/10 00:59,http://Acme-L3.es/tutorial-sessions
+0,A001,Sample tutorial,0,First session,This session will act as part of the tutorial 1 sample,THEORETICAL,2022/08/10 15:00,2022/08/10 17:00,not-a-link

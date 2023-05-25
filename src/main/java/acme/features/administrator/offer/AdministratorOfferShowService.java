@@ -1,7 +1,7 @@
 /*
- * AuthenticatedAnnouncementShowService.java
+ * AdministratorOfferShowService.java
  *
- * Copyright (C) 2012-2023 Rafael Corchuelo.
+ * Copyright (C) 2022-2023 Javier Fernández Castillo.
  *
  * In keeping with the traditional purpose of furthering education and research, it is
  * the policy of the copyright owner to permit non-commercial use and redistribution of
@@ -32,6 +32,7 @@ public class AdministratorOfferShowService extends AbstractService<Administrator
 	protected AdministratorOfferRepository repository;
 
 	// AbstractService interface ----------------------------------------------
+
 
 	@Override
 	public void check() {
@@ -72,8 +73,7 @@ public class AdministratorOfferShowService extends AbstractService<Administrator
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "instantiationMoment", "heading", "summary", "availabilityPeriodStartDate",
-				"availabilityPeriodEndDate", "price", "link");
+		tuple = super.unbind(object, "instantiationMoment", "heading", "summary", "availabilityPeriodStartDate", "availabilityPeriodEndDate", "price", "link");
 		tuple.put("updateOrDelete", updateOrDelete);
 
 		super.getResponse().setData(tuple);

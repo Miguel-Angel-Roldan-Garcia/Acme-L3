@@ -1,0 +1,27 @@
+PracticumRecordIndex,code,practicumTitle,practicumSessionRecordIndex,practicumSessionTitle,abstract$,start-date,end-date,link
+0,AAZ999,Una práctica para aprender sobre programación,0,.,abstracto,2022/08/10 15:00,2022/08/10 17:00,https://Acme-L3.es/practicum-sessions
+1,AB112,Una práctica para aprender sobre programación,0,Una sesión de prácticas muy interesante,abstracto,2022/08/10 15:00,2022/08/10 17:00,https://Acme-L3.es/practicum-sessions
+2,ACA998,.,0,75 caracteres: Una sesión muy interesante Una sesión muy interesante!!!!!!!,abstracto,2022/08/10 15:00,2022/08/10 17:00,https://Acme-L3.es/practicum-sessions
+3,ACD998,HO,0,<h1>hi</h1>,abstracto,2022/08/10 15:00,2022/08/10 17:00,https://Acme-L3.es/practicum-sessions
+4,AEA998,<script>alert("hi")</script>,0,Всем привет,abstracto,2022/08/10 15:00,2022/08/10 17:00,https://Acme-L3.es/practicum-sessions
+5,AEF918,<h1>Hello</h1>,0,你好,abstracto,2022/08/10 15:00,2022/08/10 17:00,https://Acme-L3.es/practicum-sessions
+6,AGA908,Una práctica para aprender sobre programación,0,Una sesión de prácticas muy interesante,@#?¿><&¬!|¡'`+*-_{}[]^ªº/=()%$·,2022/08/10 15:00,2022/08/10 17:00,https://Acme-L3.es/practicum-sessions
+7,AGA998,Una práctica para aprender sobre programación,0,Una sesión de prácticas muy interesante,<script>alert("hi")</script>,2022/08/10 15:00,2022/08/10 17:00,https://Acme-L3.es/practicum-sessions
+8,AIA298,Una práctica para aprender sobre programación,0,Una sesión de prácticas muy interesante,abstracto,2022/12/31 23:59,2023/01/01 00:01,https://Acme-L3.es/practicum-sessions
+9,AIA398,Una práctica para aprender sobre programación,0,Una sesión de prácticas muy interesante,abstracto,2021/08/10 15:00,2021/08/10 17:00,https://Acme-L3.es/practicum-sessions
+10,AKA198,Una práctica para aprender sobre programación,0,Una sesión de prácticas muy interesante,abstracto,2022/08/10 23:59,2022/08/11 00:01,https://Acme-L3.es/practicum-sessions
+11,AKA998,Una práctica para aprender sobre programación,0,Una sesión de prácticas muy interesante,你好,2022/08/10 15:00,2022/08/10 17:00,https://Acme-L3.es/practicum-sessions
+12,AMA498,Una práctica para aprender sobre programación,0,Una sesión de prácticas muy interesante,abstracto,2024/10/10 15:00,2024/10/10 17:00,https://Acme-L3.es/practicum-sessions
+13,AMA598,Una práctica para aprender sobre programación,0,Una sesión de prácticas muy interesante,abstracto,2000/01/01 00:00,2000/01/08 00:00,https://Acme-L3.es/practicum-sessions
+14,ANE998,Una práctica para aprender sobre programación,0,Una sesión de prácticas muy interesante,abstracto,2022/04/30 15:00,2022/05/01 17:00,https://www.example.com/~user
+15,ANH998,Una práctica para aprender sobre programación,0,Una sesión de prácticas muy interesante,abstracto,2022/07/30 15:00,2022/07/31 17:00,https://xn--e1afmkfd.xn--80akhbyknj4f
+16,ANW918,Una práctica para aprender sobre programación,0,Una sesión de prácticas muy interesante,abstracto,2022/07/25 15:00,2022/07/29 17:00,https://Acme-L3.es/practicum-sessions
+16,ANW918,Una práctica para aprender sobre programación,1,Una sesión de prácticas muy interesante,abstracto,2021/07/30 15:00,2021/08/01 17:00,
+16,ANW918,Una práctica para aprender sobre programación,2,Una sesión de prácticas muy interesante,abstracto,2022/08/10 15:00,2022/08/10 17:00,https://Acme-L3.es/practicum-sessions?sample-query=1
+16,ANW918,Una práctica para aprender sobre programación,3,Una sesión de prácticas muy interesante,abstracto,2022/07/01 15:00,2022/07/02 17:00,https://Acme-L3.es/practicum-sessions
+17,ANW938,Una práctica para aprender sobre programación,0,Una sesión de prácticas muy interesante,abstracto,2022/07/29 15:00,2022/08/01 17:00,https://Acme-L3.es/practicum-sessions
+17,ANW938,Una práctica para aprender sobre programación,1,Una sesión de prácticas muy interesante,abstracto,2021/10/30 15:00,2021/11/01 17:00,https://example.com/path with spaces
+18,ANW998,Una práctica para aprender sobre programación,0,Una sesión de prácticas muy interesante,abstracto,2021/12/31 15:00,2022/01/01 17:00,ftp://ftp.example.com/pub/file.tar.gz
+19,AOA898,Una práctica para aprender sobre programación,0,Una sesión de prácticas muy interesante,abstracto,2100/12/24 23:59,2100/12/31 23:59,https://Acme-L3.es/practicum-sessions
+20,AOA998,Una práctica para aprender sobre programación,0,Una sesión de prácticas muy interesante,abstracto,2022/02/10 15:00,2022/02/10 17:00,http://Acme-L3.es/practicum-sessions
+21,APG998,Una práctica para aprender sobre programación,0,Una sesión de prácticas muy interesante,abstracto,2022/07/10 15:00,2022/07/10 17:00,https://example.com/path?query#fragment

@@ -1,7 +1,7 @@
 /*
- * EmployerJobDeleteService.java
+ * CompanyPracticumDeleteService.java
  *
- * Copyright (C) 2012-2023 Rafael Corchuelo.
+ * Copyright (C) 2022-2023 Javier Fernández Castillo.
  *
  * In keeping with the traditional purpose of furthering education and research, it is
  * the policy of the copyright owner to permit non-commercial use and redistribution of
@@ -115,10 +115,10 @@ public class CompanyPracticumDeleteService extends AbstractService<Company, Prac
 
 		for (final PracticumSession ps : practicumSessions)
 			estimatedTotalTime += ps.getDurationInHours();
-		
-		Double tenPercentEstimatedTotalTime = Math.round(estimatedTotalTime* 0.1 * 100.0) / 100.0;
-		
-		String estimatedTotalTimePercent = (Math.round(estimatedTotalTime * 100.0) / 100.0) + " (+/- "+ tenPercentEstimatedTotalTime + ")";
+
+		final double tenPercentEstimatedTotalTime = Math.round(estimatedTotalTime * 0.1 * 100.0) / 100.0;
+
+		final String estimatedTotalTimePercent = Math.round(estimatedTotalTime * 100.0) / 100.0 + " (+/- " + tenPercentEstimatedTotalTime + ")";
 
 		tuple = super.unbind(object, "code", "title", "abstract$", "goals", "draftMode");
 		tuple.put("courseCode", this.repository.findCourseCodeByPracticumId(object.getId()));

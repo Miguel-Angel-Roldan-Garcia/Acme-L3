@@ -1,3 +1,14 @@
+/*
+ * Company.java
+ *
+ * Copyright (C) 2022-2023 Javier Fernández Castillo.
+ *
+ * In keeping with the traditional purpose of furthering education and research, it is
+ * the policy of the copyright owner to permit non-commercial use and redistribution of
+ * this software. It has been tested carefully, but it is not guaranteed for any particular
+ * purposes. The copyright owner does not offer any warranties or representations, nor do
+ * they accept any liabilities with respect to them.
+ */
 
 package acme.roles;
 
@@ -19,25 +30,25 @@ public class Company extends AbstractRole {
 
 	// Serialisation identifier -----------------------------------------------
 
-	protected static final long serialVersionUID = 1L;
+	protected static final long	serialVersionUID	= 1L;
 
 	// Attributes -------------------------------------------------------------
 
 	@NotBlank
 	@Length(max = 75)
-	protected String name;
+	protected String			name;
 
 	@Column(unique = true)
 	@NotBlank
 	@Length(max = 25)
-	protected String vatNumber;
+	protected String			vatNumber;
 
 	@NotBlank
 	@Length(max = 100)
-	protected String summary;
+	protected String			summary;
 
 	@URL
-	protected String link;
+	protected String			link;
 
 	// Derived attributes -----------------------------------------------------
 

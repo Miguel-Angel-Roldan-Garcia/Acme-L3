@@ -1,7 +1,7 @@
 /*
- * EmployerTutorialSessionCreateService.java
+ * AssistantTutorialSessionCreateService.java
  *
- * Copyright (C) 2012-2023 Rafael Corchuelo.
+ * Copyright (C) 2022-2023 Miguel Ángel Roldán.
  *
  * In keeping with the traditional purpose of furthering education and research, it is
  * the policy of the copyright owner to permit non-commercial use and redistribution of
@@ -95,7 +95,7 @@ public class AssistantTutorialSessionCreateService extends AbstractService<Assis
 		if (!super.getBuffer().getErrors().hasErrors("startDate")) {
 			boolean startDateError;
 
-			startDateError = MomentHelper.isAfter(object.getStartDate(), MomentHelper.deltaFromCurrentMoment(1l, ChronoUnit.DAYS));
+			startDateError = MomentHelper.isAfterOrEqual(object.getStartDate(), MomentHelper.deltaFromCurrentMoment(1l, ChronoUnit.DAYS));
 
 			super.state(startDateError, "startDate", "assistant.tutorial-session.form.error.at-least-one-day-ahead");
 		}
