@@ -16,11 +16,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.group.Offer;
-import acme.forms.group.MoneyExchange;
 import acme.framework.components.accounts.Authenticated;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
-import acme.helpers.MoneyExchangeHelper;
 
 @Service
 public class AuthenticatedOfferShowService extends AbstractService<Authenticated, Offer> {
@@ -71,19 +69,8 @@ public class AuthenticatedOfferShowService extends AbstractService<Authenticated
 		assert object != null;
 
 		Tuple tuple;
-		MoneyExchange exchange;
 
 		tuple = super.unbind(object, "heading", "summary", "price", "link", "availabilityPeriodStartDate", "availabilityPeriodEndDate");
-
-
-		// HINT: Try catch so that if any errors occurred, the normal functionality is not 
-		// HINT+ stopped by this secondary feature.
-		try {
-			exchange = MoneyExchangeHelper.computeMoneyExchange(object.getPrice(), this.repository.findSystemCurrency());
-			tuple.put("moneyExchange", exchange);
-		} catch (final Exception e) {
-			tuple.put("moneyExchange", null);
-		}
 
 		super.getResponse().setData(tuple);
 	}
