@@ -23,7 +23,7 @@ administrator.offer.form.error.at-least-one-week-long = El periodo de exposició
 administrator.offer.form.error.date-out-of-bounds = Las fechas introducidas deben estar entre el 1 Enero 2000 a las 00:00 y el 31 Diciembre 2100 a las 23:59
 administrator.offer.form.error.price.negative-or-zero = La cantidad debe ser mayor a 0
 administrator.offer.form.error.price.too-big = La cantidad debe ser menor que 1.000.000
-administrator.offer.form.error.price.non-existent-currency = Divisa inexistente
+administrator.offer.form.error.price.non-existent-currency = Esta divisa no es la seleccionada en el sistema
 
 administrator.offer.form.button.create = Crear
 administrator.offer.form.button.update = Actualizar

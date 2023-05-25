@@ -8,10 +8,19 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-administrator.dashboard.form.title.general-indicators = General indicators
-administrator.dashboard.form.title.application-statuses = Application statuses  
+assistant.dashboard.form.title.general-indicators = General indicators
 
-administrator.dashboard.form.label.average-number-jobs-employer =  Average number of jobs per employer
-administrator.dashboard.form.label.average-number-applications-worker =  Average number of applications per worker
-administrator.dashboard.form.label.average-number-applications-employer = Average number of applications per employer
+assistant.dashboard.form.tittle.session-indicators = Session indicators  
+assistant.dashboard.form.tittle.tutorial-indicators = Tutorial indicators
 
+assistant.dashboard.form.label.average-time-sessions = Average time of sessions
+assistant.dashboard.form.label.deviation-time-sessions = Deviation time of sessions
+assistant.dashboard.form.label.min-time-sessions = Minimum time of sessions
+assistant.dashboard.form.label.max-time-sessions = Maximum time of sessions
+
+assistant.dashboard.form.label.average-time-tutorials = Average time of tutorials
+assistant.dashboard.form.label.deviation-time-tutorials = Deviation time of tutorials
+assistant.dashboard.form.label.min-time-tutorials = Minimum time of tutorials
+assistant.dashboard.form.label.max-time-tutorials = Maximum time of tutorials
+
+assistant.dashboard.form.title.number-of-tutorials-by-nature = Number of tutorials by nature

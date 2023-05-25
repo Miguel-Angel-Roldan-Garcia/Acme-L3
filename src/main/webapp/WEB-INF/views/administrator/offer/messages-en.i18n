@@ -23,7 +23,7 @@ administrator.offer.form.error.at-least-one-week-long = The availability period 
 administrator.offer.form.error.date-out-of-bounds = Introduced dates must be between Jan 1 2000 at 00:00 and Dec 31 2100 at 23:59
 administrator.offer.form.error.price.negative-or-zero = The amount must be higher than 0
 administrator.offer.form.error.price.too-big = The amount must be lower than 1,000,000
-administrator.offer.form.error.price.non-existent-currency = Non-existing currency
+administrator.offer.form.error.price.non-existent-currency = This currency is not the system selected currency
 
 administrator.offer.form.button.create = Create
 administrator.offer.form.button.update = Update
