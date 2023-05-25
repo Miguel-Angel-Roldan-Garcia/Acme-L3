@@ -1,5 +1,5 @@
 /*
- * AuditorAuditListMineService.java
+ * AuthenticatedAuditShowService.java
  *
  * Copyright (C) 2022-2023 Álvaro Urquijo.
  *
@@ -10,31 +10,38 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.auditor.audit;
+package acme.features.authenticated.audit;
 
 import java.util.Collection;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.datatypes.Mark;
 import acme.entities.individual.auditors.Audit;
+import acme.framework.components.accounts.Authenticated;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
-import acme.roles.Auditor;
 
 @Service
-public class AuditorAuditListMineService extends AbstractService<Auditor, Audit> {
+public class AuthenticatedAuditShowService extends AbstractService<Authenticated, Audit> {
+
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AuditorAuditRepository repository;
+	protected AuthenticatedAuditRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
 
 	@Override
 	public void check() {
-		super.getResponse().setChecked(true);
+		boolean status;
+
+		status = super.getRequest().hasData("id", int.class);
+
+		super.getResponse().setChecked(status);
 	}
 
 	@Override
@@ -44,11 +51,11 @@ public class AuditorAuditListMineService extends AbstractService<Auditor, Audit>
 
 	@Override
 	public void load() {
-		Collection<Audit> object;
-		int auditorId;
+		Audit object;
+		int id;
 
-		auditorId = super.getRequest().getPrincipal().getActiveRoleId();
-		object = this.repository.findManyAuditsByAuditorId(auditorId);
+		id = super.getRequest().getData("id", int.class);
+		object = this.repository.findOneAuditById(id);
 
 		super.getBuffer().setData(object);
 	}
@@ -59,8 +66,17 @@ public class AuditorAuditListMineService extends AbstractService<Auditor, Audit>
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "code", "conclusion");
-		tuple.put("course", this.repository.findCourseCodeByAuditId(object.getId()));
+		final Collection<Mark> marks = this.repository.findMarksByAuditId(object.getId());
+
+		tuple = super.unbind(object, "code", "conclusion", "strongPoints", "weakPoints", "auditor");
+		tuple.put("courseCode", this.repository.findCourseCodeByAuditId(object.getId()));
+
+		if (marks != null && !marks.isEmpty())
+			tuple.put("marks", marks.stream().map(Mark::toString).collect(Collectors.joining(", ", "[ ", " ]")));
+		else
+			tuple.put("marks", "N");
+
 		super.getResponse().setData(tuple);
 	}
+
 }
