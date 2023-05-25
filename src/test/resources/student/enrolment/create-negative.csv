@@ -1,10 +1,13 @@
 recordIndex,code,course,motivation,goals
 10,,---,,
 10,,AB000,motivacion,objetivo
-10,444,AB000,motivacion,objetivo
-10,AAA,AB000,motivacion,objetivo
-10,AAAA4444,AB000,motivacion,objetivo
-10,A987,G139,motivacion,objetivo
+10,A987,AB000,motivacion,objetivo
+10,ABCD1234,AB000,motivacion,objetivo
+10,ABC1234,AB000,motivacion,objetivo
+10,ABC12,AB000,motivacion,objetivo
+10,ABC1,AB000,motivacion,objetivo
+10,123,AB000,motivacion,objetivo
+10,ABC,AB000,motivacion,objetivo
 10,E119,---,motivacion,objetivo
 10,E119,G139,,objetivo
 10,E119,G139,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,objetivo

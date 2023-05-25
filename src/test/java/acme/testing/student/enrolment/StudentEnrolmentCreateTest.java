@@ -9,12 +9,12 @@ import acme.testing.TestHarness;
 public class StudentEnrolmentCreateTest extends TestHarness {
     @ParameterizedTest
     @CsvFileSource(resources = "/student/enrolment/create-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
-    public void test100Positive(final int recordIndex, final String code, final String course, final String motivation,
-	    final String goals) {
+    public void test100Positive(final int recordIndex, final String code, final String motivation, final String goals,
+	    final String course) {
 	// HINT: this test authenticates as an employer and then lists his or her
 	// HINT: jobs, creates a new one, and check that it's been created properly.
 
-	super.signIn("student3", "student3");
+	super.signIn("student1", "student1");
 
 	super.clickOnMenu("Student", "List my enrolments");
 	super.checkListingExists();
@@ -49,7 +49,7 @@ public class StudentEnrolmentCreateTest extends TestHarness {
 	    final String goals) {
 	// HINT: this test attempts to create jobs with incorrect data.
 
-	super.signIn("student3", "student3");
+	super.signIn("student1", "student1");
 
 	super.clickOnMenu("Student", "List my enrolments");
 	super.clickOnButton("Create");
@@ -77,6 +77,26 @@ public class StudentEnrolmentCreateTest extends TestHarness {
 	super.checkPanicExists();
 
 	super.signIn("administrator", "administrator");
+	super.request("/student/enrolment/create");
+	super.checkPanicExists();
+	super.signOut();
+
+	super.signIn("lecturer1", "lecturer1");
+	super.request("/student/enrolment/create");
+	super.checkPanicExists();
+	super.signOut();
+
+	super.signIn("company1", "company1");
+	super.request("/student/enrolment/create");
+	super.checkPanicExists();
+	super.signOut();
+
+	super.signIn("assistant1", "assistant1");
+	super.request("/student/enrolment/create");
+	super.checkPanicExists();
+	super.signOut();
+
+	super.signIn("auditor1", "auditor1");
 	super.request("/student/enrolment/create");
 	super.checkPanicExists();
 	super.signOut();

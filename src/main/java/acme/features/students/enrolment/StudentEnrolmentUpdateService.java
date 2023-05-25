@@ -101,10 +101,10 @@ public class StudentEnrolmentUpdateService extends AbstractService<Student, Enro
 
 		final String expiryDate = object.getExpiryDate();
 		String dateFormat = "";
-		if (language.equals("Spanish") && Integer.parseInt(expiryDate.split("/")[1]) <= 12)
-		    dateFormat = "yy/MM";
-		else if (language.equals("English") && Integer.parseInt(expiryDate.split("/")[0]) <= 12)
+		if (language.equals("Spanish") && Integer.parseInt(expiryDate.split("/")[0]) <= 12)
 		    dateFormat = "MM/yy";
+		else if (language.equals("English") && Integer.parseInt(expiryDate.split("/")[1]) <= 12)
+		    dateFormat = "yy/MM";
 		else
 		    super.state(false, "expiryDate", "student.enrolment.form.error.not-valid-date-format");
 		if (!dateFormat.isEmpty()) {
