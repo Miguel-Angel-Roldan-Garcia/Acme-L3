@@ -30,9 +30,6 @@ public class AnyCreateTest extends TestHarness {
 		super.checkListingExists();
 		super.sortListing(2, "asc");
 
-		if (recordIndex >= 27)
-			System.out.println("");
-
 		super.clickOnButton("Create");
 		super.checkFormExists();
 		super.fillInputBoxIn("title", title);
