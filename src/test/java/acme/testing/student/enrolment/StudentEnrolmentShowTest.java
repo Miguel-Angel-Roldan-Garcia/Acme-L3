@@ -18,9 +18,9 @@ public class StudentEnrolmentShowTest extends TestHarness {
     @ParameterizedTest
     @CsvFileSource(resources = "/student/enrolment/show-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
     public void test100Positive(final int recordIndex, final String code, final String course, final String motivation,
-	    final String goals) {
+	    final String goals, final String draft_mode, final String lower_nibble, final String holder_name) {
 
-	super.signIn("student3", "student3");
+	super.signIn("student1", "student1");
 
 	super.clickOnMenu("Student", "List my enrolments");
 	super.sortListing(0, "asc");
@@ -31,6 +31,10 @@ public class StudentEnrolmentShowTest extends TestHarness {
 	super.checkInputBoxHasValue("course", course);
 	super.checkInputBoxHasValue("motivation", motivation);
 	super.checkInputBoxHasValue("goals", goals);
+	if (draft_mode.equals("false")) {
+	    super.checkInputBoxHasValue("holderName", holder_name);
+	    super.checkInputBoxHasValue("lowerNibble", lower_nibble);
+	}
 
 	super.signOut();
     }
@@ -43,13 +47,13 @@ public class StudentEnrolmentShowTest extends TestHarness {
 
     @Test
     public void test300Hacking() {
-	// HINT: this test tries to show an unpublished job by someone who is not the
+	// HINT: this test tries to show an enrolment by someone who is not the
 	// principal.
 
 	Collection<Enrolment> enrolments;
 	String param;
 
-	enrolments = this.repository.findManyEnrolmentsByStudentUsername("student3");
+	enrolments = this.repository.findManyEnrolmentsByStudentUsername("student1");
 	for (final Enrolment enrolment : enrolments)
 	    if (enrolment.isDraftMode()) {
 		param = String.format("id=%d", enrolment.getId());
@@ -59,6 +63,26 @@ public class StudentEnrolmentShowTest extends TestHarness {
 		super.checkPanicExists();
 
 		super.signIn("administrator", "administrator");
+		super.request("/student/enrolment/show", param);
+		super.checkPanicExists();
+		super.signOut();
+
+		super.signIn("lecturer1", "lecturer1");
+		super.request("/student/enrolment/show", param);
+		super.checkPanicExists();
+		super.signOut();
+
+		super.signIn("company1", "company1");
+		super.request("/student/enrolment/show", param);
+		super.checkPanicExists();
+		super.signOut();
+
+		super.signIn("assistant1", "assistant1");
+		super.request("/student/enrolment/show", param);
+		super.checkPanicExists();
+		super.signOut();
+
+		super.signIn("auditor1", "auditor1");
 		super.request("/student/enrolment/show", param);
 		super.checkPanicExists();
 		super.signOut();

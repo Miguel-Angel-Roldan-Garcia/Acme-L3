@@ -1,6 +1,24 @@
-recordIndex,code,course,motivation,goals
-0,A111,G139,motivacion,objetivo
-1,A112,G139,motivacion,objetivo
-2,A113,G139,motivacion,objetivo
-3,B112,G139,motivacion,objetivo
-4,C113,G139,motivacion,objetivo
+﻿recordIndex,code,course,motivation,goals,draft_mode,lower_nibble,holder_name
+0,A987,G139,motivacion,objetivo,false,0000,Lorem ipsum
+1,ABC123,G139,)(/()%&/$%&·$%¿=)=,objetivo,true,null,null
+2,AH987,G139,Здравствуйте добрый день,objetivo,true,null,null
+3,AI987,G139,motivacion,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,true,null,null
+4,AJ987,G139,motivacion,a,true,null,null
+5,AK987,G139,motivacion,aa,true,null,null
+6,AL987,G139,motivacion,<h1>Hola</h1>,true,null,null
+7,AM987,G139,motivacion,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,true,null,null
+8,AO987,G139,motivacion,"<script>alert(""hi"")</script>",true,null,null
+9,AOO987,G139,motivacion,$%&$/&%(/&&)(·=?,true,null,null
+10,APP987,G139,motivacion,こんにちは,true,null,null
+11,AQ987,G139,motivacion,Здравствуйте добрый день,true,null,null
+12,AR987,G139,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,objetivo,true,null,null
+13,AS987,G139,motivacion,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,true,null,null
+14,AT987,G139,<h1>Hola</h1>,objetivo,true,null,null
+15,AV987,G139,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,objetivo,true,null,null
+16,AY987,G139,こんにちは,objetivo,true,null,null
+17,B111,G139,motivacion,objetivo,false,0000,Lorem ipsum
+18,B987,G139,aa,objetivo,true,null,null
+19,BA987,G139,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,objetivo,true,null,null
+20,BB987,G139,a,objetivo,true,null,null
+21,BBB347,G139,motivacion,objetivo,true,null,null
+22,R987,G139,"<script>alert(""hi"")</script>",objetivo,true,null,null

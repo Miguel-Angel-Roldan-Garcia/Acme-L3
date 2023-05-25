@@ -20,7 +20,7 @@ public class StudentEnrolmentDeleteTest extends TestHarness {
     public void test100Positive(final int recordIndex, final String code, final String course, final String motivation,
 	    final String goals) {
 
-	super.signIn("student3", "student3");
+	super.signIn("student1", "student1");
 
 	super.clickOnMenu("Student", "List my enrolments");
 	super.sortListing(0, "asc");
@@ -48,10 +48,9 @@ public class StudentEnrolmentDeleteTest extends TestHarness {
 
 	Collection<Enrolment> enrolments;
 	Collection<Enrolment> finishedEnrolments;
-	final int recordId = 1;
 	String param;
 
-	enrolments = this.repository.findManyEnrolmentsByStudentUsername("student3");
+	enrolments = this.repository.findManyEnrolmentsByStudentUsername("student1");
 	for (final Enrolment enrolment : enrolments)
 	    if (enrolment.isDraftMode()) {
 		param = String.format("id=%d", enrolment.getId());
@@ -65,6 +64,26 @@ public class StudentEnrolmentDeleteTest extends TestHarness {
 		super.checkPanicExists();
 		super.signOut();
 
+		super.signIn("lecturer1", "lecturer1");
+		super.request("/student/enrolment/delete", param);
+		super.checkPanicExists();
+		super.signOut();
+
+		super.signIn("company1", "company1");
+		super.request("/student/enrolment/delete", param);
+		super.checkPanicExists();
+		super.signOut();
+
+		super.signIn("assistant1", "assistant1");
+		super.request("/student/enrolment/delete", param);
+		super.checkPanicExists();
+		super.signOut();
+
+		super.signIn("auditor1", "auditor1");
+		super.request("/student/enrolment/delete", param);
+		super.checkPanicExists();
+		super.signOut();
+
 		super.signIn("student2", "student2");
 		super.request("/student/enrolment/delete", param);
 		super.checkPanicExists();
@@ -72,19 +91,9 @@ public class StudentEnrolmentDeleteTest extends TestHarness {
 
 	    }
 
-	super.signIn("student3", "student3");
-	super.clickOnMenu("Student", "List my enrolments");
-	super.sortListing(0, "asc");
-	super.clickOnListingRecord(recordId);
-	super.checkFormExists();
-	super.fillInputBoxIn("creditCardNumber", "26000000000000");
-	super.fillInputBoxIn("expiryDate", "12/24");
-	super.fillInputBoxIn("holderName", "Lorem ipsum");
-	super.fillInputBoxIn("cvc", "123");
-	super.fillInputBoxIn("confirmed", "true");
-	super.clickOnSubmit("Update");
+	super.signIn("student1", "student1");
 
-	finishedEnrolments = this.repository.findManyEnrolmentsByStudentUsernameAndDraftModeIsFalse("student3");
+	finishedEnrolments = this.repository.findManyEnrolmentsByStudentUsernameAndDraftModeIsFalse("student1");
 	for (final Enrolment finishedEnrolment : finishedEnrolments) {
 	    param = String.format("id=%d", finishedEnrolment.getId());
 	    super.request("/student/enrolment/delete", param);
