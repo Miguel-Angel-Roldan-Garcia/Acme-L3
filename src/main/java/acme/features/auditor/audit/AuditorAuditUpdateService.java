@@ -1,7 +1,7 @@
 /*
- * EmployerJobUpdateService.java
+ * AuditorAuditUpdateService.java
  *
- * Copyright (C) 2012-2023 Rafael Corchuelo.
+ * Copyright (C) 2022-2023 Álvaro Urquijo.
  *
  * In keeping with the traditional purpose of furthering education and research, it is
  * the policy of the copyright owner to permit non-commercial use and redistribution of
@@ -34,7 +34,7 @@ public class AuditorAuditUpdateService extends AbstractService<Auditor, Audit> {
 	@Autowired
 	protected AuditorAuditRepository repository;
 
-	// AbstractService<Employer, Job> -------------------------------------
+	// AbstractService interface -------------------------------------
 
 
 	@Override

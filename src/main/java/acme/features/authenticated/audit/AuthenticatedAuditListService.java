@@ -1,5 +1,5 @@
 /*
- * AuditorAuditListMineService.java
+ * AuthenticatedAuditListService.java
  *
  * Copyright (C) 2022-2023 Álvaro Urquijo.
  *
@@ -10,7 +10,7 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.auditor.audit;
+package acme.features.authenticated.audit;
 
 import java.util.Collection;
 
@@ -18,23 +18,28 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.individual.auditors.Audit;
+import acme.framework.components.accounts.Authenticated;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
-import acme.roles.Auditor;
 
 @Service
-public class AuditorAuditListMineService extends AbstractService<Auditor, Audit> {
+public class AuthenticatedAuditListService extends AbstractService<Authenticated, Audit> {
+
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AuditorAuditRepository repository;
+	protected AuthenticatedAuditRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
 
 	@Override
 	public void check() {
-		super.getResponse().setChecked(true);
+		boolean status;
+
+		status = super.getRequest().hasData("courseId", int.class);
+
+		super.getResponse().setChecked(status);
 	}
 
 	@Override
@@ -44,13 +49,15 @@ public class AuditorAuditListMineService extends AbstractService<Auditor, Audit>
 
 	@Override
 	public void load() {
-		Collection<Audit> object;
-		int auditorId;
+		Collection<Audit> objects;
 
-		auditorId = super.getRequest().getPrincipal().getActiveRoleId();
-		object = this.repository.findManyAuditsByAuditorId(auditorId);
+		int courseId;
 
-		super.getBuffer().setData(object);
+		courseId = super.getRequest().getData("courseId", int.class);
+
+		objects = this.repository.findAllCourseAudits(courseId);
+
+		super.getBuffer().setData(objects);
 	}
 
 	@Override
@@ -60,7 +67,9 @@ public class AuditorAuditListMineService extends AbstractService<Auditor, Audit>
 		Tuple tuple;
 
 		tuple = super.unbind(object, "code", "conclusion");
-		tuple.put("course", this.repository.findCourseCodeByAuditId(object.getId()));
+		tuple.put("courseCode", this.repository.findCourseCodeByAuditId(object.getId()));
+
 		super.getResponse().setData(tuple);
 	}
+
 }

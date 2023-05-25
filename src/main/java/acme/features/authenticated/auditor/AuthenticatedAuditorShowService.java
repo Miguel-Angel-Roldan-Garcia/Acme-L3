@@ -1,5 +1,5 @@
 /*
- * AuthenticatedBulletinListService.java
+ * AuthenticatedAuditorShowService.java
  *
  * Copyright (C) 2022-2023 Álvaro Urquijo.
  *
@@ -10,57 +10,58 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.authenticated.bulletin;
-
-import java.util.Collection;
+package acme.features.authenticated.auditor;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.group.Bulletin;
 import acme.framework.components.accounts.Authenticated;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
+import acme.roles.Auditor;
 
 @Service
-public class AuthenticatedBulletinListService extends AbstractService<Authenticated, Bulletin> {
+public class AuthenticatedAuditorShowService extends AbstractService<Authenticated, Auditor> {
 
-	//Internal	state ------------------------------------------------------------------------
+	// Internal state ---------------------------------------------------------
+
 	@Autowired
-	protected AuthenticatedBulletinRepository repository;
-
-	//AbstractService Interface -------------------------------------------------------------
+	protected AuthenticatedAuditorRepository repository;
 
 
+	// AbstractService interface ----------------------------------------------
 	@Override
 	public void authorise() {
-		boolean status;
-
-		status = super.getRequest().getPrincipal().isAuthenticated();
-
-		super.getResponse().setAuthorised(status);
-
+		super.getResponse().setAuthorised(true);
 	}
 
 	@Override
 	public void check() {
-		super.getResponse().setChecked(true);
+		boolean status;
+
+		status = super.getRequest().hasData("username", String.class);
+
+		super.getResponse().setChecked(status);
 	}
 
 	@Override
 	public void load() {
-		Collection<Bulletin> object;
+		Auditor object;
+		String username;
 
-		object = this.repository.findAllBulletins();
+		username = super.getRequest().getData("username", String.class);
+		object = this.repository.findOneAuditorByUsername(username);
 
 		super.getBuffer().setData(object);
 	}
 
 	@Override
-	public void unbind(final Bulletin object) {
+	public void unbind(final Auditor object) {
+		assert object != null;
+
 		Tuple tuple;
 
-		tuple = super.unbind(object, "instantiationMoment", "title", "message", "critical", "link");
+		tuple = super.unbind(object, "firm", "professionalId", "certifications", "link");
 
 		super.getResponse().setData(tuple);
 	}
