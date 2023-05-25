@@ -35,6 +35,7 @@ public class CompanyPracticumShowTest extends TestHarness {
 	@ParameterizedTest
 	@CsvFileSource(resources = "/company/practicum/show-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test100Positive(final int recordIndex, final String code, final String title, final String abstract$, final String goals, final String course) {
+		// HINT: this test tries to show all practica created by the principal.
 
 		super.signIn("company1", "company1");
 
@@ -60,12 +61,12 @@ public class CompanyPracticumShowTest extends TestHarness {
 
 	@Test
 	public void test300Hacking() {
-		// HINT: this test tries to show an unpublished tutorial by someone who is not the principal.
+		// HINT: this test tries to show an unpublished practicum by someone who is not the principal.
 
 		Collection<Practicum> practica;
 		String param;
 
-		practica = this.repository.findManyPracticaByCompanyUsername("company2");
+		practica = this.repository.findManyPracticaByCompanyUsername("company1");
 		for (final Practicum practicum : practica)
 			if (practicum.isDraftMode()) {
 				param = String.format("id=%d", practicum.getId());
@@ -79,7 +80,7 @@ public class CompanyPracticumShowTest extends TestHarness {
 				super.checkPanicExists();
 				super.signOut();
 
-				super.signIn("company1", "company1");
+				super.signIn("company2", "company2");
 				super.request("/company/practicum/show", param);
 				super.checkPanicExists();
 				super.signOut();
