@@ -2,7 +2,7 @@ key,key:practicum,title,abstract$,start-date,end-date,link,is-addendum
 practicum-session-01,practicum-01,Una sesión de prácticas muy interesante,abstracto,2022/08/10 15:00,2022/08/10 17:00,https://Acme-L3.es/practicum-sessions,false
 practicum-session-02,practicum-02,.,abstracto,2022/08/10 15:00,2022/08/10 17:00,https://Acme-L3.es/practicum-sessions,false
 practicum-session-03,practicum-03,LO,abstracto,2022/08/10 15:00,2022/08/10 17:00,https://Acme-L3.es/practicum-sessions,false
-practicum-session-04,practicum-04,74 caracteres: Una sesión muy interesante Una sesión muy interesante!!!!!!,abstracto,2022/08/10 15:00,2022/08/10 17:00,https://Acme-L3.es/practicum-sessions,false
+practicum-session-04,practicum-03,74 caracteres: Una sesión muy interesante Una sesión muy interesante!!!!!!,abstracto,2022/08/10 15:00,2022/08/10 17:00,https://Acme-L3.es/practicum-sessions,false
 practicum-session-05,practicum-05,75 caracteres: Una sesión muy interesante Una sesión muy interesante!!!!!!!,abstracto,2022/08/10 15:00,2022/08/10 17:00,https://Acme-L3.es/practicum-sessions,false
 practicum-session-06,practicum-06,<h1>hi</h1>,abstracto,2022/08/10 15:00,2022/08/10 17:00,https://Acme-L3.es/practicum-sessions,false
 practicum-session-07,practicum-07,"<script>alert(""hi"")</script>",abstracto,2022/08/10 15:00,2022/08/10 17:00,https://Acme-L3.es/practicum-sessions,false

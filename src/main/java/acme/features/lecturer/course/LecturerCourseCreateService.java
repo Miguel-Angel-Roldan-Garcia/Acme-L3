@@ -82,7 +82,7 @@ public class LecturerCourseCreateService extends AbstractService<Lecturer, Cours
 		if (!super.getBuffer().getErrors().hasErrors("retailPrice")) {
 			boolean moneyAmountStatus;
 
-			moneyAmountStatus = object.getRetailPrice().getAmount() > 0;
+			moneyAmountStatus = object.getRetailPrice().getAmount() >= 0;
 
 			super.state(moneyAmountStatus, "retailPrice", "administrator.offer.form.error.price.negative-or-zero");
 		}

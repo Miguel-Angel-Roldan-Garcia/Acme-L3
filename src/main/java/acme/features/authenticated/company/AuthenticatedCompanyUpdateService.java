@@ -1,3 +1,14 @@
+/*
+ * AuthenticatedCompanyUpdateService.java
+ *
+ * Copyright (C) 2022-2023 Javier Fernández Castillo.
+ *
+ * In keeping with the traditional purpose of furthering education and research, it is
+ * the policy of the copyright owner to permit non-commercial use and redistribution of
+ * this software. It has been tested carefully, but it is not guaranteed for any particular
+ * purposes. The copyright owner does not offer any warranties or representations, nor do
+ * they accept any liabilities with respect to them.
+ */
 
 package acme.features.authenticated.company;
 
@@ -17,6 +28,7 @@ public class AuthenticatedCompanyUpdateService extends AbstractService<Authentic
 
 	@Autowired
 	protected AuthenticatedCompanyRepository repository;
+
 
 	@Override
 	public void authorise() {
@@ -59,8 +71,7 @@ public class AuthenticatedCompanyUpdateService extends AbstractService<Authentic
 		if (!super.getBuffer().getErrors().hasErrors("vatNumber")) {
 			Company existing;
 			existing = this.repository.findOneCompanyByVatNumber(object.getVatNumber());
-			super.state(existing == null || object.equals(existing), "vatNumber",
-					"authenticated.company.form.error.existing-vat-number");
+			super.state(existing == null || object.equals(existing), "vatNumber", "authenticated.company.form.error.existing-vat-number");
 		}
 	}
 

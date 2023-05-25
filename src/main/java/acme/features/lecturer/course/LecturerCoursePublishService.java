@@ -37,17 +37,16 @@ public class LecturerCoursePublishService extends AbstractService<Lecturer, Cour
 	@Override
 	public void authorise() {
 		boolean status;
+		int courseId;
 		Course course;
 		Lecturer lecturer;
 
-		course = this.repository.findOneCourseById(super.getRequest().getData("id", int.class));
-		if(course != null) {
-			lecturer = course.getLecturer();
-			status = lecturer.getId() == super.getRequest().getPrincipal().getActiveRoleId();
-				
-		}else {
-			status = false;
-		}
+		courseId = super.getRequest().getData("id", int.class);
+		course = this.repository.findOneCourseById(courseId);
+		lecturer = course == null ? null : course.getLecturer();
+		Collection<Lecture> lectures;
+		lectures = this.repository.findManyLecturesByCourseId(course.getId());
+		status = course.isDraftMode() && lectures != null && !lectures.isEmpty() && super.getRequest().getPrincipal().hasRole(lecturer);
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -83,7 +82,7 @@ public class LecturerCoursePublishService extends AbstractService<Lecturer, Cour
 		if (!super.getBuffer().getErrors().hasErrors("retailPrice")) {
 			boolean moneyAmountStatus;
 
-			moneyAmountStatus = object.getRetailPrice().getAmount() > 0;
+			moneyAmountStatus = object.getRetailPrice().getAmount() >= 0;
 
 			super.state(moneyAmountStatus, "retailPrice", "administrator.offer.form.error.price.negative-or-zero");
 		}

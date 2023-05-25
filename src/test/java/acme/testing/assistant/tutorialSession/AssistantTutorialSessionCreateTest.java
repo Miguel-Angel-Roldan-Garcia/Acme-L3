@@ -12,144 +12,179 @@
 
 package acme.testing.assistant.tutorialSession;
 
+import java.util.Collection;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvFileSource;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import acme.entities.individual.assistants.Tutorial;
 import acme.testing.TestHarness;
 
 public class AssistantTutorialSessionCreateTest extends TestHarness {
-	/*
-	 * // Internal state ---------------------------------------------------------
-	 * 
-	 * @Autowired
-	 * protected AssistantTutorialSessionTestRepository repository;
-	 * 
-	 * // Test methods -----------------------------------------------------------
-	 * 
-	 * 
-	 * @ParameterizedTest
-	 * 
-	 * @CsvFileSource(resources = "/employer/duty/create-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
-	 * public void test100Positive(final int jobRecordIndex, final int dutyRecordIndex, final String title, final String description, final String workLoad, final String moreInfo) {
-	 * // HINT: this test authenticates as an employer, list his or her jobs, navigates
-	 * // HINT+ to their duties, and checks that they have the expected data.
-	 * 
-	 * super.signIn("employer1", "employer1");
-	 * 
-	 * super.clickOnMenu("Employer", "List my jobs");
-	 * super.checkListingExists();
-	 * super.sortListing(0, "asc");
-	 * 
-	 * super.clickOnListingRecord(jobRecordIndex);
-	 * super.clickOnButton("Duties");
-	 * 
-	 * super.clickOnButton("Create");
-	 * super.fillInputBoxIn("title", title);
-	 * super.fillInputBoxIn("description", description);
-	 * super.fillInputBoxIn("workLoad", workLoad);
-	 * super.fillInputBoxIn("moreInfo", moreInfo);
-	 * super.clickOnSubmit("Create");
-	 * 
-	 * super.checkListingExists();
-	 * super.sortListing(0, "asc");
-	 * super.checkColumnHasValue(dutyRecordIndex, 0, title);
-	 * super.checkColumnHasValue(dutyRecordIndex, 1, workLoad);
-	 * 
-	 * super.clickOnListingRecord(dutyRecordIndex);
-	 * super.checkInputBoxHasValue("title", title);
-	 * super.checkInputBoxHasValue("description", description);
-	 * super.checkInputBoxHasValue("workLoad", workLoad);
-	 * super.checkInputBoxHasValue("moreInfo", moreInfo);
-	 * 
-	 * super.signOut();
-	 * }
-	 * 
-	 * @ParameterizedTest
-	 * 
-	 * @CsvFileSource(resources = "/employer/duty/create-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
-	 * public void test200Negative(final int jobRecordIndex, final int dutyRecordIndex, final String title, final String description, final String workLoad, final String moreInfo) {
-	 * // HINT: this test attempts to create duties using wrong data.
-	 * 
-	 * super.signIn("employer1", "employer1");
-	 * 
-	 * super.clickOnMenu("Employer", "List my jobs");
-	 * super.checkListingExists();
-	 * super.sortListing(0, "asc");
-	 * 
-	 * super.clickOnListingRecord(jobRecordIndex);
-	 * super.clickOnButton("Duties");
-	 * 
-	 * super.clickOnButton("Create");
-	 * super.fillInputBoxIn("title", title);
-	 * super.fillInputBoxIn("description", description);
-	 * super.fillInputBoxIn("workLoad", workLoad);
-	 * super.fillInputBoxIn("moreInfo", moreInfo);
-	 * super.clickOnSubmit("Create");
-	 * super.checkErrorsExist();
-	 * 
-	 * super.signOut();
-	 * }
-	 * 
-	 * @Test
-	 * public void test300Hacking() {
-	 * // HINT: this test tries to create a duty for a job as a principal without
-	 * // HINT: the "Employer" role.
-	 * 
-	 * Collection<Job> jobs;
-	 * String param;
-	 * 
-	 * jobs = this.repository.findManyJobsByEmployerUsername("employer1");
-	 * for (final Job job : jobs) {
-	 * param = String.format("masterId=%d", job.getId());
-	 * 
-	 * super.checkLinkExists("Sign in");
-	 * super.request("/employer/duty/create", param);
-	 * super.checkPanicExists();
-	 * 
-	 * super.signIn("administrator", "administrator");
-	 * super.request("/employer/duty/create", param);
-	 * super.checkPanicExists();
-	 * super.signOut();
-	 * 
-	 * super.signIn("worker1", "worker1");
-	 * super.request("/employer/duty/create", param);
-	 * super.checkPanicExists();
-	 * super.signOut();
-	 * }
-	 * }
-	 * 
-	 * @Test
-	 * public void test301Hacking() {
-	 * // HINT: this test tries to create a duty for a published job created by
-	 * // HINT+ the principal.
-	 * 
-	 * Collection<Job> jobs;
-	 * String param;
-	 * 
-	 * super.checkLinkExists("Sign in");
-	 * super.signIn("employer1", "employer1");
-	 * jobs = this.repository.findManyJobsByEmployerUsername("employer1");
-	 * for (final Job job : jobs)
-	 * if (!job.isDraftMode()) {
-	 * param = String.format("masterId=%d", job.getId());
-	 * super.request("/employer/duty/create", param);
-	 * super.checkPanicExists();
-	 * }
-	 * }
-	 * 
-	 * @Test
-	 * public void test302Hacking() {
-	 * // HINT: this test tries to create duties for jobs that weren't created
-	 * // HINT+ by the principal.
-	 * 
-	 * Collection<Job> jobs;
-	 * String param;
-	 * 
-	 * super.checkLinkExists("Sign in");
-	 * super.signIn("employer1", "employer1");
-	 * jobs = this.repository.findManyJobsByEmployerUsername("employer2");
-	 * for (final Job job : jobs) {
-	 * param = String.format("masterId=%d", job.getId());
-	 * super.request("/employer/duty/create", param);
-	 * super.checkPanicExists();
-	 * }
-	 * }
-	 */
+
+	// Internal state ---------------------------------------------------------
+
+	@Autowired
+	protected AssistantTutorialSessionTestRepository repository;
+
+	// Test methods -----------------------------------------------------------
+
+
+	@ParameterizedTest
+	@CsvFileSource(resources = "/assistant/tutorialSession/create-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
+	public void test100Positive(final int tutorialRecordIndex, final String code, final String tutorialTitle, final int tutorialSessionRecordIndex, final String tutorialSessionTitle, final String abstract$, final String nature, final String startDate,
+		final String endDate, final String link) {
+		// HINT: this test authenticates as an assistant, list his or her tutorials, navigates
+		// HINT+ to a tutorial and lists its sessions. Then creates a new one, and check that it's 
+		// HINT+ been created properly.
+
+		super.signIn("assistant1", "assistant1");
+
+		super.clickOnMenu("Assistant", "List my tutorials");
+		super.checkListingExists();
+		super.sortListing(0, "asc");
+
+		super.checkColumnHasValue(tutorialRecordIndex, 0, code);
+		super.checkColumnHasValue(tutorialRecordIndex, 1, tutorialTitle);
+		super.clickOnListingRecord(tutorialRecordIndex);
+		super.clickOnButton("Sessions");
+
+		super.clickOnButton("Create");
+		super.fillInputBoxIn("title", tutorialSessionTitle);
+		super.fillInputBoxIn("abstract$", abstract$);
+		super.fillInputBoxIn("nature", nature);
+		super.fillInputBoxIn("startDate", startDate);
+		super.fillInputBoxIn("endDate", endDate);
+		super.fillInputBoxIn("link", link);
+		super.clickOnSubmit("Create");
+
+		super.checkListingExists();
+		super.sortListing(0, "asc");
+		super.checkColumnHasValue(tutorialSessionRecordIndex, 0, tutorialSessionTitle);
+		super.checkColumnHasValue(tutorialSessionRecordIndex, 1, nature);
+		super.checkColumnHasValue(tutorialSessionRecordIndex, 2, startDate);
+
+		super.clickOnListingRecord(tutorialSessionRecordIndex);
+		super.checkInputBoxHasValue("title", tutorialSessionTitle);
+		super.checkInputBoxHasValue("abstract$", abstract$);
+		super.checkInputBoxHasValue("nature", nature);
+		super.checkInputBoxHasValue("startDate", startDate);
+		super.checkInputBoxHasValue("endDate", endDate);
+		super.checkInputBoxHasValue("link", link);
+
+		super.signOut();
+	}
+
+	@ParameterizedTest
+	@CsvFileSource(resources = "/assistant/tutorialSession/create-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
+	public void test200Negative(final int tutorialRecordIndex, final String code, final String tutorialTitle, final int tutorialSessionRecordIndex, final String tutorialSessionTitle, final String abstract$, final String nature, final String startDate,
+		final String endDate, final String link) {
+		// HINT: this test attempts to create tutorial sessions using wrong data.
+
+		super.signIn("assistant1", "assistant1");
+
+		super.clickOnMenu("Assistant", "List my tutorials");
+		super.checkListingExists();
+		super.sortListing(0, "asc");
+
+		super.checkColumnHasValue(tutorialRecordIndex, 0, code);
+		super.checkColumnHasValue(tutorialRecordIndex, 1, tutorialTitle);
+		super.clickOnListingRecord(tutorialRecordIndex);
+		super.clickOnButton("Sessions");
+
+		super.clickOnButton("Create");
+		super.fillInputBoxIn("title", tutorialSessionTitle);
+		super.fillInputBoxIn("abstract$", abstract$);
+		super.fillInputBoxIn("nature", nature);
+		super.fillInputBoxIn("startDate", startDate);
+		super.fillInputBoxIn("endDate", endDate);
+		super.fillInputBoxIn("link", link);
+		super.clickOnSubmit("Create");
+		super.checkErrorsExist();
+
+		super.signOut();
+	}
+
+	@Test
+	public void test300Hacking() {
+		// HINT: this test tries to create a tutorialSession for a tutorial as a principal without
+		// HINT: the "Assistant" role.
+
+		Collection<Tutorial> tutorials;
+		String param;
+
+		tutorials = this.repository.findManyTutorialsByAssistantUsername("assistant1");
+		for (final Tutorial tutorial : tutorials) {
+			param = String.format("masterId=%d", tutorial.getId());
+
+			super.checkLinkExists("Sign in");
+			super.request("/assistant/tutorial-session/create", param);
+			super.checkPanicExists();
+
+			super.signIn("administrator", "administrator");
+			super.request("/assistant/tutorial-session/create", param);
+			super.checkPanicExists();
+			super.signOut();
+
+			super.signIn("lecturer1", "lecturer1");
+			super.request("/assistant/tutorial-session/create", param);
+			super.checkPanicExists();
+			super.signOut();
+
+			super.signIn("student1", "student1");
+			super.request("/assistant/tutorial-session/create", param);
+			super.checkPanicExists();
+			super.signOut();
+
+			super.signIn("company1", "company1");
+			super.request("/assistant/tutorial-session/create", param);
+			super.checkPanicExists();
+			super.signOut();
+
+			super.signIn("auditor1", "auditor1");
+			super.request("/assistant/tutorial-session/create", param);
+			super.checkPanicExists();
+			super.signOut();
+		}
+	}
+
+	@Test
+	public void test301Hacking() {
+		// HINT: this test tries to create a tutorialSession for a published tutorial created by
+		// HINT+ the principal.
+
+		Collection<Tutorial> tutorials;
+		String param;
+
+		super.checkLinkExists("Sign in");
+		super.signIn("assistant1", "assistant1");
+		tutorials = this.repository.findManyTutorialsByAssistantUsername("assistant1");
+		for (final Tutorial tutorial : tutorials)
+			if (!tutorial.isDraftMode()) {
+				param = String.format("masterId=%d", tutorial.getId());
+				super.request("/assistant/tutorial-session/create", param);
+				super.checkPanicExists();
+			}
+	}
+
+	@Test
+	public void test302Hacking() {
+		// HINT: this test tries to create tutorial sessions for tutorials that weren't created
+		// HINT+ by the principal.
+
+		Collection<Tutorial> tutorials;
+		String param;
+
+		super.checkLinkExists("Sign in");
+		super.signIn("assistant1", "assistant1");
+		tutorials = this.repository.findManyTutorialsByAssistantUsername("assistant2");
+		for (final Tutorial tutorial : tutorials) {
+			param = String.format("masterId=%d", tutorial.getId());
+			super.request("/assistant/tutorial-session/create", param);
+			super.checkPanicExists();
+		}
+	}
+
 }

@@ -6,6 +6,7 @@ import java.util.Collection;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import acme.datatypes.Mark;
 import acme.entities.individual.auditors.Audit;
 import acme.entities.individual.auditors.AuditingRecord;
 import acme.entities.individual.lectures.Course;
@@ -38,4 +39,7 @@ public interface AuditorAuditRepository extends AbstractRepository {
 
 	@Query("SELECT course from Course course where course.draftMode = false")
 	Collection<Course> findManyPublishedCourses();
+
+	@Query("SELECT mark from AuditingRecord ar where ar.audit.id = :id")
+	Collection<Mark> findMarksByAuditId(int id);
 }

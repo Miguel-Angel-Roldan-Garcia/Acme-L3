@@ -95,7 +95,7 @@ public class AssistantTutorialSessionCreateService extends AbstractService<Assis
 		if (!super.getBuffer().getErrors().hasErrors("startDate")) {
 			boolean startDateError;
 
-			startDateError = MomentHelper.isAfter(object.getStartDate(), MomentHelper.deltaFromCurrentMoment(1l, ChronoUnit.DAYS));
+			startDateError = MomentHelper.isAfterOrEqual(object.getStartDate(), MomentHelper.deltaFromCurrentMoment(1l, ChronoUnit.DAYS));
 
 			super.state(startDateError, "startDate", "assistant.tutorial-session.form.error.at-least-one-day-ahead");
 		}

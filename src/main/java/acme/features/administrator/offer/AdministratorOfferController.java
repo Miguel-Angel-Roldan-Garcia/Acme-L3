@@ -1,7 +1,7 @@
 /*
- * AuthenticatedAnnouncementController.java
+ * AdministratorOfferController.java
  *
- * Copyright (C) 2012-2023 Rafael Corchuelo.
+ * Copyright (C) 2022-2023 Javier Fernández Castillo.
  *
  * In keeping with the traditional purpose of furthering education and research, it is
  * the policy of the copyright owner to permit non-commercial use and redistribution of
@@ -27,21 +27,22 @@ public class AdministratorOfferController extends AbstractController<Administrat
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AdministratorOfferListAllService listAllService;
+	protected AdministratorOfferListAllService	listAllService;
 
 	@Autowired
-	protected AdministratorOfferShowService showService;
+	protected AdministratorOfferShowService		showService;
 
 	@Autowired
-	protected AdministratorOfferCreateService createService;
+	protected AdministratorOfferCreateService	createService;
 
 	@Autowired
-	protected AdministratorOfferUpdateService updateService;
+	protected AdministratorOfferUpdateService	updateService;
 
 	@Autowired
-	protected AdministratorOfferDeleteService deleteService;
+	protected AdministratorOfferDeleteService	deleteService;
 
 	// Constructors -----------------------------------------------------------
+
 
 	@PostConstruct
 	protected void initialise() {
