@@ -33,4 +33,7 @@ public interface AuthenticatedOfferRepository extends AbstractRepository {
 	@Query("select o from Offer o where o.availabilityPeriodStartDate < :moment and o.availabilityPeriodEndDate > :moment")
 	Collection<Offer> findActiveOffers(Date moment);
 
+	@Query("select sc.currency from SystemConfiguration sc")
+	String findSystemCurrency();
+
 }

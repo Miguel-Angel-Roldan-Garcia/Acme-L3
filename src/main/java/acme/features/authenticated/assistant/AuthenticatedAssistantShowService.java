@@ -1,7 +1,7 @@
 /*
- * WorkerApplicationShowService.java
+ * AuthenticatedAssistantShowService.java
  *
- * Copyright (C) 2012-2023 Rafael Corchuelo.
+ * Copyright (C) 2022-2023 Miguel Ángel Roldán.
  *
  * In keeping with the traditional purpose of furthering education and research, it is
  * the policy of the copyright owner to permit non-commercial use and redistribution of
@@ -28,6 +28,7 @@ public class AuthenticatedAssistantShowService extends AbstractService<Authentic
 	@Autowired
 	protected AuthenticatedAssistantRepository repository;
 
+
 	// AbstractService interface ----------------------------------------------
 	@Override
 	public void authorise() {
@@ -42,7 +43,6 @@ public class AuthenticatedAssistantShowService extends AbstractService<Authentic
 
 		super.getResponse().setChecked(status);
 	}
-
 
 	@Override
 	public void load() {

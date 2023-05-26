@@ -75,13 +75,13 @@ public class AssistantTutorialSessionShowTest extends TestHarness {
 	@Test
 	public void test300Hacking() {
 		// HINT: this test tries to show a tutorialSession of a tutorial that is in draft mode or
-		// HINT+ not available, but wasn't published by the principal;
+		// HINT+ not available, or wasn't published by the principal;
 
-		Collection<TutorialSession> duties;
+		Collection<TutorialSession> tutorialSessions;
 		String param;
 
-		duties = this.repository.findManyTutorialSessionsByAssistantUsername("assistant1");
-		for (final TutorialSession tutorialSession : duties)
+		tutorialSessions = this.repository.findManyTutorialSessionsByAssistantUsername("assistant2");
+		for (final TutorialSession tutorialSession : tutorialSessions)
 			if (tutorialSession.getTutorial().isDraftMode()) {
 				param = String.format("id=%d", tutorialSession.getTutorial().getId());
 
@@ -94,7 +94,7 @@ public class AssistantTutorialSessionShowTest extends TestHarness {
 				super.checkPanicExists();
 				super.signOut();
 
-				super.signIn("assistant2", "assistant2");
+				super.signIn("assistant1", "assistant1");
 				super.request("/assistant/tutorial-session/show", param);
 				super.checkPanicExists();
 				super.signOut();

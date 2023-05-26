@@ -57,7 +57,7 @@ public class CompanyPracticumDeleteTest extends TestHarness {
 
 		super.clickOnSubmit("Delete");
 
-		super.request("/assistant/tutorial/show", currentQuery);
+		super.request("/company/practicum/show", currentQuery);
 		super.checkPanicExists();
 
 		super.signOut();

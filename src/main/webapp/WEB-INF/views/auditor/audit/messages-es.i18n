@@ -13,6 +13,7 @@ auditor.audit.form.label.conclusion = Conclusion
 auditor.audit.form.label.strongPoints = Puntos Fuertes
 auditor.audit.form.label.weakPoints = Puntos débiles
 auditor.audit.form.label.course = Curso
+auditor.audit.label.marks = Notas
 
 auditor.audit.form.button.records = Registros
 auditor.audit.form.button.update = Actualizar

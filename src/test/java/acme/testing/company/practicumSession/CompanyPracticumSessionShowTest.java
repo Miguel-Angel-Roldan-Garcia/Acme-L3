@@ -74,52 +74,51 @@ public class CompanyPracticumSessionShowTest extends TestHarness {
 
 	@Test
 	public void test300Hacking() {
-		// HINT: this test tries to show a practicumSession of a practicum that is in draft mode or
-		// HINT+ not available, but wasn't published by the principal;
+		// HINT: this test tries to show a practicumSession of a practicum
+		// HINT+ but wasn't published by the principal;
 
 		Collection<PracticumSession> practicumSessions;
 		String param;
 
 		practicumSessions = this.repository.findManyPracticumSessionsByCompanyUsername("company1");
-		for (final PracticumSession practicumSession : practicumSessions)
-			if (practicumSession.getPracticum().isDraftMode()) {
-				param = String.format("id=%d", practicumSession.getPracticum().getId());
+		for (final PracticumSession practicumSession : practicumSessions){
+			param = String.format("id=%d", practicumSession.getPracticum().getId());
 
-				super.checkLinkExists("Sign in");
-				super.request("/company/practicum-session/show", param);
-				super.checkPanicExists();
+			super.checkLinkExists("Sign in");
+			super.request("/company/practicum-session/show", param);
+			super.checkPanicExists();
 
-				super.signIn("administrator", "administrator");
-				super.request("/company/practicum-session/show", param);
-				super.checkPanicExists();
-				super.signOut();
+			super.signIn("administrator", "administrator");
+			super.request("/company/practicum-session/show", param);
+			super.checkPanicExists();
+			super.signOut();
 
-				super.signIn("assistant1", "assistant1");
-				super.request("/company/practicum-session/show", param);
-				super.checkPanicExists();
-				super.signOut();
+			super.signIn("assistant1", "assistant1");
+			super.request("/company/practicum-session/show", param);
+			super.checkPanicExists();
+			super.signOut();
 
-				super.signIn("lecturer1", "lecturer1");
-				super.request("/company/practicum-session/show", param);
-				super.checkPanicExists();
-				super.signOut();
+			super.signIn("lecturer1", "lecturer1");
+			super.request("/company/practicum-session/show", param);
+			super.checkPanicExists();
+			super.signOut();
 
-				super.signIn("student1", "student1");
-				super.request("/company/practicum-session/show", param);
-				super.checkPanicExists();
-				super.signOut();
+			super.signIn("student1", "student1");
+			super.request("/company/practicum-session/show", param);
+			super.checkPanicExists();
+			super.signOut();
 
-				super.signIn("company2", "company2");
-				super.request("/company/practicum-session/show", param);
-				super.checkPanicExists();
-				super.signOut();
+			super.signIn("company2", "company2");
+			super.request("/company/practicum-session/show", param);
+			super.checkPanicExists();
+			super.signOut();
 
-				super.signIn("auditor1", "auditor1");
-				super.request("/company/practicum-session/show", param);
-				super.checkPanicExists();
-				super.signOut();
+			super.signIn("auditor1", "auditor1");
+			super.request("/company/practicum-session/show", param);
+			super.checkPanicExists();
+			super.signOut();
+		}
 
-			}
 	}
-
+	
 }

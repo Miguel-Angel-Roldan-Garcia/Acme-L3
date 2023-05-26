@@ -26,3 +26,4 @@ student.form.button.lecturer = Su Lector
 any.course.form.button.tutorials-list = Listar tutorías
 any.course.form.button.tutorials-create = Crear tutoría
 any.course.form.button.practica-list = Listar prácticas
+any.course.form.button.audit-list = Listar auditorías

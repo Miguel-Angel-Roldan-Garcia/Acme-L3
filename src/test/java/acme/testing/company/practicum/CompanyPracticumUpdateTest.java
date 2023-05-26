@@ -99,7 +99,7 @@ public class CompanyPracticumUpdateTest extends TestHarness {
 
 	@Test
 	public void test300Hacking() {
-		// HINT: this test tries to update a tutorial with a role other than "Assistant",
+		// HINT: this test tries to update a practicum with a role other than "Company",
 		// HINT+ or using a company who is not the owner.
 
 		Collection<Practicum> practica;
@@ -110,36 +110,36 @@ public class CompanyPracticumUpdateTest extends TestHarness {
 			param = String.format("id=%d", practicum.getId());
 
 			super.checkLinkExists("Sign in");
-			super.request("/assistant/tutorial/update", param);
+			super.request("/company/practicum/update", param);
 			super.checkPanicExists();
 
 			super.signIn("administrator", "administrator");
-			super.request("/assistant/tutorial/update", param);
+			super.request("/company/practicum/update", param);
 			super.checkPanicExists();
 			super.signOut();
 
 			super.signIn("assistant1", "assistant1");
-			super.request("/assistant/tutorial/update", param);
+			super.request("/company/practicum/update", param);
 			super.checkPanicExists();
 			super.signOut();
 
 			super.signIn("lecturer1", "lecturer1");
-			super.request("/assistant/tutorial/update", param);
+			super.request("/company/practicum/update", param);
 			super.checkPanicExists();
 			super.signOut();
 
 			super.signIn("student1", "student1");
-			super.request("/assistant/tutorial/update", param);
+			super.request("/company/practicum/update", param);
 			super.checkPanicExists();
 			super.signOut();
 
 			super.signIn("company2", "company2");
-			super.request("/assistant/tutorial/update", param);
+			super.request("/company/practicum/update", param);
 			super.checkPanicExists();
 			super.signOut();
 
 			super.signIn("auditor1", "auditor1");
-			super.request("/assistant/tutorial/update", param);
+			super.request("/company/practicum/update", param);
 			super.checkPanicExists();
 			super.signOut();
 
@@ -148,7 +148,7 @@ public class CompanyPracticumUpdateTest extends TestHarness {
 
 	@Test
 	public void test301Hacking() {
-		// HINT: this test attempts to update a tutorial that has been published.
+		// HINT: this test attempts to update a practicum that has been published.
 
 		Collection<Practicum> practica;
 		String param;

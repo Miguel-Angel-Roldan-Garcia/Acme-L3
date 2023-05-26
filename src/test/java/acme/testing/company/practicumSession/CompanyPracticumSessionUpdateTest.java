@@ -19,7 +19,6 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import acme.entities.individual.assistants.Tutorial;
 import acme.entities.individual.companies.PracticumSession;
 import acme.testing.TestHarness;
 

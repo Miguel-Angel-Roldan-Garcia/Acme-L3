@@ -1,7 +1,7 @@
 /*
- * EmployerJobUpdateService.java
+ * AuditorAuditUpdateService.java
  *
- * Copyright (C) 2012-2023 Rafael Corchuelo.
+ * Copyright (C) 2022-2023 Álvaro Urquijo.
  *
  * In keeping with the traditional purpose of furthering education and research, it is
  * the policy of the copyright owner to permit non-commercial use and redistribution of
@@ -13,10 +13,12 @@
 package acme.features.auditor.audit;
 
 import java.util.Collection;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.datatypes.Mark;
 import acme.entities.individual.auditors.Audit;
 import acme.entities.individual.lectures.Course;
 import acme.framework.components.jsp.SelectChoices;
@@ -32,7 +34,7 @@ public class AuditorAuditUpdateService extends AbstractService<Auditor, Audit> {
 	@Autowired
 	protected AuditorAuditRepository repository;
 
-	// AbstractService<Employer, Job> -------------------------------------
+	// AbstractService interface -------------------------------------
 
 
 	@Override
@@ -112,12 +114,18 @@ public class AuditorAuditUpdateService extends AbstractService<Auditor, Audit> {
 		SelectChoices choices;
 		Tuple tuple;
 
+		final Collection<Mark> marks = this.repository.findMarksByAuditId(object.getId());
 		courses = this.repository.findManyPublishedCourses();
 		choices = SelectChoices.from(courses, "code", object.getCourse());
 
 		tuple = super.unbind(object, "code", "conclusion", "strongPoints", "weakPoints", "draftMode");
 		tuple.put("course", choices.getSelected().getKey());
 		tuple.put("courses", choices);
+
+		if (marks != null && !marks.isEmpty())
+			tuple.put("marks", marks.stream().map(Mark::toString).collect(Collectors.joining(", ", "[ ", " ]")));
+		else
+			tuple.put("marks", "N");
 
 		super.getResponse().setData(tuple);
 	}

@@ -1,0 +1,18 @@
+# messages-en.i18n
+#
+# Copyright (C) 2022-2023 Álvaro Urquijo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+authenticated.audit.form.label.code = Code: 
+authenticated.audit.form.label.auditor = Auditor
+authenticated.audit.form.label.course = Course
+authenticated.audit.form.label.conclusion = Conclusion
+authenticated.audit.form.label.strongPoints = Strong Points
+authenticated.audit.form.label.weakPoints = Weak Points
+
+auditor.audit.form.button.auditor = Auditor

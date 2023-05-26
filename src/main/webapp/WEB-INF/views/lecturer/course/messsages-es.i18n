@@ -26,6 +26,7 @@ lecturer.course.form.button.change-lectures = Cambiar clases
 lecturer.course.form.button.add-lectures-to-course = Añadir clases
 
 
+lecturer.course.error.negative = El precio no puede ser negativo
 lecturer.course.form.error.duplicated = Este código no está disponible
 lecturer.course.form.error.not-draft-mode = Este curso está publicado
 lecturer.course.form.error.not-hands-on = Este curso no se puede publicar (no tiene clases practicas)

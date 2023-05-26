@@ -37,7 +37,7 @@ student.enrolment.form.button.activities = Sus actividades
 student.enrolment.form.error.duplicated = No puedes utilizar códigos duplicados
 student.enrolment.form.error.not-published = No puedes utilizar un curso que no ha sido publicado
 student.enrolment.form.error.past-expiry-date = La fecha de expiración deber ser futura
-student.enrolment.form.error.not-valid-date-format = El patrón de la fecha de expiración debe ser yy/MM
+student.enrolment.form.error.not-valid-date-format = El patrón de la fecha de expiración debe ser MM/yy
 student.enrolment.form.error.not-valid-holderName = El nombre del propietario no debe estar vacio y debe tener menos de 25 carácteres
 student.enrolment.form.error.not-valid-credit-number-size = Debes introducir un número de tarjeta de crédito válida con 16 dígitos
 
