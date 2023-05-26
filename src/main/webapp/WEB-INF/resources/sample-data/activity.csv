@@ -1,4 +1,4 @@
-key,key:enrolment,title,abstract$,initial_date,finish_date,link,nature
+key,key:enrolment,title,abstract$,finish_date,initial_date,link,nature
 activity-01,enrolment-01,"titulo-1","abstracto",2010/10/30 20:59,2000/01/01 10:30,http://ev.us,THEORETICAL
 activity-02,enrolment-01,"a","abstracto",2010/10/30 20:59,2000/01/01 10:30,http://ev.us,THEORETICAL
 activity-03,enrolment-01,"aa","abstracto",2010/10/30 20:59,2000/01/01 10:30,http://ev.us,THEORETICAL
