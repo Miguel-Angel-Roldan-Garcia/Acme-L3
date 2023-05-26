@@ -161,6 +161,8 @@ public class AdministratorOfferUpdateService extends AbstractService<Administrat
 	@Override
 	public void perform(final Offer object) {
 		assert object != null;
+
+		this.repository.save(object);
 	}
 
 	@Override
