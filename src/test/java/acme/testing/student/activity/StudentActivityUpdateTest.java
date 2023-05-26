@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import acme.entities.individual.students.Enrolment;
 import acme.testing.TestHarness;
 
-public class StudentActivityCreateTest extends TestHarness {
+public class StudentActivityUpdateTest extends TestHarness {
 
     // Internal state ---------------------------------------------------------
 
@@ -20,7 +20,7 @@ public class StudentActivityCreateTest extends TestHarness {
     // Test methods -----------------------------------------------------------
 
     @ParameterizedTest
-    @CsvFileSource(resources = "/student/activity/create-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
+    @CsvFileSource(resources = "/student/activity/update-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
     public void test100Positive(final int activityRecordIndex, final int enrolmentRecordIndex, final String code,
 	    final String title, final String abstract$, final String finish_date, final String initial_date,
 	    final String link, final String nature) {
@@ -35,14 +35,15 @@ public class StudentActivityCreateTest extends TestHarness {
 	super.checkInputBoxHasValue("code", code);
 	super.clickOnButton("Their activities");
 
-	super.clickOnButton("Create");
+	super.clickOnListingRecord(activityRecordIndex);
+	super.checkFormExists();
 	super.fillInputBoxIn("title", title);
 	super.fillInputBoxIn("abstract$", abstract$);
 	super.fillInputBoxIn("nature", nature);
 	super.fillInputBoxIn("finishDate", finish_date);
 	super.fillInputBoxIn("initialDate", initial_date);
 	super.fillInputBoxIn("link", link);
-	super.clickOnSubmit("Create");
+	super.clickOnSubmit("Update");
 
 	super.checkListingExists();
 	super.sortListing(0, "asc");
@@ -62,11 +63,11 @@ public class StudentActivityCreateTest extends TestHarness {
     }
 
     @ParameterizedTest
-    @CsvFileSource(resources = "/student/activity/create-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
+    @CsvFileSource(resources = "/student/activity/update-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
     public void test200Negative(final int activityRecordIndex, final int enrolmentRecordIndex, final String code,
 	    final String title, final String abstract$, final String finish_date, final String initial_date,
 	    final String link, final String nature) {
-	// HINT: this test attempts to create activities using wrong data.
+	// HINT: this test attempts to update activities using wrong data.
 
 	super.signIn("student1", "student1");
 
@@ -78,20 +79,22 @@ public class StudentActivityCreateTest extends TestHarness {
 	super.checkInputBoxHasValue("code", code);
 	super.clickOnButton("Their activities");
 
-	super.clickOnButton("Create");
+	super.clickOnListingRecord(activityRecordIndex);
+	super.checkFormExists();
 	super.fillInputBoxIn("title", title);
 	super.fillInputBoxIn("abstract$", abstract$);
 	super.fillInputBoxIn("nature", nature);
 	super.fillInputBoxIn("finishDate", finish_date);
 	super.fillInputBoxIn("initialDate", initial_date);
 	super.fillInputBoxIn("link", link);
-	super.clickOnSubmit("Create");
+	super.clickOnSubmit("Update");
 	super.checkErrorsExist();
+
     }
 
     @Test
     public void test300Hacking() {
-	// HINT: this test tries to create an activity for an enrolment as a principal
+	// HINT: this test tries to update an activity for an enrolment as a principal
 	// without
 	// HINT: the "Student" role.
 
@@ -103,31 +106,31 @@ public class StudentActivityCreateTest extends TestHarness {
 	    param = String.format("masterId=%d", enrolment.getId());
 
 	    super.checkLinkExists("Sign in");
-	    super.request("/student/activity/create", param);
+	    super.request("/student/activity/update", param);
 	    super.checkPanicExists();
 
 	    super.signIn("administrator", "administrator");
-	    super.request("/student/activity/create", param);
+	    super.request("/student/activity/update", param);
 	    super.checkPanicExists();
 	    super.signOut();
 
 	    super.signIn("lecturer1", "lecturer1");
-	    super.request("/student/activity/create", param);
+	    super.request("/student/activity/update", param);
 	    super.checkPanicExists();
 	    super.signOut();
 
 	    super.signIn("company1", "company1");
-	    super.request("/student/activity/create", param);
+	    super.request("/student/activity/update", param);
 	    super.checkPanicExists();
 	    super.signOut();
 
 	    super.signIn("assistant1", "assistant1");
-	    super.request("/student/activity/create", param);
+	    super.request("/student/activity/update", param);
 	    super.checkPanicExists();
 	    super.signOut();
 
 	    super.signIn("auditor1", "auditor1");
-	    super.request("/student/activity/create", param);
+	    super.request("/student/activity/update", param);
 	    super.checkPanicExists();
 	    super.signOut();
 	}
@@ -135,7 +138,7 @@ public class StudentActivityCreateTest extends TestHarness {
 
     @Test
     public void test301Hacking() {
-	// HINT: this test tries to create an activity for a not finished enrolment
+	// HINT: this test tries to update an activity for a not finished enrolment
 	// created by
 	// HINT+ the principal.
 
@@ -148,14 +151,14 @@ public class StudentActivityCreateTest extends TestHarness {
 	for (final Enrolment enrolment : enrolments)
 	    if (enrolment.isDraftMode()) {
 		param = String.format("masterId=%d", enrolment.getId());
-		super.request("/student/activity/create", param);
+		super.request("/student/activity/update", param);
 		super.checkPanicExists();
 	    }
     }
 
     @Test
     public void test302Hacking() {
-	// HINT: this test tries to create activities for enrolments that weren't
+	// HINT: this test tries to update activities for enrolments that weren't
 	// created
 	// HINT+ by the principal.
 
@@ -167,7 +170,7 @@ public class StudentActivityCreateTest extends TestHarness {
 	enrolments = this.repository.findManyEnrolmentsByStudentUsername("student1");
 	for (final Enrolment enrolment : enrolments) {
 	    param = String.format("masterId=%d", enrolment.getId());
-	    super.request("/student/activity/create", param);
+	    super.request("/student/activity/update", param);
 	    super.checkPanicExists();
 	}
     }
