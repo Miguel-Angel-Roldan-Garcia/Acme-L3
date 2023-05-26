@@ -26,3 +26,4 @@ student.form.button.lecturer = Their Lecturer
 any.course.form.button.tutorials-list = List tutorials
 any.course.form.button.tutorials-create = Create tutorial
 any.course.form.button.practica-list = List practica
+any.course.form.button.audit-list = List audits

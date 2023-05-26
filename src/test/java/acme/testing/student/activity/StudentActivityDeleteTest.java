@@ -10,9 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import acme.entities.individual.students.Enrolment;
 import acme.testing.TestHarness;
 
-public class StudentActivityCreateTest extends TestHarness {
-
-    // Internal state ---------------------------------------------------------
+public class StudentActivityDeleteTest extends TestHarness {
 
     @Autowired
     protected StudentActivityTestRepository repository;
@@ -20,7 +18,7 @@ public class StudentActivityCreateTest extends TestHarness {
     // Test methods -----------------------------------------------------------
 
     @ParameterizedTest
-    @CsvFileSource(resources = "/student/activity/create-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
+    @CsvFileSource(resources = "/student/activity/delete-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
     public void test100Positive(final int activityRecordIndex, final int enrolmentRecordIndex, final String code,
 	    final String title, final String abstract$, final String finish_date, final String initial_date,
 	    final String link, final String nature) {
@@ -35,63 +33,30 @@ public class StudentActivityCreateTest extends TestHarness {
 	super.checkInputBoxHasValue("code", code);
 	super.clickOnButton("Their activities");
 
-	super.clickOnButton("Create");
-	super.fillInputBoxIn("title", title);
-	super.fillInputBoxIn("abstract$", abstract$);
-	super.fillInputBoxIn("nature", nature);
-	super.fillInputBoxIn("finishDate", finish_date);
-	super.fillInputBoxIn("initialDate", initial_date);
-	super.fillInputBoxIn("link", link);
-	super.clickOnSubmit("Create");
-
-	super.checkListingExists();
 	super.sortListing(0, "asc");
-	super.checkColumnHasValue(activityRecordIndex, 0, title);
-	super.checkColumnHasValue(activityRecordIndex, 1, link);
-	super.checkColumnHasValue(activityRecordIndex, 2, nature);
 	super.clickOnListingRecord(activityRecordIndex);
 	super.checkFormExists();
-
 	super.checkInputBoxHasValue("title", title);
 	super.checkInputBoxHasValue("abstract$", abstract$);
-	super.checkInputBoxHasValue("initialDate", initial_date);
 	super.checkInputBoxHasValue("finishDate", finish_date);
+	super.checkInputBoxHasValue("initialDate", initial_date);
 	super.checkInputBoxHasValue("link", link);
 	super.checkInputBoxHasValue("nature", nature);
+	super.clickOnSubmit("Delete");
+	super.checkNotErrorsExist();
 	super.signOut();
     }
 
-    @ParameterizedTest
-    @CsvFileSource(resources = "/student/activity/create-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
-    public void test200Negative(final int activityRecordIndex, final int enrolmentRecordIndex, final String code,
-	    final String title, final String abstract$, final String finish_date, final String initial_date,
-	    final String link, final String nature) {
-	// HINT: this test attempts to create activities using wrong data.
+    @Test
+    public void test200Negative() {
+	// HINT: there aren't any negative tests for this feature because it's a listing
+	// HINT+ that doesn't involve entering any data in any forms.
 
-	super.signIn("student1", "student1");
-
-	super.clickOnMenu("Student", "List my enrolments");
-	super.checkListingExists();
-	super.sortListing(0, "asc");
-
-	super.clickOnListingRecord(enrolmentRecordIndex);
-	super.checkInputBoxHasValue("code", code);
-	super.clickOnButton("Their activities");
-
-	super.clickOnButton("Create");
-	super.fillInputBoxIn("title", title);
-	super.fillInputBoxIn("abstract$", abstract$);
-	super.fillInputBoxIn("nature", nature);
-	super.fillInputBoxIn("finishDate", finish_date);
-	super.fillInputBoxIn("initialDate", initial_date);
-	super.fillInputBoxIn("link", link);
-	super.clickOnSubmit("Create");
-	super.checkErrorsExist();
     }
 
     @Test
     public void test300Hacking() {
-	// HINT: this test tries to create an activity for an enrolment as a principal
+	// HINT: this test tries to delete an activity for an enrolment as a principal
 	// without
 	// HINT: the "Student" role.
 
@@ -103,31 +68,31 @@ public class StudentActivityCreateTest extends TestHarness {
 	    param = String.format("masterId=%d", enrolment.getId());
 
 	    super.checkLinkExists("Sign in");
-	    super.request("/student/activity/create", param);
+	    super.request("/student/activity/delete", param);
 	    super.checkPanicExists();
 
 	    super.signIn("administrator", "administrator");
-	    super.request("/student/activity/create", param);
+	    super.request("/student/activity/delete", param);
 	    super.checkPanicExists();
 	    super.signOut();
 
 	    super.signIn("lecturer1", "lecturer1");
-	    super.request("/student/activity/create", param);
+	    super.request("/student/activity/delete", param);
 	    super.checkPanicExists();
 	    super.signOut();
 
 	    super.signIn("company1", "company1");
-	    super.request("/student/activity/create", param);
+	    super.request("/student/activity/delete", param);
 	    super.checkPanicExists();
 	    super.signOut();
 
 	    super.signIn("assistant1", "assistant1");
-	    super.request("/student/activity/create", param);
+	    super.request("/student/activity/delete", param);
 	    super.checkPanicExists();
 	    super.signOut();
 
 	    super.signIn("auditor1", "auditor1");
-	    super.request("/student/activity/create", param);
+	    super.request("/student/activity/delete", param);
 	    super.checkPanicExists();
 	    super.signOut();
 	}
@@ -135,7 +100,7 @@ public class StudentActivityCreateTest extends TestHarness {
 
     @Test
     public void test301Hacking() {
-	// HINT: this test tries to create an activity for a not finished enrolment
+	// HINT: this test tries to delete an activity for a not finished enrolment
 	// created by
 	// HINT+ the principal.
 
@@ -148,14 +113,14 @@ public class StudentActivityCreateTest extends TestHarness {
 	for (final Enrolment enrolment : enrolments)
 	    if (enrolment.isDraftMode()) {
 		param = String.format("masterId=%d", enrolment.getId());
-		super.request("/student/activity/create", param);
+		super.request("/student/activity/delete", param);
 		super.checkPanicExists();
 	    }
     }
 
     @Test
     public void test302Hacking() {
-	// HINT: this test tries to create activities for enrolments that weren't
+	// HINT: this test tries to delete activities for enrolments that weren't
 	// created
 	// HINT+ by the principal.
 
@@ -167,7 +132,7 @@ public class StudentActivityCreateTest extends TestHarness {
 	enrolments = this.repository.findManyEnrolmentsByStudentUsername("student1");
 	for (final Enrolment enrolment : enrolments) {
 	    param = String.format("masterId=%d", enrolment.getId());
-	    super.request("/student/activity/create", param);
+	    super.request("/student/activity/update", param);
 	    super.checkPanicExists();
 	}
     }

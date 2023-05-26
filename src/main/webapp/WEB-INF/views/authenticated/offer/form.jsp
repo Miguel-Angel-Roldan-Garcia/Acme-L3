@@ -14,7 +14,6 @@
 
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
-<%@taglib prefix="custom-acme" tagdir="/WEB-INF/tags"%>
 
 <acme:form>
 	<acme:input-textbox code="authenticated.offer.form.label.heading" path="heading"/>

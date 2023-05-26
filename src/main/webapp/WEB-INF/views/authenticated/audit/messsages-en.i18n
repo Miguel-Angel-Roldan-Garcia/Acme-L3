@@ -1,4 +1,4 @@
-# messages-es.i18n
+# messages-en.i18n
 #
 # Copyright (C) 2022-2023 Álvaro Urquijo.
 #
@@ -8,12 +8,11 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-authenticated.auditor.form.label.firm = Firma: 
-authenticated.auditor.form.label.professional-id = Id Profesional:
-authenticated.auditor.form.label.certifications = Certificaciones:
-authenticated.auditor.form.label.link = Link
+authenticated.audit.form.label.code = Code: 
+authenticated.audit.form.label.auditor = Auditor
+authenticated.audit.form.label.course = Course
+authenticated.audit.form.label.conclusion = Conclusion
+authenticated.audit.form.label.strongPoints = Strong Points
+authenticated.audit.form.label.weakPoints = Weak Points
 
-authenticated.auditor.form.button.create = Register
-authenticated.auditor.form.button.update = Update
-
-authenticated.auditor.form.error.duplicated = Este Id está en uso
+auditor.audit.form.button.auditor = Auditor

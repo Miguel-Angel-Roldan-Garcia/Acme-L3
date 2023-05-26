@@ -1,5 +1,5 @@
 /*
- * AuditorAuditRepository.java
+ * AuthenticatedAuditRepository.java
  *
  * Copyright (C) 2022-2023 Álvaro Urquijo.
  *
@@ -10,7 +10,7 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.auditor.audit;
+package acme.features.authenticated.audit;
 
 import java.util.Collection;
 
@@ -20,37 +20,24 @@ import org.springframework.stereotype.Repository;
 import acme.datatypes.Mark;
 import acme.entities.individual.auditors.Audit;
 import acme.entities.individual.auditors.AuditingRecord;
-import acme.entities.individual.lectures.Course;
 import acme.framework.repositories.AbstractRepository;
-import acme.roles.Auditor;
 
 @Repository
-public interface AuditorAuditRepository extends AbstractRepository {
-
-	@Query("select a from Auditor a where a.id = :id")
-	Auditor findOneAuditorById(int id);
+public interface AuthenticatedAuditRepository extends AbstractRepository {
 
 	@Query("select a from Audit a where a.id = :id")
 	Audit findOneAuditById(int id);
 
-	@Query("select a from Audit a where a.code = :code")
-	Audit findOneAuditByCode(String code);
-
-	@Query("select a from Audit a where a.auditor.id = :id")
-	Collection<Audit> findManyAuditsByAuditorId(int id);
-
-	@Query("select c from Course c where c.id = :id")
-	Course findOneCourseById(int id);
+	@Query("select a from Audit a where a.course.id = :courseId")
+	Collection<Audit> findAllCourseAudits(int courseId);
 
 	@Query("select ar from AuditingRecord ar where ar.audit.id = :id")
-	Collection<AuditingRecord> findManyRecordsByAuditId(int id);
+	Collection<AuditingRecord> findManyRecordByAuditId(int id);
 
 	@Query("select a.course.code from Audit a where a.id = :id")
 	String findCourseCodeByAuditId(int id);
 
-	@Query("SELECT course from Course course where course.draftMode = false")
-	Collection<Course> findManyPublishedCourses();
-
 	@Query("SELECT mark from AuditingRecord ar where ar.audit.id = :id")
 	Collection<Mark> findMarksByAuditId(int id);
+
 }
