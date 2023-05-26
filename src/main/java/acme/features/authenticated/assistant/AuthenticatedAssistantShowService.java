@@ -39,7 +39,7 @@ public class AuthenticatedAssistantShowService extends AbstractService<Authentic
 	public void check() {
 		boolean status;
 
-		status = super.getRequest().hasData("username", int.class);
+		status = super.getRequest().hasData("username", String.class);
 
 		super.getResponse().setChecked(status);
 	}

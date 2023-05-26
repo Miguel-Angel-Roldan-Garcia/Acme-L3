@@ -82,10 +82,6 @@ master.menu.auditor.list-mine-audits = Listar mis auditorías
 
 master.menu.user-account = Cuenta
 master.menu.user-account.general-data = Datos generales
-master.menu.user-account.provider = Datos de proveedor
-master.menu.user-account.become-provider = Hazte proveedor
-master.menu.user-account.consumer = Datos de consumidor
-master.menu.user-account.become-consumer = Hazte consumidor
 
 master.menu.user-account.assistant = Datos de assistente
 master.menu.user-account.become-assistant = Hazte assistente
