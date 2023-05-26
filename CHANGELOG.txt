@@ -40,7 +40,12 @@ Year 2023
 23.3.6  Student operations on activities and enrollments. System configuration operations. 
 		Banner operations. Assistant dashboard.
 23.3.7  Lots of minor bugfixes and improvements.
-23.3.8  Exchange rate implemented.
+23.4.0  Getting new D04 version ready. Updated to the new version of the Acme Framework.
+23.4.1  Implemented the following features: Peeps, Offers, Bulletins and Notes.
+23.4.2  Implemented Peep tests, Course and Lecture tests, Enrolment and Activity tests, 
+		Tutorial and Tutorial session tests, Practicum and Practicum Session tests.
+23.4.3  Final fixes and preparation of D04.
+
 
 
 Year 2022
